@@ -1,11 +1,10 @@
 // See: https://www.gatsbyjs.org/docs/node-apis/
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 // create blog post pages
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+  const { createPage } = boundActionCreators;
   // create promise to get slugs
   return new Promise((resolve, reject) => {
     graphql(`
@@ -24,14 +23,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         createPage({
           // can use this fnc to create pages outside of promises
           path: node.slug,
-          component: path.resolve('./src/components/Posts/PostPage.js'),
+          component: path.resolve('./src/components/Blog/BlogPage.js'),
           context: {
             // variable you assign to graphql to pass
             slug: node.slug,
           },
-        })
-      })
-    })
-    resolve()
-  })
-}
+        });
+      });
+    });
+    resolve();
+  });
+};

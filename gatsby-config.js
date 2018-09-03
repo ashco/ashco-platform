@@ -35,8 +35,9 @@ module.exports = {
       // Make images available to graphql
       resolve: 'gatsby-source-contentful',
       options: {
-        spaceId: 'aa07zaigeqjr',
-        accessToken: '2c1ca8f493ba284be189fbb6b86532a21e08d5eaf5bafb5ef03a33fddb7a117a',
+        spaceId: 'gj983m0eob2f',
+        accessToken:
+          'ec023f38a42bc2a262ae4613e04db22b95271efd9732b2e7a5cd95cc270b695f',
       },
     },
     'gatsby-transformer-remark', // transforms md files into html? I think?
@@ -49,4 +50,4 @@ module.exports = {
     'gatsby-transformer-sharp', // allows images
     'gatsby-plugin-sharp',
   ],
-}
+};

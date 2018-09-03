@@ -124,9 +124,9 @@ class Header extends Component {
               <li>
                 <Link to="/contact">Contact</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/admin">Admin</Link>
-              </li>
+              </li> */}
             </ul>
           </MainNav>
         </HeaderContainer>
