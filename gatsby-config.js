@@ -25,14 +25,6 @@ module.exports = {
     },
     {
       // Make images available to graphql
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'img',
-        path: `${__dirname}/static/assets`,
-      },
-    },
-    {
-      // Make images available to graphql
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: 'gj983m0eob2f',

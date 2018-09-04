@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import BlogListing from '../components/Blog/BlogListing';
+import PortfolioListing from '../components/Portfolio/PortfolioListing';
 
 const PortfolioPage = ({ data }) => (
   <div>
-    <h2>Posts</h2>
+    <h2>Portfolio</h2>
     {data.allContentfulPortfolioPost.edges.map(({ node }) => (
-      <BlogListing post={node} key={node.id} />
+      <PortfolioListing post={node} key={node.id} />
     ))}
   </div>
 );

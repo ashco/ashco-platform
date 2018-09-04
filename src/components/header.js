@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import Link from 'gatsby-link'
-import styled from 'styled-components'
-import Img from 'gatsby-image'
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Link from 'gatsby-link';
+import styled from 'styled-components';
+import Img from 'gatsby-image';
 
-import logo from '../images/logo.svg'
+import logo from '../images/logo-lite.svg';
 
 const HeaderWrapper = styled.div`
   background: #606090;
@@ -17,7 +17,7 @@ const HeaderWrapper = styled.div`
       height: 80px;
     }
   }
-`
+`;
 
 const HeaderContainer = styled.div`
   margin: 0 auto;
@@ -27,7 +27,7 @@ const HeaderContainer = styled.div`
   z-index: 2;
   display: flex;
   justify-content: space-between;
-`
+`;
 
 const MainNav = styled.nav`
   ul {
@@ -46,12 +46,12 @@ const MainNav = styled.nav`
       }
     }
   }
-`
+`;
 
 class Header extends Component {
   componentDidUpdate = (prevProps, prevState) => {
     // console.log(this.props.location.pathname)
-    const { location } = this.props
+    const { location } = this.props;
     if (location.pathname !== prevProps.location.pathname) {
       if (this.props.location.pathname === '/') {
         // console.log(this.wrapper)
@@ -67,7 +67,7 @@ class Header extends Component {
             easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
             iterations: 1,
           }
-        )
+        );
       } else {
         this.wrapper.animate(
           [
@@ -81,13 +81,13 @@ class Header extends Component {
             easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
             iterations: 1,
           }
-        )
+        );
       }
     }
-  }
+  };
 
   render() {
-    const { data, location } = this.props
+    const { data, location } = this.props;
     return (
       // refs are a way to reference a component
       // sets this.wrapper to dom element
@@ -142,8 +142,8 @@ class Header extends Component {
           sizes={data.background.sizes}
         />
       </HeaderWrapper>
-    )
+    );
   }
 }
 
-export default Header
+export default Header;
