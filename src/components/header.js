@@ -100,7 +100,7 @@ class Header extends Component {
             <Link
               to="/"
               style={{
-                color: 'white',
+                color: '#fff',
                 textDecoration: 'none',
               }}
             >
