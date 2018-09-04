@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class About extends Component {
   render() {
     return (
       <div>
-        <h1>About</h1>
+        <h2>About</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
           pariatur facilis esse, vel dolores dolorum fugit. Commodi, sit? Eaque
@@ -12,8 +12,8 @@ class About extends Component {
           perspiciatis deleniti dolores maiores.
         </p>
       </div>
-    )
+    );
   }
 }
 
-export default About
+export default About;

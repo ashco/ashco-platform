@@ -4,7 +4,7 @@ import BlogListing from '../components/Blog/BlogListing';
 
 const BlogPage = ({ data }) => (
   <div>
-    <h2>Blog Posts</h2>
+    <h2>Blog</h2>
     {data.allContentfulBlogPost.edges.map(({ node }) => (
       <BlogListing post={node} key={node.id} />
     ))}

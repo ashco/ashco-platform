@@ -6,7 +6,7 @@ const PortfolioPage = ({ data }) => (
   <div>
     <h2>Portfolio</h2>
     {data.allContentfulPortfolioPost.edges.map(({ node }) => (
-      <PortfolioListing post={node} key={node.id} />
+      <PortfolioListing project={node} key={node.id} />
     ))}
   </div>
 );
@@ -21,6 +21,9 @@ export const query = graphql`
           id
           title
           slug
+          mainImage {
+            id
+          }
           githubLink
           liveLink
         }

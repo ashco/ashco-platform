@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
-const PortfolioListing = ({ post }) => (
+const PortfolioListing = ({ project }) => (
   <article>
     <h3>
-      <Link to={post.slug}>{post.title}</Link>
+      <Link to={`portfolio/${project.slug}`}>{project.title}</Link>
     </h3>
-    <span>{post.createdAt}</span>
+    <span>{project.createdAt}</span>
   </article>
 );
 

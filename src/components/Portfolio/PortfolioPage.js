@@ -6,13 +6,9 @@ export class PortfolioPage extends Component {
     if (!data) return null;
     return (
       <div>
-        <span>{data.contentfulBlogPost.date}</span>
-        <h1>{data.contentfulBlogPost.title}</h1>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data.contentfulBlogPost.body.childMarkdownRemark.html,
-          }}
-        />
+        <p>{data.contentfulPortfolioPost.title}</p>
+        <p>{data.contentfulPortfolioPost.githubLink}</p>
+        <p>{data.contentfulPortfolioPost.liveLink}</p>
       </div>
     );
   }
@@ -23,16 +19,12 @@ export default PortfolioPage;
 export const query = graphql`
   query PortfolioQuery($slug: String!) {
     # slug is the context that is being passed through via gatsby-node.js
-    contentfulBlogPost(slug: { eq: $slug }) {
+    contentfulPortfolioPost(slug: { eq: $slug }) {
       id
       title
       slug
-      body {
-        childMarkdownRemark {
-          html
-          excerpt
-        }
-      }
+      githubLink
+      liveLink
     }
   }
 `;

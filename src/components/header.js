@@ -49,42 +49,42 @@ const MainNav = styled.nav`
 `;
 
 class Header extends Component {
-  componentDidUpdate = (prevProps, prevState) => {
-    // console.log(this.props.location.pathname)
-    const { location } = this.props;
-    if (location.pathname !== prevProps.location.pathname) {
-      if (this.props.location.pathname === '/') {
-        // console.log(this.wrapper)
-        this.wrapper.animate(
-          [
-            { height: '24vh' }, // beginning
-            { height: '70vh' }, // ending
-          ],
-          {
-            // animation properties
-            duration: 400,
-            fill: 'forwards', // stick at end frame
-            easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
-            iterations: 1,
-          }
-        );
-      } else {
-        this.wrapper.animate(
-          [
-            { height: '70vh' }, // beginning
-            { height: '24vh' }, // ending
-          ],
-          {
-            // animation properties
-            duration: 400,
-            fill: 'forwards', // stick at end frame
-            easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
-            iterations: 1,
-          }
-        );
-      }
-    }
-  };
+  // componentDidUpdate = (prevProps, prevState) => {
+  //   // console.log(this.props.location.pathname)
+  //   const { location } = this.props;
+  //   if (location.pathname !== prevProps.location.pathname) {
+  //     if (this.props.location.pathname === '/') {
+  //       // console.log(this.wrapper)
+  //       this.wrapper.animate(
+  //         [
+  //           { height: '24vh' }, // beginning
+  //           { height: '70vh' }, // ending
+  //         ],
+  //         {
+  //           // animation properties
+  //           duration: 400,
+  //           fill: 'forwards', // stick at end frame
+  //           easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
+  //           iterations: 1,
+  //         }
+  //       );
+  //     } else {
+  //       this.wrapper.animate(
+  //         [
+  //           { height: '70vh' }, // beginning
+  //           { height: '24vh' }, // ending
+  //         ],
+  //         {
+  //           // animation properties
+  //           duration: 400,
+  //           fill: 'forwards', // stick at end frame
+  //           easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
+  //           iterations: 1,
+  //         }
+  //       );
+  //     }
+  //   }
+  // };
 
   render() {
     const { data, location } = this.props;
