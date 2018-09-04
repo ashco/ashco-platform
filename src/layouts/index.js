@@ -6,10 +6,18 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './index.css';
 
+import image from '../images/logo-dark.svg';
+
 const Layout = ({ children, data, location }) => (
   <div>
     <Helmet
       title={data.site.siteMetadata.title}
+      // link={[
+      //   { name: 'rel', content: 'icon' },
+      //   { name: 'type', content: 'image/png' },
+      //   { name: 'href', content: { image } },
+      //   { name: 'sizes', content: '16x16' },
+      // ]}
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },

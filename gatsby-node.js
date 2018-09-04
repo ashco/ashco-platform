@@ -8,7 +8,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allContentfulPortfolioPost {
+        allContentfulPortfolioProject {
           edges {
             node {
               slug
@@ -25,7 +25,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       }
     `).then(result => {
       // PORTFOLIO
-      result.data.allContentfulPortfolioPost.edges.forEach(({ node }) => {
+      result.data.allContentfulPortfolioProject.edges.forEach(({ node }) => {
         createPage({
           // can use this fnc to create pages outside of promises
           path: `portfolio/${node.slug}`,
