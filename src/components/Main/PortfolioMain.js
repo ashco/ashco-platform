@@ -1,14 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import PortfolioListingSmall from './PortfolioListingSmall';
 
 const PortfolioWrapper = styled.section`
   background-color: #444;
 `;
 
+const PortfolioListingContainer = styled.div`
+  display: flex;
+`;
+
 const PortfolioMain = ({ projects }) => (
   <PortfolioWrapper>
     <h2>Portfolio</h2>
-    {console.log(projects)}
+    <PortfolioListingContainer>
+      {projects.map(project => (
+        <PortfolioListingSmall project={project.node} />
+      ))}
+    </PortfolioListingContainer>
   </PortfolioWrapper>
 );
 
