@@ -7,7 +7,7 @@ const FooterWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     li {
-      margin: 10px;
+      margin: 1rem;
     }
   }
 `;

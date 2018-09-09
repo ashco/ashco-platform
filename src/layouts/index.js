@@ -12,12 +12,6 @@ const Layout = ({ children, data, location }) => (
   <div>
     <Helmet
       title={data.site.siteMetadata.title}
-      // link={[
-      //   { name: 'rel', content: 'icon' },
-      //   { name: 'type', content: 'image/png' },
-      //   { name: 'href', content: { image } },
-      //   { name: 'sizes', content: '16x16' },
-      // ]}
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
@@ -28,7 +22,7 @@ const Layout = ({ children, data, location }) => (
       style={{
         margin: '0 auto',
         maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
+        // padding: '0px 1.0875rem 1.45rem',
         paddingTop: 0,
       }}
     >

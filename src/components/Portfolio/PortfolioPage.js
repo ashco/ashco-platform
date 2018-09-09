@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 
+import PortfolioListing from './PortfolioListing';
+
 export class PortfolioPage extends Component {
   render() {
     const { data } = this.props;
     if (!data) return null;
     return (
       <div>
-        <p>{data.contentfulPortfolioProject.title}</p>
-        <p>{data.contentfulPortfolioProject.githubLink}</p>
-        <p>{data.contentfulPortfolioProject.liveSiteLink}</p>
+        <div>
+          <p>{data.contentfulPortfolioProject.title}</p>
+          <p>{data.contentfulPortfolioProject.githubLink}</p>
+          <p>{data.contentfulPortfolioProject.liveSiteLink}</p>
+        </div>
+        {/* <PortfolioListing /> */}
       </div>
     );
   }
