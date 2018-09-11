@@ -19,7 +19,6 @@ const IndexPage = ({ data }) => (
     <About />
     <Portfolio projects={data.allContentfulPortfolioProject.edges} />
     <Blog />
-    {/* <Contact /> */}
   </IndexWrapper>
 );
 

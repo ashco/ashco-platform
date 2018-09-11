@@ -16,7 +16,7 @@ const PortfolioMain = ({ projects }) => (
     <h2>Portfolio</h2>
     <PortfolioListingContainer>
       {projects.map(project => (
-        <PortfolioListingSmall project={project.node} />
+        <PortfolioListingSmall project={project.node} key={project.node.id} />
       ))}
     </PortfolioListingContainer>
   </PortfolioWrapper>
