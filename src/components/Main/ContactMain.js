@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const ContactWrapper = styled.section`
   background-color: #666;
+  min-height: 20vh;
 `;
 
 const ContactMain = () => (

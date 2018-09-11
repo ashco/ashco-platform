@@ -10,7 +10,7 @@ import Portfolio from '../components/Main/PortfolioMain';
 
 const IndexWrapper = styled.div`
   section {
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
 `;
 
@@ -19,7 +19,7 @@ const IndexPage = ({ data }) => (
     <About />
     <Portfolio projects={data.allContentfulPortfolioProject.edges} />
     <Blog />
-    <Contact />
+    {/* <Contact /> */}
   </IndexWrapper>
 );
 

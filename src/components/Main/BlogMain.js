@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const BlogWrapper = styled.section`
   background-color: #555;
+  min-height: 30vh;
 `;
 
 const BlogMain = () => (

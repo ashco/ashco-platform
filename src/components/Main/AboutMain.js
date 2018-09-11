@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const AboutWrapper = styled.section`
   background-color: #333;
+  min-height: 20vh;
 `;
 
 const AboutMain = () => (

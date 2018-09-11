@@ -4,6 +4,7 @@ import PortfolioListingSmall from './PortfolioListingSmall';
 
 const PortfolioWrapper = styled.section`
   background-color: #444;
+  min-height: 45vh;
 `;
 
 const PortfolioListingContainer = styled.div`
