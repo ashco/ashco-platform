@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 const ContactWrapper = styled.section`
   background-color: #666;
-  min-height: 20vh;
+  min-height: 12vh;
 `;
 
-const ContactMain = () => (
+const ContactSection = () => (
   <ContactWrapper>
     <h2>Contact</h2>
   </ContactWrapper>
 );
 
-export default ContactMain;
+export default ContactSection;

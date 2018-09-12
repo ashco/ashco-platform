@@ -1,9 +1,8 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
-const PortfolioListingSmall = ({ project }) => (
+const PortfolioListing = ({ project }) => (
   <article>
-    {console.log('hi')}
     <h3>
       <Link to={`portfolio/${project.slug}`}>{project.title}</Link>
     </h3>
@@ -12,4 +11,4 @@ const PortfolioListingSmall = ({ project }) => (
   </article>
 );
 
-export default PortfolioListingSmall;
+export default PortfolioListing;

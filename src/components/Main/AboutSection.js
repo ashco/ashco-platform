@@ -6,7 +6,7 @@ const AboutWrapper = styled.section`
   min-height: 20vh;
 `;
 
-const AboutMain = () => (
+const AboutSection = () => (
   <AboutWrapper>
     <h2>About</h2>
     <p>
@@ -18,4 +18,4 @@ const AboutMain = () => (
   </AboutWrapper>
 );
 
-export default AboutMain;
+export default AboutSection;

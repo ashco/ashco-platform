@@ -3,10 +3,10 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 // import BlogListing from '../components/Blog/BlogListing';
-import About from '../components/Main/AboutMain';
-import Blog from '../components/Main/BlogMain';
-import Contact from '../components/Main/ContactMain';
-import Portfolio from '../components/Main/PortfolioMain';
+import About from '../components/Main/AboutSection';
+import Portfolio from '../components/Main/PortfolioSection';
+import Blog from '../components/Main/BlogSection';
+import Contact from '../components/Main/ContactSection';
 
 const IndexWrapper = styled.div`
   section {
@@ -18,7 +18,8 @@ const IndexPage = ({ data }) => (
   <IndexWrapper>
     <About />
     <Portfolio projects={data.allContentfulPortfolioProject.edges} />
-    <Blog />
+    <Blog posts={data.allContentfulBlogPost.edges} />
+    <Contact />
   </IndexWrapper>
 );
 
@@ -34,7 +35,7 @@ export const query = graphql`
           slug
           image {
             id
-            resize(width: 400, height: 240, resizingBehavior: SCALE) {
+            resize(width: 300, height: 200, resizingBehavior: SCALE) {
               src
               width
               height
@@ -45,31 +46,20 @@ export const query = graphql`
         }
       }
     }
+    allContentfulBlogPost {
+      edges {
+        node {
+          id
+          title
+          slug
+          createdAt(formatString: "MM-DD-YYYY")
+          body {
+            childMarkdownRemark {
+              excerpt
+            }
+          }
+        }
+      }
+    }
   }
 `;
-
-// export const query = graphql`
-//   query SiteMeta {
-//     site {
-//       siteMetadata {
-//         title
-//         description
-//       }
-//     }
-//     allContentfulBlogPost {
-//       edges {
-//         node {
-//           id
-//           title
-//           slug
-//           createdAt(formatString: "MMMM DD, YYYY")
-//           body {
-//             childMarkdownRemark {
-//               excerpt
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
