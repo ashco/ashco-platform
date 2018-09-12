@@ -26,7 +26,7 @@ export default PortfolioPage;
 
 export const query = graphql`
   query PortfolioList {
-    allContentfulPortfolioProject {
+    allContentfulPortfolioProject(sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {
           id
