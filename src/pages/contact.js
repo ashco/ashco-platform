@@ -1,16 +1,43 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const FormWrapper = styled.form`
+  width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  /* align-items: stretch; */
+`;
+
+const FormInputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 class ContactPage extends Component {
   render() {
     return (
       <div>
         <h2>Contact</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-          pariatur facilis esse, vel dolores dolorum fugit. Commodi, sit? Eaque
-          temporibus pariatur doloremque repudiandae accusantium, illum illo
-          perspiciatis deleniti dolores maiores.
-        </p>
+        <div>
+          <FormWrapper>
+            <FormInputWrapper>
+              <label htmlFor="name">Your name</label>
+              <input type="text" name="name" id="name" />
+            </FormInputWrapper>
+            <FormInputWrapper>
+              <label htmlFor="email">Your email</label>
+              <input type="email" name="email" id="email" />
+            </FormInputWrapper>
+            <FormInputWrapper>
+              <label htmlFor="message">Your message</label>
+              <textarea type="text" name="message" id="message" />
+            </FormInputWrapper>
+            <div>
+              <button type="submit">Send</button>
+            </div>
+          </FormWrapper>
+        </div>
       </div>
     );
   }
