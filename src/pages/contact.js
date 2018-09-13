@@ -8,7 +8,7 @@ const FormWrapper = styled.form`
   flex-direction: column;
 `;
 
-const FormInputWrapper = styled.div`
+const FormInputWrapper = styled.p`
   display: flex;
   flex-direction: column;
 `;
@@ -19,18 +19,18 @@ class ContactPage extends Component {
       <div>
         <h2>Contact</h2>
         <div>
-          <FormWrapper>
+          <FormWrapper name="contact" method="POST" netlify>
             <FormInputWrapper>
-              <label htmlFor="name">Your name</label>
-              <input type="text" name="name" id="name" />
+              <label htmlFor="name">Your name:</label>
+              <input type="text" name="name" />
             </FormInputWrapper>
             <FormInputWrapper>
-              <label htmlFor="email">Your email</label>
-              <input type="email" name="email" id="email" />
+              <label htmlFor="email">Your email:</label>
+              <input type="email" name="email" />
             </FormInputWrapper>
             <FormInputWrapper>
-              <label htmlFor="message">Your message</label>
-              <textarea type="text" name="message" id="message" />
+              <label htmlFor="message">Your message:</label>
+              <textarea name="message" />
             </FormInputWrapper>
             <div>
               <button type="submit">Send</button>
