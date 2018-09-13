@@ -19,7 +19,17 @@ class ContactPage extends Component {
       <div>
         <h2>Contact</h2>
         <div>
-          <FormWrapper name="contact" method="POST" netlify>
+          <FormWrapper
+            name="contact"
+            method="POST"
+            netlify-honeypot="bot-field"
+            netlify
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p className="hidden">
+              <label>Don’t fill this out if you're human:</label>
+              <input name="bot-field" />
+            </p>
             <FormInputWrapper>
               <label htmlFor="name">Your name:</label>
               <input type="text" name="name" />
