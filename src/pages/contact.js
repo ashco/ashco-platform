@@ -6,7 +6,6 @@ const FormWrapper = styled.form`
   margin: auto;
   display: flex;
   flex-direction: column;
-  /* align-items: stretch; */
 `;
 
 const FormInputWrapper = styled.div`

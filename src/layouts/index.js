@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/Header.js';
+import Footer from '../components/Footer.js';
 import './index.css';
 
 import image from '../images/logo-dark.svg';

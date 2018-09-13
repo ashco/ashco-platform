@@ -1,14 +1,13 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "ashco-platform",
+  "description": "ashco-platform",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "AshCo",
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.55",
     "gatsby": "^1.9.277",
     "gatsby-image": "^1.0.55",
     "gatsby-link": "^1.6.46",
-    "gatsby-plugin-netlify-cms": "^3.0.0-rc.1",
     "gatsby-plugin-react-helmet": "^2.0.11",
     "gatsby-plugin-sharp": "^1.6.48",
     "gatsby-plugin-styled-components": "^2.0.11",
@@ -31,11 +30,10 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
-    "gh-pages": "^1.2.0",
     "prettier": "^1.13.7"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://ashco.io"
   }
 }
