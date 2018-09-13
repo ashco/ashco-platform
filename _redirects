@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://ashco-io.netlify.com/* https://www.ashco.io/:splat 301!
