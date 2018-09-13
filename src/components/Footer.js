@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 import githubIcon from '../images/icons/github-brands.svg';
-import linkedInIcon from '../images/icons/linkedIn-brands.svg';
+import linkedInIcon from '../images/icons/linkedin-brands.svg';
 import twitterIcon from '../images/icons/twitter-brands.svg';
 import resumeIcon from '../images/icons/file-alt-solid.svg';
 
@@ -26,7 +26,7 @@ const ContactIcon = styled.img`
   width: 40px;
   height: 40px;
   color: red;
-`
+`;
 
 const Footer = () => (
   <FooterWrapper>
@@ -52,7 +52,10 @@ const Footer = () => (
           </a>
         </li>
         <li>
-          <a href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view" target="_blank">
+          <a
+            href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view"
+            target="_blank"
+          >
             <ContactIcon src={resumeIcon} alt="Resume" />
           </a>
         </li>
