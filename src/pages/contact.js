@@ -26,10 +26,7 @@ class ContactPage extends Component {
             data-netlify-honeypot="bot-field"
           >
             <input type="hidden" name="form-name" value="contact" />
-            <p className="hidden">
-              <label>Don’t fill this out if you're human:</label>
-              <input name="bot-field" />
-            </p>
+            <input type="hidden" name="bot-field" />
             <FormInputWrapper>
               <label htmlFor="name">Your name:</label>
               <input type="text" name="name" />
