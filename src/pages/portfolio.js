@@ -3,6 +3,7 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import PortfolioListing from '../components/Portfolio/PortfolioListing';
+import { PageTitle } from '../components/helpers';
 
 const PortfolioContent = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ const PortfolioContent = styled.div`
 
 const PortfolioPage = ({ data }) => (
   <div>
-    <h2>Portfolio</h2>
+    <PageTitle text="Portfolio" />
     <PortfolioContent>
       {data.allContentfulPortfolioProject.edges.map(({ node }) => (
         <PortfolioListing project={node} key={node.id} />

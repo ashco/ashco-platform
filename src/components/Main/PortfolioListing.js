@@ -3,11 +3,10 @@ import Link from 'gatsby-link';
 
 const PortfolioListing = ({ project }) => (
   <article>
-    <h3>
-      <Link to={`portfolio/${project.slug}`}>{project.title}</Link>
-    </h3>
-    <img src={project.image.resize.src} />
-    <span>{project.createdAt}</span>
+    <Link to={`portfolio/${project.slug}`}>
+      <h3>{project.title}</h3>
+      <img src={project.image.resize.src} />
+    </Link>
   </article>
 );
 
