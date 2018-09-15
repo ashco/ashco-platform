@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PageTitle } from '../helpers';
 
 export class BlogPage extends Component {
   render() {
@@ -7,7 +8,7 @@ export class BlogPage extends Component {
     return (
       <div>
         <span>{data.contentfulBlogPost.date}</span>
-        <h1>{data.contentfulBlogPost.title}</h1>
+        <PageTitle text={data.contentfulBlogPost.title} />
         <div
           dangerouslySetInnerHTML={{
             __html: data.contentfulBlogPost.body.childMarkdownRemark.html,

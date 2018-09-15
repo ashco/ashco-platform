@@ -10,7 +10,8 @@ const PortfolioSelectWrapper = styled.div`
 
 const PortfolioSelect = ({ project }) => (
   <PortfolioSelectWrapper>
-    {/* <img src={project.} alt={project.title} /> */}
+    {console.log(project)}
+    <img src={project.image.resize.src} alt={project.image.title} />
   </PortfolioSelectWrapper>
 );
 
