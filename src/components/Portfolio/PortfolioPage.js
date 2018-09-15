@@ -3,14 +3,8 @@ import styled from 'styled-components';
 
 import PortfolioSelect from './PortfolioSelect';
 import PortfolioListing from './PortfolioListing';
+import PortfolioListingContainer from './PortfolioListingContainer';
 import { PageTitle } from '../helpers';
-
-const PortfolioContent = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  max-width: 960px;
-`;
 
 export class PortfolioPage extends Component {
   render() {
@@ -20,11 +14,11 @@ export class PortfolioPage extends Component {
       <div>
         <PageTitle text={data.contentfulPortfolioProject.title} />
         <PortfolioSelect project={data.contentfulPortfolioProject} />
-        <PortfolioContent>
+        <PortfolioListingContainer>
           {data.allContentfulPortfolioProject.edges.map(({ node }) => (
             <PortfolioListing project={node} key={node.id} />
           ))}
-        </PortfolioContent>
+        </PortfolioListingContainer>
       </div>
     );
   }
@@ -49,7 +43,10 @@ export const query = graphql`
         }
       }
     }
-    allContentfulPortfolioProject(sort: { fields: [createdAt], order: DESC }) {
+    allContentfulPortfolioProject(
+      sort: { fields: [createdAt], order: DESC }
+      filter: { slug: { ne: $slug } }
+    ) {
       edges {
         node {
           id
