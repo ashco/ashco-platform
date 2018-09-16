@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
 import { PageTitle } from '../helpers';
 
-export class BlogPage extends Component {
-  render() {
-    const { data } = this.props;
-    if (!data) return null;
-    return (
-      <div>
-        <span>{data.contentfulBlogPost.date}</span>
-        <PageTitle text={data.contentfulBlogPost.title} />
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data.contentfulBlogPost.body.childMarkdownRemark.html,
-          }}
+const BlogPage = ({ data }) => {
+  if (!data) return null;
+  const isHeroImage = data.contentfulBlogPost.heroImage;
+
+  return (
+    <div>
+      <PageTitle text={data.contentfulBlogPost.title} />
+      <span>{data.contentfulBlogPost.createdAt}</span>
+      {isHeroImage && (
+        <img
+          src={data.contentfulBlogPost.heroImage.resize.src}
+          alt={data.contentfulBlogPost.heroImage.title}
         />
-      </div>
-    );
-  }
-}
+      )}
+      <div
+        dangerouslySetInnerHTML={{
+          __html: data.contentfulBlogPost.body.childMarkdownRemark.html,
+        }}
+      />
+    </div>
+  );
+};
 
 export default BlogPage;
 
@@ -28,6 +33,17 @@ export const query = graphql`
       id
       title
       slug
+      createdAt(formatString: "MMMM DD, YYYY")
+      heroImage {
+        id
+        title
+        resize(width: 600) {
+          src
+          width
+          height
+          aspectRatio
+        }
+      }
       body {
         childMarkdownRemark {
           html

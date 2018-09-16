@@ -9,7 +9,7 @@ const PortfolioListingWrapper = styled.article`
 
 const PortfolioListing = ({ project }) => (
   <PortfolioListingWrapper>
-    <Link to={`portfolio/${project.slug}`}>
+    <Link to={`/portfolio/${project.slug}`}>
       <h3>{project.title}</h3>
       <img src={project.image.resize.src} alt={project.title} />
     </Link>
