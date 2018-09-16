@@ -150,7 +150,15 @@ h3 {
   font-size: 1.5rem;
 }
 
+h4 {
+  font-size: 1.3rem;
+}
+
 a {
   text-decoration: none;
   color: #cacaca;
+}
+
+.hidden {
+  display: none;
 }

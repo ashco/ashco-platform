@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
+import PortfolioSelect from './PortfolioSelect';
 import PortfolioListing from './PortfolioListing';
+import PortfolioListingContainer from './PortfolioListingContainer';
+import { PageTitle } from '../helpers';
 
 export class PortfolioPage extends Component {
   render() {
@@ -8,12 +12,13 @@ export class PortfolioPage extends Component {
     if (!data) return null;
     return (
       <div>
-        <div>
-          <p>{data.contentfulPortfolioProject.title}</p>
-          <p>{data.contentfulPortfolioProject.githubLink}</p>
-          <p>{data.contentfulPortfolioProject.liveSiteLink}</p>
-        </div>
-        {/* <PortfolioListing /> */}
+        <PageTitle text={data.contentfulPortfolioProject.title} />
+        <PortfolioSelect project={data.contentfulPortfolioProject} />
+        <PortfolioListingContainer>
+          {data.allContentfulPortfolioProject.edges.map(({ node }) => (
+            <PortfolioListing project={node} key={node.id} />
+          ))}
+        </PortfolioListingContainer>
       </div>
     );
   }
@@ -30,6 +35,35 @@ export const query = graphql`
       slug
       githubLink
       liveSiteLink
+      image {
+        id
+        title
+        resize(width: 900) {
+          src
+        }
+      }
+    }
+    allContentfulPortfolioProject(
+      sort: { fields: [createdAt], order: DESC }
+      filter: { slug: { ne: $slug } }
+    ) {
+      edges {
+        node {
+          id
+          title
+          slug
+          image {
+            id
+            resize(width: 400, height: 240, resizingBehavior: SCALE) {
+              src
+              width
+              height
+            }
+          }
+          githubLink
+          liveSiteLink
+        }
+      }
     }
   }
 `;

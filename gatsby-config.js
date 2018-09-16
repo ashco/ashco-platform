@@ -41,5 +41,6 @@ module.exports = {
     // },
     'gatsby-transformer-sharp', // allows images
     'gatsby-plugin-sharp',
+    'gatsby-plugin-netlify',
   ],
 };

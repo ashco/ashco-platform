@@ -3,17 +3,16 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 const PortfolioListingWrapper = styled.article`
-  background-color: red;
+  background-color: #333;
   width: 440px;
 `;
 
 const PortfolioListing = ({ project }) => (
   <PortfolioListingWrapper>
-    <h3>
-      <Link to={`portfolio/${project.slug}`}>{project.title}</Link>
+    <Link to={`/portfolio/${project.slug}`}>
+      <h3>{project.title}</h3>
       <img src={project.image.resize.src} alt={project.title} />
-    </h3>
-    <span>{project.createdAt}</span>
+    </Link>
   </PortfolioListingWrapper>
 );
 

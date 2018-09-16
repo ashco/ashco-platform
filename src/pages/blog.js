@@ -1,10 +1,12 @@
 import React from 'react';
 import Link from 'gatsby-link';
+
 import BlogListing from '../components/Blog/BlogListing';
+import { PageTitle } from '../components/helpers';
 
 const BlogPage = ({ data }) => (
   <div>
-    <h2>Blog</h2>
+    <PageTitle text="Blog" />
     {data.allContentfulBlogPost.edges.map(({ node }) => (
       <BlogListing post={node} key={node.id} />
     ))}

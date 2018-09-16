@@ -1,45 +1,52 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import { PageTitle } from '../components/helpers';
+
 const FormWrapper = styled.form`
-  width: 600px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-`;
-
-const FormInputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-class ContactPage extends Component {
-  render() {
-    return (
-      <div>
-        <h2>Contact</h2>
-        <div>
-          <FormWrapper>
-            <FormInputWrapper>
-              <label htmlFor="name">Your name</label>
-              <input type="text" name="name" id="name" />
-            </FormInputWrapper>
-            <FormInputWrapper>
-              <label htmlFor="email">Your email</label>
-              <input type="email" name="email" id="email" />
-            </FormInputWrapper>
-            <FormInputWrapper>
-              <label htmlFor="message">Your message</label>
-              <textarea type="text" name="message" id="message" />
-            </FormInputWrapper>
-            <div>
-              <button type="submit">Send</button>
-            </div>
-          </FormWrapper>
-        </div>
-      </div>
-    );
+  form {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
   }
-}
+`;
+
+const FormInputWrapper = styled.p`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ContactPage = () => (
+  <div>
+    <PageTitle text="Contact" />
+    <FormWrapper>
+      <form
+        name="contact"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="bot-field" />
+        <FormInputWrapper>
+          <label htmlFor="name">Your name:</label>
+          <input type="text" name="name" />
+        </FormInputWrapper>
+        <FormInputWrapper>
+          <label htmlFor="email">Your email:</label>
+          <input type="email" name="email" />
+        </FormInputWrapper>
+        <FormInputWrapper>
+          <label htmlFor="message">Your message:</label>
+          <textarea name="message" />
+        </FormInputWrapper>
+        <div>
+          <button type="submit">Send</button>
+        </div>
+      </form>
+    </FormWrapper>
+  </div>
+);
 
 export default ContactPage;
