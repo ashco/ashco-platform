@@ -8,7 +8,9 @@ const BlogPage = ({ data }) => {
   return (
     <div>
       <PageTitle text={data.contentfulBlogPost.title} />
-      <span>{data.contentfulBlogPost.createdAt}</span>
+      <div>
+        <span>{data.contentfulBlogPost.createdAt}</span>
+      </div>
       {isHeroImage && (
         <img
           src={data.contentfulBlogPost.heroImage.resize.src}
@@ -28,7 +30,6 @@ export default BlogPage;
 
 export const query = graphql`
   query BlogPostQuery($slug: String!) {
-    # slug is the context that is being passed through via gatsby-node.js
     contentfulBlogPost(slug: { eq: $slug }) {
       id
       title
