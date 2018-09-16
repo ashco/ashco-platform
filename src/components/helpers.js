@@ -14,6 +14,11 @@ const PageLinkWrapper = styled.div`
   }
 `;
 
+export const LinkIcon = styled.img`
+  width: ${props => (props.size ? props.size : '50px')};
+  height: ${props => (props.size ? props.size : '50px')};
+`;
+
 export const PageTitle = ({ text }) => (
   <div>
     <h2>{text}</h2>
