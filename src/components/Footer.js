@@ -33,10 +33,18 @@ const Footer = () => {
         <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
         <p>
           This site is built with{' '}
-          <a href="https://www.gatsbyjs.org/">Gatsbyjs</a> and{' '}
-          <a href="https://www.contentful.com/">Contentful</a>. The source code
-          is hosted on{' '}
-          <a href="https://github.com/ashco/ashco-platform">Github</a>.
+          <a href="https://www.gatsbyjs.org/" target="_blank">
+            Gatsbyjs
+          </a>{' '}
+          and{' '}
+          <a href="https://www.contentful.com/" target="_blank">
+            Contentful
+          </a>
+          . The source code is hosted on{' '}
+          <a href="https://github.com/ashco/ashco-platform" target="_blank">
+            Github
+          </a>
+          .
         </p>
       </FooterLeft>
       <FooterRight>

@@ -61,36 +61,33 @@ class PortfolioListing extends Component {
       <PortfolioListingWrapper>
         <Link to={`/portfolio/${project.slug}`}>
           <img src={project.image.resize.src} alt={project.title} />
-          <PortfolioHoverArea>
-            {/* <h3>{project.title}</h3> */}
-            <h3>{title}</h3>
-            <LinkContainer>
-              <a
-                href={project.githubLink}
-                // REDO THIS WITH MORE EFFICENT WAY
-                onMouseEnter={this.updateTitle.bind(null, 'Github Link')}
-                onMouseLeave={this.updateTitle.bind(null, project.title)}
-              >
-                <LinkIcon
-                  src={githubIcon}
-                  alt="Project Github link"
-                  size="60px"
-                />
-              </a>
-              <a
-                href={project.liveSiteLink}
-                onMouseEnter={this.updateTitle.bind(null, 'Live Link')}
-                onMouseLeave={this.updateTitle.bind(null, project.title)}
-              >
-                <LinkIcon
-                  src={desktopIcon}
-                  alt="Project live link"
-                  size="60px"
-                />
-              </a>
-            </LinkContainer>
-          </PortfolioHoverArea>
         </Link>
+        <PortfolioHoverArea>
+          <h3>{title}</h3>
+          <LinkContainer>
+            <a
+              href={project.githubLink}
+              target="_blank"
+              // REDO THIS WITH MORE EFFICENT WAY
+              onMouseEnter={this.updateTitle.bind(null, 'Github Link')}
+              onMouseLeave={this.updateTitle.bind(null, project.title)}
+            >
+              <LinkIcon
+                src={githubIcon}
+                alt="Project Github link"
+                size="60px"
+              />
+            </a>
+            <a
+              href={project.liveSiteLink}
+              target="_blank"
+              onMouseEnter={this.updateTitle.bind(null, 'Live Link')}
+              onMouseLeave={this.updateTitle.bind(null, project.title)}
+            >
+              <LinkIcon src={desktopIcon} alt="Project live link" size="60px" />
+            </a>
+          </LinkContainer>
+        </PortfolioHoverArea>
       </PortfolioListingWrapper>
     );
   }

@@ -8,11 +8,11 @@ const BlogListingWrapper = styled.article`
 
 const BlogListing = ({ post }) => (
   <BlogListingWrapper>
-    <h3>
-      <Link to={`blog/${post.slug}`}>{post.title}</Link>
-    </h3>
-    <span>{post.createdAt}</span>
-    <p>{post.body.childMarkdownRemark.excerpt}</p>
+    <Link to={`blog/${post.slug}`}>
+      <h3>{post.title}</h3>
+      <span>{post.createdAt}</span>
+      <p>{post.body.childMarkdownRemark.excerpt}</p>
+    </Link>
   </BlogListingWrapper>
 );
 
