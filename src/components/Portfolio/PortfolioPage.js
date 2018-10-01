@@ -35,6 +35,10 @@ export const query = graphql`
       slug
       githubLink
       liveSiteLink
+      description {
+        id
+        description
+      }
       image {
         id
         title

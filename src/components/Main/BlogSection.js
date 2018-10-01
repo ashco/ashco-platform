@@ -17,7 +17,7 @@ const BlogSection = ({ posts }) => (
   <BlogWrapper>
     <PageTitle text="Blog" />
     <BlogListingContainer>
-      <h3>Recent Posts</h3>
+      <h3>Most Recent Posts</h3>
       {posts.map(post => (
         <BlogListing post={post.node} key={post.node.id} />
       ))}

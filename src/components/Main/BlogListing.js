@@ -1,13 +1,21 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
+import styled from 'styled-components';
+
+const BlogListingWrapper = styled.article`
+  h4 {
+    display: inline-block;
+  }
+`;
+
 const BlogListing = ({ post }) => (
-  <article>
+  <BlogListingWrapper>
     <Link to={`blog/${post.slug}`}>
       <h4>{post.title}</h4>
-      <span>{post.createdAt}</span>
+      <span> - {post.createdAt}</span>
     </Link>
-  </article>
+  </BlogListingWrapper>
 );
 
 export default BlogListing;

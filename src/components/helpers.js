@@ -30,3 +30,32 @@ export const PageLink = ({ to, text }) => (
     <Link to={to}>{text}</Link>
   </PageLinkWrapper>
 );
+
+// PORTFOLIO
+export const PortfolioListingWrapper = styled.article`
+  width: 440px;
+  position: relative;
+  img {
+    display: block;
+    transition: 0.5s ease;
+  }
+  &:hover {
+    img {
+      opacity: 0.3;
+    }
+  }
+  &:hover {
+    div {
+      opacity: 1;
+    }
+  }
+`;
+
+export const PortfolioHoverArea = styled.div`
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;

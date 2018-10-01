@@ -2,38 +2,14 @@ import React, { Component } from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-import { LinkIcon } from '../helpers';
+import {
+  PortfolioListingWrapper,
+  PortfolioHoverArea,
+  LinkIcon,
+} from '../helpers';
 
 import githubIcon from '../../images/icons/github-brands.svg';
 import desktopIcon from '../../images/icons/desktop-solid.svg';
-
-const PortfolioListingWrapper = styled.article`
-  width: 440px;
-  position: relative;
-  img {
-    display: block;
-    transition: 0.5s ease;
-  }
-  &:hover {
-    img {
-      opacity: 0.3;
-    }
-  }
-  &:hover {
-    div {
-      opacity: 1;
-    }
-  }
-`;
-
-const PortfolioHoverArea = styled.div`
-  transition: 0.5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
 
 const LinkContainer = styled.div`
   display: flex;
