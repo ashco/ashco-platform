@@ -42,10 +42,18 @@ class PortfolioListing extends Component {
           <h3>{title}</h3>
           <LinkContainer>
             <a
+              href={project.liveSiteLink}
+              target="_blank"
+              onMouseEnter={this.updateTitle.bind(null, 'Live Site')}
+              onMouseLeave={this.updateTitle.bind(null, project.title)}
+            >
+              <LinkIcon src={desktopIcon} alt="Project live link" size="60px" />
+            </a>
+            <a
               href={project.githubLink}
               target="_blank"
               // REDO THIS WITH MORE EFFICENT WAY
-              onMouseEnter={this.updateTitle.bind(null, 'Github Link')}
+              onMouseEnter={this.updateTitle.bind(null, 'Github')}
               onMouseLeave={this.updateTitle.bind(null, project.title)}
             >
               <LinkIcon
@@ -53,14 +61,6 @@ class PortfolioListing extends Component {
                 alt="Project Github link"
                 size="60px"
               />
-            </a>
-            <a
-              href={project.liveSiteLink}
-              target="_blank"
-              onMouseEnter={this.updateTitle.bind(null, 'Live Link')}
-              onMouseLeave={this.updateTitle.bind(null, project.title)}
-            >
-              <LinkIcon src={desktopIcon} alt="Project live link" size="60px" />
             </a>
           </LinkContainer>
         </PortfolioHoverArea>

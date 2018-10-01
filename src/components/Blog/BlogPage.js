@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { PageTitle } from '../helpers';
+import { PageTitle, Tag, TagContainer } from '../helpers';
 
 const BlogPage = ({ data }) => {
   if (!data) return null;
   const isHeroImage = data.contentfulBlogPost.heroImage;
+  const hasTags = data.contentfulBlogPost.tags;
 
   return (
     <div>
@@ -11,6 +12,13 @@ const BlogPage = ({ data }) => {
       <div>
         <span>{data.contentfulBlogPost.createdAt}</span>
       </div>
+      {hasTags && (
+        <TagContainer>
+          {data.contentfulBlogPost.tags.map(tag => (
+            <Tag>{tag}</Tag>
+          ))}
+        </TagContainer>
+      )}
       {isHeroImage && (
         <img
           src={data.contentfulBlogPost.heroImage.resize.src}
@@ -34,6 +42,7 @@ export const query = graphql`
       id
       title
       slug
+      tags
       createdAt(formatString: "MMMM DD, YYYY")
       heroImage {
         id

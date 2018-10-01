@@ -59,3 +59,14 @@ export const PortfolioHoverArea = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
+export const Tag = styled.div`
+  background: #2c768e;
+  height: 30px;
+  width: 60px;
+  margin: 10px;
+`;
+
+export const TagContainer = styled.div`
+  display: flex;
+`;

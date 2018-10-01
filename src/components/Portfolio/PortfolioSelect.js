@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-import { LinkIcon } from '../helpers';
+import { LinkIcon, Tag, TagContainer } from '../helpers';
 
 import githubIcon from '../../images/icons/github-brands.svg';
 import desktopIcon from '../../images/icons/desktop-solid.svg';
@@ -16,7 +16,7 @@ const PortfolioSelectWrapper = styled.div`
   }
 `;
 
-const ProfileSelectTextContainer = styled.div`
+const PortfolioSelectTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -27,24 +27,43 @@ const ProfileSelectTextContainer = styled.div`
   width: 900px;
 `;
 
-const PortfolioSelectLinkContainer = styled.div`
+const PortfolioSelectLeftContainer = styled.div``;
+
+const PortfolioSelectRightContainer = styled.div`
   display: flex;
+  margin: 20px 30px;
+  a {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 0 10px;
+  }
 `;
 
 const PortfolioSelect = ({ project }) => (
   <PortfolioSelectWrapper>
     <img src={project.image.resize.src} alt={project.image.title} />
-    <ProfileSelectTextContainer>
-      <p>{project.description.description}</p>
-      <PortfolioSelectLinkContainer>
-        <a href={project.githubLink} target="_blank">
-          <LinkIcon src={githubIcon} alt="Project Github link" size="60px" />
-        </a>
+    <PortfolioSelectTextContainer>
+      <PortfolioSelectLeftContainer>
+        {project.description.description}
+        <TagContainer>
+          {project.tags.map(tag => (
+            <Tag>{tag}</Tag>
+          ))}
+        </TagContainer>
+      </PortfolioSelectLeftContainer>
+      <PortfolioSelectRightContainer>
         <a href={project.liveSiteLink} target="_blank">
           <LinkIcon src={desktopIcon} alt="Project live link" size="60px" />
+          <p>Live Site</p>
         </a>
-      </PortfolioSelectLinkContainer>
-    </ProfileSelectTextContainer>
+        <a href={project.githubLink} target="_blank">
+          <LinkIcon src={githubIcon} alt="Project Github link" size="60px" />
+          <p>Github</p>
+        </a>
+      </PortfolioSelectRightContainer>
+    </PortfolioSelectTextContainer>
   </PortfolioSelectWrapper>
 );
 
