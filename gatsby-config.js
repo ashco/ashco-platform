@@ -3,7 +3,6 @@ module.exports = {
     title: 'AshCo.io',
     description: 'Welcome to Ashland',
   },
-  pathPrefix: '/gatsby-levelup',
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
