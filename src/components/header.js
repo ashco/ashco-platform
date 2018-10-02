@@ -124,12 +124,10 @@ class Header extends Component {
               <li>
                 <Link to="/contact">Contact</Link>
               </li>
-              {/* <li>
-                <Link to="/admin">Admin</Link>
-              </li> */}
             </ul>
           </MainNav>
         </HeaderContainer>
+        <NavLink />
         <Img
           style={{
             position: 'absolute',
@@ -145,5 +143,27 @@ class Header extends Component {
     );
   }
 }
+
+const NavLinkStyle = styled.div`
+  position: absolute;
+  top: 95vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+  a {
+    font-size: 32px;
+    font-weight: 500;
+    color: white;
+  }
+`;
+
+const NavLink = () => {
+  return (
+    <NavLinkStyle>
+      <a href="#home">V{/* <img href=""></img> */}</a>
+    </NavLinkStyle>
+  );
+};
 
 export default Header;
