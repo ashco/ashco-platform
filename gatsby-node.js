@@ -1,15 +1,15 @@
 // See: https://www.gatsbyjs.org/docs/node-apis/
 const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
+// const { createFilePath } = require('gatsby-source-filesystem');
 
 // BLOG
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage, createRedirect } = actions;
+exports.createPages = ({ graphql, boundActionCreators }) => {
+  const { createPage, createRedirect } = boundActionCreators;
 
   // SITE REDIRECTS
   createRedirect({
-    fromPath: 'https://ashco-io.netlify.com/*',
-    toPath: 'https://www.ashco.io/:splat',
+    fromPath: 'https://ashco-io.netlify.com',
+    toPath: 'https://www.ashco.io',
     isPermanent: true,
   });
 
