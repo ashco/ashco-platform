@@ -11,7 +11,7 @@ const HeaderWrapper = styled.div`
   /* margin-bottom: 1.45rem; */
   overflow: hidden;
   position: relative;
-  height: ${({ isHome }) => (isHome ? '70vh' : '18vh')};
+  height: ${({ isHome }) => (isHome ? '100vh' : '18vh')};
   h1 {
     img {
       height: 5rem;
