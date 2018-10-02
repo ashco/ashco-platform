@@ -14,7 +14,7 @@ const IndexWrapper = styled.div`
 `;
 
 const IndexPage = ({ data }) => (
-  <IndexWrapper>
+  <IndexWrapper id="home">
     <About />
     <Portfolio projects={data.allContentfulPortfolioProject.edges} />
     <Blog posts={data.allContentfulBlogPost.edges} />

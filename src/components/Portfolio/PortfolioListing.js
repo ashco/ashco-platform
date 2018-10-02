@@ -44,17 +44,16 @@ class PortfolioListing extends Component {
             <a
               href={project.liveSiteLink}
               target="_blank"
-              onMouseEnter={this.updateTitle.bind(null, 'Live Site')}
-              onMouseLeave={this.updateTitle.bind(null, project.title)}
+              onMouseEnter={e => this.updateTitle('Live Site', e)}
+              onMouseLeave={e => this.updateTitle(project.title, e)}
             >
               <LinkIcon src={desktopIcon} alt="Project live link" size="60px" />
             </a>
             <a
               href={project.githubLink}
               target="_blank"
-              // REDO THIS WITH MORE EFFICENT WAY
-              onMouseEnter={this.updateTitle.bind(null, 'Github')}
-              onMouseLeave={this.updateTitle.bind(null, project.title)}
+              onMouseEnter={e => this.updateTitle('Github', e)}
+              onMouseLeave={e => this.updateTitle(project.title, e)}
             >
               <LinkIcon
                 src={githubIcon}
