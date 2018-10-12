@@ -32,6 +32,8 @@ const AboutSkillsContainer = styled.div`
 
 const SkillColumn = styled.div`
   text-align: center;
+  width: 25vw;
+  margin: 0 1rem;
 `;
 
 const About = ({ data }) => {
@@ -48,7 +50,7 @@ const About = ({ data }) => {
                 <h4>{skill.node.title}</h4>
                 <p>{skill.node.description.description}</p>
                 <h5>{skill.node.listHeader1}</h5>
-                <p>{skill.node.listItems1.map(item => item)}</p>
+                <p>{skill.node.listItems1.join(', ')}</p>
                 <h5>{skill.node.listHeader2}</h5>
                 <ul>
                   {skill.node.listItems1.map(item => (
