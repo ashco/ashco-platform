@@ -8,9 +8,11 @@ import githubIcon from '../../images/icons/github-brands.svg';
 import desktopIcon from '../../images/icons/desktop-solid.svg';
 
 const PortfolioSelectWrapper = styled.div`
-  background-color: #333;
-  width: 440px;
+  /* background-color: #333; */
+  /* width: 440px; */
   position: relative;
+  display: flex;
+  justify-content: center;
   img {
     display: block;
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PageTitle, Tag, TagContainer } from '../helpers';
+import { ContentWrapper, PageTitle, Tag, TagContainer } from '../helpers';
 
 const BlogPage = ({ data }) => {
   if (!data) return null;
@@ -7,11 +7,13 @@ const BlogPage = ({ data }) => {
   const hasTags = data.contentfulBlogPost.tags;
 
   return (
-    <div>
-      {/* <PageTitle text={data.contentfulBlogPost.title} /> */}
-      <div>
-        <span>{data.contentfulBlogPost.createdAt}</span>
-      </div>
+    <ContentWrapper>
+      {isHeroImage && (
+        <img
+          src={data.contentfulBlogPost.heroImage.resize.src}
+          alt={data.contentfulBlogPost.heroImage.title}
+        />
+      )}
       {hasTags && (
         <TagContainer>
           {data.contentfulBlogPost.tags.map(tag => (
@@ -19,18 +21,15 @@ const BlogPage = ({ data }) => {
           ))}
         </TagContainer>
       )}
-      {isHeroImage && (
-        <img
-          src={data.contentfulBlogPost.heroImage.resize.src}
-          alt={data.contentfulBlogPost.heroImage.title}
-        />
-      )}
+      <div>
+        <span>{data.contentfulBlogPost.createdAt}</span>
+      </div>
       <div
         dangerouslySetInnerHTML={{
           __html: data.contentfulBlogPost.body.childMarkdownRemark.html,
         }}
       />
-    </div>
+    </ContentWrapper>
   );
 };
 

@@ -114,7 +114,7 @@ class Header extends Component {
             >
               <img src={logo} alt="logo" />
             </Link>
-            <span style={{ marginLeft: '0.5rem' }}>{title}</span>
+            <span style={{ marginLeft: '0.6rem' }}>{title}</span>
           </h1>
           <MainNav>
             <ul>

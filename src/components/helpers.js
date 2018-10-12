@@ -2,6 +2,12 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 const PageTitleWrapper = styled.div`
   /* position: absolute;
   top: 5.5vh;
@@ -37,7 +43,9 @@ export const PageLink = ({ to, text }) => (
 
 // PORTFOLIO
 export const PortfolioListingWrapper = styled.article`
-  width: 440px;
+  /* width: 440px; */
+  /* display: flex;
+  justify-content: center; */
   position: relative;
   img {
     display: block;

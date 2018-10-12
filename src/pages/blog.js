@@ -2,14 +2,14 @@ import React from 'react';
 import Link from 'gatsby-link';
 
 import BlogListing from '../components/Blog/BlogListing';
-import { PageTitle } from '../components/helpers';
+import { ContentWrapper, PageTitle } from '../components/helpers';
 
 const BlogPage = ({ data }) => (
-  <div>
+  <ContentWrapper>
     {data.allContentfulBlogPost.edges.map(({ node }) => (
       <BlogListing post={node} key={node.id} />
     ))}
-  </div>
+  </ContentWrapper>
 );
 
 export default BlogPage;

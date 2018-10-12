@@ -3,6 +3,7 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import {
+  ContentWrapper,
   PortfolioListingWrapper,
   PortfolioHoverArea,
   LinkIcon,
@@ -15,7 +16,6 @@ const LinkContainer = styled.div`
   display: flex;
 `;
 
-// const PortfolioListing = ({ project }) => (
 class PortfolioListing extends Component {
   state = {};
 
@@ -34,36 +34,42 @@ class PortfolioListing extends Component {
     const { project } = this.props;
 
     return (
-      <PortfolioListingWrapper>
-        <Link to={`/projects/${project.slug}`}>
-          <img src={project.image.resize.src} alt={project.title} />
-        </Link>
-        <PortfolioHoverArea>
-          <h3>{title}</h3>
-          <LinkContainer>
-            <a
-              href={project.liveSiteLink}
-              target="_blank"
-              onMouseEnter={e => this.updateTitle('Live Site', e)}
-              onMouseLeave={e => this.updateTitle(project.title, e)}
-            >
-              <LinkIcon src={desktopIcon} alt="Project live link" size="60px" />
-            </a>
-            <a
-              href={project.githubLink}
-              target="_blank"
-              onMouseEnter={e => this.updateTitle('Github', e)}
-              onMouseLeave={e => this.updateTitle(project.title, e)}
-            >
-              <LinkIcon
-                src={githubIcon}
-                alt="Project Github link"
-                size="60px"
-              />
-            </a>
-          </LinkContainer>
-        </PortfolioHoverArea>
-      </PortfolioListingWrapper>
+      <ContentWrapper>
+        <PortfolioListingWrapper>
+          <Link to={`/projects/${project.slug}`}>
+            <img src={project.image.resize.src} alt={project.title} />
+          </Link>
+          <PortfolioHoverArea>
+            <h3>{title}</h3>
+            <LinkContainer>
+              <a
+                href={project.liveSiteLink}
+                target="_blank"
+                onMouseEnter={e => this.updateTitle('Live Site', e)}
+                onMouseLeave={e => this.updateTitle(project.title, e)}
+              >
+                <LinkIcon
+                  src={desktopIcon}
+                  alt="Project live link"
+                  size="60px"
+                />
+              </a>
+              <a
+                href={project.githubLink}
+                target="_blank"
+                onMouseEnter={e => this.updateTitle('Github', e)}
+                onMouseLeave={e => this.updateTitle(project.title, e)}
+              >
+                <LinkIcon
+                  src={githubIcon}
+                  alt="Project Github link"
+                  size="60px"
+                />
+              </a>
+            </LinkContainer>
+          </PortfolioHoverArea>
+        </PortfolioListingWrapper>
+      </ContentWrapper>
     );
   }
 }
