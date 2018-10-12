@@ -9,8 +9,7 @@ import logo from '../images/logo-lite.svg';
 const HeaderWrapper = styled.div`
   background: #606090;
   overflow: hidden;
-  /* position: relative; */
-  position: fixed;
+  position: ${({ isHome }) => (isHome ? 'fixed' : 'static')};
   height: ${({ isHome }) => (isHome ? '100vh' : '15vh')};
   width: 100vw;
   h1 {
