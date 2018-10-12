@@ -12,7 +12,7 @@ export class PortfolioPage extends Component {
     if (!data) return null;
     return (
       <div>
-        <PageTitle text={data.contentfulPortfolioProject.title} />
+        {/* <PageTitle text={data.contentfulPortfolioProject.title} /> */}
         <PortfolioSelect project={data.contentfulPortfolioProject} />
         <PortfolioListingContainer>
           {data.allContentfulPortfolioProject.edges.map(({ node }) => (

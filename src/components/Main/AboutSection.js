@@ -11,6 +11,7 @@ const AboutWrapper = styled.section`
 
 const AboutSection = () => (
   <AboutWrapper>
+    <h2>About</h2>
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto unde,
       incidunt, quasi dolorem corrupti saepe totam voluptate consequuntur

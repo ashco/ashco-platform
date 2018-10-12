@@ -21,12 +21,12 @@ const AboutSkillsContainer = styled.div`
   padding: 5rem;
   margin-left: 20px;
   h4 {
+    color: #d27831;
     font-weight: 600;
-    color: orangered;
   }
   h5 {
     font-weight: 600;
-    color: orangered;
+    color: #d27831;
   }
 `;
 
@@ -37,7 +37,6 @@ const SkillColumn = styled.div`
 const About = ({ data }) => {
   return (
     <div>
-      <PageTitle text="About" />
       <AboutContentWrapper>
         <AboutInfoContainer>
           <p>{data.contentfulAboutInfo.aboutMe.aboutMe}</p>

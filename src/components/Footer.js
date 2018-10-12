@@ -13,6 +13,9 @@ const FooterWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 2rem 0.5rem;
+  a {
+    color: #d27831;
+  }
 `;
 
 const FooterLeft = styled.div``;
@@ -20,7 +23,7 @@ const FooterLeft = styled.div``;
 const FooterRight = styled.div`
   ul {
     display: flex;
-    color: red;
+    color: #d27831;
   }
 `;
 

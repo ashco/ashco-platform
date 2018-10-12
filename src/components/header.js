@@ -21,7 +21,7 @@ const HeaderWrapper = styled.div`
 
 const HeaderContainer = styled.div`
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: 1200px;
   padding: 1.45rem 1.0875rem;
   position: relative;
   z-index: 2;
@@ -114,7 +114,7 @@ class Header extends Component {
             >
               <img src={logo} alt="logo" />
             </Link>
-            <span>{title}</span>
+            <span style={{ marginLeft: '0.5rem' }}>{title}</span>
           </h1>
           <MainNav>
             <ul>

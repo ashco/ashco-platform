@@ -6,7 +6,6 @@ import { PageTitle } from '../components/helpers';
 
 const BlogPage = ({ data }) => (
   <div>
-    <PageTitle text="Blog" />
     {data.allContentfulBlogPost.edges.map(({ node }) => (
       <BlogListing post={node} key={node.id} />
     ))}

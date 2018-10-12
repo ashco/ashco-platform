@@ -8,7 +8,7 @@ const BlogPage = ({ data }) => {
 
   return (
     <div>
-      <PageTitle text={data.contentfulBlogPost.title} />
+      {/* <PageTitle text={data.contentfulBlogPost.title} /> */}
       <div>
         <span>{data.contentfulBlogPost.createdAt}</span>
       </div>

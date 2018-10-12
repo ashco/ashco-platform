@@ -8,7 +8,6 @@ import { PageTitle } from '../components/helpers';
 
 const PortfolioPage = ({ data }) => (
   <div>
-    <PageTitle text="Projects" />
     <PortfolioListingContainer>
       {data.allContentfulPortfolioProject.edges.map(({ node }) => (
         <PortfolioListing project={node} key={node.id} />

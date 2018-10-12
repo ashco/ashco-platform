@@ -19,7 +19,6 @@ const FormInputWrapper = styled.p`
 
 const ContactPage = () => (
   <div>
-    <PageTitle text="Contact" />
     <FormWrapper>
       <form
         name="contact"
