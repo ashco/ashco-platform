@@ -10,6 +10,8 @@ import Contact from '../components/Main/ContactSection';
 const IndexWrapper = styled.div`
   section {
     /* border: 1px solid red; */
+    max-width: 990px;
+    margin: 0px auto;
   }
 `;
 

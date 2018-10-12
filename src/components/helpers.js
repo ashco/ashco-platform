@@ -6,6 +6,8 @@ export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 990px;
+  margin: 0px auto;
 `;
 
 const PageTitleWrapper = styled.div`
@@ -44,8 +46,8 @@ export const PageLink = ({ to, text }) => (
 // PORTFOLIO
 export const PortfolioListingWrapper = styled.article`
   /* width: 440px; */
-  /* display: flex;
-  justify-content: center; */
+  display: flex;
+  justify-content: center;
   position: relative;
   img {
     display: block;

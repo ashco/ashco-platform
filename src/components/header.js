@@ -8,10 +8,11 @@ import logo from '../images/logo-lite.svg';
 
 const HeaderWrapper = styled.div`
   background: #606090;
-  /* margin-bottom: 1.45rem; */
   overflow: hidden;
-  position: relative;
+  /* position: relative; */
+  position: fixed;
   height: ${({ isHome }) => (isHome ? '100vh' : '15vh')};
+  width: 100vw;
   h1 {
     img {
       height: 5rem;
