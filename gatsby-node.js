@@ -36,7 +36,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       result.data.allContentfulPortfolioProject.edges.forEach(({ node }) => {
         createPage({
           // can use this fnc to create pages outside of promises
-          path: `portfolio/${node.slug}`,
+          path: `projects/${node.slug}`,
           component: path.resolve(
             './src/components/Portfolio/PortfolioPage.js'
           ),

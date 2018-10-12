@@ -25,13 +25,13 @@ const PortfolioLinkContainer = styled.div`
 
 const PortfolioMain = ({ projects }) => (
   <PortfolioWrapper>
-    <h2>Portfolio</h2>
+    <h2>Projects</h2>
     <PortfolioListingContainer>
       {projects.map(project => (
         <PortfolioListing project={project.node} key={project.node.id} />
       ))}
     </PortfolioListingContainer>
-    <PageLink to="/portfolio" text="Checkout all of my projects =>" />
+    <PageLink to="/projects" text="Checkout all of my projects =>" />
   </PortfolioWrapper>
 );
 

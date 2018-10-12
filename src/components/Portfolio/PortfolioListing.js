@@ -35,7 +35,7 @@ class PortfolioListing extends Component {
 
     return (
       <PortfolioListingWrapper>
-        <Link to={`/portfolio/${project.slug}`}>
+        <Link to={`/projects/${project.slug}`}>
           <img src={project.image.resize.src} alt={project.title} />
         </Link>
         <PortfolioHoverArea>
