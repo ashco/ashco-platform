@@ -8,29 +8,41 @@ import './index.css';
 
 import image from '../images/logo-dark.svg';
 
-const Layout = ({ children, data, location }) => (
-  <div>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <Header data={data} location={location} />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        // padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
-      {children()}
+const Layout = ({ children, data, location }) => {
+  let pageTitleArr = location.pathname.split('/');
+  let pageTitle = '';
+  if (pageTitleArr.length >= 0) {
+    pageTitle = pageTitleArr[pageTitleArr.length - 1];
+    pageTitle = pageTitle
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
+  return (
+    <div>
+      <Helmet
+        title={data.site.siteMetadata.title}
+        meta={[
+          { name: 'description', content: 'Sample' },
+          { name: 'keywords', content: 'sample, something' },
+        ]}
+      />
+      <Header data={data} location={location} title={pageTitle} />
+      <div
+        style={{
+          margin: '0 auto',
+          maxWidth: 960,
+          // padding: '0px 1.0875rem 1.45rem',
+          paddingTop: 0,
+        }}
+      >
+        {children()}
+      </div>
+      <Footer />
     </div>
-    <Footer />
-  </div>
-);
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.func,

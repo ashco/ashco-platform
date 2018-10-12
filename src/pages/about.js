@@ -53,7 +53,7 @@ const About = ({ data }) => {
                 <h5>{skill.node.listHeader2}</h5>
                 <ul>
                   {skill.node.listItems1.map(item => (
-                    <li>{item}</li>
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
               </SkillColumn>

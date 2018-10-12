@@ -15,7 +15,7 @@ const BlogListingContainer = styled.div`
 
 const BlogSection = ({ posts }) => (
   <BlogWrapper>
-    <PageTitle text="Blog" />
+    <h2>Blog</h2>
     <BlogListingContainer>
       <h3>Most Recent Posts</h3>
       {posts.map(post => (

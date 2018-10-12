@@ -43,7 +43,7 @@ const MainNav = styled.nav`
         font-weight: 600;
         color: #fff;
         &:hover {
-          border-bottom: 3px solid #b53d60;
+          border-bottom: 3px solid #d27831;
         }
       }
     }
@@ -89,7 +89,7 @@ class Header extends Component {
   // };
 
   render() {
-    const { data, location } = this.props;
+    const { data, location, title } = this.props;
     return (
       // refs are a way to reference a component
       // sets this.wrapper to dom element
@@ -98,7 +98,13 @@ class Header extends Component {
         ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
       >
         <HeaderContainer>
-          <h1 style={{ margin: 0 }}>
+          <h1
+            style={{
+              margin: 0,
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
             <Link
               to="/"
               style={{
@@ -108,6 +114,7 @@ class Header extends Component {
             >
               <img src={logo} alt="logo" />
             </Link>
+            <span>{title}</span>
           </h1>
           <MainNav>
             <ul>

@@ -2,7 +2,11 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-const PageTitleWrapper = styled.div``;
+const PageTitleWrapper = styled.div`
+  /* position: absolute;
+  top: 5.5vh;
+  left: 22vh; */
+`;
 
 const PageLinkWrapper = styled.div`
   height: 4rem;
@@ -20,9 +24,9 @@ export const LinkIcon = styled.img`
 `;
 
 export const PageTitle = ({ text }) => (
-  <div>
+  <PageTitleWrapper>
     <h2>{text}</h2>
-  </div>
+  </PageTitleWrapper>
 );
 
 export const PageLink = ({ to, text }) => (
