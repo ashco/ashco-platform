@@ -40,15 +40,7 @@ const About = ({ data }) => {
       <PageTitle text="About" />
       <AboutContentWrapper>
         <AboutInfoContainer>
-          <p>
-            Hi, I’m Ashton. I'm a lifelong learner and love the challenges of
-            coding. I've been interested in tech since I was young and have
-            grown familiar with many aspects of the industry. I’ve worked in the
-            clouds, solved problems way past my bedtime, and even built a mining
-            rig (or three). I'm excited to apply these skills to whatever I do
-            going forward and am happy to talk about my experiences so far. Hit
-            me up!
-          </p>
+          <p>{data.contentfulAboutInfo.aboutMe.aboutMe}</p>
         </AboutInfoContainer>
         <AboutSkillsContainer>
           {data.allContentfulAboutDataColumn.edges.map(skill => {
@@ -67,29 +59,6 @@ const About = ({ data }) => {
               </SkillColumn>
             );
           })}
-          {console.log(data)}
-          {/* <h4>{data.allContentfulAboutDataColumn.}</h4> */}
-          {/* <ul>
-              {data.contentfulAboutInfo.listItems.map(item => (
-                <li>{item}</li>
-              ))}
-            </ul> */}
-          {/* <SkillColumn>
-            <h4>{data.contentfulAboutInfo.title}</h4>
-            <ul>
-              {data.contentfulAboutInfo.listItems.map(item => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          </SkillColumn>
-          <SkillColumn>
-            <h4>{data.contentfulAboutInfo.title}</h4>
-            <ul>
-              {data.contentfulAboutInfo.listItems.map(item => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          </SkillColumn> */}
         </AboutSkillsContainer>
       </AboutContentWrapper>
     </div>
@@ -100,12 +69,11 @@ export default About;
 
 export const query = graphql`
   query AboutList {
-    #   contentfulAboutInfo {
-    #     id
-    #     title
-    #     listItems
-    #   }
-    # }
+    contentfulAboutInfo {
+      aboutMe {
+        aboutMe
+      }
+    }
     allContentfulAboutDataColumn {
       edges {
         node {

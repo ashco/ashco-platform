@@ -11,7 +11,7 @@ const HeaderWrapper = styled.div`
   /* margin-bottom: 1.45rem; */
   overflow: hidden;
   position: relative;
-  height: ${({ isHome }) => (isHome ? '100vh' : '18vh')};
+  height: ${({ isHome }) => (isHome ? '100vh' : '15vh')};
   h1 {
     img {
       height: 5rem;
@@ -21,7 +21,7 @@ const HeaderWrapper = styled.div`
 
 const HeaderContainer = styled.div`
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 1080px;
   padding: 1.45rem 1.0875rem;
   position: relative;
   z-index: 2;
@@ -34,11 +34,13 @@ const MainNav = styled.nav`
     list-style: none;
     display: flex;
     li {
-      margin-left: 10px;
+      margin-left: 1.8rem;
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
       a {
         text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 600;
         color: #fff;
         &:hover {
           border-bottom: 3px solid #b53d60;
@@ -152,8 +154,8 @@ const NavLinkStyle = styled.div`
   justify-content: center;
   z-index: 3;
   a {
-    font-size: 32px;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: white;
   }
 `;
