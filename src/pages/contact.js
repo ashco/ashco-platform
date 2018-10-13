@@ -1,26 +1,50 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { PageTitle } from '../components/helpers';
+import {
+  SectionContainer,
+  ContentWrapper,
+  PageTitle,
+} from '../components/helpers';
 
 const FormWrapper = styled.form`
-  form {
-    width: 600px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
+  width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: #c5c5c5;
+    border-radius: 2px;
+    color: #222;
+    font-size: 1rem;
   }
 `;
 
 const FormInputWrapper = styled.p`
   display: flex;
   flex-direction: column;
+  input,
+  textarea {
+    border: solid 2px #b1b1b1;
+    background-color: #262626;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 4px;
+    font-size: 16px;
+    color: #eee;
+  }
+  textarea {
+    height: 8rem;
+  }
 `;
 
 const ContactPage = () => (
-  <div>
-    <FormWrapper>
-      <form
+  <SectionContainer>
+    <ContentWrapper>
+      <FormWrapper
         name="contact"
         method="post"
         action="/thanks"
@@ -44,9 +68,9 @@ const ContactPage = () => (
         <div>
           <button type="submit">Send</button>
         </div>
-      </form>
-    </FormWrapper>
-  </div>
+      </FormWrapper>
+    </ContentWrapper>
+  </SectionContainer>
 );
 
 export default ContactPage;

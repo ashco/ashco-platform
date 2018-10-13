@@ -9,10 +9,12 @@ import './index.css';
 import styled from 'styled-components';
 import image from '../images/logo-dark.svg';
 
+// import '../validate.js';
+
 const Main = styled.div`
   position: absolute;
   overflow-y: scroll;
-  background-color: #222;
+  /* background-color: #222; */
   top: ${({ isHome }) => (isHome ? '100vh' : '15vh')};
   width: 100vw;
   padding-top: 0;
@@ -61,7 +63,7 @@ export const query = graphql`
         description
       }
     }
-    background: imageSharp(id: { regex: "/bg.jpg/" }) {
+    background: imageSharp(id: { regex: "/bg.png/" }) {
       sizes(maxWidth: 1240, grayscale: false) {
         ...GatsbyImageSharpSizes
       }

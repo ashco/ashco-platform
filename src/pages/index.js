@@ -7,21 +7,24 @@ import Portfolio from '../components/Main/PortfolioSection';
 import Blog from '../components/Main/BlogSection';
 import Contact from '../components/Main/ContactSection';
 
-const IndexWrapper = styled.div`
-  section {
-    /* border: 1px solid red; */
-    max-width: 990px;
-    margin: 0px auto;
-  }
-`;
+import { SectionContainer, ContentWrapper } from '../components/helpers';
+
+// const IndexWrapper = styled.div`
+//   section {
+//     max-width: 990px;
+//     margin: 0px auto;
+//   }
+// `;
 
 const IndexPage = ({ data }) => (
-  <IndexWrapper id="home">
-    <About />
-    <Portfolio projects={data.allContentfulPortfolioProject.edges} />
-    <Blog posts={data.allContentfulBlogPost.edges} />
-    <Contact />
-  </IndexWrapper>
+  <SectionContainer>
+    <ContentWrapper width="990px" id="home">
+      <About />
+      <Portfolio projects={data.allContentfulPortfolioProject.edges} />
+      <Blog posts={data.allContentfulBlogPost.edges} />
+      <Contact />
+    </ContentWrapper>
+  </SectionContainer>
 );
 
 export default IndexPage;

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { PageTitle } from '../components/helpers';
+import { SectionContainer, ContentWrapper } from '../components/helpers';
 
-const AboutContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+// const AboutSectionContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// `;
 
 const AboutInfoContainer = styled.div`
   width: 60%;
@@ -38,8 +38,8 @@ const SkillColumn = styled.div`
 
 const About = ({ data }) => {
   return (
-    <div>
-      <AboutContentWrapper>
+    <SectionContainer>
+      <ContentWrapper width="1200px">
         <AboutInfoContainer>
           <p>{data.contentfulAboutInfo.aboutMe.aboutMe}</p>
         </AboutInfoContainer>
@@ -61,8 +61,8 @@ const About = ({ data }) => {
             );
           })}
         </AboutSkillsContainer>
-      </AboutContentWrapper>
-    </div>
+      </ContentWrapper>
+    </SectionContainer>
   );
 };
 
