@@ -19,17 +19,17 @@ const FooterWrapper = styled.footer`
   justify-content: space-between;
   flex-direction: column-reverse;
   align-items: center;
-  margin: 2rem 0.5rem;
+  /* margin: 2rem 0.5rem; */
   a {
     color: #d27831;
   }
   div {
-    margin: 0.5rem;
+    margin: 1.5rem;
   }
 
   @media (min-width: 720px) {
     flex-direction: row;
-    align-items: space-between;
+    align-items: flex-end;
   }
 `;
 
@@ -49,7 +49,7 @@ const FooterRight = styled.div`
     display: flex;
     color: #d27831;
     li {
-      margin: 0 0.5rem;
+      margin: 0 0.75rem;
       a {
         pointer-events: auto;
         &:hover {
@@ -65,30 +65,28 @@ const Footer = ({ pageScrolled, isHome }) => {
   const showFooter = !isHome || pageScrolled;
   return (
     <FooterWrapper>
-      <FooterLeft>
-        {/* {pageScrolled ||
-          (!isHome && ( */}
-        {showFooter && (
-          <div>
-            <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
-            <p>
-              This site is built with{' '}
-              <a href="https://www.gatsbyjs.org/" target="_blank">
-                Gatsbyjs
-              </a>{' '}
-              and{' '}
-              <a href="https://www.contentful.com/" target="_blank">
-                Contentful
-              </a>
-              . The source code is hosted on{' '}
-              <a href="https://github.com/ashco/ashco-platform" target="_blank">
-                Github
-              </a>
-              .
-            </p>
-          </div>
-        )}
-      </FooterLeft>
+      {showFooter ? (
+        <FooterLeft>
+          <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
+          <p>
+            This site is built with{' '}
+            <a href="https://www.gatsbyjs.org/" target="_blank">
+              Gatsbyjs
+            </a>{' '}
+            and{' '}
+            <a href="https://www.contentful.com/" target="_blank">
+              Contentful
+            </a>
+            . The source code is hosted on{' '}
+            <a href="https://github.com/ashco/ashco-platform" target="_blank">
+              Github
+            </a>
+            .
+          </p>
+        </FooterLeft>
+      ) : (
+        <FooterLeft />
+      )}
       <FooterRight>
         <ul>
           <li>
@@ -117,7 +115,6 @@ const Footer = ({ pageScrolled, isHome }) => {
               <LinkIcon src={resumeIcon} alt="Resume" />
             </a>
           </li>
-          <li />
         </ul>
       </FooterRight>
     </FooterWrapper>

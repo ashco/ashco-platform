@@ -29,21 +29,26 @@ class Layout extends Component {
   };
 
   componentWillMount() {
-    this.isHomeCheck();
+    this.updateIsHome();
+    this.toggleIsHomeEvent();
   }
 
   componentDidUpdate() {
-    this.isHomeCheck();
+    this.updateIsHome();
+    this.toggleIsHomeEvent();
   }
 
-  isHomeCheck() {
+  updateIsHome() {
     const isHome = location.pathname === '/';
     if (isHome !== this.state.isHome) {
       this.setState({
         isHome,
       });
     }
-    isHome
+  }
+
+  toggleIsHomeEvent() {
+    this.state.isHome
       ? window.addEventListener('scroll', this.handleScroll)
       : window.removeEventListener('scroll', this.handleScroll);
   }
