@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { SectionContainer, Tag, TagContainer } from '../helpers';
+import {
+  SectionContainer,
+  ContentWrapper,
+  Tag,
+  TagContainer,
+} from '../helpers';
 
 const BlogPageWrapper = styled.div``;
 
@@ -12,7 +17,7 @@ const BlogPage = ({ data }) => {
 
   return (
     <SectionContainer>
-      <BlogPageWrapper>
+      <ContentWrapper width="800px">
         {isHeroImage && (
           <img
             src={data.contentfulBlogPost.heroImage.resize.src}
@@ -34,7 +39,7 @@ const BlogPage = ({ data }) => {
             __html: data.contentfulBlogPost.body.childMarkdownRemark.html,
           }}
         />
-      </BlogPageWrapper>
+      </ContentWrapper>
     </SectionContainer>
   );
 };

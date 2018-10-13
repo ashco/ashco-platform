@@ -49,7 +49,7 @@ const PortfolioSelect = ({ project }) => (
         {project.description.description}
         <TagContainer>
           {project.tags.map(tag => (
-            <Tag>{tag}</Tag>
+            <Tag key={tag}>{tag}</Tag>
           ))}
         </TagContainer>
       </PortfolioSelectLeftContainer>
