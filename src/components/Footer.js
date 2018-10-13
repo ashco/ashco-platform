@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-import Particles from 'react-particles-js';
-
 import { LinkIcon } from './helpers';
 
 import githubIcon from '../images/icons/github-brands.svg';
@@ -12,6 +10,10 @@ import twitterIcon from '../images/icons/twitter-brands.svg';
 import resumeIcon from '../images/icons/file-alt-solid.svg';
 
 const FooterWrapper = styled.footer`
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column-reverse;

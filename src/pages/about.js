@@ -39,7 +39,14 @@ const SkillColumn = styled.div`
 const About = ({ data }) => {
   return (
     <MainContainer>
-      <ContentWrapper width="1200px">
+      <ContentWrapper
+        width="1200px"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
         <AboutInfoContainer>
           <p>{data.contentfulAboutInfo.aboutMe.aboutMe}</p>
         </AboutInfoContainer>

@@ -7,7 +7,7 @@ import { LinkIcon, Tag, TagContainer } from '../helpers';
 import githubIcon from '../../images/icons/github-brands.svg';
 import desktopIcon from '../../images/icons/desktop-solid.svg';
 
-const PortfolioSelectWrapper = styled.div`
+const PortfolioSelectedWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -16,7 +16,7 @@ const PortfolioSelectWrapper = styled.div`
   }
 `;
 
-const PortfolioSelectTextContainer = styled.div`
+const PortfolioSelectedTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -27,9 +27,9 @@ const PortfolioSelectTextContainer = styled.div`
   width: 900px;
 `;
 
-const PortfolioSelectLeftContainer = styled.div``;
+const PortfolioSelectedLeftContainer = styled.div``;
 
-const PortfolioSelectRightContainer = styled.div`
+const PortfolioSelectedRightContainer = styled.div`
   display: flex;
   margin: 20px 30px;
   a {
@@ -41,19 +41,19 @@ const PortfolioSelectRightContainer = styled.div`
   }
 `;
 
-const PortfolioSelect = ({ project }) => (
-  <PortfolioSelectWrapper>
+const PortfolioSelected = ({ project }) => (
+  <PortfolioSelectedWrapper>
     <img src={project.image.resize.src} alt={project.image.title} />
-    <PortfolioSelectTextContainer>
-      <PortfolioSelectLeftContainer>
+    <PortfolioSelectedTextContainer>
+      <PortfolioSelectedLeftContainer>
         {project.description.description}
         <TagContainer>
           {project.tags.map(tag => (
             <Tag key={tag}>{tag}</Tag>
           ))}
         </TagContainer>
-      </PortfolioSelectLeftContainer>
-      <PortfolioSelectRightContainer>
+      </PortfolioSelectedLeftContainer>
+      <PortfolioSelectedRightContainer>
         <a href={project.liveSiteLink} target="_blank">
           <LinkIcon src={desktopIcon} alt="Project live link" size="60px" />
           <p>Live Site</p>
@@ -62,9 +62,9 @@ const PortfolioSelect = ({ project }) => (
           <LinkIcon src={githubIcon} alt="Project Github link" size="60px" />
           <p>Github</p>
         </a>
-      </PortfolioSelectRightContainer>
-    </PortfolioSelectTextContainer>
-  </PortfolioSelectWrapper>
+      </PortfolioSelectedRightContainer>
+    </PortfolioSelectedTextContainer>
+  </PortfolioSelectedWrapper>
 );
 
-export default PortfolioSelect;
+export default PortfolioSelected;

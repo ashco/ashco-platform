@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import PortfolioSelect from './PortfolioSelect';
+import PortfolioSelected from './PortfolioSelected';
 import PortfolioListing from './PortfolioListing';
 import PortfolioListingContainer from './PortfolioListingContainer';
-import { MainContainer, PageTitle } from '../helpers';
+import { MainContainer } from '../helpers';
 
 export class PortfolioPage extends Component {
   render() {
@@ -12,7 +12,7 @@ export class PortfolioPage extends Component {
     if (!data) return null;
     return (
       <MainContainer>
-        <PortfolioSelect project={data.contentfulPortfolioProject} />
+        <PortfolioSelected project={data.contentfulPortfolioProject} />
         <PortfolioListingContainer>
           {data.allContentfulPortfolioProject.edges.map(({ node }) => (
             <PortfolioListing project={node} key={node.id} />

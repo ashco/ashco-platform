@@ -34,7 +34,7 @@ class PortfolioListing extends Component {
     const { project } = this.props;
 
     return (
-      <MainContainer>
+      <div>
         <PortfolioListingWrapper>
           <Link to={`/projects/${project.slug}`}>
             <img src={project.image.resize.src} alt={project.title} />
@@ -69,7 +69,7 @@ class PortfolioListing extends Component {
             </LinkContainer>
           </PortfolioHoverArea>
         </PortfolioListingWrapper>
-      </MainContainer>
+      </div>
     );
   }
 }

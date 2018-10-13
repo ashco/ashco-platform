@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import image from '../images/logo-dark.svg';
 
 const Body = styled.div`
+  z-index: 10;
   pointer-events: none;
   position: absolute;
   overflow-y: scroll;
@@ -40,10 +41,8 @@ const Layout = ({ children, data, location }) => {
         ]}
       />
       <Header data={data} location={location} title={pageTitle} />
-      <Body isHome={location.pathname === '/'}>
-        {children()}
-        <Footer />
-      </Body>
+      <Body isHome={location.pathname === '/'}>{children()}</Body>
+      <Footer />
     </div>
   );
 };

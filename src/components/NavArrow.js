@@ -7,7 +7,7 @@ const NavArrowStyle = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  z-index: 2;
+  z-index: 1;
   button {
     font-size: 1.5rem;
     font-weight: 600;
@@ -44,11 +44,6 @@ class NavArrow extends Component {
     document
       .querySelector('#home')
       .scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // window.scroll({
-    //   top: 10000,
-    //   left: 0,
-    //   behavior: 'smooth',
-    // });
   }
 
   render() {

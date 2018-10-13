@@ -21,7 +21,7 @@ const HeaderContainer = styled.nav`
   max-width: 1200px;
   padding: 1.45rem 1.0875rem;
   position: relative;
-  z-index: 2;
+  z-index: 5;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
