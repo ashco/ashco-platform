@@ -4,17 +4,16 @@ import styled from 'styled-components';
 
 import PortfolioListing from '../components/Portfolio/PortfolioListing';
 import PortfolioListingContainer from '../components/Portfolio/PortfolioListingContainer';
-import { PageTitle } from '../components/helpers';
+import { SectionContainer } from '../components/helpers';
 
 const PortfolioPage = ({ data }) => (
-  <div>
-    <PageTitle text="Portfolio" />
+  <SectionContainer>
     <PortfolioListingContainer>
       {data.allContentfulPortfolioProject.edges.map(({ node }) => (
         <PortfolioListing project={node} key={node.id} />
       ))}
     </PortfolioListingContainer>
-  </div>
+  </SectionContainer>
 );
 
 export default PortfolioPage;

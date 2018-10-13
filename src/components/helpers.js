@@ -2,7 +2,20 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-const PageTitleWrapper = styled.div``;
+export const SectionContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100vw;
+  min-height: 70vh;
+  margin: 0px auto;
+  background-color: #222;
+`;
+
+export const ContentWrapper = styled.div`
+  max-width: ${props => (props.width ? props.width : '990px')};
+  margin: 0px auto;
+`;
 
 const PageLinkWrapper = styled.div`
   height: 4rem;
@@ -19,12 +32,6 @@ export const LinkIcon = styled.img`
   height: ${props => (props.size ? props.size : '50px')};
 `;
 
-export const PageTitle = ({ text }) => (
-  <div>
-    <h2>{text}</h2>
-  </div>
-);
-
 export const PageLink = ({ to, text }) => (
   <PageLinkWrapper>
     <Link to={to}>{text}</Link>
@@ -33,7 +40,8 @@ export const PageLink = ({ to, text }) => (
 
 // PORTFOLIO
 export const PortfolioListingWrapper = styled.article`
-  width: 440px;
+  display: flex;
+  justify-content: center;
   position: relative;
   img {
     display: block;

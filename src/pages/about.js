@@ -1,50 +1,68 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { PageTitle } from '../components/helpers';
+import { SectionContainer, ContentWrapper } from '../components/helpers';
 
-const AboutContentWrapper = styled.div`
-  display: flex;
-`;
+// const AboutSectionContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// `;
 
 const AboutInfoContainer = styled.div`
-  width: 70%;
+  width: 60%;
+  text-align: center;
 `;
 
 const AboutSkillsContainer = styled.div`
-  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  padding: 5rem;
   margin-left: 20px;
   h4 {
+    color: #d27831;
     font-weight: 600;
   }
+  h5 {
+    font-weight: 600;
+    color: #d27831;
+  }
+`;
+
+const SkillColumn = styled.div`
+  text-align: center;
+  width: 25vw;
+  margin: 0 1rem;
 `;
 
 const About = ({ data }) => {
   return (
-    <div>
-      <PageTitle text="About" />
-      <AboutContentWrapper>
+    <SectionContainer>
+      <ContentWrapper width="1200px">
         <AboutInfoContainer>
-          <p>
-            Hi, I’m Ashton. I'm a lifelong learner and love the challenges of
-            coding. I've been interested in tech since I was young and have
-            grown familiar with many aspects of the industry. I’ve worked in the
-            clouds, solved problems way past my bedtime, and even built a mining
-            rig (or three). I'm excited to apply these skills to whatever I do
-            going forward and am happy to talk about my experiences so far. Hit
-            me up!
-          </p>
+          <p>{data.contentfulAboutInfo.aboutMe.aboutMe}</p>
         </AboutInfoContainer>
         <AboutSkillsContainer>
-          <h4>{data.contentfulAboutInfo.title}</h4>
-          <ul>
-            {data.contentfulAboutInfo.listItems.map(item => (
-              <li>-{item}</li>
-            ))}
-          </ul>
+          {data.allContentfulAboutDataColumn.edges.map(skill => {
+            return (
+              <SkillColumn key={skill.node.id}>
+                <h4>{skill.node.title}</h4>
+                <p>{skill.node.description.description}</p>
+                <h5>{skill.node.listHeader1}</h5>
+                <p>{skill.node.listItems1.join(', ')}</p>
+                <h5>{skill.node.listHeader2}</h5>
+                <ul>
+                  {skill.node.listItems1.map(item => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </SkillColumn>
+            );
+          })}
         </AboutSkillsContainer>
-      </AboutContentWrapper>
-    </div>
+      </ContentWrapper>
+    </SectionContainer>
   );
 };
 
@@ -53,9 +71,26 @@ export default About;
 export const query = graphql`
   query AboutList {
     contentfulAboutInfo {
-      id
-      title
-      listItems
+      aboutMe {
+        aboutMe
+      }
+    }
+    allContentfulAboutDataColumn {
+      edges {
+        node {
+          columnNum
+          id
+          title
+          description {
+            id
+            description
+          }
+          listHeader1
+          listItems1
+          listHeader2
+          listItems2
+        }
+      }
     }
   }
 `;

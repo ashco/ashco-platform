@@ -6,31 +6,48 @@ import Header from '../components/header';
 import Footer from '../components/Footer';
 import './index.css';
 
+import styled from 'styled-components';
 import image from '../images/logo-dark.svg';
 
-const Layout = ({ children, data, location }) => (
-  <div>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <Header data={data} location={location} />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        // padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
-      {children()}
+// import '../validate.js';
+
+const Main = styled.div`
+  position: absolute;
+  overflow-y: scroll;
+  /* background-color: #222; */
+  top: ${({ isHome }) => (isHome ? '100vh' : '15vh')};
+  width: 100vw;
+  padding-top: 0;
+`;
+
+const Layout = ({ children, data, location }) => {
+  let pageTitleArr = location.pathname.split('/');
+  let pageTitle = '';
+  if (pageTitleArr.length >= 0) {
+    pageTitle = pageTitleArr[pageTitleArr.length - 1];
+    pageTitle = pageTitle
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
+  return (
+    <div>
+      <Helmet
+        title={data.site.siteMetadata.title}
+        meta={[
+          { name: 'description', content: 'Sample' },
+          { name: 'keywords', content: 'sample, something' },
+        ]}
+      />
+      <Header data={data} location={location} title={pageTitle} />
+      <Main isHome={location.pathname === '/'}>
+        {children()}
+        <Footer />
+      </Main>
     </div>
-    <Footer />
-  </div>
-);
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.func,
@@ -46,7 +63,7 @@ export const query = graphql`
         description
       }
     }
-    background: imageSharp(id: { regex: "/bg.jpg/" }) {
+    background: imageSharp(id: { regex: "/bg.png/" }) {
       sizes(maxWidth: 1240, grayscale: false) {
         ...GatsbyImageSharpSizes
       }

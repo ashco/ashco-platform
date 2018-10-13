@@ -4,22 +4,21 @@ import styled from 'styled-components';
 import PortfolioSelect from './PortfolioSelect';
 import PortfolioListing from './PortfolioListing';
 import PortfolioListingContainer from './PortfolioListingContainer';
-import { PageTitle } from '../helpers';
+import { SectionContainer, PageTitle } from '../helpers';
 
 export class PortfolioPage extends Component {
   render() {
     const { data } = this.props;
     if (!data) return null;
     return (
-      <div>
-        <PageTitle text={data.contentfulPortfolioProject.title} />
+      <SectionContainer>
         <PortfolioSelect project={data.contentfulPortfolioProject} />
         <PortfolioListingContainer>
           {data.allContentfulPortfolioProject.edges.map(({ node }) => (
             <PortfolioListing project={node} key={node.id} />
           ))}
         </PortfolioListingContainer>
-      </div>
+      </SectionContainer>
     );
   }
 }

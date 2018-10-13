@@ -7,7 +7,7 @@ import { PortfolioListingWrapper, PortfolioHoverArea } from '../helpers';
 
 const PortfolioListing = ({ project }) => (
   <PortfolioListingWrapper>
-    <Link to={`portfolio/${project.slug}`}>
+    <Link to={`projects/${project.slug}`}>
       <img src={project.image.resize.src} />
       <PortfolioHoverArea>
         <h3>{project.title}</h3>

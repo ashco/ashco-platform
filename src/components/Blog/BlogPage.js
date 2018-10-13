@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { PageTitle, Tag, TagContainer } from '../helpers';
+import styled from 'styled-components';
+
+import {
+  SectionContainer,
+  ContentWrapper,
+  Tag,
+  TagContainer,
+} from '../helpers';
+
+const BlogPageWrapper = styled.div``;
 
 const BlogPage = ({ data }) => {
   if (!data) return null;
@@ -7,30 +16,31 @@ const BlogPage = ({ data }) => {
   const hasTags = data.contentfulBlogPost.tags;
 
   return (
-    <div>
-      <PageTitle text={data.contentfulBlogPost.title} />
-      <div>
-        <span>{data.contentfulBlogPost.createdAt}</span>
-      </div>
-      {hasTags && (
-        <TagContainer>
-          {data.contentfulBlogPost.tags.map(tag => (
-            <Tag>{tag}</Tag>
-          ))}
-        </TagContainer>
-      )}
-      {isHeroImage && (
-        <img
-          src={data.contentfulBlogPost.heroImage.resize.src}
-          alt={data.contentfulBlogPost.heroImage.title}
+    <SectionContainer>
+      <ContentWrapper width="800px">
+        {isHeroImage && (
+          <img
+            src={data.contentfulBlogPost.heroImage.resize.src}
+            alt={data.contentfulBlogPost.heroImage.title}
+          />
+        )}
+        {hasTags && (
+          <TagContainer>
+            {data.contentfulBlogPost.tags.map(tag => (
+              <Tag>{tag}</Tag>
+            ))}
+          </TagContainer>
+        )}
+        <div>
+          <span>{data.contentfulBlogPost.createdAt}</span>
+        </div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data.contentfulBlogPost.body.childMarkdownRemark.html,
+          }}
         />
-      )}
-      <div
-        dangerouslySetInnerHTML={{
-          __html: data.contentfulBlogPost.body.childMarkdownRemark.html,
-        }}
-      />
-    </div>
+      </ContentWrapper>
+    </SectionContainer>
   );
 };
 

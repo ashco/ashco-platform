@@ -1,16 +1,18 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import styled from 'styled-components';
 
 import BlogListing from '../components/Blog/BlogListing';
-import { PageTitle } from '../components/helpers';
+import { SectionContainer, ContentWrapper } from '../components/helpers';
 
 const BlogPage = ({ data }) => (
-  <div>
-    <PageTitle text="Blog" />
-    {data.allContentfulBlogPost.edges.map(({ node }) => (
-      <BlogListing post={node} key={node.id} />
-    ))}
-  </div>
+  <SectionContainer>
+    <ContentWrapper width="900px">
+      {data.allContentfulBlogPost.edges.map(({ node }) => (
+        <BlogListing post={node} key={node.id} />
+      ))}
+    </ContentWrapper>
+  </SectionContainer>
 );
 
 export default BlogPage;

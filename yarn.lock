@@ -7849,6 +7849,12 @@ react-is@^16.3.1:
   version "16.4.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.2.tgz#84891b56c2b6d9efdee577cc83501dfc5ecead88"
 
+react-particles-js@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-particles-js/-/react-particles-js-2.3.0.tgz#2670181eff14f97479b4ae75601f51d9d6c082d7"
+  dependencies:
+    lodash.clonedeep "^4.5.0"
+
 react-proxy@^3.0.0-alpha.0:
   version "3.0.0-alpha.1"
   resolved "https://registry.yarnpkg.com/react-proxy/-/react-proxy-3.0.0-alpha.1.tgz#4400426bcfa80caa6724c7755695315209fa4b07"

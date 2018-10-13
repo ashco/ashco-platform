@@ -8,9 +8,9 @@ import githubIcon from '../../images/icons/github-brands.svg';
 import desktopIcon from '../../images/icons/desktop-solid.svg';
 
 const PortfolioSelectWrapper = styled.div`
-  background-color: #333;
-  width: 440px;
   position: relative;
+  display: flex;
+  justify-content: center;
   img {
     display: block;
   }
@@ -49,7 +49,7 @@ const PortfolioSelect = ({ project }) => (
         {project.description.description}
         <TagContainer>
           {project.tags.map(tag => (
-            <Tag>{tag}</Tag>
+            <Tag key={tag}>{tag}</Tag>
           ))}
         </TagContainer>
       </PortfolioSelectLeftContainer>
