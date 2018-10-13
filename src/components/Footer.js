@@ -10,6 +10,7 @@ import twitterIcon from '../images/icons/twitter-brands.svg';
 import resumeIcon from '../images/icons/file-alt-solid.svg';
 
 const FooterWrapper = styled.footer`
+  pointer-events: none;
   z-index: 1;
   position: fixed;
   bottom: 0;
@@ -56,32 +57,36 @@ const FooterRight = styled.div`
   }
 `;
 
-const Footer = () => {
+const Footer = ({ pageScrolled }) => {
   const year = new Date().getFullYear();
 
   return (
     <FooterWrapper>
       <FooterLeft>
-        <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
-        <p>
-          This site is built with{' '}
-          <a href="https://www.gatsbyjs.org/" target="_blank">
-            Gatsbyjs
-          </a>{' '}
-          and{' '}
-          <a href="https://www.contentful.com/" target="_blank">
-            Contentful
-          </a>
-          . The source code is hosted on{' '}
-          <a href="https://github.com/ashco/ashco-platform" target="_blank">
-            Github
-          </a>
-          .
-        </p>
+        {pageScrolled && (
+          <div>
+            <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
+            <p>
+              This site is built with{' '}
+              <a href="https://www.gatsbyjs.org/" target="_blank">
+                Gatsbyjs
+              </a>{' '}
+              and{' '}
+              <a href="https://www.contentful.com/" target="_blank">
+                Contentful
+              </a>
+              . The source code is hosted on{' '}
+              <a href="https://github.com/ashco/ashco-platform" target="_blank">
+                Github
+              </a>
+              .
+            </p>
+          </div>
+        )}
       </FooterLeft>
+
       <FooterRight>
         <ul>
-          {/* <li>Say Hi! - </li> */}
           <li>
             <a href="https://github.com/ashco" target="_blank">
               <LinkIcon src={githubIcon} alt="Github" />

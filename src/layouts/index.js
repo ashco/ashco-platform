@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import styled from 'styled-components';
 
 import Header from '../components/header';
 import Footer from '../components/Footer';
 import './index.css';
 
-import styled from 'styled-components';
+import ParticleBG from '../components/ParticleBG';
 import image from '../images/logo-dark.svg';
 
-const Body = styled.div`
+const Body = styled.main`
   z-index: 10;
   pointer-events: none;
   position: absolute;
@@ -17,35 +18,79 @@ const Body = styled.div`
   /* background-color: #222; */
   top: ${({ isHome }) => (isHome ? '100vh' : '15vh')};
   width: 100vw;
+  margin: 0px auto 10vh auto;
   padding-top: 0;
 `;
 
-const Layout = ({ children, data, location }) => {
-  let pageTitleArr = location.pathname.split('/');
-  let pageTitle = '';
-  if (pageTitleArr.length >= 0) {
-    pageTitle = pageTitleArr[pageTitleArr.length - 1];
-    pageTitle = pageTitle
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+// const Layout = ({ children, data, location }) => {
+class Layout extends Component {
+  state = {
+    isHome: true,
+    pageScrolled: false,
+  };
+
+  componentDidMount() {
+    this.state.isHome
+      ? window.addEventListener('scroll', this.handleScroll)
+      : window.removeEventListener('scroll', this.handleScroll);
   }
 
-  return (
-    <div>
-      <Helmet
-        title={data.site.siteMetadata.title}
-        meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
-        ]}
-      />
-      <Header data={data} location={location} title={pageTitle} />
-      <Body isHome={location.pathname === '/'}>{children()}</Body>
-      <Footer />
-    </div>
-  );
-};
+  componentDidUpdate() {
+    const isHome = location.pathname === '/';
+    if (isHome !== this.state.isHome) {
+      this.setState({
+        isHome,
+      });
+    }
+    isHome
+      ? window.addEventListener('scroll', this.handleScroll)
+      : window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = event => {
+    let pageScrolled = window.pageYOffset >= window.innerHeight * 0.5;
+    if (pageScrolled !== this.state.pageScrolled) {
+      this.setState({
+        pageScrolled,
+      });
+    }
+  };
+
+  render() {
+    const { children, data, location } = this.props;
+    const { isHome, pageScrolled } = this.state;
+    let pageTitleArr = location.pathname.split('/');
+    let pageTitle = '';
+    if (pageTitleArr.length >= 0) {
+      pageTitle = pageTitleArr[pageTitleArr.length - 1];
+      pageTitle = pageTitle
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    }
+
+    return (
+      <div>
+        <Helmet
+          title={data.site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: 'Sample' },
+            { name: 'keywords', content: 'sample, something' },
+          ]}
+        />
+        <ParticleBG />
+        <Header
+          data={data}
+          location={location}
+          title={pageTitle}
+          isHome={isHome}
+        />
+        <Body isHome={isHome}>{children()}</Body>
+        <Footer pageScrolled={pageScrolled} />
+      </div>
+    );
+  }
+}
 
 Layout.propTypes = {
   children: PropTypes.func,

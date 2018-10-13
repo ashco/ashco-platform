@@ -4,15 +4,15 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
-import ParticleBG from './ParticleBG';
+// import ParticleBG from './ParticleBG';
 import NavArrow from './NavArrow';
 
 import logo from '../images/logo-lite.svg';
 
 const HeaderWrapper = styled.header`
-  overflow: hidden;
+  /* overflow: hidden; */
   position: fixed;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
 `;
 
@@ -104,13 +104,20 @@ const NavLinks = styled.div`
 `;
 
 class Header extends Component {
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log(nextProps);
+  //   console.log(this.props);
+  //   return nextProps !== this.props;
+  //   // return !equals(nextProps, this.props); // equals() is your implementation
+  // }
+
   render() {
-    const { data, location, title } = this.props;
+    const { data, location, title, isHome } = this.props;
     return (
       // refs are a way to reference a component
       // sets this.wrapper to dom element
       <HeaderWrapper
-        isHome={location.pathname === '/'}
+        isHome={isHome}
         ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
       >
         <HeaderContainer>
@@ -140,8 +147,8 @@ class Header extends Component {
             </ul>
           </NavLinks>
         </HeaderContainer>
-        {location.pathname === '/' && <NavArrow />}
-        <ParticleBG />
+        {isHome && <NavArrow />}
+        {/* <ParticleBG /> */}
       </HeaderWrapper>
     );
   }

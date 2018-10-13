@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-export const MainContainer = styled.main`
+export const MainContainer = styled.div`
   pointer-events: auto;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@ export const MainContainer = styled.main`
   /* width: 100vw; */
   padding: 2rem 5rem;
   min-height: 70vh;
-  margin: 0px auto 10vh auto;
+  /* margin: 0px auto 10vh auto; */
   background-color: #222;
 `;
 
