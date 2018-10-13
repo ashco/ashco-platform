@@ -18,11 +18,23 @@ const FooterWrapper = styled.footer`
   a {
     color: #d27831;
   }
+  div {
+    margin: 0.5rem;
+  }
+
+  @media (max-width: 720px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 `;
 
 const FooterLeft = styled.div`
+  line-height: 1.3rem;
   a {
     pointer-events: auto;
+  }
+  @media (max-width: 720px) {
+    text-align: center;
   }
 `;
 
@@ -30,8 +42,11 @@ const FooterRight = styled.div`
   ul {
     display: flex;
     color: #d27831;
-    a {
-      pointer-events: auto;
+    li {
+      margin: 0 0.5rem;
+      a {
+        pointer-events: auto;
+      }
     }
   }
 `;
@@ -61,7 +76,7 @@ const Footer = () => {
       </FooterLeft>
       <FooterRight>
         <ul>
-          <li>Say Hi! - </li>
+          {/* <li>Say Hi! - </li> */}
           <li>
             <a href="https://github.com/ashco" target="_blank">
               <LinkIcon src={githubIcon} alt="Github" />
