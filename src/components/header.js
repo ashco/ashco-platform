@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 
 import ParticleBG from './ParticleBG';
+import NavArrow from './NavArrow';
 
 import logo from '../images/logo-lite.svg';
 
@@ -137,7 +138,7 @@ class Header extends Component {
             </ul>
           </MainNav>
         </HeaderContainer>
-        {location.pathname === '/' && <NavLink />}
+        {location.pathname === '/' && <NavArrow />}
 
         <ParticleBG />
         {/* <Img
@@ -155,25 +156,5 @@ class Header extends Component {
     );
   }
 }
-
-const NavLinkStyle = styled.div`
-  position: absolute;
-  top: 95vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 2;
-  a {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: white;
-  }
-`;
-
-const NavLink = () => (
-  <NavLinkStyle>
-    <a href="#home">V{/* <img href=""></img> */}</a>
-  </NavLinkStyle>
-);
 
 export default Header;
