@@ -32,18 +32,46 @@ const HeaderContainer = styled.nav`
   pointer-events: none;
 `;
 
+const HeaderTitle = styled.h1`
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  a {
+    color: #fff;
+    text-decoration: none;
+    pointer-events: auto;
+  }
+  span {
+    margin-left: 0.6rem;
+  }
+
+  @media (min-width: 800px) {
+    font-size: 2.5rem;
+  }
+  @media (min-width: 1000px) {
+    font-size: 3rem;
+  }
+  @media (min-width: 1400px) {
+    font-size: 3.5rem;
+  }
+  /* @media (min-width: 1800px) {
+    font-size: 4rem;
+  } */
+`;
+
 const NavLinks = styled.div`
+  font-size: 1rem;
   ul {
     list-style: none;
     display: flex;
     li {
-      margin-left: 1.8rem;
+      margin: 0 0.9rem;
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
       a {
         pointer-events: auto;
         text-decoration: none;
-        font-size: 1.5rem;
         font-weight: 600;
         color: #fff;
         &:hover {
@@ -52,46 +80,23 @@ const NavLinks = styled.div`
       }
     }
   }
+  @media (min-width: 800px) {
+    font-size: 1.25rem;
+  }
+  @media (min-width: 1000px) {
+    font-size: 1.5rem;
+  }
+  @media (min-width: 1400px) {
+    font-size: 1.75rem;
+  }
+  /* @media (min-width: 1800px) {
+    ul {
+      font-size: 2rem;
+    }
+  } */
 `;
 
 class Header extends Component {
-  // componentDidUpdate = (prevProps, prevState) => {
-  //   // console.log(this.props.location.pathname)
-  //   const { location } = this.props;
-  //   if (location.pathname !== prevProps.location.pathname) {
-  //     if (this.props.location.pathname === '/') {
-  //       // console.log(this.wrapper)
-  //       this.wrapper.animate(
-  //         [
-  //           { height: '24vh' }, // beginning
-  //           { height: '70vh' }, // ending
-  //         ],
-  //         {
-  //           // animation properties
-  //           duration: 400,
-  //           fill: 'forwards', // stick at end frame
-  //           easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
-  //           iterations: 1,
-  //         }
-  //       );
-  //     } else {
-  //       this.wrapper.animate(
-  //         [
-  //           { height: '70vh' }, // beginning
-  //           { height: '24vh' }, // ending
-  //         ],
-  //         {
-  //           // animation properties
-  //           duration: 400,
-  //           fill: 'forwards', // stick at end frame
-  //           easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
-  //           iterations: 1,
-  //         }
-  //       );
-  //     }
-  //   }
-  // };
-
   render() {
     const { data, location, title } = this.props;
     return (
@@ -102,25 +107,12 @@ class Header extends Component {
         ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
       >
         <HeaderContainer>
-          <h1
-            style={{
-              margin: 0,
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            <Link
-              to="/"
-              style={{
-                color: '#fff',
-                textDecoration: 'none',
-                pointerEvents: 'auto',
-              }}
-            >
+          <HeaderTitle>
+            <Link to="/">
               <img src={logo} alt="logo" />
             </Link>
-            <span style={{ marginLeft: '0.6rem' }}>{title}</span>
-          </h1>
+            <span>{title}</span>
+          </HeaderTitle>
           <NavLinks>
             <ul>
               <li>
@@ -142,19 +134,7 @@ class Header extends Component {
           </NavLinks>
         </HeaderContainer>
         {location.pathname === '/' && <NavArrow />}
-
         <ParticleBG />
-        {/* <Img
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            width: '100%',
-            height: '100%',
-            opacity: 0.8,
-          }}
-          sizes={data.background.sizes}
-        /> */}
       </HeaderWrapper>
     );
   }

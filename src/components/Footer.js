@@ -14,6 +14,8 @@ import resumeIcon from '../images/icons/file-alt-solid.svg';
 const FooterWrapper = styled.footer`
   display: flex;
   justify-content: space-between;
+  flex-direction: column-reverse;
+  align-items: center;
   margin: 2rem 0.5rem;
   a {
     color: #d27831;
@@ -22,19 +24,20 @@ const FooterWrapper = styled.footer`
     margin: 0.5rem;
   }
 
-  @media (max-width: 720px) {
-    flex-direction: column-reverse;
-    align-items: center;
+  @media (min-width: 720px) {
+    flex-direction: row;
+    align-items: space-between;
   }
 `;
 
 const FooterLeft = styled.div`
   line-height: 1.3rem;
+  text-align: center;
   a {
     pointer-events: auto;
   }
-  @media (max-width: 720px) {
-    text-align: center;
+  @media (min-width: 720px) {
+    text-align: left;
   }
 `;
 
