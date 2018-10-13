@@ -9,6 +9,7 @@ const NavArrowStyle = styled.div`
   justify-content: center;
   z-index: 1;
   button {
+    pointer-events: auto;
     font-size: 1.5rem;
     font-weight: 600;
     color: white;

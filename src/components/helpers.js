@@ -9,7 +9,7 @@ export const MainContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   /* width: 100vw; */
-  padding: 2rem 5rem;
+  /* padding: 2rem 5rem; */
   min-height: 70vh;
   /* margin: 0px auto 10vh auto; */
   background-color: #222;

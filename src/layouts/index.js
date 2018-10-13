@@ -16,26 +16,27 @@ const Body = styled.main`
   position: absolute;
   overflow-y: scroll;
   /* background-color: #222; */
-  top: ${({ isHome }) => (isHome ? '100vh' : '15vh')};
+  top: ${({ isHome }) => (isHome ? '100vh' : '0')};
   width: 100vw;
-  margin: 0px auto 10vh auto;
+  margin: 15vh auto;
   padding-top: 0;
 `;
 
-// const Layout = ({ children, data, location }) => {
 class Layout extends Component {
   state = {
     isHome: true,
     pageScrolled: false,
   };
 
-  componentDidMount() {
-    this.state.isHome
-      ? window.addEventListener('scroll', this.handleScroll)
-      : window.removeEventListener('scroll', this.handleScroll);
+  componentWillMount() {
+    this.isHomeCheck();
   }
 
   componentDidUpdate() {
+    this.isHomeCheck();
+  }
+
+  isHomeCheck() {
     const isHome = location.pathname === '/';
     if (isHome !== this.state.isHome) {
       this.setState({
@@ -86,7 +87,7 @@ class Layout extends Component {
           isHome={isHome}
         />
         <Body isHome={isHome}>{children()}</Body>
-        <Footer pageScrolled={pageScrolled} />
+        <Footer pageScrolled={pageScrolled} isHome={isHome} />
       </div>
     );
   }

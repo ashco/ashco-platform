@@ -4,7 +4,6 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
-// import ParticleBG from './ParticleBG';
 import NavArrow from './NavArrow';
 
 import logo from '../images/logo-lite.svg';
@@ -12,8 +11,9 @@ import logo from '../images/logo-lite.svg';
 const HeaderWrapper = styled.header`
   /* overflow: hidden; */
   position: fixed;
+  pointer-events: none;
   /* height: 100vh; */
-  width: 100vw;
+  width: 100%;
 `;
 
 const HeaderContainer = styled.nav`

@@ -52,18 +52,23 @@ const FooterRight = styled.div`
       margin: 0 0.5rem;
       a {
         pointer-events: auto;
+        &:hover {
+          border-bottom: 3px solid #d27831;
+        }
       }
     }
   }
 `;
 
-const Footer = ({ pageScrolled }) => {
+const Footer = ({ pageScrolled, isHome }) => {
   const year = new Date().getFullYear();
-
+  const showFooter = !isHome || pageScrolled;
   return (
     <FooterWrapper>
       <FooterLeft>
-        {pageScrolled && (
+        {/* {pageScrolled ||
+          (!isHome && ( */}
+        {showFooter && (
           <div>
             <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
             <p>
@@ -84,7 +89,6 @@ const Footer = ({ pageScrolled }) => {
           </div>
         )}
       </FooterLeft>
-
       <FooterRight>
         <ul>
           <li>
