@@ -8,10 +8,12 @@ const NavArrowStyle = styled.div`
   display: flex;
   justify-content: center;
   z-index: 2;
-  a {
+  button {
     font-size: 1.5rem;
     font-weight: 600;
     color: white;
+    background: transparent;
+    border: none;
   }
 `;
 
@@ -38,11 +40,22 @@ class NavArrow extends Component {
     }
   };
 
+  scroll() {
+    document
+      .querySelector('#home')
+      .scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // window.scroll({
+    //   top: 10000,
+    //   left: 0,
+    //   behavior: 'smooth',
+    // });
+  }
+
   render() {
     return (
       this.state.showNavArrow && (
         <NavArrowStyle>
-          <a href="#home">V{/* <img href=""></img> */}</a>
+          <button onClick={this.scroll}>V{/* <img href=""></img> */}</button>
         </NavArrowStyle>
       )
     );

@@ -14,11 +14,6 @@ const HeaderWrapper = styled.header`
   position: fixed;
   height: 100vh;
   width: 100vw;
-  h1 {
-    img {
-      height: 5rem;
-    }
-  }
 `;
 
 const HeaderContainer = styled.nav`
@@ -37,6 +32,9 @@ const HeaderTitle = styled.h1`
   display: flex;
   align-items: center;
   font-size: 2rem;
+  img {
+    height: 5rem;
+  }
   a {
     color: #fff;
     text-decoration: none;
@@ -48,12 +46,21 @@ const HeaderTitle = styled.h1`
 
   @media (min-width: 800px) {
     font-size: 2.5rem;
+    img {
+      height: 6rem;
+    }
   }
   @media (min-width: 1000px) {
     font-size: 3rem;
+    img {
+      height: 7rem;
+    }
   }
   @media (min-width: 1400px) {
     font-size: 3.5rem;
+    img {
+      height: 8rem;
+    }
   }
   /* @media (min-width: 1800px) {
     font-size: 4rem;
