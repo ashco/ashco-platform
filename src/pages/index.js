@@ -7,7 +7,7 @@ import Portfolio from '../components/Main/PortfolioSection';
 import Blog from '../components/Main/BlogSection';
 import Contact from '../components/Main/ContactSection';
 
-import { SectionContainer, ContentWrapper } from '../components/helpers';
+import { MainContainer, ContentWrapper } from '../components/helpers';
 
 // const IndexWrapper = styled.div`
 //   section {
@@ -17,14 +17,14 @@ import { SectionContainer, ContentWrapper } from '../components/helpers';
 // `;
 
 const IndexPage = ({ data }) => (
-  <SectionContainer>
+  <MainContainer>
     <ContentWrapper width="990px" id="home">
       <About />
       <Portfolio projects={data.allContentfulPortfolioProject.edges} />
       <Blog posts={data.allContentfulBlogPost.edges} />
       <Contact />
     </ContentWrapper>
-  </SectionContainer>
+  </MainContainer>
 );
 
 export default IndexPage;

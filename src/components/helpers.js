@@ -2,7 +2,8 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-export const SectionContainer = styled.section`
+export const MainContainer = styled.main`
+  pointer-events: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

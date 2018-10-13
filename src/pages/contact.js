@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import {
-  SectionContainer,
+  MainContainer,
   ContentWrapper,
   PageTitle,
 } from '../components/helpers';
@@ -42,7 +42,7 @@ const FormInputWrapper = styled.p`
 `;
 
 const ContactPage = () => (
-  <SectionContainer>
+  <MainContainer>
     <ContentWrapper>
       <FormWrapper
         name="contact"
@@ -70,7 +70,7 @@ const ContactPage = () => (
         </div>
       </FormWrapper>
     </ContentWrapper>
-  </SectionContainer>
+  </MainContainer>
 );
 
 export default ContactPage;

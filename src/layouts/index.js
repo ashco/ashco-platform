@@ -9,7 +9,8 @@ import './index.css';
 import styled from 'styled-components';
 import image from '../images/logo-dark.svg';
 
-const Main = styled.div`
+const Body = styled.div`
+  pointer-events: none;
   position: absolute;
   overflow-y: scroll;
   /* background-color: #222; */
@@ -39,10 +40,10 @@ const Layout = ({ children, data, location }) => {
         ]}
       />
       <Header data={data} location={location} title={pageTitle} />
-      <Main isHome={location.pathname === '/'}>
+      <Body isHome={location.pathname === '/'}>
         {children()}
         <Footer />
-      </Main>
+      </Body>
     </div>
   );
 };

@@ -9,7 +9,7 @@ import NavArrow from './NavArrow';
 
 import logo from '../images/logo-lite.svg';
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
   overflow: hidden;
   position: fixed;
   height: 100vh;
@@ -21,7 +21,7 @@ const HeaderWrapper = styled.div`
   }
 `;
 
-const HeaderContainer = styled.header`
+const HeaderContainer = styled.nav`
   margin: 0 auto;
   max-width: 1200px;
   padding: 1.45rem 1.0875rem;
@@ -29,9 +29,10 @@ const HeaderContainer = styled.header`
   z-index: 2;
   display: flex;
   justify-content: space-between;
+  pointer-events: none;
 `;
 
-const MainNav = styled.nav`
+const NavLinks = styled.div`
   ul {
     list-style: none;
     display: flex;
@@ -40,6 +41,7 @@ const MainNav = styled.nav`
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
       a {
+        pointer-events: auto;
         text-decoration: none;
         font-size: 1.5rem;
         font-weight: 600;
@@ -112,13 +114,14 @@ class Header extends Component {
               style={{
                 color: '#fff',
                 textDecoration: 'none',
+                pointerEvents: 'auto',
               }}
             >
               <img src={logo} alt="logo" />
             </Link>
             <span style={{ marginLeft: '0.6rem' }}>{title}</span>
           </h1>
-          <MainNav>
+          <NavLinks>
             <ul>
               <li>
                 <Link to="/#home">Home</Link>
@@ -136,7 +139,7 @@ class Header extends Component {
                 <Link to="/contact">Contact</Link>
               </li>
             </ul>
-          </MainNav>
+          </NavLinks>
         </HeaderContainer>
         {location.pathname === '/' && <NavArrow />}
 

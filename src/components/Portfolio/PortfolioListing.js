@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import {
-  SectionContainer,
+  MainContainer,
   PortfolioListingWrapper,
   PortfolioHoverArea,
   LinkIcon,
@@ -34,7 +34,7 @@ class PortfolioListing extends Component {
     const { project } = this.props;
 
     return (
-      <SectionContainer>
+      <MainContainer>
         <PortfolioListingWrapper>
           <Link to={`/projects/${project.slug}`}>
             <img src={project.image.resize.src} alt={project.title} />
@@ -69,7 +69,7 @@ class PortfolioListing extends Component {
             </LinkContainer>
           </PortfolioHoverArea>
         </PortfolioListingWrapper>
-      </SectionContainer>
+      </MainContainer>
     );
   }
 }

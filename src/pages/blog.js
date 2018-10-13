@@ -3,16 +3,16 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import BlogListing from '../components/Blog/BlogListing';
-import { SectionContainer, ContentWrapper } from '../components/helpers';
+import { MainContainer, ContentWrapper } from '../components/helpers';
 
 const BlogPage = ({ data }) => (
-  <SectionContainer>
+  <MainContainer>
     <ContentWrapper width="900px">
       {data.allContentfulBlogPost.edges.map(({ node }) => (
         <BlogListing post={node} key={node.id} />
       ))}
     </ContentWrapper>
-  </SectionContainer>
+  </MainContainer>
 );
 
 export default BlogPage;

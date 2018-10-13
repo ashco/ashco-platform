@@ -20,12 +20,19 @@ const FooterWrapper = styled.footer`
   }
 `;
 
-const FooterLeft = styled.div``;
+const FooterLeft = styled.div`
+  a {
+    pointer-events: auto;
+  }
+`;
 
 const FooterRight = styled.div`
   ul {
     display: flex;
     color: #d27831;
+    a {
+      pointer-events: auto;
+    }
   }
 `;
 

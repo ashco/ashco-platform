@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import {
-  SectionContainer,
-  ContentWrapper,
-  Tag,
-  TagContainer,
-} from '../helpers';
+import { MainContainer, ContentWrapper, Tag, TagContainer } from '../helpers';
 
 const BlogPageWrapper = styled.div``;
 
@@ -16,7 +11,7 @@ const BlogPage = ({ data }) => {
   const hasTags = data.contentfulBlogPost.tags;
 
   return (
-    <SectionContainer>
+    <MainContainer>
       <ContentWrapper width="800px">
         {isHeroImage && (
           <img
@@ -40,7 +35,7 @@ const BlogPage = ({ data }) => {
           }}
         />
       </ContentWrapper>
-    </SectionContainer>
+    </MainContainer>
   );
 };
 

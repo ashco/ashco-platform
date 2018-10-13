@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { SectionContainer, ContentWrapper } from '../components/helpers';
+import { MainContainer, ContentWrapper } from '../components/helpers';
 
-// const AboutSectionContainer = styled.div`
+// const AboutMainContainer = styled.div`
 //   display: flex;
 //   flex-direction: column;
 //   align-items: center;
@@ -38,7 +38,7 @@ const SkillColumn = styled.div`
 
 const About = ({ data }) => {
   return (
-    <SectionContainer>
+    <MainContainer>
       <ContentWrapper width="1200px">
         <AboutInfoContainer>
           <p>{data.contentfulAboutInfo.aboutMe.aboutMe}</p>
@@ -62,7 +62,7 @@ const About = ({ data }) => {
           })}
         </AboutSkillsContainer>
       </ContentWrapper>
-    </SectionContainer>
+    </MainContainer>
   );
 };
 
