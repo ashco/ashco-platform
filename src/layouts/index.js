@@ -9,8 +9,6 @@ import './index.css';
 import styled from 'styled-components';
 import image from '../images/logo-dark.svg';
 
-// import '../validate.js';
-
 const Main = styled.div`
   position: absolute;
   overflow-y: scroll;
