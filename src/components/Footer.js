@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
+
+import isEqual from 'lodash.isequal';
 
 import NavArrow from './Icons/NavArrow';
 import GithubIcon from './Icons/Github';
@@ -67,14 +68,11 @@ const FooterRightWrapper = styled.div`
   justify-content: flex-end;
   ul {
     display: flex;
-    /* color: ${props => props.theme.colorPrimary}; */
     li {
       margin: 0 0.75rem;
       a {
-        /* pointer-events: auto; */
-        /* transition: border-bottom .2s ease-out; */
         &:hover {
-          border-bottom: 3px solid ${props => props.theme.colorPrimary};
+          border-bottom: 4px solid ${props => props.theme.colorPrimary};
         }
       }
     }
@@ -82,53 +80,117 @@ const FooterRightWrapper = styled.div`
 `;
 
 class Footer extends Component {
-  state = {};
+  state = {
+    showFooterLeft: false,
+    showFooterCenter: false,
+    showFooterRight: false,
+  };
 
-  componentDidUpdate() {
-    const { pageScrolled, pageBottom, isHome } = this.props;
+  componentWillMount() {
+    const stateObj = this.handleFooterState();
 
-    const showFooter = window.innerWidth >= 750 || this.props.pageBottom;
-    const showFooterLeft = !isHome || pageScrolled;
-    const showNavArrow = isHome && !pageScrolled;
-
-    if (showFooter !== this.state.showFooter) {
-      this.setState({
-        showFooter,
-      });
-    }
-    if (showFooterLeft !== this.state.showFooterLeft) {
-      this.setState({
-        showFooterLeft,
-      });
-    }
-    if (showNavArrow !== this.state.showNavArrow) {
-      this.setState({
-        showNavArrow,
-      });
+    if (!isEqual(stateObj, this.state)) {
+      this.setState(stateObj);
     }
   }
 
-  render() {
-    // const { pageScrolled, pageBottom, isHome } = this.props;
-    const { showFooter, showFooterLeft, showNavArrow } = this.state;
+  componentDidUpdate() {
+    const stateObj = this.handleFooterState();
 
-    // const showFooter = window.innerWidth >= 750 || pageBottom;
+    // console.log(stateObj);
+    // console.log(this.state);
+    // console.log();
+    if (!isEqual(stateObj, this.state)) {
+      this.setState(stateObj);
+    }
+
+    // const { pageScrolled, pageBottom, isHome, isMobile } = this.props;
+    // const showFooterRight = window.innerWidth >= 750 || pageBottom;
+    // const showFooterCenter = isHome && !pageScrolled;
     // const showFooterLeft = !isHome || pageScrolled;
-    // const showNavArrow = isHome && !pageScrolled;
-    const year = new Date().getFullYear();
+    // if (showFooterRight !== this.state.showFooterRight) {
+    //   this.setState({
+    //     showFooterRight,
+    //   });
+    // }
+    // if (showFooterLeft !== this.state.showFooterLeft) {
+    //   this.setState({
+    //     showFooterLeft,
+    //   });
+    // }
+    // if (showFooterCenter !== this.state.showFooterCenter) {
+    //   this.setState({
+    //     showFooterCenter,
+    //   });
+    // }
+  }
 
+  handleFooterState() {
+    const { pageScrolled, pageBottom, isHome, isMobile } = this.props;
+    let stateObj = {
+      showFooterLeft: false,
+      showFooterCenter: false,
+      showFooterRight: false,
+    };
+
+    if (isMobile) {
+      if (pageBottom) {
+        stateObj = {
+          showFooterLeft: true,
+          showFooterCenter: false,
+          showFooterRight: true,
+        };
+      } else {
+        stateObj = {
+          showFooterLeft: false,
+          showFooterCenter: false,
+          showFooterRight: false,
+        };
+      }
+    } else {
+      if (isHome) {
+        if (!pageScrolled) {
+          stateObj = {
+            showFooterLeft: false,
+            showFooterCenter: true,
+            showFooterRight: true,
+          };
+        } else {
+          stateObj = {
+            showFooterLeft: true,
+            showFooterCenter: false,
+            showFooterRight: true,
+          };
+        }
+      } else {
+        stateObj = {
+          showFooterLeft: true,
+          showFooterCenter: false,
+          showFooterRight: true,
+        };
+      }
+    }
+    return stateObj;
+  }
+
+  render() {
+    const { showFooterLeft, showFooterCenter, showFooterRight } = this.state;
+
+    const year = new Date().getFullYear();
     return (
-      <FooterWrapper className={showFooter ? 'visible-fade' : 'hidden-fade'}>
+      <FooterWrapper>
         <FooterLeft showFooterLeft={showFooterLeft} year={year} />
-        <FooterCenter showNavArrow={showNavArrow} />
-        <FooterRight />
+        <FooterCenter showFooterCenter={showFooterCenter} />
+        <FooterRight showFooterRight={showFooterRight} />
       </FooterWrapper>
     );
   }
 }
 
 const FooterLeft = ({ showFooterLeft, year }) => (
-  <FooterLeftWrapper className={showFooterLeft ? 'visible' : 'hidden'}>
+  <FooterLeftWrapper
+    className={showFooterLeft ? 'visible-fade' : 'hidden-fade'}
+  >
     <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
     <p>
       This site is built with{' '}
@@ -148,14 +210,16 @@ const FooterLeft = ({ showFooterLeft, year }) => (
   </FooterLeftWrapper>
 );
 
-const FooterCenter = ({ showNavArrow }) => (
-  <FooterCenterWrapper className={showNavArrow ? 'visible' : 'hidden'}>
+const FooterCenter = ({ showFooterCenter }) => (
+  <FooterCenterWrapper className={showFooterCenter ? 'visible' : 'hidden'}>
     <NavArrow />
   </FooterCenterWrapper>
 );
 
-const FooterRight = () => (
-  <FooterRightWrapper>
+const FooterRight = ({ showFooterRight }) => (
+  <FooterRightWrapper
+    className={showFooterRight ? 'visible-fade' : 'hidden-fade'}
+  >
     <ul>
       <li>
         <a href="https://github.com/ashco" target="_blank">

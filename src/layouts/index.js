@@ -33,17 +33,20 @@ const Body = styled.main`
 class Layout extends Component {
   state = {
     isHome: true,
+    isMobile: true,
     pageScrolled: false,
     pageBottom: false,
   };
 
   componentWillMount() {
     this.updateIsHome();
+    this.updateIsMobile();
     window.addEventListener('scroll', this.handleScrollState);
   }
 
   componentDidUpdate() {
     this.updateIsHome();
+    this.updateIsMobile();
   }
 
   updateIsHome() {
@@ -51,6 +54,15 @@ class Layout extends Component {
     if (isHome !== this.state.isHome) {
       this.setState({
         isHome,
+      });
+    }
+  }
+
+  updateIsMobile() {
+    const isMobile = window.innerWidth <= 750;
+    if (isMobile !== this.state.isMobile) {
+      this.setState({
+        isMobile,
       });
     }
   }
@@ -92,7 +104,7 @@ class Layout extends Component {
 
   render() {
     const { children, data, location } = this.props;
-    const { isHome, pageScrolled, pageBottom } = this.state;
+    const { isHome, isMobile, pageScrolled, pageBottom } = this.state;
 
     let pageTitleArr = location.pathname.split('/');
     let pageTitle = '';
@@ -107,7 +119,6 @@ class Layout extends Component {
     const getBodyTop = isHome => {
       let top = 0;
       if (isHome) {
-        const isMobile = window.innerWidth <= 750;
         const headerHeight = isMobile ? '140px' : '15vh';
         if (isMobile) {
           top = window.innerHeight - parseInt(headerHeight);
@@ -143,6 +154,7 @@ class Layout extends Component {
             pageScrolled={pageScrolled}
             pageBottom={pageBottom}
             isHome={isHome}
+            isMobile={isMobile}
           />
           <ParticleBG />
         </LayoutWrapper>
