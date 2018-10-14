@@ -80,7 +80,7 @@ const HeaderTitle = styled.h1`
 `;
 
 const NavLinks = styled.div`
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   margin: 1.45rem 1.1rem;
   ul {
     list-style: none;
@@ -111,9 +111,9 @@ const NavLinks = styled.div`
       }
     }
   }
-  @media (min-width: 800px) {
+  /* @media (min-width: 800px) {
     font-size: 1.25rem;
-  }
+  } */
   @media (min-width: 1000px) {
     font-size: 1.5rem;
   }

@@ -10,7 +10,6 @@ import Footer from '../components/Footer';
 import '../style/index.css';
 
 import ParticleBG from '../components/ParticleBG';
-import image from '../images/logo-dark.svg';
 
 const LayoutWrapper = styled.div`
   color: ${props => props.theme.colorText};
@@ -21,14 +20,11 @@ const Body = styled.main`
   pointer-events: none;
   position: absolute;
   overflow-y: scroll;
-  top: ${({ isHome }) => (isHome ? '100vh' : '0')};
+  /* top: ${({ isHome }) => (isHome ? '100vh' : '0')}; */
+  top: ${props => props.top};
   width: 100vw;
-  margin: ${props => props.theme.mobileHeaderHeight} auto ${props =>
-  props.theme.mobileFooterHeight} auto;
-  /* padding-top: 0; */
-  /* @media (min-width: ${props => props.theme.widthTablet}) {
-    top: ${({ isHome }) => (isHome ? '100vh' : '0')};
-  } */
+  margin: ${props => props.theme.mobileHeaderHeight} auto
+    ${props => props.theme.mobileFooterHeight} auto;
   @media (min-width: ${props => props.theme.widthTablet}) {
     margin: ${props => props.theme.tabletHeaderHeight} auto;
   }
@@ -58,12 +54,6 @@ class Layout extends Component {
       });
     }
   }
-
-  // toggleIsHomeEvent() {
-  //   this.state.isHome
-  //     ? window.addEventListener('scroll', this.handleScroll)
-  //     : window.removeEventListener('scroll', this.handleScroll);
-  // }
 
   handleScrollState = event => {
     const pageScrolled = window.pageYOffset >= window.innerHeight * 0.5;
@@ -112,11 +102,22 @@ class Layout extends Component {
         .join(' ');
     }
 
-    const getBodyTop = () => {
-      let top = isHome ? 100 : 0;
+    const getBodyTop = isHome => {
+      let top = 0;
       if (isHome) {
-        // top = top -
+        const isMobile = window.innerWidth <= 750;
+        const headerHeight = isMobile ? '140px' : '15vh';
+        if (isMobile) {
+          top = window.innerHeight - parseInt(headerHeight);
+          top = `${top}px`;
+          console.log(top);
+        } else {
+          top = 100 - parseInt(headerHeight);
+          top = `${top}vh`;
+          console.log(top);
+        }
       }
+      return top;
     };
 
     return (
@@ -135,7 +136,7 @@ class Layout extends Component {
             title={pageTitle}
             isHome={isHome}
           />
-          <Body id="body" isHome={isHome}>
+          <Body id="body" isHome={isHome} top={getBodyTop(isHome)}>
             {children()}
           </Body>
           <Footer
