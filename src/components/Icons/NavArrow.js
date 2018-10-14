@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import ArrowDown from './ArrowDown';
 
 class NavArrow extends Component {
   scroll() {
@@ -9,7 +10,14 @@ class NavArrow extends Component {
   }
 
   render() {
-    return <NavArrowStyle onClick={this.scroll}>V</NavArrowStyle>;
+    return (
+      <NavArrowStyle
+        className="animated bounce delay-5s infinite"
+        onClick={this.scroll}
+      >
+        <ArrowDown />
+      </NavArrowStyle>
+    );
   }
 }
 
@@ -20,6 +28,8 @@ const NavArrowStyle = styled.button`
   color: ${props => props.theme.colorText};
   background: transparent;
   border: none;
+  cursor: pointer;
+  outline: none;
 `;
 
 export default NavArrow;
