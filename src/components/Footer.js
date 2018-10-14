@@ -177,12 +177,25 @@ const FooterWrapper = styled.footer`
     color: ${props => props.theme.colorPrimary};
     transition: border-bottom 0.2s ease-out;
   }
-  div {
-    /* margin: 0rem 1.5rem 1.5rem 1.5rem; */
-  }
   @media (min-width: ${props => props.theme.widthTablet}) {
     flex-direction: row;
     align-items: flex-end;
+  }
+  @media (min-width: ${props => props.theme.widthDesktop}) {
+    margin-left: ${props => props.theme.desktopBodySideMargin};
+    margin-right: ${props => props.theme.desktopBodySideMargin};
+    width: calc(
+      100vw - (${props => props.theme.desktopBodySideMargin} * 2) -
+        (${props => props.theme.mainBorderSize} * 2)
+    );
+  }
+  @media (min-width: ${props => props.theme.widthHD}) {
+    margin-left: ${props => props.theme.HDBodySideMargin};
+    margin-right: ${props => props.theme.HDBodySideMargin};
+    width: calc(
+      100vw - (${props => props.theme.HDBodySideMargin} * 2) -
+        (${props => props.theme.mainBorderSize} * 2)
+    );
   }
 `;
 

@@ -184,6 +184,25 @@ const Body = styled.main`
       )
       auto;
   }
+  @media (min-width: ${props => props.theme.widthDesktop}) {
+    border-radius: 10px;
+    margin-left: ${props => props.theme.desktopBodySideMargin};
+    margin-right: ${props => props.theme.desktopBodySideMargin};
+    width: calc(
+      100vw - (${props => props.theme.desktopBodySideMargin} * 2) -
+        (${props => props.theme.mainBorderSize} * 2)
+    );
+    border: ${props => props.theme.mainBorderSize} solid
+      ${props => props.theme.colorPrimary}80;
+  }
+  @media (min-width: ${props => props.theme.widthHD}) {
+    margin-left: ${props => props.theme.HDBodySideMargin};
+    margin-right: ${props => props.theme.HDBodySideMargin};
+    width: calc(
+      100vw - (${props => props.theme.HDBodySideMargin} * 2) -
+        (${props => props.theme.mainBorderSize} * 2)
+    );
+  }
 `;
 
 export default Layout;
