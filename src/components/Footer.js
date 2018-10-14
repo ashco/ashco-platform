@@ -33,7 +33,13 @@ class Footer extends Component {
   }
 
   handleFooterState() {
-    const { pageScrolled, pageBottom, isHome, isMobile } = this.props;
+    const {
+      pageScrolled,
+      pageMiddle,
+      pageBottom,
+      isHome,
+      isMobile,
+    } = this.props;
     let stateObj = {
       showFooterLeft: false,
       showFooterCenter: false,
@@ -44,39 +50,40 @@ class Footer extends Component {
       if (pageBottom) {
         stateObj = {
           showFooterLeft: true,
-          showFooterCenter: false,
+          // showFooterCenter: false,
           showFooterRight: true,
         };
       } else {
         stateObj = {
           showFooterLeft: false,
-          showFooterCenter: false,
+          // showFooterCenter: false,
           showFooterRight: false,
         };
       }
     } else {
       if (isHome) {
-        if (!pageScrolled) {
+        if (!pageMiddle) {
           stateObj = {
             showFooterLeft: false,
-            showFooterCenter: true,
+            // showFooterCenter: true,
             showFooterRight: true,
           };
         } else {
           stateObj = {
             showFooterLeft: true,
-            showFooterCenter: false,
+            // showFooterCenter: false,
             showFooterRight: true,
           };
         }
       } else {
         stateObj = {
           showFooterLeft: true,
-          showFooterCenter: false,
+          // showFooterCenter: false,
           showFooterRight: true,
         };
       }
     }
+    stateObj.showFooterCenter = isHome && !pageScrolled ? true : false;
     return stateObj;
   }
 
@@ -203,6 +210,7 @@ const FooterCenterWrapper = styled.div`
   flex: 1;
   margin: 0;
   display: none;
+  transition: visibility 0.25s 10s, opacity 0.25s linear;
   @media (min-width: ${props => props.theme.widthTablet}) {
     display: flex;
     justify-content: center;

@@ -15,7 +15,7 @@ class Layout extends Component {
   state = {
     isHome: true,
     isMobile: true,
-    pageScrolled: false,
+    pageMiddle: false,
     pageBottom: false,
   };
 
@@ -49,18 +49,23 @@ class Layout extends Component {
   }
 
   handleScrollState = event => {
-    const pageScrolled = window.pageYOffset >= window.innerHeight * 0.5;
-
+    const pageScrolled = window.pageYOffset > 0;
     if (pageScrolled !== this.state.pageScrolled) {
       this.setState({
-        pageScrolled: pageScrolled,
+        pageScrolled,
+      });
+    }
+
+    const pageMiddle = window.pageYOffset >= window.innerHeight * 0.5;
+    if (pageMiddle !== this.state.pageMiddle) {
+      this.setState({
+        pageMiddle,
       });
     }
 
     const marginLength = 300;
     const borderLength = 5;
     const mainPageLength = window.innerHeight;
-
     let pageLength =
       document.querySelector('#body').offsetHeight + marginLength;
     if (this.state.isHome) {
@@ -70,7 +75,6 @@ class Layout extends Component {
     }
     const windowHeight = window.innerHeight;
     const scrollLength = window.pageYOffset;
-
     const isBottom = () => pageLength - windowHeight === scrollLength;
 
     if (isBottom()) {
@@ -86,7 +90,13 @@ class Layout extends Component {
 
   render() {
     const { children, data, location } = this.props;
-    const { isHome, isMobile, pageScrolled, pageBottom } = this.state;
+    const {
+      isHome,
+      isMobile,
+      pageScrolled,
+      pageMiddle,
+      pageBottom,
+    } = this.state;
 
     let pageTitleArr = location.pathname.split('/');
     let pageTitle = '';
@@ -134,6 +144,7 @@ class Layout extends Component {
           </Body>
           <Footer
             pageScrolled={pageScrolled}
+            pageMiddle={pageMiddle}
             pageBottom={pageBottom}
             isHome={isHome}
             isMobile={isMobile}
