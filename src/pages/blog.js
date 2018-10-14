@@ -1,6 +1,4 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import styled from 'styled-components';
 
 import BlogListing from '../components/Blog/BlogListing';
 import { MainContainer, ContentWrapper } from '../components/helpers';

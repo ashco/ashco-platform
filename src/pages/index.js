@@ -1,6 +1,4 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import styled from 'styled-components';
 
 import About from '../components/Main/AboutSection';
 import Portfolio from '../components/Main/PortfolioSection';
@@ -8,13 +6,6 @@ import Blog from '../components/Main/BlogSection';
 import Contact from '../components/Main/ContactSection';
 
 import { MainContainer, ContentWrapper } from '../components/helpers';
-
-// const IndexWrapper = styled.div`
-//   section {
-//     max-width: 990px;
-//     margin: 0px auto;
-//   }
-// `;
 
 const IndexPage = ({ data }) => (
   <MainContainer>
