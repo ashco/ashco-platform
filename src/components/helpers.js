@@ -21,11 +21,6 @@ export const ContentWrapper = styled.div`
   margin: 0px auto;
 `;
 
-export const LinkIcon = styled.img`
-  width: ${props => (props.size ? props.size : '50px')};
-  height: ${props => (props.size ? props.size : '50px')};
-`;
-
 const PageLinkWrapper = styled.div`
   height: 4rem;
   display: flex;

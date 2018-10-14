@@ -2,18 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-import { LinkIcon } from './helpers';
-
+import NavArrow from './Icons/NavArrow';
 import GithubIcon from './Icons/Github';
 import LinkedInIcon from './Icons/LinkedIn';
 import TwitterIcon from './Icons/Twitter';
 import ResumeIcon from './Icons/Resume';
-
-import githubIcon from '../images/icons/github-brands.svg';
-import linkedInIcon from '../images/icons/linkedin-brands.svg';
-import twitterIcon from '../images/icons/twitter-brands.svg';
-import resumeIcon from '../images/icons/file-alt-solid.svg';
-import Github from './Icons/Github';
 
 const FooterWrapper = styled.footer`
   pointer-events: none;
@@ -40,6 +33,7 @@ const FooterWrapper = styled.footer`
 `;
 
 const FooterLeft = styled.div`
+  flex: 10;
   line-height: 1.3rem;
   text-align: center;
   font-size: 0.85rem;
@@ -54,7 +48,16 @@ const FooterLeft = styled.div`
   }
 `;
 
+const FooterCenter = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+`;
+
 const FooterRight = styled.div`
+  flex: 10;
+  display: flex;
+  justify-content: flex-end;
   ul {
     display: flex;
     /* color: ${props => props.theme.colorPrimary}; */
@@ -73,35 +76,39 @@ const FooterRight = styled.div`
 const Footer = ({ pageScrolled, isHome }) => {
   const year = new Date().getFullYear();
   const showFooter = !isHome || pageScrolled;
+  const showNavArrow = isHome && !pageScrolled;
+  console.log(isHome);
+  console.log(!pageScrolled);
+  console.log({ showNavArrow });
+
   return (
     <FooterWrapper>
-      {showFooter ? (
-        <FooterLeft>
-          <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
-          <p>
-            This site is built with{' '}
-            <a href="https://www.gatsbyjs.org/" target="_blank">
-              Gatsbyjs
-            </a>{' '}
-            and{' '}
-            <a href="https://www.contentful.com/" target="_blank">
-              Contentful
-            </a>
-            . The source code is hosted on{' '}
-            <a href="https://github.com/ashco/ashco-platform" target="_blank">
-              Github
-            </a>
-            .
-          </p>
-        </FooterLeft>
-      ) : (
-        <FooterLeft />
-      )}
+      {/* {showFooter ? ( */}
+      <FooterLeft className={showFooter ? 'visible' : 'hidden'}>
+        <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
+        <p>
+          This site is built with{' '}
+          <a href="https://www.gatsbyjs.org/" target="_blank">
+            Gatsbyjs
+          </a>{' '}
+          and{' '}
+          <a href="https://www.contentful.com/" target="_blank">
+            Contentful
+          </a>
+          . The source code is hosted on{' '}
+          <a href="https://github.com/ashco/ashco-platform" target="_blank">
+            Github
+          </a>
+          .
+        </p>
+      </FooterLeft>
+      <FooterCenter className={showNavArrow ? 'visible' : 'hidden'}>
+        <NavArrow />
+      </FooterCenter>
       <FooterRight>
         <ul>
           <li>
             <a href="https://github.com/ashco" target="_blank">
-              {/* <LinkIcon src={githubIcon} alt="Github" /> */}
               <GithubIcon />
             </a>
           </li>
@@ -110,13 +117,11 @@ const Footer = ({ pageScrolled, isHome }) => {
               href="https://www.linkedin.com/in/ashtonchristie/"
               target="_blank"
             >
-              {/* <LinkIcon src={linkedInIcon} alt="LinkedIn" /> */}
               <LinkedInIcon />
             </a>
           </li>
           <li>
             <a href="https://twitter.com/AshCo_Io" target="_blank">
-              {/* <LinkIcon src={twitterIcon} alt="Twitter" /> */}
               <TwitterIcon />
             </a>
           </li>
@@ -125,7 +130,6 @@ const Footer = ({ pageScrolled, isHome }) => {
               href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view"
               target="_blank"
             >
-              {/* <LinkIcon src={resumeIcon} alt="Resume" /> */}
               <ResumeIcon />
             </a>
           </li>

@@ -74,8 +74,8 @@ class Layout extends Component {
     const { isHome, pageScrolled } = this.state;
 
     const theme = {
-      colorPrimary: '#d27831',
-      // colorPrimary: '#d34545',
+      // colorPrimary: '#d27831',
+      colorPrimary: '#d34545',
       colorBackground: '#222',
       // colorText: '#d3d',
       colorText: '#eee',

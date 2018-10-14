@@ -154,7 +154,7 @@ class Header extends Component {
             </ul>
           </NavLinks>
         </HeaderContainer>
-        {isHome && <NavArrow />}
+        {/* {isHome && <NavArrow />} */}
       </HeaderWrapper>
     );
   }
