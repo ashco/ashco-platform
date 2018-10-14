@@ -1,11 +1,36 @@
 import React from 'react';
-// import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import { Tag, TagContainer } from '../helpers';
 
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
+
+const PortfolioSelected = ({ project }) => (
+  <PortfolioSelectedWrapper>
+    <img src={project.image.resize.src} alt={project.image.title} />
+    <PortfolioSelectedTextContainer>
+      <PortfolioSelectedLeftContainer>
+        {project.description.description}
+        <TagContainer>
+          {project.tags.map(tag => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
+        </TagContainer>
+      </PortfolioSelectedLeftContainer>
+      <PortfolioSelectedRightContainer>
+        <a href={project.liveSiteLink} target="_blank">
+          <DesktopIcon />
+          <p>Live Site</p>
+        </a>
+        <a href={project.githubLink} target="_blank">
+          <GithubIcon />
+          <p>Github</p>
+        </a>
+      </PortfolioSelectedRightContainer>
+    </PortfolioSelectedTextContainer>
+  </PortfolioSelectedWrapper>
+);
 
 const PortfolioSelectedWrapper = styled.div`
   position: relative;
@@ -38,36 +63,9 @@ const PortfolioSelectedRightContainer = styled.div`
   a {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     margin: 0 10px;
   }
 `;
-
-const PortfolioSelected = ({ project }) => (
-  <PortfolioSelectedWrapper>
-    <img src={project.image.resize.src} alt={project.image.title} />
-    <PortfolioSelectedTextContainer>
-      <PortfolioSelectedLeftContainer>
-        {project.description.description}
-        <TagContainer>
-          {project.tags.map(tag => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </TagContainer>
-      </PortfolioSelectedLeftContainer>
-      <PortfolioSelectedRightContainer>
-        <a href={project.liveSiteLink} target="_blank">
-          <DesktopIcon />
-          <p>Live Site</p>
-        </a>
-        <a href={project.githubLink} target="_blank">
-          <GithubIcon />
-          <p>Github</p>
-        </a>
-      </PortfolioSelectedRightContainer>
-    </PortfolioSelectedTextContainer>
-  </PortfolioSelectedWrapper>
-);
 
 export default PortfolioSelected;

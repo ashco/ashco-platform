@@ -4,26 +4,6 @@ import styled from 'styled-components';
 import PortfolioListing from './PortfolioListing';
 import { PageLink } from '../helpers';
 
-const PortfolioWrapper = styled.section`
-  /* background-color: #444; */
-  border: 1px solid ${props => props.theme.colorPrimary};
-  /* min-height: 45vh; */
-`;
-
-const PortfolioListingContainer = styled.div`
-  display: flex;
-`;
-
-const PortfolioLinkContainer = styled.div`
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  a {
-    font-size: 1.5rem;
-  }
-`;
-
 const PortfolioMain = ({ projects }) => (
   <PortfolioWrapper>
     <h2>Projects</h2>
@@ -35,5 +15,23 @@ const PortfolioMain = ({ projects }) => (
     <PageLink to="/projects" text="Checkout all of my projects =>" />
   </PortfolioWrapper>
 );
+
+const PortfolioWrapper = styled.section`
+  border: 1px solid ${props => props.theme.colorPrimary};
+`;
+
+const PortfolioListingContainer = styled.div`
+  display: flex;
+`;
+
+// const PortfolioLinkContainer = styled.div`
+//   height: 4rem;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   a {
+//     font-size: 1.5rem;
+//   }
+// `;
 
 export default PortfolioMain;

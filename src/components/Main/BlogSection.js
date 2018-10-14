@@ -2,17 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import BlogListing from './BlogListing';
-import { PageTitle, PageLink } from '../helpers';
-
-const BlogWrapper = styled.section`
-  /* background-color: #555; */
-  border: 1px solid ${props => props.theme.colorPrimary};
-  /* min-height: 30vh; */
-`;
-
-// const BlogListingContainer = styled.div`
-//   color: red;
-// `;
+import { PageLink } from '../helpers';
 
 const BlogSection = ({ posts }) => (
   <BlogWrapper>
@@ -26,5 +16,9 @@ const BlogSection = ({ posts }) => (
     <PageLink to="/blog" text="View all blog posts =>" />
   </BlogWrapper>
 );
+
+const BlogWrapper = styled.section`
+  border: 1px solid ${props => props.theme.colorPrimary};
+`;
 
 export default BlogSection;

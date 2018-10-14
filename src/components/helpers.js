@@ -19,6 +19,12 @@ export const ContentWrapper = styled.div`
   margin: 0px auto;
 `;
 
+export const PageLink = ({ to, text }) => (
+  <PageLinkWrapper>
+    <Link to={to}>{text}</Link>
+  </PageLinkWrapper>
+);
+
 const PageLinkWrapper = styled.div`
   height: 4rem;
   display: flex;
@@ -28,44 +34,6 @@ const PageLinkWrapper = styled.div`
     color: ${props => props.theme.colorText};
     font-size: 1.5rem;
   }
-`;
-export const PageLink = ({ to, text }) => (
-  <PageLinkWrapper>
-    <Link to={to}>{text}</Link>
-  </PageLinkWrapper>
-);
-
-// PORTFOLIO
-export const PortfolioListingWrapper = styled.article`
-  display: flex;
-  justify-content: center;
-  position: relative;
-  margin: 2rem 0;
-  border-radius: ${props => props.theme.portfolioRadius};
-  img {
-    display: block;
-    transition: 0.5s ease;
-    border-radius: ${props => props.theme.portfolioRadius};
-  }
-  &:hover {
-    img {
-      opacity: 0.3;
-    }
-    div {
-      opacity: 1;
-    }
-    transition: 0.5s ease;
-    box-shadow: 0px 0px 75px 0px ${props => props.theme.colorPrimary};
-  }
-`;
-
-export const PortfolioHoverArea = styled.div`
-  transition: 0.5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 `;
 
 export const MainTitle = styled.h2`

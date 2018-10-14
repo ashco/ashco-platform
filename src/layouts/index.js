@@ -11,25 +11,6 @@ import '../style/index.css';
 
 import ParticleBG from '../components/ParticleBG';
 
-const LayoutWrapper = styled.div`
-  color: ${props => props.theme.colorText};
-`;
-
-const Body = styled.main`
-  z-index: 10;
-  pointer-events: none;
-  position: absolute;
-  overflow-y: scroll;
-  /* top: ${({ isHome }) => (isHome ? '100vh' : '0')}; */
-  top: ${props => props.top};
-  width: 100vw;
-  margin: ${props => props.theme.mobileHeaderHeight} auto
-    ${props => props.theme.mobileFooterHeight} auto;
-  @media (min-width: ${props => props.theme.widthTablet}) {
-    margin: ${props => props.theme.tabletHeaderHeight} auto;
-  }
-`;
-
 class Layout extends Component {
   state = {
     isHome: true,
@@ -76,7 +57,6 @@ class Layout extends Component {
       });
     }
 
-    // pageBottom state
     const marginLength = 300;
     const mainPageLength = window.innerHeight;
     let pageLength =
@@ -166,6 +146,24 @@ class Layout extends Component {
 Layout.propTypes = {
   children: PropTypes.func,
 };
+
+const LayoutWrapper = styled.div`
+  color: ${props => props.theme.colorText};
+`;
+
+const Body = styled.main`
+  z-index: 10;
+  pointer-events: none;
+  position: absolute;
+  overflow-y: scroll;
+  top: ${props => props.top};
+  width: 100vw;
+  margin: ${props => props.theme.mobileHeaderHeight} auto
+    ${props => props.theme.mobileFooterHeight} auto;
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    margin: ${props => props.theme.tabletHeaderHeight} auto;
+  }
+`;
 
 export default Layout;
 

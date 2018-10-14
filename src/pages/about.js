@@ -3,33 +3,6 @@ import styled from 'styled-components';
 
 import { MainContainer, ContentWrapper } from '../components/helpers';
 
-const AboutInfoContainer = styled.div`
-  width: 60%;
-  text-align: center;
-`;
-
-const AboutSkillsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 80%;
-  padding: 5rem;
-  margin-left: 20px;
-  h4 {
-    color: ${props => props.theme.colorPrimary};
-    font-weight: 600;
-  }
-  h5 {
-    font-weight: 600;
-    color: ${props => props.theme.colorPrimary};
-  }
-`;
-
-const SkillColumn = styled.div`
-  text-align: center;
-  width: 25vw;
-  margin: 0 1rem;
-`;
-
 const About = ({ data }) => {
   return (
     <MainContainer>
@@ -66,6 +39,33 @@ const About = ({ data }) => {
     </MainContainer>
   );
 };
+
+const AboutInfoContainer = styled.div`
+  width: 60%;
+  text-align: center;
+`;
+
+const AboutSkillsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  padding: 5rem;
+  margin-left: 20px;
+  h4 {
+    color: ${props => props.theme.colorPrimary};
+    font-weight: 600;
+  }
+  h5 {
+    font-weight: 600;
+    color: ${props => props.theme.colorPrimary};
+  }
+`;
+
+const SkillColumn = styled.div`
+  text-align: center;
+  width: 25vw;
+  margin: 0 1rem;
+`;
 
 export default About;
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
-import styled from 'styled-components';
-
-import { PortfolioListingWrapper, PortfolioHoverArea } from '../helpers';
+import {
+  PortfolioListingWrapper,
+  PortfolioHoverArea,
+} from '../Portfolio/PortfolioHelpers';
 
 const PortfolioListing = ({ project }) => (
   <PortfolioListingWrapper>

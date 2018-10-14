@@ -2,16 +2,6 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-const BlogListingWrapper = styled.article`
-  margin: 1rem 0;
-  a {
-    color: ${props => props.theme.colorText};
-    h3 {
-      color: ${props => props.theme.colorPrimary};
-    }
-  }
-`;
-
 const BlogListing = ({ post }) => (
   <BlogListingWrapper>
     <Link to={`blog/${post.slug}`}>
@@ -21,5 +11,15 @@ const BlogListing = ({ post }) => (
     </Link>
   </BlogListingWrapper>
 );
+
+const BlogListingWrapper = styled.article`
+  margin: 1rem 0;
+  a {
+    color: ${props => props.theme.colorText};
+    h3 {
+      color: ${props => props.theme.colorPrimary};
+    }
+  }
+`;
 
 export default BlogListing;

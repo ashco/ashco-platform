@@ -1,14 +1,7 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import { PageLink } from '../helpers';
-
-const AboutWrapper = styled.section`
-  /* background-color: #333; */
-  /* min-height: 20vh; */
-  border: 1px solid ${props => props.theme.colorPrimary};
-`;
 
 const AboutSection = () => (
   <AboutWrapper>
@@ -20,11 +13,11 @@ const AboutSection = () => (
       Tempore, laboriosam exercitationem.
     </p>
     <PageLink to="/about" text="Find out more =>" />
-    {/* <LinkContainer>
-
-      <Link to="/about">Find out more =></Link>
-    </LinkContainer> */}
   </AboutWrapper>
 );
+
+const AboutWrapper = styled.section`
+  border: 1px solid ${props => props.theme.colorPrimary};
+`;
 
 export default AboutSection;

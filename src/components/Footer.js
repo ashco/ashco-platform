@@ -9,76 +9,6 @@ import LinkedInIcon from './Icons/LinkedIn';
 import TwitterIcon from './Icons/Twitter';
 import ResumeIcon from './Icons/Resume';
 
-const FooterWrapper = styled.footer`
-  pointer-events: none;
-  z-index: 1;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column-reverse;
-  align-items: center;
-  a {
-    pointer-events: auto;
-    color: ${props => props.theme.colorPrimary};
-    transition: border-bottom 0.2s ease-out;
-  }
-  div {
-    margin: 0rem 1.5rem 1.5rem 1.5rem;
-  }
-  @media (min-width: ${props => props.theme.widthTablet}) {
-    flex-direction: row;
-    align-items: flex-end;
-    div {
-      margin: 1.5rem;
-    }
-  }
-`;
-
-const FooterLeftWrapper = styled.div`
-  flex: 100;
-  line-height: 1.3rem;
-  text-align: center;
-  font-size: 0.85rem;
-  margin: 0;
-  a {
-    &:hover {
-      border-bottom: 1px solid ${props => props.theme.colorPrimary};
-    }
-  }
-  @media (min-width: ${props => props.theme.widthTablet}) {
-    text-align: left;
-    font-size: 1rem;
-  }
-`;
-
-const FooterCenterWrapper = styled.div`
-  flex: 1;
-  display: none;
-  @media (min-width: ${props => props.theme.widthTablet}) {
-    display: flex;
-    justify-content: center;
-  }
-`;
-
-const FooterRightWrapper = styled.div`
-  flex: 100;
-  display: flex;
-  justify-content: flex-end;
-  ul {
-    display: flex;
-    li {
-      margin: 0 0.75rem;
-      a {
-        &:hover {
-          border-bottom: 4px solid ${props => props.theme.colorPrimary};
-        }
-      }
-    }
-  }
-`;
-
 class Footer extends Component {
   state = {
     showFooterLeft: false,
@@ -97,32 +27,9 @@ class Footer extends Component {
   componentDidUpdate() {
     const stateObj = this.handleFooterState();
 
-    // console.log(stateObj);
-    // console.log(this.state);
-    // console.log();
     if (!isEqual(stateObj, this.state)) {
       this.setState(stateObj);
     }
-
-    // const { pageScrolled, pageBottom, isHome, isMobile } = this.props;
-    // const showFooterRight = window.innerWidth >= 750 || pageBottom;
-    // const showFooterCenter = isHome && !pageScrolled;
-    // const showFooterLeft = !isHome || pageScrolled;
-    // if (showFooterRight !== this.state.showFooterRight) {
-    //   this.setState({
-    //     showFooterRight,
-    //   });
-    // }
-    // if (showFooterLeft !== this.state.showFooterLeft) {
-    //   this.setState({
-    //     showFooterLeft,
-    //   });
-    // }
-    // if (showFooterCenter !== this.state.showFooterCenter) {
-    //   this.setState({
-    //     showFooterCenter,
-    //   });
-    // }
   }
 
   handleFooterState() {
@@ -247,5 +154,75 @@ const FooterRight = ({ showFooterRight }) => (
     </ul>
   </FooterRightWrapper>
 );
+
+const FooterWrapper = styled.footer`
+  pointer-events: none;
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  align-items: center;
+  a {
+    pointer-events: auto;
+    color: ${props => props.theme.colorPrimary};
+    transition: border-bottom 0.2s ease-out;
+  }
+  div {
+    margin: 0rem 1.5rem 1.5rem 1.5rem;
+  }
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    flex-direction: row;
+    align-items: flex-end;
+    div {
+      margin: 1.5rem;
+    }
+  }
+`;
+
+const FooterLeftWrapper = styled.div`
+  flex: 100;
+  line-height: 1.3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  margin: 0;
+  a {
+    &:hover {
+      border-bottom: 1px solid ${props => props.theme.colorPrimary};
+    }
+  }
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    text-align: left;
+    font-size: 1rem;
+  }
+`;
+
+const FooterCenterWrapper = styled.div`
+  flex: 1;
+  display: none;
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    display: flex;
+    justify-content: center;
+  }
+`;
+
+const FooterRightWrapper = styled.div`
+  flex: 100;
+  display: flex;
+  justify-content: flex-end;
+  ul {
+    display: flex;
+    li {
+      margin: 0 0.75rem;
+      a {
+        &:hover {
+          border-bottom: 4px solid ${props => props.theme.colorPrimary};
+        }
+      }
+    }
+  }
+`;
 
 export default Footer;
