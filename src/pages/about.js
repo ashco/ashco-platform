@@ -3,12 +3,6 @@ import styled from 'styled-components';
 
 import { MainContainer, ContentWrapper } from '../components/helpers';
 
-// const AboutMainContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
-
 const AboutInfoContainer = styled.div`
   width: 60%;
   text-align: center;

@@ -17,4 +17,7 @@ export const theme = {
   mobileHeaderHeight: '140px',
   tabletHeaderHeight: '15vh',
   mobileFooterHeight: '300px',
+  // ------ ELEMENT STYLE VARIABLES -------
+  portfolioRadius: '25px',
+  contactRadius: '3px',
 };

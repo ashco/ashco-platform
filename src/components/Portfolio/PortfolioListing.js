@@ -12,9 +12,6 @@ import {
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
-// import githubIcon from '../../images/icons/github-brands.svg';
-// import desktopIcon from '../../images/icons/desktop-solid.svg';
-
 const LinkContainer = styled.div`
   display: flex;
 `;
@@ -51,11 +48,6 @@ class PortfolioListing extends Component {
                 onMouseEnter={e => this.updateTitle('Live Site', e)}
                 onMouseLeave={e => this.updateTitle(project.title, e)}
               >
-                {/* <LinkIcon
-                  src={desktopIcon}
-                  alt="Project live link"
-                  size="60px"
-                /> */}
                 <DesktopIcon />
               </a>
               <a
@@ -64,11 +56,6 @@ class PortfolioListing extends Component {
                 onMouseEnter={e => this.updateTitle('Github', e)}
                 onMouseLeave={e => this.updateTitle(project.title, e)}
               >
-                {/* <LinkIcon
-                  src={githubIcon}
-                  alt="Project Github link"
-                  size="60px"
-                /> */}
                 <GithubIcon />
               </a>
             </LinkContainer>

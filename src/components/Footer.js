@@ -20,7 +20,9 @@ const FooterWrapper = styled.footer`
   align-items: center;
   /* margin: 2rem 0.5rem; */
   a {
+    pointer-events: auto;
     color: ${props => props.theme.colorPrimary};
+    transition: border-bottom 0.2s ease-out;
   }
   div {
     margin: 0rem 1.5rem 1.5rem 1.5rem;
@@ -40,7 +42,9 @@ const FooterLeftWrapper = styled.div`
   text-align: center;
   font-size: 0.85rem;
   a {
-    pointer-events: auto;
+    &:hover {
+      border-bottom: 1px solid ${props => props.theme.colorPrimary};
+    }
   }
   @media (min-width: ${props => props.theme.widthTablet}) {
     text-align: left;
@@ -67,7 +71,8 @@ const FooterRightWrapper = styled.div`
     li {
       margin: 0 0.75rem;
       a {
-        pointer-events: auto;
+        /* pointer-events: auto; */
+        /* transition: border-bottom .2s ease-out; */
         &:hover {
           border-bottom: 3px solid ${props => props.theme.colorPrimary};
         }

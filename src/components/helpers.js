@@ -15,6 +15,7 @@ export const MainContainer = styled.div`
 
 export const ContentWrapper = styled.div`
   max-width: ${props => (props.width ? props.width : '990px')};
+  width: 90%;
   margin: 0px auto;
 `;
 
@@ -39,20 +40,25 @@ export const PortfolioListingWrapper = styled.article`
   display: flex;
   justify-content: center;
   position: relative;
+  margin: 2rem 0;
+  border-radius: ${props => props.theme.portfolioRadius};
   img {
     display: block;
     transition: 0.5s ease;
+    border-radius: ${props => props.theme.portfolioRadius};
   }
   &:hover {
     img {
       opacity: 0.3;
     }
-  }
-  &:hover {
     div {
       opacity: 1;
     }
+    transition: 0.5s ease;
+    box-shadow: 0px 0px 75px 0px ${props => props.theme.colorPrimary};
   }
+  /* &:hover {
+  } */
 `;
 
 export const PortfolioHoverArea = styled.div`

@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import {
-  MainContainer,
-  ContentWrapper,
-  PageTitle,
-} from '../components/helpers';
+import { MainContainer, ContentWrapper } from '../components/helpers';
+
+const TextWrapper = styled.div``;
 
 const FormWrapper = styled.form`
-  width: 600px;
   margin: auto;
   display: flex;
   flex-direction: column;
+  > p {
+    font-size: 1.1rem;
+    padding-top: 0.8rem;
+  }
   label {
     color: ${props => props.theme.colorText};
+    padding-bottom: 0.5rem;
   }
   button {
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 0.5rem 1rem 0.5rem 1rem;
     background-color: ${props => props.theme.colorBackground};
-    border-radius: 2px;
+    border-radius: ${props => props.theme.contactRadius};
     color: ${props => props.theme.colorText};
-    font-size: 1rem;
+    font-size: 1.1rem;
     border: 2px solid ${props => props.theme.colorPrimary};
   }
 `;
@@ -32,14 +34,14 @@ const FormInputWrapper = styled.p`
   flex-direction: column;
   input,
   textarea {
-    border: solid 2px #b1b1b1;
+    border: solid 2px ${props => props.theme.colorPrimary};
     background-color: ${props => props.theme.colorBackground};
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 4px;
     font-size: 16px;
-    color: ${props => props.theme.colorPrimary};
-    border-color: ${props => props.theme.colorPrimary};
+    color: ${props => props.theme.colorText};
+    border-radius: ${props => props.theme.contactRadius};
   }
   textarea {
     height: 8rem;
@@ -49,7 +51,11 @@ const FormInputWrapper = styled.p`
 
 const ContactPage = () => (
   <MainContainer>
-    <ContentWrapper>
+    <ContentWrapper width="600px">
+      <TextWrapper>
+        <h2>Wanna chat?</h2>
+        <p>Fill out this form and I'll get back to you soon as life lets me.</p>
+      </TextWrapper>
       <FormWrapper
         name="contact"
         method="post"

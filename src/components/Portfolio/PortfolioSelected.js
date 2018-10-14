@@ -13,6 +13,7 @@ const PortfolioSelectedWrapper = styled.div`
   justify-content: center;
   img {
     display: block;
+    border-radius: ${props => props.theme.portfolioRadius};
   }
 `;
 
@@ -25,6 +26,8 @@ const PortfolioSelectedTextContainer = styled.div`
   opacity: 0.7;
   background: #000;
   width: 900px;
+  border-radius: 0 0 ${props => props.theme.portfolioRadius}
+    ${props => props.theme.portfolioRadius};
 `;
 
 const PortfolioSelectedLeftContainer = styled.div``;

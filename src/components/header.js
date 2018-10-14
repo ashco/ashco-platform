@@ -96,6 +96,7 @@ const NavLinks = styled.div`
         text-decoration: none;
         font-weight: 600;
         color: ${props => props.theme.colorText};
+        transition: border-bottom 0.2s ease-out;
         &:hover {
           border-bottom: 3px solid ${props => props.theme.colorPrimary};
         }
