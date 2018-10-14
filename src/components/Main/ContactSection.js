@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { PageLink } from '../helpers';
 
 const ContactWrapper = styled.section`
-  background-color: #666;
+  /* background-color: #666; */
+  border: 1px solid ${props => props.theme.colorPrimary};
   /* min-height: 12vh; */
 `;
 

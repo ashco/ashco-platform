@@ -7,8 +7,6 @@ import Img from 'gatsby-image';
 import AshCoIcon from './Icons/AshCo';
 import NavArrow from './Icons/NavArrow';
 
-// import logo from '../images/logo-lite.svg';
-
 const HeaderWrapper = styled.header`
   position: fixed;
   pointer-events: none;
@@ -25,6 +23,7 @@ const HeaderContainer = styled.nav`
   justify-content: space-between;
   pointer-events: none;
   height: 120px;
+
   @media (min-height: 770px) {
     height: 15vh;
   }
@@ -86,8 +85,10 @@ const NavLinks = styled.div`
   ul {
     list-style: none;
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     li {
-      margin: 0 0.9rem;
+      margin: 0.9rem;
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
       a {
@@ -98,6 +99,15 @@ const NavLinks = styled.div`
         &:hover {
           border-bottom: 3px solid ${props => props.theme.colorPrimary};
         }
+      }
+    }
+  }
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    ul {
+      flex-direction: row;
+
+      li {
+        margin: 0 0.9rem;
       }
     }
   }

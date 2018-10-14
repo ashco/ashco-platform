@@ -10,11 +10,11 @@ class ParticleBG extends Component {
   }
 
   render() {
-    const { colorPrimary } = this.props.theme;
+    const { colorBackground, colorPrimary } = this.props.theme;
     return (
       <Particles
         style={{
-          backgroundColor: '#222',
+          backgroundColor: colorBackground,
           position: 'fixed',
           top: 0,
           left: 0,

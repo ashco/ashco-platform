@@ -33,7 +33,7 @@ const FormInputWrapper = styled.p`
   input,
   textarea {
     border: solid 2px #b1b1b1;
-    background-color: #262626;
+    background-color: ${props => props.theme.colorBackground};
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 4px;
@@ -43,6 +43,7 @@ const FormInputWrapper = styled.p`
   }
   textarea {
     height: 8rem;
+    resize: none;
   }
 `;
 

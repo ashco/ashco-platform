@@ -8,12 +8,9 @@ export const MainContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  /* width: 100vw; */
-  /* padding: 2rem 5rem; */
   min-height: 70vh;
   height: 530px;
-  /* margin: 0px auto 10vh auto; */
-  background-color: #222;
+  background-color: ${props => props.theme.colorBackground};
 `;
 
 export const ContentWrapper = styled.div`

@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 
 const Thanks = () => (
   <div>
-    <h1>Thank you!</h1>
+    <h1>You da best!</h1>
   </div>
 );
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import Link from 'gatsby-link';
+// import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-import { LinkIcon, Tag, TagContainer } from '../helpers';
+import { Tag, TagContainer } from '../helpers';
 
-import githubIcon from '../../images/icons/github-brands.svg';
-import desktopIcon from '../../images/icons/desktop-solid.svg';
+import GithubIcon from '../Icons/Github';
+import DesktopIcon from '../Icons/Desktop';
 
 const PortfolioSelectedWrapper = styled.div`
   position: relative;
@@ -55,11 +55,11 @@ const PortfolioSelected = ({ project }) => (
       </PortfolioSelectedLeftContainer>
       <PortfolioSelectedRightContainer>
         <a href={project.liveSiteLink} target="_blank">
-          <LinkIcon src={desktopIcon} alt="Project live link" size="60px" />
+          <DesktopIcon />
           <p>Live Site</p>
         </a>
         <a href={project.githubLink} target="_blank">
-          <LinkIcon src={githubIcon} alt="Project Github link" size="60px" />
+          <GithubIcon />
           <p>Github</p>
         </a>
       </PortfolioSelectedRightContainer>

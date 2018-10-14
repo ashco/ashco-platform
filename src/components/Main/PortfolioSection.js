@@ -5,7 +5,8 @@ import PortfolioListing from './PortfolioListing';
 import { PageLink } from '../helpers';
 
 const PortfolioWrapper = styled.section`
-  background-color: #444;
+  /* background-color: #444; */
+  border: 1px solid ${props => props.theme.colorPrimary};
   /* min-height: 45vh; */
 `;
 

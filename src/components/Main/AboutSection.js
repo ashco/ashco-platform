@@ -5,8 +5,9 @@ import styled from 'styled-components';
 import { PageLink } from '../helpers';
 
 const AboutWrapper = styled.section`
-  background-color: #333;
+  /* background-color: #333; */
   /* min-height: 20vh; */
+  border: 1px solid ${props => props.theme.colorPrimary};
 `;
 
 const AboutSection = () => (

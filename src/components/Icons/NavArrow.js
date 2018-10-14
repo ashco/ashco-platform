@@ -11,28 +11,6 @@ const NavArrowStyle = styled.button`
 `;
 
 class NavArrow extends Component {
-  // state = {
-  //   showNavArrow: true,
-  // };
-
-  // componentDidMount() {
-  //   window.addEventListener('scroll', this.handleScroll);
-  // }
-
-  // componentWillUnmount() {
-  //   window.removeEventListener('scroll', this.handleScroll);
-  // }
-
-  // handleScroll = event => {
-  //   let showNavArrow = window.pageYOffset <= window.innerHeight * 0.35;
-
-  //   if (showNavArrow !== this.state.showNavArrow) {
-  //     this.setState({
-  //       showNavArrow: showNavArrow,
-  //     });
-  //   }
-  // };
-
   scroll() {
     document
       .querySelector('#home')

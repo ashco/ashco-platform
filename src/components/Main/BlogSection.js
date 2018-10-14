@@ -5,7 +5,8 @@ import BlogListing from './BlogListing';
 import { PageTitle, PageLink } from '../helpers';
 
 const BlogWrapper = styled.section`
-  background-color: #555;
+  /* background-color: #555; */
+  border: 1px solid ${props => props.theme.colorPrimary};
   /* min-height: 30vh; */
 `;
 

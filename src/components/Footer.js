@@ -23,39 +23,40 @@ const FooterWrapper = styled.footer`
     color: ${props => props.theme.colorPrimary};
   }
   div {
-    margin: 1.5rem;
+    margin: 0rem 1.5rem 1.5rem 1.5rem;
   }
-
-  @media (min-width: 720px) {
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    margin: 1.5rem;
     flex-direction: row;
     align-items: flex-end;
   }
 `;
 
 const FooterLeft = styled.div`
-  flex: 10;
+  flex: 100;
   line-height: 1.3rem;
   text-align: center;
   font-size: 0.85rem;
   a {
     pointer-events: auto;
   }
-  @media (min-width: 720px) {
+  @media (min-width: ${props => props.theme.widthTablet}) {
     text-align: left;
-  }
-  @media (min-width: 800px) {
     font-size: 1rem;
   }
 `;
 
 const FooterCenter = styled.div`
   flex: 1;
-  display: flex;
-  justify-content: center;
+  display: none;
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const FooterRight = styled.div`
-  flex: 10;
+  flex: 100;
   display: flex;
   justify-content: flex-end;
   ul {
@@ -77,13 +78,9 @@ const Footer = ({ pageScrolled, isHome }) => {
   const year = new Date().getFullYear();
   const showFooter = !isHome || pageScrolled;
   const showNavArrow = isHome && !pageScrolled;
-  console.log(isHome);
-  console.log(!pageScrolled);
-  console.log({ showNavArrow });
 
   return (
     <FooterWrapper>
-      {/* {showFooter ? ( */}
       <FooterLeft className={showFooter ? 'visible' : 'hidden'}>
         <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
         <p>

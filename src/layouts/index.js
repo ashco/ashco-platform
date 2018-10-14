@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 
+import { theme } from '../style/theme';
+
 import Header from '../components/header';
 import Footer from '../components/Footer';
-import './index.css';
+import '../style/index.css';
 
 import ParticleBG from '../components/ParticleBG';
 import image from '../images/logo-dark.svg';
@@ -19,12 +21,11 @@ const Body = styled.main`
   pointer-events: none;
   position: absolute;
   overflow-y: scroll;
-  /* background-color: #222; */
   top: ${({ isHome }) => (isHome ? '100vh' : '0')};
   width: 100vw;
-  margin: 120px auto;
-  padding-top: 0;
-  @media (min-height: 770px) {
+  margin: 120px auto 35vh auto;
+  /* padding-top: 0; */
+  @media (min-width: ${props => props.theme.heightTablet}) {
     margin: 15vh auto;
   }
 `;
@@ -33,16 +34,18 @@ class Layout extends Component {
   state = {
     isHome: true,
     pageScrolled: false,
+    pageBottom: false,
   };
 
   componentWillMount() {
     this.updateIsHome();
-    this.toggleIsHomeEvent();
+    // this.toggleIsHomeEvent();
+    window.addEventListener('scroll', this.handleScrollLocation);
   }
 
   componentDidUpdate() {
     this.updateIsHome();
-    this.toggleIsHomeEvent();
+    // this.toggleIsHomeEvent();
   }
 
   updateIsHome() {
@@ -54,14 +57,15 @@ class Layout extends Component {
     }
   }
 
-  toggleIsHomeEvent() {
-    this.state.isHome
-      ? window.addEventListener('scroll', this.handleScroll)
-      : window.removeEventListener('scroll', this.handleScroll);
-  }
+  // toggleIsHomeEvent() {
+  //   this.state.isHome
+  //     ? window.addEventListener('scroll', this.handleScroll)
+  //     : window.removeEventListener('scroll', this.handleScroll);
+  // }
 
-  handleScroll = event => {
+  handleScrollLocation = event => {
     let pageScrolled = window.pageYOffset >= window.innerHeight * 0.5;
+    // let pageBottom = window.pageYO
     if (pageScrolled !== this.state.pageScrolled) {
       this.setState({
         pageScrolled,
@@ -72,14 +76,6 @@ class Layout extends Component {
   render() {
     const { children, data, location } = this.props;
     const { isHome, pageScrolled } = this.state;
-
-    const theme = {
-      // colorPrimary: '#d27831',
-      colorPrimary: '#d34545',
-      colorBackground: '#222',
-      // colorText: '#d3d',
-      colorText: '#eee',
-    };
 
     let pageTitleArr = location.pathname.split('/');
     let pageTitle = '';
