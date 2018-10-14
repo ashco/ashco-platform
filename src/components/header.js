@@ -24,8 +24,8 @@ const HeaderContainer = styled.nav`
   pointer-events: none;
   height: ${props => props.theme.mobileHeaderHeight};
 
-  @media (min-height: 770px) {
-    height: 15vh;
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    height: ${props => props.theme.tabletHeaderHeight};
   }
 `;
 

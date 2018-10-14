@@ -13,7 +13,7 @@ const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   label {
-    color: ${props => props.theme.colorPrimary};
+    color: ${props => props.theme.colorText};
   }
   button {
     margin-top: 1rem;
@@ -21,9 +21,9 @@ const FormWrapper = styled.form`
     padding: 0.5rem 1rem 0.5rem 1rem;
     background-color: ${props => props.theme.colorBackground};
     border-radius: 2px;
-    color: ${props => props.theme.colorPrimary};
+    color: ${props => props.theme.colorText};
     font-size: 1rem;
-    border-color: ${props => props.theme.colorPrimary};
+    border: 2px solid ${props => props.theme.colorPrimary};
   }
 `;
 

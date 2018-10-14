@@ -15,4 +15,6 @@ export const theme = {
   heightTablet: '750px',
   // ------- ELEMENT LENGTHS --------
   mobileHeaderHeight: '140px',
+  tabletHeaderHeight: '15vh',
+  mobileFooterHeight: '300px',
 };

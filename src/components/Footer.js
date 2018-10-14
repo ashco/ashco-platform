@@ -80,8 +80,6 @@ const Footer = ({ pageScrolled, pageBottom, isHome }) => {
   const showNavArrow = isHome && !pageScrolled;
   const year = new Date().getFullYear();
 
-  console.log(pageScrolled);
-
   return (
     <FooterWrapper className={showFooter ? 'visible-fade' : 'hidden-fade'}>
       <FooterLeft className={showFooterLeft ? 'visible' : 'hidden'}>

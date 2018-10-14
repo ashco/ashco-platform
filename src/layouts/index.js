@@ -23,13 +23,14 @@ const Body = styled.main`
   overflow-y: scroll;
   top: ${({ isHome }) => (isHome ? '100vh' : '0')};
   width: 100vw;
-  margin: ${props => props.theme.mobileHeaderHeight} auto 300px auto;
+  margin: ${props => props.theme.mobileHeaderHeight} auto ${props =>
+  props.theme.mobileFooterHeight} auto;
   /* padding-top: 0; */
   /* @media (min-width: ${props => props.theme.widthTablet}) {
     top: ${({ isHome }) => (isHome ? '100vh' : '0')};
   } */
-  @media (min-width: ${props => props.theme.heightTablet}) {
-    margin: 15vh auto;
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    margin: ${props => props.theme.tabletHeaderHeight} auto;
   }
 `;
 
@@ -110,6 +111,13 @@ class Layout extends Component {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
     }
+
+    const getBodyTop = () => {
+      let top = isHome ? 100 : 0;
+      if (isHome) {
+        // top = top -
+      }
+    };
 
     return (
       <ThemeProvider theme={theme}>

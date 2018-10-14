@@ -6,6 +6,9 @@ const BlogListingWrapper = styled.article`
   margin: 1rem 0;
   a {
     color: ${props => props.theme.colorText};
+    h3 {
+      color: ${props => props.theme.colorPrimary};
+    }
   }
 `;
 
