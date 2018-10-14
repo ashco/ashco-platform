@@ -4,8 +4,11 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 const BlogListingWrapper = styled.article`
-  h4 {
-    display: inline-block;
+  a {
+    color: ${props => props.theme.colorText};
+    h4 {
+      display: inline-block;
+    }
   }
 `;
 

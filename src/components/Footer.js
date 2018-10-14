@@ -4,10 +4,16 @@ import Link from 'gatsby-link';
 
 import { LinkIcon } from './helpers';
 
+import GithubIcon from './Icons/Github';
+import LinkedInIcon from './Icons/LinkedIn';
+import TwitterIcon from './Icons/Twitter';
+import ResumeIcon from './Icons/Resume';
+
 import githubIcon from '../images/icons/github-brands.svg';
 import linkedInIcon from '../images/icons/linkedin-brands.svg';
 import twitterIcon from '../images/icons/twitter-brands.svg';
 import resumeIcon from '../images/icons/file-alt-solid.svg';
+import Github from './Icons/Github';
 
 const FooterWrapper = styled.footer`
   pointer-events: none;
@@ -51,7 +57,7 @@ const FooterLeft = styled.div`
 const FooterRight = styled.div`
   ul {
     display: flex;
-    color: ${props => props.theme.colorPrimary};
+    /* color: ${props => props.theme.colorPrimary}; */
     li {
       margin: 0 0.75rem;
       a {
@@ -95,7 +101,8 @@ const Footer = ({ pageScrolled, isHome }) => {
         <ul>
           <li>
             <a href="https://github.com/ashco" target="_blank">
-              <LinkIcon src={githubIcon} alt="Github" />
+              {/* <LinkIcon src={githubIcon} alt="Github" /> */}
+              <GithubIcon />
             </a>
           </li>
           <li>
@@ -103,12 +110,14 @@ const Footer = ({ pageScrolled, isHome }) => {
               href="https://www.linkedin.com/in/ashtonchristie/"
               target="_blank"
             >
-              <LinkIcon src={linkedInIcon} alt="LinkedIn" />
+              {/* <LinkIcon src={linkedInIcon} alt="LinkedIn" /> */}
+              <LinkedInIcon />
             </a>
           </li>
           <li>
             <a href="https://twitter.com/AshCo_Io" target="_blank">
-              <LinkIcon src={twitterIcon} alt="Twitter" />
+              {/* <LinkIcon src={twitterIcon} alt="Twitter" /> */}
+              <TwitterIcon />
             </a>
           </li>
           <li>
@@ -116,7 +125,8 @@ const Footer = ({ pageScrolled, isHome }) => {
               href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view"
               target="_blank"
             >
-              <LinkIcon src={resumeIcon} alt="Resume" />
+              {/* <LinkIcon src={resumeIcon} alt="Resume" /> */}
+              <ResumeIcon />
             </a>
           </li>
         </ul>

@@ -4,6 +4,9 @@ import styled from 'styled-components';
 
 const BlogListingWrapper = styled.article`
   margin: 1rem 0;
+  a {
+    color: ${props => props.theme.colorText};
+  }
 `;
 
 const BlogListing = ({ post }) => (

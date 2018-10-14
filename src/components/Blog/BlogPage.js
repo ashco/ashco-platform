@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
 import { MainContainer, ContentWrapper, Tag, TagContainer } from '../helpers';
-
-const BlogPageWrapper = styled.div``;
 
 const BlogPage = ({ data }) => {
   if (!data) return null;

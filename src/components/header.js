@@ -4,8 +4,8 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
-import AshCoLogo from './AshCoLogo';
-import NavArrow from './NavArrow';
+import AshCoIcon from './Icons/AshCo';
+import NavArrow from './Icons/NavArrow';
 
 // import logo from '../images/logo-lite.svg';
 
@@ -13,6 +13,7 @@ const HeaderWrapper = styled.header`
   position: fixed;
   pointer-events: none;
   width: 100%;
+  z-index: 5;
 `;
 
 const HeaderContainer = styled.nav`
@@ -20,7 +21,6 @@ const HeaderContainer = styled.nav`
   max-width: 1200px;
   /* padding: 1.45rem 1.0875rem; */
   position: relative;
-  z-index: 5;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
@@ -130,7 +130,7 @@ class Header extends Component {
         <HeaderContainer>
           <HeaderTitle>
             <Link to="/">
-              <AshCoLogo />
+              <AshCoIcon />
             </Link>
             <span>{title}</span>
           </HeaderTitle>

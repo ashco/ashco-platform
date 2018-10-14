@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withTheme } from 'styled-components';
 
-const AshCoLogo = ({ theme }) => {
+const AshCo = ({ theme }) => {
   const { colorPrimary, colorText } = theme;
   return (
     <svg
@@ -76,4 +76,4 @@ const AshCoLogo = ({ theme }) => {
   );
 };
 
-export default withTheme(AshCoLogo);
+export default withTheme(AshCo);

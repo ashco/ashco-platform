@@ -101,7 +101,6 @@ class Layout extends Component {
               { name: 'keywords', content: 'sample, something' },
             ]}
           />
-          <ParticleBG />
           <Header
             data={data}
             location={location}
@@ -110,6 +109,7 @@ class Layout extends Component {
           />
           <Body isHome={isHome}>{children()}</Body>
           <Footer pageScrolled={pageScrolled} isHome={isHome} />
+          <ParticleBG />
         </LayoutWrapper>
       </ThemeProvider>
     );
