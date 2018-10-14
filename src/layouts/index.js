@@ -65,12 +65,14 @@ class Layout extends Component {
     }
 
     // pageBottom state
-    const marginLength = 300 + 140;
+    const marginLength = 300;
     const mainPageLength = window.innerHeight;
     let pageLength =
       document.querySelector('#body').offsetHeight + marginLength;
     if (this.state.isHome) {
       pageLength = pageLength + mainPageLength;
+    } else {
+      pageLength = pageLength + 140;
     }
     const windowHeight = window.innerHeight;
     const scrollLength = window.pageYOffset;
@@ -110,11 +112,9 @@ class Layout extends Component {
         if (isMobile) {
           top = window.innerHeight - parseInt(headerHeight);
           top = `${top}px`;
-          console.log(top);
         } else {
           top = 100 - parseInt(headerHeight);
           top = `${top}vh`;
-          console.log(top);
         }
       }
       return top;

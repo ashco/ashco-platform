@@ -26,9 +26,11 @@ const FooterWrapper = styled.footer`
     margin: 0rem 1.5rem 1.5rem 1.5rem;
   }
   @media (min-width: ${props => props.theme.widthTablet}) {
-    margin: 1.5rem;
     flex-direction: row;
     align-items: flex-end;
+    div {
+      margin: 1.5rem;
+    }
   }
 `;
 
