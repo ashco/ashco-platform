@@ -34,6 +34,7 @@ const HeaderTitle = styled.h1`
   display: flex;
   align-items: center;
   font-size: 2rem;
+  font-weight: 600;
   img {
     height: 5rem;
   }

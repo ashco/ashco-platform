@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { MainContainer, ContentWrapper } from '../components/helpers';
+import {
+  MainContainer,
+  ContentWrapper,
+  MainTitle,
+} from '../components/helpers';
 
-const TextWrapper = styled.div``;
+const TextWrapper = styled.div`
+  margin: 2em 0;
+`;
 
 const FormWrapper = styled.form`
   margin: auto;
@@ -11,15 +17,12 @@ const FormWrapper = styled.form`
   flex-direction: column;
   > p {
     font-size: 1.1rem;
-    padding-top: 0.8rem;
   }
   label {
     color: ${props => props.theme.colorText};
     padding-bottom: 0.5rem;
   }
   button {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     padding: 0.5rem 1rem 0.5rem 1rem;
     background-color: ${props => props.theme.colorBackground};
     border-radius: ${props => props.theme.contactRadius};
@@ -53,7 +56,7 @@ const ContactPage = () => (
   <MainContainer>
     <ContentWrapper width="600px">
       <TextWrapper>
-        <h2>Wanna chat?</h2>
+        <MainTitle>Wanna chat?</MainTitle>
         <p>Fill out this form and I'll get back to you soon as life lets me.</p>
       </TextWrapper>
       <FormWrapper

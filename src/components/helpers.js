@@ -57,8 +57,6 @@ export const PortfolioListingWrapper = styled.article`
     transition: 0.5s ease;
     box-shadow: 0px 0px 75px 0px ${props => props.theme.colorPrimary};
   }
-  /* &:hover {
-  } */
 `;
 
 export const PortfolioHoverArea = styled.div`
@@ -68,6 +66,13 @@ export const PortfolioHoverArea = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+
+export const MainTitle = styled.h2`
+  margin-bottom: 0.2em;
+  font-size: 2.2rem;
+  line-height: 1.2em;
+  font-weight: 600;
 `;
 
 export const Tag = styled.div`

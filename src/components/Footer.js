@@ -18,7 +18,6 @@ const FooterWrapper = styled.footer`
   justify-content: space-between;
   flex-direction: column-reverse;
   align-items: center;
-  /* margin: 2rem 0.5rem; */
   a {
     pointer-events: auto;
     color: ${props => props.theme.colorPrimary};
@@ -41,6 +40,7 @@ const FooterLeftWrapper = styled.div`
   line-height: 1.3rem;
   text-align: center;
   font-size: 0.85rem;
+  margin: 0;
   a {
     &:hover {
       border-bottom: 1px solid ${props => props.theme.colorPrimary};
