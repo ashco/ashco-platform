@@ -74,14 +74,17 @@ const FooterRight = styled.div`
   }
 `;
 
-const Footer = ({ pageScrolled, isHome }) => {
-  const year = new Date().getFullYear();
-  const showFooter = !isHome || pageScrolled;
+const Footer = ({ pageScrolled, pageBottom, isHome }) => {
+  const showFooter = window.innerWidth >= 750 || pageBottom;
+  const showFooterLeft = !isHome || pageScrolled;
   const showNavArrow = isHome && !pageScrolled;
+  const year = new Date().getFullYear();
+
+  console.log(pageScrolled);
 
   return (
-    <FooterWrapper>
-      <FooterLeft className={showFooter ? 'visible' : 'hidden'}>
+    <FooterWrapper className={showFooter ? 'visible-fade' : 'hidden-fade'}>
+      <FooterLeft className={showFooterLeft ? 'visible' : 'hidden'}>
         <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
         <p>
           This site is built with{' '}
@@ -134,6 +137,8 @@ const Footer = ({ pageScrolled, isHome }) => {
       </FooterRight>
     </FooterWrapper>
   );
+
+  // }
 };
 
 export default Footer;

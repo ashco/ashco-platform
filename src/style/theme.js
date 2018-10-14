@@ -1,7 +1,8 @@
 export const theme = {
   // ------- COLOR -------
-  colorPrimary: '#d27831',
+  // colorPrimary: '#d27831',
   // colorPrimary: '#d34545',
+  colorPrimary: '#55c2ed',
   colorBackground: '#222',
   // colorBackground: '#eee',
   colorText: '#eee',
@@ -12,4 +13,6 @@ export const theme = {
   widthDesktop: '',
   width4k: '',
   heightTablet: '750px',
+  // ------- ELEMENT LENGTHS --------
+  mobileHeaderHeight: '140px',
 };

@@ -22,7 +22,7 @@ const HeaderContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   pointer-events: none;
-  height: 120px;
+  height: ${props => props.theme.mobileHeaderHeight};
 
   @media (min-height: 770px) {
     height: 15vh;

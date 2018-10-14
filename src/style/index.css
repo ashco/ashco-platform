@@ -162,11 +162,21 @@ a {
 .hidden {
   visibility: hidden;
   opacity: 0;
-  /* transition: visibility 0s 0.1s, opacity 0.1s linear; */
+}
+
+.hidden-fade {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.15s, opacity 0.15s linear;
 }
 
 .visible {
   visibility: visible;
   opacity: 1;
-  /* transition: opacity 0.1s linear; */
+}
+
+.visible-fade {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
 }

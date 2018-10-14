@@ -23,8 +23,11 @@ const Body = styled.main`
   overflow-y: scroll;
   top: ${({ isHome }) => (isHome ? '100vh' : '0')};
   width: 100vw;
-  margin: 120px auto 35vh auto;
+  margin: ${props => props.theme.mobileHeaderHeight} auto 300px auto;
   /* padding-top: 0; */
+  /* @media (min-width: ${props => props.theme.widthTablet}) {
+    top: ${({ isHome }) => (isHome ? '100vh' : '0')};
+  } */
   @media (min-width: ${props => props.theme.heightTablet}) {
     margin: 15vh auto;
   }
@@ -39,13 +42,11 @@ class Layout extends Component {
 
   componentWillMount() {
     this.updateIsHome();
-    // this.toggleIsHomeEvent();
-    window.addEventListener('scroll', this.handleScrollLocation);
+    window.addEventListener('scroll', this.handleScrollState);
   }
 
   componentDidUpdate() {
     this.updateIsHome();
-    // this.toggleIsHomeEvent();
   }
 
   updateIsHome() {
@@ -63,19 +64,42 @@ class Layout extends Component {
   //     : window.removeEventListener('scroll', this.handleScroll);
   // }
 
-  handleScrollLocation = event => {
-    let pageScrolled = window.pageYOffset >= window.innerHeight * 0.5;
-    // let pageBottom = window.pageYO
+  handleScrollState = event => {
+    const pageScrolled = window.pageYOffset >= window.innerHeight * 0.5;
+
     if (pageScrolled !== this.state.pageScrolled) {
       this.setState({
-        pageScrolled,
+        pageScrolled: pageScrolled,
+      });
+    }
+
+    // pageBottom state
+    const marginLength = 300 + 140;
+    const mainPageLength = window.innerHeight;
+    let pageLength =
+      document.querySelector('#body').offsetHeight + marginLength;
+    if (this.state.isHome) {
+      pageLength = pageLength + mainPageLength;
+    }
+    const windowHeight = window.innerHeight;
+    const scrollLength = window.pageYOffset;
+
+    const isBottom = () => pageLength - windowHeight === scrollLength;
+
+    if (isBottom()) {
+      this.setState({
+        pageBottom: true,
+      });
+    } else if (!isBottom() && this.state.pageBottom === true) {
+      this.setState({
+        pageBottom: false,
       });
     }
   };
 
   render() {
     const { children, data, location } = this.props;
-    const { isHome, pageScrolled } = this.state;
+    const { isHome, pageScrolled, pageBottom } = this.state;
 
     let pageTitleArr = location.pathname.split('/');
     let pageTitle = '';
@@ -103,8 +127,14 @@ class Layout extends Component {
             title={pageTitle}
             isHome={isHome}
           />
-          <Body isHome={isHome}>{children()}</Body>
-          <Footer pageScrolled={pageScrolled} isHome={isHome} />
+          <Body id="body" isHome={isHome}>
+            {children()}
+          </Body>
+          <Footer
+            pageScrolled={pageScrolled}
+            pageBottom={pageBottom}
+            isHome={isHome}
+          />
           <ParticleBG />
         </LayoutWrapper>
       </ThemeProvider>
