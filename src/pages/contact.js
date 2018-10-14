@@ -28,7 +28,7 @@ const FormWrapper = styled.form`
     border-radius: ${props => props.theme.contactRadius};
     color: ${props => props.theme.colorText};
     font-size: 1.1rem;
-    border: 2px solid ${props => props.theme.colorPrimary};
+    border: 2px solid ${props => props.theme.colorPrimary}80;
   }
 `;
 
@@ -37,7 +37,7 @@ const FormInputWrapper = styled.p`
   flex-direction: column;
   input,
   textarea {
-    border: solid 2px ${props => props.theme.colorPrimary};
+    border: solid 2px ${props => props.theme.colorPrimary}80;
     background-color: ${props => props.theme.colorBackground};
     padding-top: 8px;
     padding-bottom: 8px;

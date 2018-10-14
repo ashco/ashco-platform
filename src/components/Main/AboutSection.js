@@ -17,7 +17,7 @@ const AboutSection = () => (
 );
 
 const AboutWrapper = styled.section`
-  border: 1px solid ${props => props.theme.colorPrimary};
+  /* border: 1px solid ${props => props.theme.colorPrimary}; */
 `;
 
 export default AboutSection;

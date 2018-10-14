@@ -58,11 +58,13 @@ class Layout extends Component {
     }
 
     const marginLength = 300;
+    const borderLength = 5;
     const mainPageLength = window.innerHeight;
+
     let pageLength =
       document.querySelector('#body').offsetHeight + marginLength;
     if (this.state.isHome) {
-      pageLength = pageLength + mainPageLength;
+      pageLength = pageLength + mainPageLength + borderLength;
     } else {
       pageLength = pageLength + 140;
     }
@@ -152,16 +154,24 @@ const LayoutWrapper = styled.div`
 `;
 
 const Body = styled.main`
+  border-top: ${props => props.theme.mainBorderSize} solid
+    ${props => props.theme.colorPrimary}80;
+  border-bottom: ${props => props.theme.mainBorderSize} solid
+    ${props => props.theme.colorPrimary}80;
   z-index: 10;
   pointer-events: none;
   position: absolute;
   overflow-y: scroll;
-  top: ${props => props.top};
   width: 100vw;
+  top: calc(${props => props.top} + ${props => props.theme.mainBorderSize});
   margin: ${props => props.theme.mobileHeaderHeight} auto
     ${props => props.theme.mobileFooterHeight} auto;
   @media (min-width: ${props => props.theme.widthTablet}) {
-    margin: ${props => props.theme.tabletHeaderHeight} auto;
+    margin: calc(
+        ${props => props.theme.tabletHeaderHeight} -
+          ${props => props.theme.mainBorderSize}
+      )
+      auto;
   }
 `;
 

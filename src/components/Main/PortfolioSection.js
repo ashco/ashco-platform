@@ -17,7 +17,7 @@ const PortfolioMain = ({ projects }) => (
 );
 
 const PortfolioWrapper = styled.section`
-  border: 1px solid ${props => props.theme.colorPrimary};
+  /* border: 1px solid ${props => props.theme.colorPrimary}; */
 `;
 
 const PortfolioListingContainer = styled.div`

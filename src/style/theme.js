@@ -25,4 +25,5 @@ export const theme = {
   // ------ ELEMENT STYLE VARIABLES -------
   portfolioRadius: '25px',
   contactRadius: '3px',
+  mainBorderSize: '5px',
 };

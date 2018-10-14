@@ -18,7 +18,7 @@ const BlogSection = ({ posts }) => (
 );
 
 const BlogWrapper = styled.section`
-  border: 1px solid ${props => props.theme.colorPrimary};
+  /* border: 1px solid ${props => props.theme.colorPrimary}; */
 `;
 
 export default BlogSection;
