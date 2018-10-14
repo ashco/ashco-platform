@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
+import TitleText from './TitleText';
 import AshCoIcon from './Icons/AshCo';
 
 class Header extends Component {
@@ -43,6 +44,7 @@ class Header extends Component {
             </ul>
           </NavLinks>
         </HeaderContainer>
+        {isHome && <TitleText />}
       </HeaderWrapper>
     );
   }

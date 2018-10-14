@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 
-import { theme } from '../style/theme';
+import { theme } from '../config/theme';
 
 import Header from '../components/header';
 import Footer from '../components/Footer';

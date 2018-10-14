@@ -20,7 +20,7 @@ export const PortfolioListingWrapper = styled.article`
       opacity: 1;
     }
     transition: 0.5s ease;
-    box-shadow: 0px 0px 75px 0px ${props => props.theme.colorPrimary};
+    box-shadow: 0px 0px 100px -25px ${props => props.theme.colorPrimary};
   }
 `;
 
