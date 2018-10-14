@@ -4,39 +4,46 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
+import AshCoLogo from './AshCoLogo';
 import NavArrow from './NavArrow';
 
-import logo from '../images/logo-lite.svg';
+// import logo from '../images/logo-lite.svg';
 
 const HeaderWrapper = styled.header`
-  /* overflow: hidden; */
   position: fixed;
   pointer-events: none;
-  /* height: 100vh; */
   width: 100%;
 `;
 
 const HeaderContainer = styled.nav`
   margin: 0 auto;
   max-width: 1200px;
-  padding: 1.45rem 1.0875rem;
+  /* padding: 1.45rem 1.0875rem; */
   position: relative;
   z-index: 5;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
+  height: 120px;
+  @media (min-height: 770px) {
+    height: 15vh;
+  }
 `;
 
 const HeaderTitle = styled.h1`
-  margin: 0;
+  margin-left: 1.4rem;
   display: flex;
   align-items: center;
   font-size: 2rem;
   img {
     height: 5rem;
   }
+  svg {
+    height: 5rem;
+    width: auto;
+  }
   a {
-    color: #fff;
+    /* color:  ${props => props.theme.colorText}; */
     text-decoration: none;
     pointer-events: auto;
   }
@@ -46,21 +53,27 @@ const HeaderTitle = styled.h1`
 
   @media (min-width: 800px) {
     font-size: 2.5rem;
+  }
+  @media (min-height: 800px) {
     img {
       height: 6rem;
     }
   }
   @media (min-width: 1000px) {
     font-size: 3rem;
+  }
+  /* @media (min-height: 800px) {
     img {
       height: 7rem;
     }
-  }
+  } */
   @media (min-width: 1400px) {
     font-size: 3.5rem;
+  }
+  /* @media (min-height: 800px) {
     img {
       height: 8rem;
-    }
+    } */
   }
   /* @media (min-width: 1800px) {
     font-size: 4rem;
@@ -68,7 +81,8 @@ const HeaderTitle = styled.h1`
 `;
 
 const NavLinks = styled.div`
-  font-size: 1rem;
+  font-size: 1.1rem;
+  margin: 1.45rem 1.1rem;
   ul {
     list-style: none;
     display: flex;
@@ -80,9 +94,9 @@ const NavLinks = styled.div`
         pointer-events: auto;
         text-decoration: none;
         font-weight: 600;
-        color: #fff;
+        color: ${props => props.theme.colorText};
         &:hover {
-          border-bottom: 3px solid #d27831;
+          border-bottom: 3px solid ${props => props.theme.colorPrimary};
         }
       }
     }
@@ -104,13 +118,6 @@ const NavLinks = styled.div`
 `;
 
 class Header extends Component {
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log(nextProps);
-  //   console.log(this.props);
-  //   return nextProps !== this.props;
-  //   // return !equals(nextProps, this.props); // equals() is your implementation
-  // }
-
   render() {
     const { data, location, title, isHome } = this.props;
     return (
@@ -123,7 +130,7 @@ class Header extends Component {
         <HeaderContainer>
           <HeaderTitle>
             <Link to="/">
-              <img src={logo} alt="logo" />
+              <AshCoLogo />
             </Link>
             <span>{title}</span>
           </HeaderTitle>
@@ -148,7 +155,6 @@ class Header extends Component {
           </NavLinks>
         </HeaderContainer>
         {isHome && <NavArrow />}
-        {/* <ParticleBG /> */}
       </HeaderWrapper>
     );
   }

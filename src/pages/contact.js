@@ -12,14 +12,18 @@ const FormWrapper = styled.form`
   margin: auto;
   display: flex;
   flex-direction: column;
+  label {
+    color: ${props => props.theme.colorPrimary};
+  }
   button {
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 0.5rem 1rem 0.5rem 1rem;
-    background-color: #c5c5c5;
+    background-color: ${props => props.theme.colorBackground};
     border-radius: 2px;
-    color: #222;
+    color: ${props => props.theme.colorPrimary};
     font-size: 1rem;
+    border-color: ${props => props.theme.colorPrimary};
   }
 `;
 
@@ -34,7 +38,8 @@ const FormInputWrapper = styled.p`
     padding-bottom: 8px;
     padding-left: 4px;
     font-size: 16px;
-    color: #eee;
+    color: ${props => props.theme.colorPrimary};
+    border-color: ${props => props.theme.colorPrimary};
   }
   textarea {
     height: 8rem;

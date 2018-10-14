@@ -21,7 +21,7 @@ const FooterWrapper = styled.footer`
   align-items: center;
   /* margin: 2rem 0.5rem; */
   a {
-    color: #d27831;
+    color: ${props => props.theme.colorPrimary};
   }
   div {
     margin: 1.5rem;
@@ -36,24 +36,28 @@ const FooterWrapper = styled.footer`
 const FooterLeft = styled.div`
   line-height: 1.3rem;
   text-align: center;
+  font-size: 0.85rem;
   a {
     pointer-events: auto;
   }
   @media (min-width: 720px) {
     text-align: left;
   }
+  @media (min-width: 800px) {
+    font-size: 1rem;
+  }
 `;
 
 const FooterRight = styled.div`
   ul {
     display: flex;
-    color: #d27831;
+    color: ${props => props.theme.colorPrimary};
     li {
       margin: 0 0.75rem;
       a {
         pointer-events: auto;
         &:hover {
-          border-bottom: 3px solid #d27831;
+          border-bottom: 3px solid ${props => props.theme.colorPrimary};
         }
       }
     }

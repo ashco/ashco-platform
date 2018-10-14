@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
+import { withTheme } from 'styled-components';
 
 import isEqual from 'lodash.isequal';
 
@@ -9,6 +10,7 @@ class ParticleBG extends Component {
   }
 
   render() {
+    const { colorPrimary } = this.props.theme;
     return (
       <Particles
         style={{
@@ -27,7 +29,7 @@ class ParticleBG extends Component {
               },
             },
             color: {
-              value: '#d27831',
+              value: colorPrimary,
             },
             shape: {
               type: 'circle',
@@ -67,7 +69,7 @@ class ParticleBG extends Component {
             line_linked: {
               enable: true,
               distance: 150,
-              color: '#d27831',
+              color: colorPrimary,
               opacity: 0.4,
               width: 1,
             },
@@ -132,4 +134,4 @@ class ParticleBG extends Component {
   }
 }
 
-export default ParticleBG;
+export default withTheme(ParticleBG);

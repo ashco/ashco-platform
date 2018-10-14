@@ -11,6 +11,7 @@ export const MainContainer = styled.div`
   /* width: 100vw; */
   /* padding: 2rem 5rem; */
   min-height: 70vh;
+  height: 530px;
   /* margin: 0px auto 10vh auto; */
   background-color: #222;
 `;

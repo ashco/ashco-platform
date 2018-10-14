@@ -21,12 +21,12 @@ const AboutSkillsContainer = styled.div`
   padding: 5rem;
   margin-left: 20px;
   h4 {
-    color: #d27831;
+    color: ${props => props.theme.colorPrimary};
     font-weight: 600;
   }
   h5 {
     font-weight: 600;
-    color: #d27831;
+    color: ${props => props.theme.colorPrimary};
   }
 `;
 

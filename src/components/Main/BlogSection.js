@@ -9,19 +9,19 @@ const BlogWrapper = styled.section`
   /* min-height: 30vh; */
 `;
 
-const BlogListingContainer = styled.div`
-  color: #eee;
-`;
+// const BlogListingContainer = styled.div`
+//   color: red;
+// `;
 
 const BlogSection = ({ posts }) => (
   <BlogWrapper>
     <h2>Blog</h2>
-    <BlogListingContainer>
+    <div>
       <h3>Most Recent Posts</h3>
       {posts.map(post => (
         <BlogListing post={post.node} key={post.node.id} />
       ))}
-    </BlogListingContainer>
+    </div>
     <PageLink to="/blog" text="View all blog posts =>" />
   </BlogWrapper>
 );
