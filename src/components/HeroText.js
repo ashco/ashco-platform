@@ -8,7 +8,11 @@ class HeroText extends Component {
         <FirstText>Welcome</FirstText>
         <SecondText>To</SecondText>
         <TitleLine />
-        <TitleText>AshCo.io</TitleText>
+        <TitleText>
+          AshCo
+          <TitleTextPeriod>.</TitleTextPeriod>
+          io
+        </TitleText>
       </HeroTextWrapper>
     );
   }
@@ -18,7 +22,7 @@ const HeroTextWrapper = styled.div`
   pointer-events: none;
   position: fixed;
   z-index: 5;
-  top: 50vh;
+  top: 53vh;
   left: 8vw;
   font-weight: 600;
   p,
@@ -66,7 +70,7 @@ const SecondText = styled.p`
 
 const TitleLine = styled.div`
   width: ${props => props.theme.mobileHeroLineWidth};
-  height: 150px;
+  height: 135px;
   background-color: ${props => props.theme.colorPrimary};
   @media (min-width: ${props => props.theme.widthLaptop}) {
     width: ${props => props.theme.tabletHeroLineWidth};
@@ -81,7 +85,7 @@ const TitleLine = styled.div`
 `;
 
 const TitleText = styled.h1`
-  font-size: 4rem;
+  font-size: 3.8rem;
   line-height: 1.2;
   color: ${props => props.theme.colorText};
   @media (min-width: ${props => props.theme.widthLaptop}) {
@@ -90,6 +94,10 @@ const TitleText = styled.h1`
   @media (min-width: ${props => props.theme.widthHD}) {
     font-size: 7.5rem;
   }
+`;
+
+const TitleTextPeriod = styled.span`
+  color: ${props => props.theme.colorPrimary};
 `;
 
 export default HeroText;

@@ -18,7 +18,7 @@ class MenuIcon extends Component {
       <MenuIconWrapper
         onClick={this.toggleIcon}
         id="menu-icon"
-        className={this.state.open ? 'open' : ''}
+        className={this.state.open && 'open'}
       >
         <span />
         <span />
@@ -29,10 +29,8 @@ class MenuIcon extends Component {
 }
 
 const MenuIconWrapper = styled.div`
-  /* ::selection {
-    background: none;
-  } */
   pointer-events: auto;
+  margin-right: 1.4rem;
   span {
     background: ${props => props.theme.colorText};
   }

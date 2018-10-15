@@ -7,13 +7,9 @@ import Img from 'gatsby-image';
 import MenuIcon from './Icons/MenuIcon';
 import AshCoIcon from './Icons/AshCo';
 
-// const MenuIcon = styled.div`
-//   pointer-events: auto;
-// `;
-
 class Header extends Component {
   render() {
-    const { data, location, title, isHome } = this.props;
+    const { data, location, title, isHome, isMobile } = this.props;
     return (
       // refs are a way to reference a component
       // sets this.wrapper to dom element
@@ -31,14 +27,6 @@ class Header extends Component {
           <NavLinks>
             <ul>
               <li>
-                <MenuIcon />
-                {/* <MenuIcon id="nav-icon1">
-                  <span />
-                  <span />
-                  <span />
-                </MenuIcon> */}
-              </li>
-              <li>
                 <Link to="/#home">Home</Link>
               </li>
               <li>
@@ -55,6 +43,7 @@ class Header extends Component {
               </li>
             </ul>
           </NavLinks>
+          {isMobile && <MenuIcon />}
         </HeaderContainer>
       </HeaderWrapper>
     );
@@ -74,6 +63,7 @@ const HeaderContainer = styled.nav`
   position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   pointer-events: none;
   height: ${props => props.theme.mobileHeaderHeight};
 
@@ -124,6 +114,9 @@ const HeaderTitle = styled.h1`
 const NavLinks = styled.div`
   font-size: 1.25rem;
   margin: 1.45rem 1.1rem;
+  position: absolute;
+  right: 0;
+  top: 80px;
   ul {
     list-style: none;
     display: flex;
@@ -146,6 +139,7 @@ const NavLinks = styled.div`
     }
   }
   @media (min-width: ${props => props.theme.widthTablet}) {
+    position: static;
     font-size: 1.5rem;
     ul {
       flex-direction: row;
