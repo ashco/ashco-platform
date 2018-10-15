@@ -4,7 +4,12 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
+import MenuIcon from './Icons/MenuIcon';
 import AshCoIcon from './Icons/AshCo';
+
+// const MenuIcon = styled.div`
+//   pointer-events: auto;
+// `;
 
 class Header extends Component {
   render() {
@@ -25,6 +30,14 @@ class Header extends Component {
           </HeaderTitle>
           <NavLinks>
             <ul>
+              <li>
+                <MenuIcon />
+                {/* <MenuIcon id="nav-icon1">
+                  <span />
+                  <span />
+                  <span />
+                </MenuIcon> */}
+              </li>
               <li>
                 <Link to="/#home">Home</Link>
               </li>
@@ -79,7 +92,7 @@ const HeaderTitle = styled.h1`
   font-size: 2rem;
   font-weight: 600;
   svg {
-    height: 5rem;
+    height: 5.5rem;
     width: auto;
   }
   a {
@@ -96,7 +109,7 @@ const HeaderTitle = styled.h1`
   @media (min-width: ${props => props.theme.widthLaptop}) {
     font-size: 3rem;
     svg {
-      height: 6rem;
+      height: 6.4rem;
     }
   }
   /* @media (min-width: ${props => props.theme.widthDesktop}) {

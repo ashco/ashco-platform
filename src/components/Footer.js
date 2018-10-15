@@ -50,13 +50,11 @@ class Footer extends Component {
       if (pageBottom) {
         stateObj = {
           showFooterLeft: true,
-          // showFooterCenter: false,
           showFooterRight: true,
         };
       } else {
         stateObj = {
           showFooterLeft: false,
-          // showFooterCenter: false,
           showFooterRight: false,
         };
       }
@@ -65,20 +63,17 @@ class Footer extends Component {
         if (!pageMiddle) {
           stateObj = {
             showFooterLeft: false,
-            // showFooterCenter: true,
             showFooterRight: true,
           };
         } else {
           stateObj = {
             showFooterLeft: true,
-            // showFooterCenter: false,
             showFooterRight: true,
           };
         }
       } else {
         stateObj = {
           showFooterLeft: true,
-          // showFooterCenter: false,
           showFooterRight: true,
         };
       }
@@ -222,9 +217,11 @@ const FooterLeftWrapper = styled.div`
 const FooterCenterWrapper = styled.div`
   flex: 1;
   margin: 0;
-  display: none;
+  position: absolute;
+  top: 15vh;
   transition: visibility 0.25s 10s, opacity 0.25s linear;
   @media (min-width: ${props => props.theme.widthTablet}) {
+    position: initial;
     display: flex;
     justify-content: center;
   }
