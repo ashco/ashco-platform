@@ -22,25 +22,34 @@ const HeroTextWrapper = styled.div`
   pointer-events: none;
   position: fixed;
   z-index: 5;
-  top: 55vh;
-  left: 8vw;
+  margin: 0 10vw 8.5vh 10vw;
+  bottom: 0;
+  left: 0;
   font-weight: 600;
+  padding: 30px 35px 0px 10px
+  border-left: ${props => props.theme.desktopHeroLineWidth} solid ${props =>
+  props.theme.colorPrimary};
+  border-bottom: ${props => props.theme.desktopHeroLineWidth} solid ${props =>
+  props.theme.colorPrimary};
   p,
   h1 {
     margin-left: ${props => props.theme.mobileHeroLineWidth};
   }
   @media (min-width: ${props => props.theme.widthTablet}) {
-    top: 30vh;
-    left: 16vw;
+    margin-bottom: 15.5vh;
     p,
     h1 {
       margin-left: ${props => props.theme.tabletHeroLineWidth};
     }
   }
-  @media (min-width: ${props => props.theme.widthHD}) {
-    top: 29vh;
-    left: 24vw;
+  @media (min-width: ${props => props.theme.widthDesktop}) {
+    margin-left: 15vw;
   }
+  @media (min-width: ${props => props.theme.widthHD}) {
+    margin-left: 21vw;
+  }
+
+
 `;
 
 const FirstText = styled.p`
@@ -69,11 +78,11 @@ const SecondText = styled.p`
 `;
 
 const TitleLine = styled.div`
-  width: ${props => props.theme.mobileHeroLineWidth};
+  /* width: ${props => props.theme.mobileHeroLineWidth}; */
   height: 125px;
-  background-color: ${props => props.theme.colorPrimary};
+  /* background-color: ${props => props.theme.colorPrimary}; */
   @media (min-width: ${props => props.theme.widthLaptop}) {
-    width: ${props => props.theme.tabletHeroLineWidth};
+    /* width: ${props => props.theme.tabletHeroLineWidth}; */
     height: 180px;
   }
   @media (min-width: ${props => props.theme.widthDesktop}) {

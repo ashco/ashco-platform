@@ -33,7 +33,11 @@ class Header extends Component {
           {!isMobile ? (
             <NavLinks toggleMenu={toggleMenu} />
           ) : (
-            isMenuOpen && <NavLinks toggleMenu={toggleMenu} />
+            <NavLinks
+              isMenuOpen={isMenuOpen}
+              // className={isMenuOpen ? 'nav-links-showing' : 'nav-links-hiding'}
+              toggleMenu={toggleMenu}
+            />
           )}
           {isMobile && (
             <MenuIcon isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
@@ -44,8 +48,10 @@ class Header extends Component {
   }
 }
 
-const NavLinks = ({ toggleMenu }) => (
-  <NavLinksWrapper>
+const NavLinks = ({ isMenuOpen, toggleMenu }) => (
+  <NavLinksWrapper
+    className={isMenuOpen ? 'nav-links-showing' : 'nav-links-hiding'}
+  >
     <ul>
       <NavLinkItem to="/#home" toggleMenu={toggleMenu} title="Home" />
       <NavLinkItem to="/about" toggleMenu={toggleMenu} title="About" />
@@ -116,8 +122,6 @@ const HeaderTitle = styled.h1`
       height: 6.4rem;
     }
   }
-  /* @media (min-width: ${props => props.theme.widthDesktop}) {
-  } */
   @media (min-width: ${props => props.theme.widthHD}) {
     svg {
       height: 8rem;
@@ -130,27 +134,13 @@ const NavLinksWrapper = styled.div`
   margin: 1.45rem 0.6rem;
   position: absolute;
   right: 0;
-  top: 80px;
+  top: 90px;
+  transition: 0.3s ease-in-out;
   ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    /* li {
-      margin: 0.9rem;
-      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-      a {
-        pointer-events: auto;
-        text-decoration: none;
-        font-weight: 600;
-        color: ${props => props.theme.colorText};
-        transition: border-bottom 0.2s ease-out;
-        &:hover {
-          border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
-        }
-      }
-    } */
   }
   @media (min-width: ${props => props.theme.widthTablet}) {
     margin: 1.45rem 1.1rem;
@@ -158,10 +148,6 @@ const NavLinksWrapper = styled.div`
     font-size: 1.5rem;
     ul {
       flex-direction: row;
-
-      /* li {
-        margin: 0 0.9rem;
-      } */
     }
   }
   @media (min-width: ${props => props.theme.widthDesktop}) {

@@ -329,3 +329,23 @@ a {
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+/* #nav-item-home {
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+} */
+.nav-links-showing {
+  /* -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out; */
+}
+.nav-links-hiding {
+  right: -35vw;
+  /* -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out; */
+}

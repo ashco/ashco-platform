@@ -1,9 +1,9 @@
 export const theme = {
   // ------- COLOR -------
-  // colorPrimary: '#d27831',
+  colorPrimary: '#d27831',
   // colorPrimary: '#d34545',
   // colorPrimary: '#55c2ed',
-  colorPrimary: '#2de5b4',
+  // colorPrimary: '#2de5b4',
 
   colorBackground: '#222',
   colorText: '#eee',
@@ -29,7 +29,8 @@ export const theme = {
   // ------ ELEMENT STYLE VARIABLES -------
   portfolioRadius: '10px',
   contactRadius: '3px',
-  mainBorderSize: '5px',
+  mainBorderSize: '7.5px',
   mobileHeroLineWidth: '4px',
   tabletHeroLineWidth: '6px',
+  desktopHeroLineWidth: '8px',
 };

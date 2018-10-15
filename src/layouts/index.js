@@ -220,6 +220,7 @@ const Body = styled.main`
         ${props => (props.isMenuOpen ? '300px' : '0px')}
     )
     auto ${props => props.theme.mobileFooterHeight} auto;
+  transition: 0.2s ease-in-out;
   @media (min-width: ${props => props.theme.widthTablet}) {
     margin: calc(
         ${props => props.theme.tabletHeaderHeight} -
