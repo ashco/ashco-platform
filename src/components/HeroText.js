@@ -15,14 +15,11 @@ class HeroText extends Component {
 }
 
 const HeroTextWrapper = styled.div`
+  pointer-events: none;
   position: fixed;
   z-index: 5;
-  /* top: 40vh; */
   top: 50vh;
-  /* left: 10vw; */
   left: 8vw;
-  /* top: 30vh;
-  left: 20vw; */
   font-weight: 600;
   p,
   h1 {
@@ -36,6 +33,10 @@ const HeroTextWrapper = styled.div`
       margin-left: ${props => props.theme.tabletHeroLineWidth};
     }
   }
+  @media (min-width: ${props => props.theme.widthHD}) {
+    top: 27vh;
+    left: 24vw;
+  }
 `;
 
 const FirstText = styled.p`
@@ -45,9 +46,9 @@ const FirstText = styled.p`
   @media (min-width: ${props => props.theme.widthLaptop}) {
     font-size: 2.2rem;
   }
-  /* @media (min-width: ${props => props.theme.widthLaptop}) {
+  @media (min-width: ${props => props.theme.widthHD}) {
     font-size: 2.5rem;
-  } */
+  }
 `;
 
 const SecondText = styled.p`
@@ -58,9 +59,9 @@ const SecondText = styled.p`
   @media (min-width: ${props => props.theme.widthLaptop}) {
     font-size: 1.6rem;
   }
-  /* @media (min-width: ${props => props.theme.widthLaptop}) {
-    font-size: 1.8rem;
-  } */
+  @media (min-width: ${props => props.theme.widthHD}) {
+    font-size: 1.9rem;
+  }
 `;
 
 const TitleLine = styled.div`
@@ -74,6 +75,9 @@ const TitleLine = styled.div`
   @media (min-width: ${props => props.theme.widthDesktop}) {
     height: 200px;
   }
+  @media (min-width: ${props => props.theme.widthHD}) {
+    height: 280px;
+  }
 `;
 
 const TitleText = styled.h1`
@@ -83,9 +87,9 @@ const TitleText = styled.h1`
   @media (min-width: ${props => props.theme.widthLaptop}) {
     font-size: 5.5rem;
   }
-  /* @media (min-width: ${props => props.theme.widthLaptop}) {
+  @media (min-width: ${props => props.theme.widthHD}) {
     font-size: 7.5rem;
-  } */
+  }
 `;
 
 export default HeroText;

@@ -210,7 +210,7 @@ const FooterLeftWrapper = styled.div`
   }
   a {
     &:hover {
-      border-bottom: 1px solid ${props => props.theme.colorPrimary};
+      border-bottom: 1px solid ${props => props.theme.colorPrimary}cc;
     }
   }
   @media (min-width: ${props => props.theme.widthTablet}) {
@@ -241,7 +241,7 @@ const FooterRightWrapper = styled.div`
       margin: 0 0.75rem;
       a {
         &:hover {
-          border-bottom: 4px solid ${props => props.theme.colorPrimary};
+          border-bottom: 4px solid ${props => props.theme.colorPrimary}cc;
         }
       }
     }

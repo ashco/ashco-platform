@@ -67,6 +67,9 @@ const HeaderContainer = styled.nav`
   @media (min-width: ${props => props.theme.widthTablet}) {
     height: ${props => props.theme.tabletHeaderHeight};
   }
+  @media (min-width: ${props => props.theme.widthHD}) {
+    max-width: 1600px;
+  }
 `;
 
 const HeaderTitle = styled.h1`
@@ -75,9 +78,6 @@ const HeaderTitle = styled.h1`
   align-items: center;
   font-size: 2rem;
   font-weight: 600;
-  img {
-    height: 5rem;
-  }
   svg {
     height: 5rem;
     width: auto;
@@ -93,16 +93,18 @@ const HeaderTitle = styled.h1`
   @media (min-width: 800px) {
     font-size: 2.5rem;
   }
-  @media (min-height: 800px) {
-    img {
+  @media (min-width: ${props => props.theme.widthLaptop}) {
+    font-size: 3rem;
+    svg {
       height: 6rem;
     }
   }
-  @media (min-width: ${props => props.theme.widthLaptop}) {
-    font-size: 3rem;
-  }
-  @media (min-width: 1400px) {
-    font-size: 3.5rem;
+  /* @media (min-width: ${props => props.theme.widthDesktop}) {
+  } */
+  @media (min-width: ${props => props.theme.widthHD}) {
+    svg {
+      height: 8rem;
+    }
   }
 `;
 
@@ -125,7 +127,7 @@ const NavLinks = styled.div`
         color: ${props => props.theme.colorText};
         transition: border-bottom 0.2s ease-out;
         &:hover {
-          border-bottom: 3px solid ${props => props.theme.colorPrimary};
+          border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
         }
       }
     }
