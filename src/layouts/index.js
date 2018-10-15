@@ -69,32 +69,42 @@ class Layout extends Component {
   };
 
   handleScrollState = event => {
-    const pageScrolled = window.pageYOffset > 0;
+    const scrollLength = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const pageScrolled = scrollLength > 0;
+    const marginLength = 300;
+    const borderLength = 5;
+    const extraMobileMenuMargin = 300;
+
     if (pageScrolled !== this.state.pageScrolled) {
       this.setState({
         pageScrolled,
       });
     }
 
-    const pageMiddle = window.pageYOffset >= window.innerHeight * 0.5;
+    let lengthToMiddle = scrollLength;
+    if (this.state.isMobile && this.state.isMenuOpen) {
+      lengthToMiddle = lengthToMiddle - extraMobileMenuMargin;
+    }
+
+    let pageMiddle = lengthToMiddle >= windowHeight * 0.5;
+
     if (pageMiddle !== this.state.pageMiddle) {
       this.setState({
         pageMiddle,
       });
     }
 
-    const marginLength = 300;
-    const borderLength = 5;
-    const mainPageLength = window.innerHeight;
     let pageLength =
       document.querySelector('#body').offsetHeight + marginLength;
+    if (this.state.isMobile && this.state.isMenuOpen) {
+      pageLength = pageLength + extraMobileMenuMargin;
+    }
     if (this.state.isHome) {
-      pageLength = pageLength + mainPageLength + borderLength;
+      pageLength = pageLength + windowHeight + borderLength;
     } else {
       pageLength = pageLength + 140;
     }
-    const windowHeight = window.innerHeight;
-    const scrollLength = window.pageYOffset;
     const isBottom = () => pageLength - windowHeight === scrollLength;
 
     if (isBottom()) {
@@ -164,7 +174,12 @@ class Layout extends Component {
             toggleMenu={this.toggleMenu}
           />
           {!isMobile ? <TitleText /> : isHome && !pageMiddle && <TitleText />}
-          <Body id="body" isHome={isHome} top={getBodyTop(isHome)}>
+          <Body
+            id="body"
+            isHome={isHome}
+            top={getBodyTop(isHome)}
+            isMenuOpen={isMenuOpen}
+          >
             {children()}
           </Body>
           <Footer
@@ -200,8 +215,11 @@ const Body = styled.main`
   overflow-y: scroll;
   width: 100vw;
   top: calc(${props => props.top} + ${props => props.theme.mainBorderSize});
-  margin: ${props => props.theme.mobileHeaderHeight} auto
-    ${props => props.theme.mobileFooterHeight} auto;
+  margin: calc(
+      ${props => props.theme.mobileHeaderHeight} +
+        ${props => (props.isMenuOpen ? '300px' : '0px')}
+    )
+    auto ${props => props.theme.mobileFooterHeight} auto;
   @media (min-width: ${props => props.theme.widthTablet}) {
     margin: calc(
         ${props => props.theme.tabletHeaderHeight} -
