@@ -29,7 +29,7 @@ export const theme = {
   // ------ ELEMENT STYLE VARIABLES -------
   portfolioRadius: '10px',
   contactRadius: '3px',
-  mainBorderSize: '7.5px',
+  mainBorderSize: '7px',
   mobileHeroLineWidth: '4px',
   tabletHeroLineWidth: '6px',
   desktopHeroLineWidth: '8px',

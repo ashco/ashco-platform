@@ -25,12 +25,18 @@ class Layout extends Component {
     this.updateIsHome();
     this.updateIsMobile();
     window.addEventListener('scroll', this.handleScrollState);
+    window.addEventListener('resize', this.handleResize);
   }
 
   componentDidUpdate() {
     this.updateIsHome();
-    this.updateIsMobile();
   }
+
+  handleResize = () => {
+    setTimeout(() => {
+      this.updateIsMobile();
+    }, 1000);
+  };
 
   updateIsHome() {
     const isHome = location.pathname === '/';
@@ -42,6 +48,7 @@ class Layout extends Component {
   }
 
   updateIsMobile() {
+    console.log('Checking if mobile');
     const isMobile = window.innerWidth <= 750;
     if (isMobile !== this.state.isMobile) {
       this.setState({
@@ -76,6 +83,8 @@ class Layout extends Component {
     const borderLength = 5;
     const extraMobileMenuMargin = 300;
 
+    console.log({ pageScrolled });
+
     if (pageScrolled !== this.state.pageScrolled) {
       this.setState({
         pageScrolled,
@@ -87,7 +96,7 @@ class Layout extends Component {
       lengthToMiddle = lengthToMiddle - extraMobileMenuMargin;
     }
 
-    let pageMiddle = lengthToMiddle >= windowHeight * 0.5;
+    let pageMiddle = lengthToMiddle >= windowHeight * 0.55;
 
     if (pageMiddle !== this.state.pageMiddle) {
       this.setState({
@@ -105,7 +114,13 @@ class Layout extends Component {
     } else {
       pageLength = pageLength + 140;
     }
-    const isBottom = () => pageLength - windowHeight === scrollLength;
+    const isBottom = () => pageLength - windowHeight <= scrollLength;
+
+    console.log({ pageLength });
+    console.log({ scrollLength });
+    console.log({ windowHeight });
+    console.log(pageLength - windowHeight);
+    console.log(isBottom());
 
     if (isBottom()) {
       this.setState({

@@ -30,15 +30,7 @@ class Header extends Component {
             </Link>
             <span>{title}</span>
           </HeaderTitle>
-          {!isMobile ? (
-            <NavLinks toggleMenu={toggleMenu} />
-          ) : (
-            <NavLinks
-              isMenuOpen={isMenuOpen}
-              // className={isMenuOpen ? 'nav-links-showing' : 'nav-links-hiding'}
-              toggleMenu={toggleMenu}
-            />
-          )}
+          <NavLinks toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
           {isMobile && (
             <MenuIcon isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
           )}
