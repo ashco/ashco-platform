@@ -22,7 +22,7 @@ const HeroTextWrapper = styled.div`
   pointer-events: none;
   position: fixed;
   z-index: 5;
-  top: 53vh;
+  top: 55vh;
   left: 8vw;
   font-weight: 600;
   p,
@@ -45,7 +45,7 @@ const HeroTextWrapper = styled.div`
 
 const FirstText = styled.p`
   font-size: 1.8rem;
-  line-height: 0.8;
+  line-height: 0.6;
   color: ${props => props.theme.colorText};
   @media (min-width: ${props => props.theme.widthLaptop}) {
     font-size: 2.2rem;
@@ -70,7 +70,7 @@ const SecondText = styled.p`
 
 const TitleLine = styled.div`
   width: ${props => props.theme.mobileHeroLineWidth};
-  height: 135px;
+  height: 125px;
   background-color: ${props => props.theme.colorPrimary};
   @media (min-width: ${props => props.theme.widthLaptop}) {
     width: ${props => props.theme.tabletHeroLineWidth};

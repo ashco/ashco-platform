@@ -9,46 +9,60 @@ import AshCoIcon from './Icons/AshCo';
 
 class Header extends Component {
   render() {
-    const { data, location, title, isHome, isMobile } = this.props;
+    const {
+      data,
+      location,
+      title,
+      isHome,
+      isMobile,
+      isMenuOpen,
+      toggleMenu,
+    } = this.props;
     return (
-      // refs are a way to reference a component
-      // sets this.wrapper to dom element
       <HeaderWrapper
         isHome={isHome}
         ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
       >
         <HeaderContainer>
           <HeaderTitle>
-            <Link to="/">
+            <Link to="/" onClick={toggleMenu.bind(null, 'open')}>
               <AshCoIcon />
             </Link>
             <span>{title}</span>
           </HeaderTitle>
-          <NavLinks>
-            <ul>
-              <li>
-                <Link to="/#home">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/projects">Projects</Link>
-              </li>
-              <li>
-                <Link to="/blog">Blog</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-            </ul>
-          </NavLinks>
-          {isMobile && <MenuIcon />}
+          {!isMobile ? (
+            <NavLinks toggleMenu={toggleMenu} />
+          ) : (
+            isMenuOpen && <NavLinks toggleMenu={toggleMenu} />
+          )}
+          {isMobile && (
+            <MenuIcon isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+          )}
         </HeaderContainer>
       </HeaderWrapper>
     );
   }
 }
+
+const NavLinks = ({ toggleMenu }) => (
+  <NavLinksWrapper>
+    <ul>
+      <NavLinkItem to="/#home" toggleMenu={toggleMenu} title="Home" />
+      <NavLinkItem to="/about" toggleMenu={toggleMenu} title="About" />
+      <NavLinkItem to="/projects" toggleMenu={toggleMenu} title="Projects" />
+      <NavLinkItem to="/blog" toggleMenu={toggleMenu} title="Blog" />
+      <NavLinkItem to="/contact" toggleMenu={toggleMenu} title="Contact" />
+    </ul>
+  </NavLinksWrapper>
+);
+
+const NavLinkItem = ({ to, title, toggleMenu }) => (
+  <NavLinkItemWrapper>
+    <Link to={to} onClick={toggleMenu.bind(null, 'closed')}>
+      {title}
+    </Link>
+  </NavLinkItemWrapper>
+);
 
 const HeaderWrapper = styled.header`
   position: fixed;
@@ -111,9 +125,9 @@ const HeaderTitle = styled.h1`
   }
 `;
 
-const NavLinks = styled.div`
+const NavLinksWrapper = styled.div`
   font-size: 1.25rem;
-  margin: 1.45rem 1.1rem;
+  margin: 1.45rem 0.6rem;
   position: absolute;
   right: 0;
   top: 80px;
@@ -122,7 +136,7 @@ const NavLinks = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    li {
+    /* li {
       margin: 0.9rem;
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -136,21 +150,41 @@ const NavLinks = styled.div`
           border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
         }
       }
-    }
+    } */
   }
   @media (min-width: ${props => props.theme.widthTablet}) {
+    margin: 1.45rem 1.1rem;
     position: static;
     font-size: 1.5rem;
     ul {
       flex-direction: row;
 
-      li {
+      /* li {
         margin: 0 0.9rem;
-      }
+      } */
     }
   }
   @media (min-width: ${props => props.theme.widthDesktop}) {
     font-size: 1.75rem;
+  }
+`;
+
+const NavLinkItemWrapper = styled.li`
+  margin: 0.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  a {
+    pointer-events: auto;
+    text-decoration: none;
+    font-weight: 600;
+    color: ${props => props.theme.colorText};
+    transition: border-bottom 0.2s ease-out;
+    &:hover {
+      border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
+    }
+  }
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    margin: 0 0.9rem;
   }
 `;
 

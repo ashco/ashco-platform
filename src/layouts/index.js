@@ -16,6 +16,7 @@ class Layout extends Component {
   state = {
     isHome: true,
     isMobile: true,
+    isMenuOpen: true,
     pageMiddle: false,
     pageBottom: false,
   };
@@ -48,6 +49,24 @@ class Layout extends Component {
       });
     }
   }
+
+  toggleMenu = isOpen => {
+    if (this.state.isMobile) {
+      if (isOpen === 'open') {
+        this.setState({
+          isMenuOpen: true,
+        });
+      } else if (isOpen === 'closed') {
+        this.setState({
+          isMenuOpen: false,
+        });
+      } else {
+        this.setState({
+          isMenuOpen: !this.state.isMenuOpen,
+        });
+      }
+    }
+  };
 
   handleScrollState = event => {
     const pageScrolled = window.pageYOffset > 0;
@@ -94,6 +113,7 @@ class Layout extends Component {
     const {
       isHome,
       isMobile,
+      isMenuOpen,
       pageScrolled,
       pageMiddle,
       pageBottom,
@@ -140,6 +160,8 @@ class Layout extends Component {
             title={pageTitle}
             isHome={isHome}
             isMobile={isMobile}
+            isMenuOpen={isMenuOpen}
+            toggleMenu={this.toggleMenu}
           />
           {!isMobile ? <TitleText /> : isHome && !pageMiddle && <TitleText />}
           <Body id="body" isHome={isHome} top={getBodyTop(isHome)}>
