@@ -5,6 +5,7 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import { theme } from '../config/theme';
 
+import TitleText from '../components/HeroText';
 import Header from '../components/header';
 import Footer from '../components/Footer';
 import '../style/index.css';
@@ -139,6 +140,7 @@ class Layout extends Component {
             title={pageTitle}
             isHome={isHome}
           />
+          {isHome && <TitleText />}
           <Body id="body" isHome={isHome} top={getBodyTop(isHome)}>
             {children()}
           </Body>

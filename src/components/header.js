@@ -4,7 +4,6 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
-import TitleText from './TitleText';
 import AshCoIcon from './Icons/AshCo';
 
 class Header extends Component {
@@ -44,7 +43,6 @@ class Header extends Component {
             </ul>
           </NavLinks>
         </HeaderContainer>
-        {isHome && <TitleText />}
       </HeaderWrapper>
     );
   }
@@ -100,7 +98,7 @@ const HeaderTitle = styled.h1`
       height: 6rem;
     }
   }
-  @media (min-width: 1000px) {
+  @media (min-width: ${props => props.theme.widthLaptop}) {
     font-size: 3rem;
   }
   @media (min-width: 1400px) {
@@ -133,6 +131,7 @@ const NavLinks = styled.div`
     }
   }
   @media (min-width: ${props => props.theme.widthTablet}) {
+    font-size: 1.5rem;
     ul {
       flex-direction: row;
 
@@ -141,10 +140,7 @@ const NavLinks = styled.div`
       }
     }
   }
-  @media (min-width: 1000px) {
-    font-size: 1.5rem;
-  }
-  @media (min-width: 1400px) {
+  @media (min-width: ${props => props.theme.widthDesktop}) {
     font-size: 1.75rem;
   }
 `;

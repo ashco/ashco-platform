@@ -1,9 +1,12 @@
 export const titleText = [
   'The Grid',
   'Darkmode',
-  'The Frontend',
-  'The Backend',
+  'Frontend',
+  'Backend',
   'Design',
   'AshLand',
   'The Upgrade',
+  'Late Nights',
+  'The Details',
+  'Something New',
 ];

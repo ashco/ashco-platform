@@ -1,7 +1,7 @@
 export const theme = {
   // ------- COLOR -------
-  colorPrimary: '#d27831',
-  // colorPrimary: '#d34545',
+  // colorPrimary: '#d27831',
+  colorPrimary: '#d34545',
   // colorPrimary: '#55c2ed',
 
   colorBackground: '#222',
@@ -13,6 +13,7 @@ export const theme = {
   // ------- RESPONSIVE SIZES -------
   // widthMobile: '',
   widthTablet: '750px',
+  widthLaptop: '1050px',
   widthDesktop: '1450px',
   widthHD: '2400px',
   heightTablet: '750px',
@@ -25,7 +26,9 @@ export const theme = {
   HDBodySideMargin: '15vw',
 
   // ------ ELEMENT STYLE VARIABLES -------
-  portfolioRadius: '25px',
+  portfolioRadius: '10px',
   contactRadius: '3px',
   mainBorderSize: '5px',
+  mobileHeroLineWidth: '4px',
+  tabletHeroLineWidth: '6px',
 };
