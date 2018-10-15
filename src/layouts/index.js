@@ -140,7 +140,7 @@ class Layout extends Component {
             title={pageTitle}
             isHome={isHome}
           />
-          {isHome && <TitleText />}
+          {!isMobile ? <TitleText /> : isHome && !pageMiddle && <TitleText />}
           <Body id="body" isHome={isHome} top={getBodyTop(isHome)}>
             {children()}
           </Body>

@@ -34,7 +34,7 @@ const HeroTextWrapper = styled.div`
     }
   }
   @media (min-width: ${props => props.theme.widthHD}) {
-    top: 27vh;
+    top: 29vh;
     left: 24vw;
   }
 `;

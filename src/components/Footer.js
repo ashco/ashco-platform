@@ -234,7 +234,7 @@ const FooterRightWrapper = styled.div`
   flex: 100;
   display: flex;
   justify-content: flex-end;
-  margin: 0 0 1.5rem 1.5rem;
+  margin: 0 1.5rem 1.5rem 1.5rem;
   ul {
     display: flex;
     li {
@@ -245,6 +245,9 @@ const FooterRightWrapper = styled.div`
         }
       }
     }
+  }
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    margin-right: 0;
   }
 `;
 
