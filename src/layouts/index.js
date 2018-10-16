@@ -39,7 +39,7 @@ class Layout extends Component {
   };
 
   updateIsHome() {
-    const isHome = location.pathname === '/';
+    const isHome = this.props.location.pathname === '/';
     if (isHome !== this.state.isHome) {
       this.setState({
         isHome,
