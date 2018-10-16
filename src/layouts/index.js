@@ -148,8 +148,8 @@ class Layout extends Component {
       if (isMobile) {
         let navMargin = isMenuOpen ? 300 : 0;
         if (typeof window !== `undefined`) {
-          top = window.innerHeight - parseInt(headerHeight) - navMargin;
-          // top = window.innerHeight - parseInt(headerHeight) - 307;
+//           top = window.innerHeight - parseInt(headerHeight) - navMargin;
+          // top = window.innerHeight - parseInt(headerHeight);
         }
         top = `${top}px`;
       } else {
