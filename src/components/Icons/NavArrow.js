@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import ArrowDown from './ArrowDown';
 
 class NavArrow extends Component {
+  handleClick = () => {
+    this.props.toggleMenu('closed');
+    this.scroll();
+  };
+
   scroll() {
     document
       .querySelector('#home')
@@ -13,9 +18,11 @@ class NavArrow extends Component {
     return (
       <NavArrowStyle
         className="animated bounce delay-5s infinite"
-        onClick={this.scroll}
+        onClick={this.handleClick}
       >
-        <ArrowDown />
+        <div className="fade-in">
+          <ArrowDown />
+        </div>
       </NavArrowStyle>
     );
   }

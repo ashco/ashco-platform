@@ -11,12 +11,18 @@ export const MainContainer = styled.div`
   min-height: 70vh;
   height: 530px;
   background-color: ${props => props.theme.colorBackground};
+  @media (min-width: ${props => props.theme.widthDesktop}) {
+    box-shadow: 0px 0px 60px -25px inset ${props => props.theme.colorPrimary};
+  }
 `;
 
 export const ContentWrapper = styled.div`
   max-width: ${props => (props.width ? props.width : '990px')};
   width: 90%;
   margin: 0px auto;
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    margin-top: 2.5rem;
+  }
 `;
 
 export const PageLink = ({ to, text }) => (

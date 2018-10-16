@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 
-import { theme } from '../style/theme';
+import { theme } from '../config/theme';
 
+import TitleText from '../components/HeroText';
 import Header from '../components/header';
 import Footer from '../components/Footer';
 import '../style/index.css';
@@ -15,6 +16,7 @@ class Layout extends Component {
   state = {
     isHome: true,
     isMobile: true,
+    isMenuOpen: true,
     pageMiddle: false,
     pageBottom: false,
   };
@@ -23,12 +25,18 @@ class Layout extends Component {
     this.updateIsHome();
     this.updateIsMobile();
     window.addEventListener('scroll', this.handleScrollState);
+    window.addEventListener('resize', this.handleResize);
   }
 
   componentDidUpdate() {
     this.updateIsHome();
-    this.updateIsMobile();
   }
+
+  handleResize = () => {
+    setTimeout(() => {
+      this.updateIsMobile();
+    }, 1000);
+  };
 
   updateIsHome() {
     const isHome = location.pathname === '/';
@@ -40,6 +48,7 @@ class Layout extends Component {
   }
 
   updateIsMobile() {
+    console.log('Checking if mobile');
     const isMobile = window.innerWidth <= 750;
     if (isMobile !== this.state.isMobile) {
       this.setState({
@@ -48,34 +57,70 @@ class Layout extends Component {
     }
   }
 
+  toggleMenu = isOpen => {
+    if (this.state.isMobile) {
+      if (isOpen === 'open') {
+        this.setState({
+          isMenuOpen: true,
+        });
+      } else if (isOpen === 'closed') {
+        this.setState({
+          isMenuOpen: false,
+        });
+      } else {
+        this.setState({
+          isMenuOpen: !this.state.isMenuOpen,
+        });
+      }
+    }
+  };
+
   handleScrollState = event => {
-    const pageScrolled = window.pageYOffset > 0;
+    const scrollLength = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const pageScrolled = scrollLength > 0;
+    const marginLength = 300;
+    const borderLength = 5;
+    const extraMobileMenuMargin = 300;
+
+    console.log({ pageScrolled });
+
     if (pageScrolled !== this.state.pageScrolled) {
       this.setState({
         pageScrolled,
       });
     }
 
-    const pageMiddle = window.pageYOffset >= window.innerHeight * 0.5;
+    let lengthToMiddle = scrollLength;
+    if (this.state.isMobile && this.state.isMenuOpen) {
+      lengthToMiddle = lengthToMiddle - extraMobileMenuMargin;
+    }
+
+    let pageMiddle = lengthToMiddle >= windowHeight * 0.55;
+
     if (pageMiddle !== this.state.pageMiddle) {
       this.setState({
         pageMiddle,
       });
     }
 
-    const marginLength = 300;
-    const borderLength = 5;
-    const mainPageLength = window.innerHeight;
     let pageLength =
       document.querySelector('#body').offsetHeight + marginLength;
+    if (this.state.isMobile && this.state.isMenuOpen) {
+      pageLength = pageLength + extraMobileMenuMargin;
+    }
     if (this.state.isHome) {
-      pageLength = pageLength + mainPageLength + borderLength;
+      pageLength = pageLength + windowHeight + borderLength;
     } else {
       pageLength = pageLength + 140;
     }
-    const windowHeight = window.innerHeight;
-    const scrollLength = window.pageYOffset;
-    const isBottom = () => pageLength - windowHeight === scrollLength;
+    const isBottom = () => pageLength - windowHeight <= scrollLength;
+
+    console.log({ pageLength });
+    console.log({ scrollLength });
+    console.log({ windowHeight });
+    console.log(pageLength - windowHeight);
+    console.log(isBottom());
 
     if (isBottom()) {
       this.setState({
@@ -88,11 +133,29 @@ class Layout extends Component {
     }
   };
 
+  getBodyTop(isHome, isMobile, isMenuOpen) {
+    let top = 0;
+    if (isHome) {
+      const headerHeight = isMobile ? '140px' : '15vh';
+      if (isMobile) {
+        let navMargin = isMenuOpen ? 300 : 0;
+        top = window.innerHeight - parseInt(headerHeight) - navMargin;
+        // top = window.innerHeight - parseInt(headerHeight) - 307;
+        top = `${top}px`;
+      } else {
+        top = 100 - parseInt(headerHeight);
+        top = `${top}vh`;
+      }
+    }
+    return top;
+  }
+
   render() {
     const { children, data, location } = this.props;
     const {
       isHome,
       isMobile,
+      isMenuOpen,
       pageScrolled,
       pageMiddle,
       pageBottom,
@@ -108,20 +171,21 @@ class Layout extends Component {
         .join(' ');
     }
 
-    const getBodyTop = isHome => {
-      let top = 0;
-      if (isHome) {
-        const headerHeight = isMobile ? '140px' : '15vh';
-        if (isMobile) {
-          top = window.innerHeight - parseInt(headerHeight);
-          top = `${top}px`;
-        } else {
-          top = 100 - parseInt(headerHeight);
-          top = `${top}vh`;
-        }
-      }
-      return top;
-    };
+    // const getBodyTop = (isHome, isOpen) => {
+    //   let top = 0;
+    //   if (isHome) {
+    //     const headerHeight = isMobile ? '140px' : '15vh';
+    //     if (isMobile) {
+    //       let navMargin = isOpen ? 300 : 0;
+    //       top = window.innerHeight - parseInt(headerHeight) - navMargin;
+    //       top = `${top}px`;
+    //     } else {
+    //       top = 100 - parseInt(headerHeight);
+    //       top = `${top}vh`;
+    //     }
+    //   }
+    //   return top;
+    // };
 
     return (
       <ThemeProvider theme={theme}>
@@ -138,8 +202,17 @@ class Layout extends Component {
             location={location}
             title={pageTitle}
             isHome={isHome}
+            isMobile={isMobile}
+            isMenuOpen={isMenuOpen}
+            toggleMenu={this.toggleMenu}
           />
-          <Body id="body" isHome={isHome} top={getBodyTop(isHome)}>
+          {!isMobile ? <TitleText /> : isHome && !pageMiddle && <TitleText />}
+          <Body
+            id="body"
+            isHome={isHome}
+            top={this.getBodyTop(isHome, isMobile, isMenuOpen)}
+            isMenuOpen={isMenuOpen}
+          >
             {children()}
           </Body>
           <Footer
@@ -148,6 +221,7 @@ class Layout extends Component {
             pageBottom={pageBottom}
             isHome={isHome}
             isMobile={isMobile}
+            toggleMenu={this.toggleMenu}
           />
           <ParticleBG />
         </LayoutWrapper>
@@ -175,14 +249,37 @@ const Body = styled.main`
   overflow-y: scroll;
   width: 100vw;
   top: calc(${props => props.top} + ${props => props.theme.mainBorderSize});
-  margin: ${props => props.theme.mobileHeaderHeight} auto
-    ${props => props.theme.mobileFooterHeight} auto;
+  margin: calc(
+      ${props => props.theme.mobileHeaderHeight} +
+        ${props => (props.isMenuOpen ? '300px' : '0px')}
+    )
+    auto ${props => props.theme.mobileFooterHeight} auto;
+  transition: 0.2s ease-in-out;
   @media (min-width: ${props => props.theme.widthTablet}) {
     margin: calc(
         ${props => props.theme.tabletHeaderHeight} -
           ${props => props.theme.mainBorderSize}
       )
       auto;
+  }
+  @media (min-width: ${props => props.theme.widthDesktop}) {
+    border-radius: 10px;
+    margin-left: ${props => props.theme.desktopBodySideMargin};
+    margin-right: ${props => props.theme.desktopBodySideMargin};
+    width: calc(
+      100vw - (${props => props.theme.desktopBodySideMargin} * 2) -
+        (${props => props.theme.mainBorderSize} * 2)
+    );
+    border: ${props => props.theme.mainBorderSize} solid
+      ${props => props.theme.colorPrimary}80;
+  }
+  @media (min-width: ${props => props.theme.widthHD}) {
+    margin-left: ${props => props.theme.HDBodySideMargin};
+    margin-right: ${props => props.theme.HDBodySideMargin};
+    width: calc(
+      100vw - (${props => props.theme.HDBodySideMargin} * 2) -
+        (${props => props.theme.mainBorderSize} * 2)
+    );
   }
 `;
 

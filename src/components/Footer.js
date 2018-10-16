@@ -50,13 +50,11 @@ class Footer extends Component {
       if (pageBottom) {
         stateObj = {
           showFooterLeft: true,
-          // showFooterCenter: false,
           showFooterRight: true,
         };
       } else {
         stateObj = {
           showFooterLeft: false,
-          // showFooterCenter: false,
           showFooterRight: false,
         };
       }
@@ -65,20 +63,17 @@ class Footer extends Component {
         if (!pageMiddle) {
           stateObj = {
             showFooterLeft: false,
-            // showFooterCenter: true,
             showFooterRight: true,
           };
         } else {
           stateObj = {
             showFooterLeft: true,
-            // showFooterCenter: false,
             showFooterRight: true,
           };
         }
       } else {
         stateObj = {
           showFooterLeft: true,
-          // showFooterCenter: false,
           showFooterRight: true,
         };
       }
@@ -88,13 +83,17 @@ class Footer extends Component {
   }
 
   render() {
+    const { toggleMenu } = this.props;
     const { showFooterLeft, showFooterCenter, showFooterRight } = this.state;
 
     const year = new Date().getFullYear();
     return (
       <FooterWrapper>
         <FooterLeft showFooterLeft={showFooterLeft} year={year} />
-        <FooterCenter showFooterCenter={showFooterCenter} />
+        <FooterCenter
+          showFooterCenter={showFooterCenter}
+          toggleMenu={toggleMenu}
+        />
         <FooterRight showFooterRight={showFooterRight} />
       </FooterWrapper>
     );
@@ -124,9 +123,9 @@ const FooterLeft = ({ showFooterLeft, year }) => (
   </FooterLeftWrapper>
 );
 
-const FooterCenter = ({ showFooterCenter }) => (
+const FooterCenter = ({ showFooterCenter, toggleMenu }) => (
   <FooterCenterWrapper className={showFooterCenter ? 'visible' : 'hidden'}>
-    <NavArrow />
+    <NavArrow toggleMenu={toggleMenu} />
   </FooterCenterWrapper>
 );
 
@@ -177,12 +176,25 @@ const FooterWrapper = styled.footer`
     color: ${props => props.theme.colorPrimary};
     transition: border-bottom 0.2s ease-out;
   }
-  div {
-    /* margin: 0rem 1.5rem 1.5rem 1.5rem; */
-  }
   @media (min-width: ${props => props.theme.widthTablet}) {
     flex-direction: row;
     align-items: flex-end;
+  }
+  @media (min-width: ${props => props.theme.widthDesktop}) {
+    margin-left: ${props => props.theme.desktopBodySideMargin};
+    margin-right: ${props => props.theme.desktopBodySideMargin};
+    width: calc(
+      100vw - (${props => props.theme.desktopBodySideMargin} * 2) -
+        (${props => props.theme.mainBorderSize} * 2)
+    );
+  }
+  @media (min-width: ${props => props.theme.widthHD}) {
+    margin-left: ${props => props.theme.HDBodySideMargin};
+    margin-right: ${props => props.theme.HDBodySideMargin};
+    width: calc(
+      100vw - (${props => props.theme.HDBodySideMargin} * 2) -
+        (${props => props.theme.mainBorderSize} * 2)
+    );
   }
 `;
 
@@ -197,7 +209,7 @@ const FooterLeftWrapper = styled.div`
   }
   a {
     &:hover {
-      border-bottom: 1px solid ${props => props.theme.colorPrimary};
+      border-bottom: 1px solid ${props => props.theme.colorPrimary}cc;
     }
   }
   @media (min-width: ${props => props.theme.widthTablet}) {
@@ -209,9 +221,11 @@ const FooterLeftWrapper = styled.div`
 const FooterCenterWrapper = styled.div`
   flex: 1;
   margin: 0;
-  display: none;
+  position: absolute;
+  top: 15vh;
   transition: visibility 0.25s 10s, opacity 0.25s linear;
   @media (min-width: ${props => props.theme.widthTablet}) {
+    position: initial;
     display: flex;
     justify-content: center;
   }
@@ -221,17 +235,20 @@ const FooterRightWrapper = styled.div`
   flex: 100;
   display: flex;
   justify-content: flex-end;
-  margin: 0rem 1.5rem 1.5rem 1.5rem;
+  margin: 0 1.5rem 1.5rem 1.5rem;
   ul {
     display: flex;
     li {
       margin: 0 0.75rem;
       a {
         &:hover {
-          border-bottom: 4px solid ${props => props.theme.colorPrimary};
+          border-bottom: 4px solid ${props => props.theme.colorPrimary}cc;
         }
       }
     }
+  }
+  @media (min-width: ${props => props.theme.widthTablet}) {
+    margin-right: 0;
   }
 `;
 
