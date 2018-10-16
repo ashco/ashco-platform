@@ -133,6 +133,23 @@ class Layout extends Component {
     }
   };
 
+  getBodyTop(isHome, isMobile, isMenuOpen) {
+    let top = 0;
+    if (isHome) {
+      const headerHeight = isMobile ? '140px' : '15vh';
+      if (isMobile) {
+        let navMargin = isMenuOpen ? 300 : 0;
+        top = window.innerHeight - parseInt(headerHeight) - navMargin;
+        // top = window.innerHeight - parseInt(headerHeight) - 307;
+        top = `${top}px`;
+      } else {
+        top = 100 - parseInt(headerHeight);
+        top = `${top}vh`;
+      }
+    }
+    return top;
+  }
+
   render() {
     const { children, data, location } = this.props;
     const {
@@ -154,20 +171,21 @@ class Layout extends Component {
         .join(' ');
     }
 
-    const getBodyTop = isHome => {
-      let top = 0;
-      if (isHome) {
-        const headerHeight = isMobile ? '140px' : '15vh';
-        if (isMobile) {
-          top = window.innerHeight - parseInt(headerHeight);
-          top = `${top}px`;
-        } else {
-          top = 100 - parseInt(headerHeight);
-          top = `${top}vh`;
-        }
-      }
-      return top;
-    };
+    // const getBodyTop = (isHome, isOpen) => {
+    //   let top = 0;
+    //   if (isHome) {
+    //     const headerHeight = isMobile ? '140px' : '15vh';
+    //     if (isMobile) {
+    //       let navMargin = isOpen ? 300 : 0;
+    //       top = window.innerHeight - parseInt(headerHeight) - navMargin;
+    //       top = `${top}px`;
+    //     } else {
+    //       top = 100 - parseInt(headerHeight);
+    //       top = `${top}vh`;
+    //     }
+    //   }
+    //   return top;
+    // };
 
     return (
       <ThemeProvider theme={theme}>
@@ -192,7 +210,7 @@ class Layout extends Component {
           <Body
             id="body"
             isHome={isHome}
-            top={getBodyTop(isHome)}
+            top={this.getBodyTop(isHome, isMobile, isMenuOpen)}
             isMenuOpen={isMenuOpen}
           >
             {children()}
@@ -203,6 +221,7 @@ class Layout extends Component {
             pageBottom={pageBottom}
             isHome={isHome}
             isMobile={isMobile}
+            toggleMenu={this.toggleMenu}
           />
           <ParticleBG />
         </LayoutWrapper>
