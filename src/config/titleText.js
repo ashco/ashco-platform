@@ -9,4 +9,5 @@ export const titleText = [
   'Late Nights',
   'The Details',
   'Something New',
+  'Chill Vibes',
 ];

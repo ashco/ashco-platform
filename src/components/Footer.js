@@ -10,19 +10,18 @@ import TwitterIcon from './Icons/Twitter';
 import ResumeIcon from './Icons/Resume';
 
 class Footer extends Component {
-  state = {
-    showFooterLeft: false,
-    showFooterCenter: false,
-    showFooterRight: false,
-  };
-
-  componentWillMount() {
-    const stateObj = this.handleFooterState();
-
-    if (!isEqual(stateObj, this.state)) {
-      this.setState(stateObj);
-    }
+  constructor(props) {
+    super(props);
+    this.state = this.handleFooterState();
   }
+
+  // componentWillMount() {
+  //   const stateObj = this.handleFooterState();
+
+  //   if (!isEqual(stateObj, this.state)) {
+  //     this.setState(stateObj);
+  //   }
+  // }
 
   componentDidUpdate() {
     const stateObj = this.handleFooterState();

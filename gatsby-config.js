@@ -4,6 +4,7 @@ module.exports = {
     description: 'Welcome to Ashland',
   },
   plugins: [
+    'gatsby-plugin-layout',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {

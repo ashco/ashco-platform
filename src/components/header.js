@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+// import Img from 'gatsby-image';
 
 import MenuIcon from './Icons/MenuIcon';
 import AshCoIcon from './Icons/AshCo';
@@ -10,8 +10,8 @@ import AshCoIcon from './Icons/AshCo';
 class Header extends Component {
   render() {
     const {
-      data,
-      location,
+      // data,
+      // location,
       title,
       isHome,
       isMobile,

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
+import { StaticQuery, graphql } from 'gatsby';
 
 import { theme } from '../config/theme';
 
@@ -161,7 +162,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { children, data, location } = this.props;
+    const { children, location } = this.props;
     const {
       isHome,
       isMobile,
@@ -182,44 +183,67 @@ class Layout extends Component {
     }
 
     return (
-      <ThemeProvider theme={theme}>
-        <LayoutWrapper>
-          <Helmet
-            title={data.site.siteMetadata.title}
-            meta={[
-              { name: 'description', content: 'Sample' },
-              { name: 'keywords', content: 'sample, something' },
-            ]}
-          />
-          <Header
-            data={data}
-            location={location}
-            title={pageTitle}
-            isHome={isHome}
-            isMobile={isMobile}
-            isMenuOpen={isMenuOpen}
-            toggleMenu={this.toggleMenu}
-          />
-          {!isMobile ? <TitleText /> : isHome && !pageMiddle && <TitleText />}
-          <Body
-            id="body"
-            isHome={isHome}
-            top={this.getBodyTop(isHome, isMobile, isMenuOpen)}
-            isMenuOpen={isMenuOpen}
-          >
-            {children()}
-          </Body>
-          <Footer
-            pageScrolled={pageScrolled}
-            pageMiddle={pageMiddle}
-            pageBottom={pageBottom}
-            isHome={isHome}
-            isMobile={isMobile}
-            toggleMenu={this.toggleMenu}
-          />
-          <ParticleBG />
-        </LayoutWrapper>
-      </ThemeProvider>
+      <StaticQuery
+        query={graphql`
+          query LayoutQuery {
+            site {
+              siteMetadata {
+                title
+                description
+              }
+            }
+            background: imageSharp(id: { regex: "/bg.png/" }) {
+              sizes(maxWidth: 1240, grayscale: false) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
+        `}
+        render={data => (
+          <ThemeProvider theme={theme}>
+            <LayoutWrapper>
+              <Helmet
+                title={data.site.siteMetadata.title}
+                meta={[
+                  { name: 'description', content: 'Sample' },
+                  { name: 'keywords', content: 'sample, something' },
+                ]}
+              />
+              <Header
+                // data={data}
+                location={location}
+                title={pageTitle}
+                isHome={isHome}
+                isMobile={isMobile}
+                isMenuOpen={isMenuOpen}
+                toggleMenu={this.toggleMenu}
+              />
+              {!isMobile ? (
+                <TitleText />
+              ) : (
+                isHome && !pageMiddle && <TitleText />
+              )}
+              <Body
+                id="body"
+                isHome={isHome}
+                top={this.getBodyTop(isHome, isMobile, isMenuOpen)}
+                isMenuOpen={isMenuOpen}
+              >
+                {children()}
+              </Body>
+              <Footer
+                pageScrolled={pageScrolled}
+                pageMiddle={pageMiddle}
+                pageBottom={pageBottom}
+                isHome={isHome}
+                isMobile={isMobile}
+                toggleMenu={this.toggleMenu}
+              />
+              <ParticleBG />
+            </LayoutWrapper>
+          </ThemeProvider>
+        )}
+      />
     );
   }
 }
@@ -278,19 +302,3 @@ const Body = styled.main`
 `;
 
 export default Layout;
-
-export const query = graphql`
-  query LayoutQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-    background: imageSharp(id: { regex: "/bg.png/" }) {
-      sizes(maxWidth: 1240, grayscale: false) {
-        ...GatsbyImageSharpSizes
-      }
-    }
-  }
-`;
