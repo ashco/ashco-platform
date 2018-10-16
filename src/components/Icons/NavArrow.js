@@ -2,28 +2,40 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import ArrowDown from './ArrowDown';
 
-class NavArrow extends Component {
-  handleClick = () => {
-    this.props.toggleMenu('closed');
-    this.scroll();
-  };
+import ContextConsumer from '../../Context';
 
-  scroll() {
-    document
-      .querySelector('#home')
-      .scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+class NavArrow extends Component {
+  // handleClick = () => {
+  //   this.props.toggleMenu('closed');
+  //   this.scroll();
+  // };
+
+  // scroll = () => {
+  //   document
+  //     .querySelector('#home')
+  //     .scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // };
 
   render() {
     return (
-      <NavArrowStyle
-        className="animated bounce delay-5s infinite"
-        onClick={this.handleClick}
-      >
-        <div className="fade-in">
-          <ArrowDown />
-        </div>
-      </NavArrowStyle>
+      <ContextConsumer>
+        {({ data, set }) => (
+          <NavArrowStyle
+            className="animated bounce delay-5s infinite"
+            // onClick={this.handleClick}
+            // onClick={this.scroll}
+            onClick={() =>
+              set({
+                isMenuOpen: false,
+              })
+            }
+          >
+            <div className="fade-in">
+              <ArrowDown />
+            </div>
+          </NavArrowStyle>
+        )}
+      </ContextConsumer>
     );
   }
 }

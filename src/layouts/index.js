@@ -19,7 +19,7 @@ class Layout extends Component {
     this.state = {
       isHome: true,
       isMobile: true,
-      isMenuOpen: true,
+      // isMenuOpen: true,
       pageMiddle: false,
       pageBottom: false,
     };
@@ -62,23 +62,23 @@ class Layout extends Component {
     }
   }
 
-  toggleMenu = isOpen => {
-    if (this.state.isMobile) {
-      if (isOpen === 'open') {
-        this.setState({
-          isMenuOpen: true,
-        });
-      } else if (isOpen === 'closed') {
-        this.setState({
-          isMenuOpen: false,
-        });
-      } else {
-        this.setState({
-          isMenuOpen: !this.state.isMenuOpen,
-        });
-      }
-    }
-  };
+  // toggleMenu = isOpen => {
+  //   if (this.state.isMobile) {
+  //     if (isOpen === 'open') {
+  //       this.setState({
+  //         isMenuOpen: true,
+  //       });
+  //     } else if (isOpen === 'closed') {
+  //       this.setState({
+  //         isMenuOpen: false,
+  //       });
+  //     } else {
+  //       this.setState({
+  //         isMenuOpen: !this.state.isMenuOpen,
+  //       });
+  //     }
+  //   }
+  // };
 
   handleScrollState = event => {
     let scrollLength = window.pageYOffset;
@@ -215,7 +215,7 @@ class Layout extends Component {
                   title={pageTitle}
                   isHome={isHome}
                   isMobile={isMobile}
-                  isMenuOpen={isMenuOpen}
+                  // isMenuOpen={isMenuOpen}
                   toggleMenu={this.toggleMenu}
                 />
                 {!isMobile ? (
@@ -227,7 +227,7 @@ class Layout extends Component {
                   id="body"
                   isHome={isHome}
                   top={this.getBodyTop(isHome, isMobile, isMenuOpen)}
-                  isMenuOpen={isMenuOpen}
+                  // isMenuOpen={isMenuOpen}
                 >
                   {children}
                 </Body>

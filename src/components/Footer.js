@@ -82,7 +82,7 @@ class Footer extends Component {
   }
 
   render() {
-    const { toggleMenu } = this.props;
+    // const { toggleMenu } = this.props;
     const { showFooterLeft, showFooterCenter, showFooterRight } = this.state;
 
     const year = new Date().getFullYear();
@@ -91,7 +91,7 @@ class Footer extends Component {
         <FooterLeft showFooterLeft={showFooterLeft} year={year} />
         <FooterCenter
           showFooterCenter={showFooterCenter}
-          toggleMenu={toggleMenu}
+          // toggleMenu={toggleMenu}
         />
         <FooterRight showFooterRight={showFooterRight} />
       </FooterWrapper>
@@ -134,9 +134,9 @@ const FooterLeft = ({ showFooterLeft, year }) => (
   </FooterLeftWrapper>
 );
 
-const FooterCenter = ({ showFooterCenter, toggleMenu }) => (
+const FooterCenter = ({ showFooterCenter }) => (
   <FooterCenterWrapper className={showFooterCenter ? 'visible' : 'hidden'}>
-    <NavArrow toggleMenu={toggleMenu} />
+    <NavArrow />
   </FooterCenterWrapper>
 );
 

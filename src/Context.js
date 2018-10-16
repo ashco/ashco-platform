@@ -3,8 +3,8 @@ import React from 'react';
 
 const defaultContextValue = {
   data: {
-    // set your initial data shape here
-    showMenu: false,
+    // set your initial data state shape here
+    isMenuOpen: true,
   },
   set: () => {},
 };
