@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
+import { ContextProviderComponent } from '../Context';
 
 import { theme } from '../config/theme';
 
@@ -162,7 +162,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { children, location } = this.props;
+    const { location, children } = this.props;
     const {
       isHome,
       isMobile,
@@ -201,56 +201,54 @@ class Layout extends Component {
         `}
         render={data => (
           <ThemeProvider theme={theme}>
-            <LayoutWrapper>
-              <Helmet
-                title={data.site.siteMetadata.title}
-                meta={[
-                  { name: 'description', content: 'Sample' },
-                  { name: 'keywords', content: 'sample, something' },
-                ]}
-              />
-              <Header
-                // data={data}
-                location={location}
-                title={pageTitle}
-                isHome={isHome}
-                isMobile={isMobile}
-                isMenuOpen={isMenuOpen}
-                toggleMenu={this.toggleMenu}
-              />
-              {!isMobile ? (
-                <TitleText />
-              ) : (
-                isHome && !pageMiddle && <TitleText />
-              )}
-              <Body
-                id="body"
-                isHome={isHome}
-                top={this.getBodyTop(isHome, isMobile, isMenuOpen)}
-                isMenuOpen={isMenuOpen}
-              >
-                {children()}
-              </Body>
-              <Footer
-                pageScrolled={pageScrolled}
-                pageMiddle={pageMiddle}
-                pageBottom={pageBottom}
-                isHome={isHome}
-                isMobile={isMobile}
-                toggleMenu={this.toggleMenu}
-              />
-              <ParticleBG />
-            </LayoutWrapper>
+            <ContextProviderComponent>
+              <LayoutWrapper>
+                <Helmet
+                  title={data.site.siteMetadata.title}
+                  meta={[
+                    { name: 'description', content: 'Sample' },
+                    { name: 'keywords', content: 'sample, something' },
+                  ]}
+                />
+                <Header
+                  // data={data}
+                  location={location}
+                  title={pageTitle}
+                  isHome={isHome}
+                  isMobile={isMobile}
+                  isMenuOpen={isMenuOpen}
+                  toggleMenu={this.toggleMenu}
+                />
+                {!isMobile ? (
+                  <TitleText />
+                ) : (
+                  isHome && !pageMiddle && <TitleText />
+                )}
+                <Body
+                  id="body"
+                  isHome={isHome}
+                  top={this.getBodyTop(isHome, isMobile, isMenuOpen)}
+                  isMenuOpen={isMenuOpen}
+                >
+                  {children}
+                </Body>
+                <Footer
+                  pageScrolled={pageScrolled}
+                  pageMiddle={pageMiddle}
+                  pageBottom={pageBottom}
+                  isHome={isHome}
+                  isMobile={isMobile}
+                  toggleMenu={this.toggleMenu}
+                />
+                <ParticleBG />
+              </LayoutWrapper>
+            </ContextProviderComponent>
           </ThemeProvider>
         )}
       />
     );
   }
 }
-
-Layout.propTypes = {
-  children: PropTypes.func,
-};
 
 const LayoutWrapper = styled.div`
   color: ${props => props.theme.colorText};
