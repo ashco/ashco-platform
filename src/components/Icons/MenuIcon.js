@@ -1,19 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import ContextConsumer from '../../Context';
 
-const MenuIcon = ({ isMenuOpen, toggleMenu }) => {
-  return (
-    <MenuIconWrapper
-      onClick={toggleMenu}
-      id="menu-icon"
-      className={isMenuOpen && 'open'}
-    >
-      <span />
-      <span />
-      <span />
-    </MenuIconWrapper>
-  );
-};
+const MenuIcon = () => (
+  <ContextConsumer>
+    {({ data, set }) => (
+      <MenuIconWrapper
+        onClick={() => set({ isMenuOpen: !data.isMenuOpen })}
+        id="menu-icon"
+        className={data.isMenuOpen && 'open'}
+      >
+        <span />
+        <span />
+        <span />
+      </MenuIconWrapper>
+    )}
+  </ContextConsumer>
+);
+
 const MenuIconWrapper = styled.div`
   pointer-events: auto;
   margin-right: 1.4rem;

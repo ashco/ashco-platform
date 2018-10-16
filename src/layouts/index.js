@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-import { ContextProviderComponent } from '../Context';
+import ContextConsumer, { ContextProviderComponent } from '../Context';
 
 import { theme } from '../config/theme';
 
@@ -92,8 +92,6 @@ class Layout extends Component {
     const borderLength = 5;
     const extraMobileMenuMargin = 300;
 
-    console.log({ pageScrolled });
-
     if (pageScrolled !== this.state.pageScrolled) {
       this.setState({
         pageScrolled,
@@ -125,11 +123,12 @@ class Layout extends Component {
     }
     const isBottom = () => pageLength - windowHeight <= scrollLength;
 
-    console.log({ pageLength });
-    console.log({ scrollLength });
-    console.log({ windowHeight });
-    console.log(pageLength - windowHeight);
-    console.log(isBottom());
+    // console.log({ pageScrolled });
+    // console.log({ pageLength });
+    // console.log({ scrollLength });
+    // console.log({ windowHeight });
+    // console.log(pageLength - windowHeight);
+    // console.log(isBottom());
 
     if (isBottom()) {
       this.setState({

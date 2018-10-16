@@ -4,62 +4,62 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 // import Img from 'gatsby-image';
 
+import ContextConsumer from '../Context';
+
 import MenuIcon from './Icons/MenuIcon';
 import AshCoIcon from './Icons/AshCo';
 
 class Header extends Component {
   render() {
-    const {
-      // data,
-      // location,
-      title,
-      isHome,
-      isMobile,
-      isMenuOpen,
-      toggleMenu,
-    } = this.props;
+    const { title, isHome, isMobile } = this.props;
     return (
-      <HeaderWrapper
-        isHome={isHome}
-        ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
-      >
-        <HeaderContainer>
-          <HeaderTitle>
-            <Link to="/" onClick={toggleMenu.bind(null, 'open')}>
-              <AshCoIcon />
-            </Link>
-            <span>{title}</span>
-          </HeaderTitle>
-          <NavLinks toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
-          {isMobile && (
-            <MenuIcon isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-          )}
-        </HeaderContainer>
-      </HeaderWrapper>
+      <ContextConsumer>
+        {({ data, set }) => (
+          <HeaderWrapper
+            isHome={isHome}
+            ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
+          >
+            <HeaderContainer>
+              <HeaderTitle>
+                <Link to="/" onClick={() => set({ isMenuOpen: true })}>
+                  <AshCoIcon />
+                </Link>
+                <span>{title}</span>
+              </HeaderTitle>
+              <NavLinks isMenuOpen={data.isMenuOpen} />
+              {isMobile && <MenuIcon />}
+            </HeaderContainer>
+          </HeaderWrapper>
+        )}
+      </ContextConsumer>
     );
   }
 }
 
-const NavLinks = ({ isMenuOpen, toggleMenu }) => (
+const NavLinks = ({ isMenuOpen }) => (
   <NavLinksWrapper
     className={isMenuOpen ? 'nav-links-showing' : 'nav-links-hiding'}
   >
     <ul>
-      <NavLinkItem to="/#home" toggleMenu={toggleMenu} title="Home" />
-      <NavLinkItem to="/about" toggleMenu={toggleMenu} title="About" />
-      <NavLinkItem to="/projects" toggleMenu={toggleMenu} title="Projects" />
-      <NavLinkItem to="/blog" toggleMenu={toggleMenu} title="Blog" />
-      <NavLinkItem to="/contact" toggleMenu={toggleMenu} title="Contact" />
+      <NavLinkItem to="/#home" title="Home" />
+      <NavLinkItem to="/about" title="About" />
+      <NavLinkItem to="/projects" title="Projects" />
+      <NavLinkItem to="/blog" title="Blog" />
+      <NavLinkItem to="/contact" title="Contact" />
     </ul>
   </NavLinksWrapper>
 );
 
-const NavLinkItem = ({ to, title, toggleMenu }) => (
-  <NavLinkItemWrapper>
-    <Link to={to} onClick={toggleMenu.bind(null, 'closed')}>
-      {title}
-    </Link>
-  </NavLinkItemWrapper>
+const NavLinkItem = ({ to, title }) => (
+  <ContextConsumer>
+    {({ data, set }) => (
+      <NavLinkItemWrapper>
+        <Link to={to} onClick={() => set({ isMenuOpen: false })}>
+          {title}
+        </Link>
+      </NavLinkItemWrapper>
+    )}
+  </ContextConsumer>
 );
 
 const HeaderWrapper = styled.header`

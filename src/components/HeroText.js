@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 class HeroText extends Component {
   render() {
     return (
       <HeroTextWrapper>
+        {/* <AnimationLine /> */}
         <FirstText>Welcome</FirstText>
         <SecondText>To</SecondText>
         <TitleLine />
@@ -18,6 +19,26 @@ class HeroText extends Component {
   }
 }
 
+// // keyframes returns a unique name based on a hash of the contents of the keyframes
+// const drawLine = keyframes`
+//   from {
+//     height: 0px;
+//   }
+//   to {
+//     height: 400px;
+//   }
+// `;
+
+// // Here we create a component that will rotate everything we pass in over two seconds
+// const AnimationLine = styled.div`
+//   position: relative;
+//   display: inline-block;
+//   animation: ${drawLine} 2s linear infinite;
+//   width: 8px;
+//   padding: 0;
+//   background-color: ${props => props.theme.colorPrimary};
+// `;
+
 const HeroTextWrapper = styled.div`
   pointer-events: none;
   position: fixed;
@@ -26,21 +47,21 @@ const HeroTextWrapper = styled.div`
   bottom: 0;
   left: 0;
   font-weight: 600;
-  padding: 30px 35px 0px 10px
-  border-left: ${props => props.theme.desktopHeroLineWidth} solid ${props =>
-  props.theme.colorPrimary};
-  border-bottom: ${props => props.theme.desktopHeroLineWidth} solid ${props =>
-  props.theme.colorPrimary};
-  p,
+  padding: 30px 35px 0px 10px;
+  border-left: ${props => props.theme.desktopHeroLineWidth} solid
+    ${props => props.theme.colorPrimary};
+  border-bottom: ${props => props.theme.desktopHeroLineWidth} solid
+    ${props => props.theme.colorPrimary};
+  /* p,
   h1 {
     margin-left: ${props => props.theme.mobileHeroLineWidth};
-  }
+  } */
   @media (min-width: ${props => props.theme.widthTablet}) {
     margin-bottom: 15.5vh;
-    p,
+    /* p,
     h1 {
       margin-left: ${props => props.theme.tabletHeroLineWidth};
-    }
+    } */
   }
   @media (min-width: ${props => props.theme.widthDesktop}) {
     margin-left: 15vw;
@@ -48,11 +69,10 @@ const HeroTextWrapper = styled.div`
   @media (min-width: ${props => props.theme.widthHD}) {
     margin-left: 21vw;
   }
-
-
 `;
 
 const FirstText = styled.p`
+  /* padding-top: 1rem; */
   font-size: 1.8rem;
   line-height: 0.6;
   color: ${props => props.theme.colorText};
@@ -66,6 +86,7 @@ const FirstText = styled.p`
 
 const SecondText = styled.p`
   font-size: 1.4rem;
+  /* padding-left: 1rem; */
   line-height: 1.7;
   margin-bottom: 0.6rem;
   color: ${props => props.theme.colorText};
@@ -78,11 +99,8 @@ const SecondText = styled.p`
 `;
 
 const TitleLine = styled.div`
-  /* width: ${props => props.theme.mobileHeroLineWidth}; */
   height: 125px;
-  /* background-color: ${props => props.theme.colorPrimary}; */
   @media (min-width: ${props => props.theme.widthLaptop}) {
-    /* width: ${props => props.theme.tabletHeroLineWidth}; */
     height: 180px;
   }
   @media (min-width: ${props => props.theme.widthDesktop}) {
