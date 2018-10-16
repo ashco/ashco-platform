@@ -39,6 +39,7 @@ class PortfolioListing extends Component {
             <a
               href={project.liveSiteLink}
               target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={e => this.updateTitle('Live Site', e)}
               onMouseLeave={e => this.updateTitle(project.title, e)}
             >
@@ -47,6 +48,7 @@ class PortfolioListing extends Component {
             <a
               href={project.githubLink}
               target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={e => this.updateTitle('Github', e)}
               onMouseLeave={e => this.updateTitle(project.title, e)}
             >

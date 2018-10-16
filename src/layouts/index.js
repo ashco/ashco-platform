@@ -14,22 +14,22 @@ import '../style/index.css';
 import ParticleBG from '../components/ParticleBG';
 
 class Layout extends Component {
-  state = {
-    isHome: true,
-    isMobile: true,
-    isMenuOpen: true,
-    pageMiddle: false,
-    pageBottom: false,
-  };
-
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHome: true,
+      isMobile: true,
+      isMenuOpen: true,
+      pageMiddle: false,
+      pageBottom: false,
+    };
     this.updateIsHome();
-    this.updateIsMobile();
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScrollState);
     window.addEventListener('resize', this.handleResize);
+    this.updateIsMobile();
   }
 
   componentDidUpdate() {

@@ -106,15 +106,27 @@ const FooterLeft = ({ showFooterLeft, year }) => (
     <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
     <p>
       This site is built with{' '}
-      <a href="https://www.gatsbyjs.org/" target="_blank">
+      <a
+        href="https://www.gatsbyjs.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Gatsbyjs
       </a>{' '}
       and{' '}
-      <a href="https://www.contentful.com/" target="_blank">
+      <a
+        href="https://www.contentful.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Contentful
       </a>
       . The source code is hosted on{' '}
-      <a href="https://github.com/ashco/ashco-platform" target="_blank">
+      <a
+        href="https://github.com/ashco/ashco-platform"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Github
       </a>
       .
@@ -134,17 +146,29 @@ const FooterRight = ({ showFooterRight }) => (
   >
     <ul>
       <li>
-        <a href="https://github.com/ashco" target="_blank">
+        <a
+          href="https://github.com/ashco"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <GithubIcon />
         </a>
       </li>
       <li>
-        <a href="https://www.linkedin.com/in/ashtonchristie/" target="_blank">
+        <a
+          href="https://www.linkedin.com/in/ashtonchristie/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <LinkedInIcon />
         </a>
       </li>
       <li>
-        <a href="https://twitter.com/AshCo_Io" target="_blank">
+        <a
+          href="https://twitter.com/AshCo_Io"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <TwitterIcon />
         </a>
       </li>
@@ -152,6 +176,7 @@ const FooterRight = ({ showFooterRight }) => (
         <a
           href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <ResumeIcon />
         </a>
