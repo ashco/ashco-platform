@@ -5,6 +5,7 @@ const defaultContextValue = {
   data: {
     // set your initial data state shape here
     isMenuOpen: true,
+    // isHome: true,
   },
   set: () => {},
 };

@@ -199,8 +199,10 @@ class Layout extends Component {
           }
         `}
         render={data => (
-          <ThemeProvider theme={theme}>
-            <ContextProviderComponent>
+          <ContextProviderComponent>
+            {/* <ContextConsumer>
+              {({ data, set }) => ( */}
+            <ThemeProvider theme={theme}>
               <LayoutWrapper>
                 <Helmet
                   title={data.site.siteMetadata.title}
@@ -216,7 +218,7 @@ class Layout extends Component {
                   isHome={isHome}
                   isMobile={isMobile}
                   // isMenuOpen={isMenuOpen}
-                  toggleMenu={this.toggleMenu}
+                  // toggleMenu={this.toggleMenu}
                 />
                 {!isMobile ? (
                   <TitleText />
@@ -237,12 +239,14 @@ class Layout extends Component {
                   pageBottom={pageBottom}
                   isHome={isHome}
                   isMobile={isMobile}
-                  toggleMenu={this.toggleMenu}
+                  // toggleMenu={this.toggleMenu}
                 />
                 <ParticleBG />
               </LayoutWrapper>
-            </ContextProviderComponent>
-          </ThemeProvider>
+            </ThemeProvider>
+            )}
+            {/* </ContextConsumer> */}
+          </ContextProviderComponent>
         )}
       />
     );
