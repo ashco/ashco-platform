@@ -53,11 +53,11 @@ class Layout extends Component {
   updateIsMobile() {
     if (typeof window !== `undefined`) {
       const isMobile = window.innerWidth <= 750;
-    }
-    if (isMobile !== this.state.isMobile) {
-      this.setState({
-        isMobile,
-      });
+      if (isMobile !== this.state.isMobile) {
+        this.setState({
+          isMobile,
+        });
+      }
     }
   }
 
@@ -80,9 +80,11 @@ class Layout extends Component {
   };
 
   handleScrollState = event => {
+    let scrollLength = window.pageYOffset;
+    let windowHeight = window.innerHeight;
     if (typeof window !== `undefined`) {
-      const scrollLength = window.pageYOffset;
-      const windowHeight = window.innerHeight;
+      scrollLength = window.pageYOffset;
+      windowHeight = window.innerHeight;
     }
     const pageScrolled = scrollLength > 0;
     const marginLength = 300;
