@@ -34,3 +34,5 @@ export const theme = {
   tabletHeroLineWidth: '6px',
   desktopHeroLineWidth: '8px',
 };
+
+export const globalVars = {};

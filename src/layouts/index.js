@@ -24,6 +24,9 @@ class Layout extends Component {
   componentWillMount() {
     this.updateIsHome();
     this.updateIsMobile();
+  }
+
+  componentDidMount() {
     window.addEventListener('scroll', this.handleScrollState);
     window.addEventListener('resize', this.handleResize);
   }
@@ -39,7 +42,7 @@ class Layout extends Component {
   };
 
   updateIsHome() {
-    const isHome = location.pathname === '/';
+    const isHome = this.props.location.pathname === '/';
     if (isHome !== this.state.isHome) {
       this.setState({
         isHome,
@@ -48,8 +51,9 @@ class Layout extends Component {
   }
 
   updateIsMobile() {
-    console.log('Checking if mobile');
-    const isMobile = window.innerWidth <= 750;
+    if (typeof window !== `undefined`) {
+      const isMobile = window.innerWidth <= 750;
+    }
     if (isMobile !== this.state.isMobile) {
       this.setState({
         isMobile,
@@ -76,8 +80,10 @@ class Layout extends Component {
   };
 
   handleScrollState = event => {
-    const scrollLength = window.pageYOffset;
-    const windowHeight = window.innerHeight;
+    if (typeof window !== `undefined`) {
+      const scrollLength = window.pageYOffset;
+      const windowHeight = window.innerHeight;
+    }
     const pageScrolled = scrollLength > 0;
     const marginLength = 300;
     const borderLength = 5;
@@ -139,8 +145,10 @@ class Layout extends Component {
       const headerHeight = isMobile ? '140px' : '15vh';
       if (isMobile) {
         let navMargin = isMenuOpen ? 300 : 0;
-        top = window.innerHeight - parseInt(headerHeight) - navMargin;
-        // top = window.innerHeight - parseInt(headerHeight) - 307;
+        if (typeof window !== `undefined`) {
+          top = window.innerHeight - parseInt(headerHeight) - navMargin;
+          // top = window.innerHeight - parseInt(headerHeight) - 307;
+        }
         top = `${top}px`;
       } else {
         top = 100 - parseInt(headerHeight);
@@ -170,22 +178,6 @@ class Layout extends Component {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
     }
-
-    // const getBodyTop = (isHome, isOpen) => {
-    //   let top = 0;
-    //   if (isHome) {
-    //     const headerHeight = isMobile ? '140px' : '15vh';
-    //     if (isMobile) {
-    //       let navMargin = isOpen ? 300 : 0;
-    //       top = window.innerHeight - parseInt(headerHeight) - navMargin;
-    //       top = `${top}px`;
-    //     } else {
-    //       top = 100 - parseInt(headerHeight);
-    //       top = `${top}vh`;
-    //     }
-    //   }
-    //   return top;
-    // };
 
     return (
       <ThemeProvider theme={theme}>
