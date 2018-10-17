@@ -5,9 +5,9 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import { MenuContextProvider } from '../components/Context/MenuContext';
 import {
-  HeroImgContextProvider,
-  HeroImgContextConsumer,
-} from '../components/Context/HeroImgContext';
+  HiddenContextProvider,
+  HiddenContextConsumer,
+} from '../components/Context/HiddenContext';
 import { theme } from '../config/theme';
 
 import HeroImg from '../components/Icons/HeroImg';
@@ -23,7 +23,7 @@ class Layout extends Component {
     super(props);
     this.state = {
       isHome: true,
-      isMobile: true,
+      // isMobile: true,
       pageMiddle: false,
       pageBottom: false,
     };
@@ -40,11 +40,11 @@ class Layout extends Component {
   //   this.updateIsHome();
   // }
 
-  handleResize = () => {
-    setTimeout(() => {
-      this.updateIsMobile();
-    }, 1000);
-  };
+  // handleResize = () => {
+  //   setTimeout(() => {
+  //     this.updateIsMobile();
+  //   }, 1000);
+  // };
 
   // updateIsHome() {
   //   const isHome = this.props.location.pathname === '/';
@@ -55,16 +55,16 @@ class Layout extends Component {
   //   }
   // }
 
-  updateIsMobile() {
-    if (typeof window !== `undefined`) {
-      const isMobile = window.innerWidth <= 750;
-      if (isMobile !== this.state.isMobile) {
-        this.setState({
-          isMobile,
-        });
-      }
-    }
-  }
+  // updateIsMobile() {
+  //   if (typeof window !== `undefined`) {
+  //     const isMobile = window.innerWidth <= 750;
+  //     if (isMobile !== this.state.isMobile) {
+  //       this.setState({
+  //         isMobile,
+  //       });
+  //     }
+  //   }
+  // }
 
   // handleScrollState = event => {
   //   let scrollLength = window.pageYOffset;
@@ -150,7 +150,7 @@ class Layout extends Component {
     const { location, children } = this.props;
     const {
       isHome,
-      isMobile,
+      // isMobile,
       pageScrolled,
       pageMiddle,
       pageBottom,
@@ -180,7 +180,7 @@ class Layout extends Component {
         `}
         render={data => (
           <MenuContextProvider>
-            <HeroImgContextProvider>
+            <HiddenContextProvider>
               <ThemeProvider theme={theme}>
                 <LayoutWrapper>
                   <Helmet
@@ -190,17 +190,16 @@ class Layout extends Component {
                       { name: 'keywords', content: 'sample, something' },
                     ]}
                   />
-                  <HeroImgContextConsumer>
-                    {({ handleHeroImg }) => (
-                      <Listener handleHeroImg={handleHeroImg} />
+                  <HiddenContextConsumer>
+                    {({ handleHeroImg, handleCopyright }) => (
+                      <Listener
+                        handleHeroImg={handleHeroImg}
+                        handleCopyright={handleCopyright}
+                      />
                     )}
-                  </HeroImgContextConsumer>
+                  </HiddenContextConsumer>
                   <ParticleBG />
-                  <Header
-                    location={location}
-                    title={pageTitle}
-                    isMobile={isMobile}
-                  />
+                  <Header location={location} title={pageTitle} />
                   <HeroImg />
                   <Body id="body" isHome={isHome} top={'100vh'}>
                     {children}
@@ -210,12 +209,12 @@ class Layout extends Component {
                     pageMiddle={pageMiddle}
                     pageBottom={pageBottom}
                     isHome={isHome}
-                    isMobile={isMobile}
+                    // isMobile={isMobile}
                   />
                 </LayoutWrapper>
               </ThemeProvider>
               )}
-            </HeroImgContextProvider>
+            </HiddenContextProvider>
           </MenuContextProvider>
         )}
       />

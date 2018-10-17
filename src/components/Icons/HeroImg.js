@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import { HeroImgContextConsumer } from '../Context/HeroImgContext';
+import { HiddenContextConsumer } from '../Context/HiddenContext';
 
 class HeroImg extends Component {
   // state = {
@@ -16,7 +16,7 @@ class HeroImg extends Component {
 
   render() {
     return (
-      <HeroImgContextConsumer>
+      <HiddenContextConsumer>
         {({ showHeroImg }) =>
           showHeroImg && (
             <HeroTextWrapper>
@@ -32,7 +32,7 @@ class HeroImg extends Component {
             </HeroTextWrapper>
           )
         }
-      </HeroImgContextConsumer>
+      </HiddenContextConsumer>
     );
   }
 }

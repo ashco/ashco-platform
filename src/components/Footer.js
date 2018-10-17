@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import isEqual from 'lodash.isequal';
 
+import { HiddenContextConsumer } from './Context/HiddenContext';
+
 import NavArrow from './Icons/NavArrow';
 import GithubIcon from './Icons/Github';
 import LinkedInIcon from './Icons/LinkedIn';
@@ -10,15 +12,15 @@ import TwitterIcon from './Icons/Twitter';
 import ResumeIcon from './Icons/Resume';
 
 class Footer extends Component {
-  constructor(props) {
-    super(props);
-    // this.state = this.handleFooterState();
-    this.state = {
-      showFooterLeft: true,
-      showFooterCenter: true,
-      showFooterRight: true,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // this.state = this.handleFooterState();
+  //   this.state = {
+  //     // showFooterLeft: true,
+  //     // showFooterCenter: true,
+  //     // showFooterRight: true,
+  //   };
+  // }
 
   // componentWillMount() {
   //   const stateObj = this.handleFooterState();
@@ -88,56 +90,59 @@ class Footer extends Component {
 
   render() {
     // const { toggleMenu } = this.props;
-    const { showFooterLeft, showFooterCenter, showFooterRight } = this.state;
+    // const { showFooterCenter, showFooterRight } = this.state;
 
-    const year = new Date().getFullYear();
     return (
-      <FooterWrapper>
-        <FooterLeft showFooterLeft={showFooterLeft} year={year} />
-        <FooterCenter
-          showFooterCenter={showFooterCenter}
-          // toggleMenu={toggleMenu}
-        />
-        <FooterRight showFooterRight={showFooterRight} />
-      </FooterWrapper>
+      <HiddenContextConsumer>
+        {({ showFooterLeft, showFooterCenter, showFooterRight }) => (
+          <FooterWrapper>
+            <FooterLeft showFooterLeft={showFooterLeft} />
+            <FooterCenter showFooterCenter={showFooterCenter} />
+            <FooterRight showFooterRight={showFooterRight} />
+          </FooterWrapper>
+        )}
+      </HiddenContextConsumer>
     );
   }
 }
 
-const FooterLeft = ({ showFooterLeft, year }) => (
-  <FooterLeftWrapper
-    className={showFooterLeft ? 'visible-fade' : 'hidden-fade'}
-  >
-    <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
-    <p>
-      This site is built with{' '}
-      <a
-        href="https://www.gatsbyjs.org/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Gatsbyjs
-      </a>{' '}
-      and{' '}
-      <a
-        href="https://www.contentful.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Contentful
-      </a>
-      . The source code is hosted on{' '}
-      <a
-        href="https://github.com/ashco/ashco-platform"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Github
-      </a>
-      .
-    </p>
-  </FooterLeftWrapper>
-);
+const FooterLeft = ({ showFooterLeft }) => {
+  const year = new Date().getFullYear();
+  return (
+    <FooterLeftWrapper
+      className={showFooterLeft ? 'visible-fade' : 'hidden-fade'}
+    >
+      <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
+      <p>
+        This site is built with{' '}
+        <a
+          href="https://www.gatsbyjs.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Gatsbyjs
+        </a>{' '}
+        and{' '}
+        <a
+          href="https://www.contentful.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contentful
+        </a>
+        . The source code is hosted on{' '}
+        <a
+          href="https://github.com/ashco/ashco-platform"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github
+        </a>
+        .
+      </p>
+    </FooterLeftWrapper>
+  );
+};
 
 const FooterCenter = ({ showFooterCenter }) => (
   <FooterCenterWrapper className={showFooterCenter ? 'visible' : 'hidden'}>

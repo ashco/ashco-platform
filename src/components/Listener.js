@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 export class Listener extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScrollState);
-    window.addEventListener('resize', this.handleResize);
+    // window.addEventListener('resize', this.handleResize);
   }
 
   handleScrollState = event => {
-    let scrollLenght = window.pageYOffset;
+    let scrollLength = window.pageYOffset;
     let windowHeight = window.innerHeight;
     if (typeof window !== `undefined`) {
       scrollLength = window.pageYOffset;
@@ -24,13 +24,13 @@ export class Listener extends Component {
     // }
   };
 
-  handleResize = () => {
-    console.log('window resized');
+  // handleResize = () => {
+  //   console.log('window resized');
 
-    // setTimeout(() => {
-    //   this.updateIsMobile();
-    // }, 1000);
-  };
+  //   // setTimeout(() => {
+  //   //   this.updateIsMobile();
+  //   // }, 1000);
+  // };
 
   toggleHeroImg = () => {
     this.props.handleHeroImg(false);
