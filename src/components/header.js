@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 // import Img from 'gatsby-image';
 
-import ContextConsumer from '../Context';
+import { MenuContextConsumer } from './Context/Context';
 
 import MenuIcon from './Icons/MenuIcon';
 import AshCoIcon from './Icons/AshCo';
@@ -13,32 +13,32 @@ class Header extends Component {
   render() {
     const { title, isHome, isMobile } = this.props;
     return (
-      <ContextConsumer>
-        {({ data, set }) => (
+      <MenuContextConsumer>
+        {({ menuOpen, toggleMenu }) => (
           <HeaderWrapper
             isHome={isHome}
             ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
           >
             <HeaderContainer>
               <HeaderTitle>
-                <Link to="/" onClick={() => set({ isMenuOpen: true })}>
+                <Link to="/" onClick={toggleMenu.bind(null, 'open')}>
                   <AshCoIcon />
                 </Link>
                 <span>{title}</span>
               </HeaderTitle>
-              <NavLinks isMenuOpen={data.isMenuOpen} />
+              <NavLinks menuOpen={menuOpen} />
               {isMobile && <MenuIcon />}
             </HeaderContainer>
           </HeaderWrapper>
         )}
-      </ContextConsumer>
+      </MenuContextConsumer>
     );
   }
 }
 
-const NavLinks = ({ isMenuOpen }) => (
+const NavLinks = ({ menuOpen }) => (
   <NavLinksWrapper
-    className={isMenuOpen ? 'nav-links-showing' : 'nav-links-hiding'}
+    className={menuOpen ? 'nav-links-showing' : 'nav-links-hiding'}
   >
     <ul>
       <NavLinkItem to="/#home" title="Home" />
@@ -51,15 +51,15 @@ const NavLinks = ({ isMenuOpen }) => (
 );
 
 const NavLinkItem = ({ to, title }) => (
-  <ContextConsumer>
-    {({ data, set }) => (
+  <MenuContextConsumer>
+    {({ toggleMenu }) => (
       <NavLinkItemWrapper>
-        <Link to={to} onClick={() => set({ isMenuOpen: false })}>
+        <Link to={to} onClick={toggleMenu.bind(null, 'close')}>
           {title}
         </Link>
       </NavLinkItemWrapper>
     )}
-  </ContextConsumer>
+  </MenuContextConsumer>
 );
 
 const HeaderWrapper = styled.header`

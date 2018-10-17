@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import ArrowDown from './ArrowDown';
 
-import ContextConsumer from '../../Context';
+import { MenuContextConsumer } from '../Context/Context';
 
 class NavArrow extends Component {
   // handleClick = () => {
@@ -18,24 +18,20 @@ class NavArrow extends Component {
 
   render() {
     return (
-      <ContextConsumer>
-        {({ data, set }) => (
+      <MenuContextConsumer>
+        {({ toggleMenu }) => (
           <NavArrowStyle
             className="animated bounce delay-5s infinite"
             // onClick={this.handleClick}
             // onClick={this.scroll}
-            onClick={() =>
-              set({
-                isMenuOpen: false,
-              })
-            }
+            onClick={toggleMenu.bind(null, 'close')}
           >
             <div className="fade-in">
               <ArrowDown />
             </div>
           </NavArrowStyle>
         )}
-      </ContextConsumer>
+      </MenuContextConsumer>
     );
   }
 }

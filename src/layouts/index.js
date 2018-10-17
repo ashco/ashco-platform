@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-import ContextConsumer, { ContextProviderComponent } from '../Context';
+// import ContextConsumer, { ContextProviderComponent } from '../Context';
+import { MenuContextProvider } from '../components/Context/Context';
 
 import { theme } from '../config/theme';
 
@@ -199,7 +200,8 @@ class Layout extends Component {
           }
         `}
         render={data => (
-          <ContextProviderComponent>
+          <MenuContextProvider>
+            {/* <ContextProviderComponent> */}
             {/* <ContextConsumer>
               {({ data, set }) => ( */}
             <ThemeProvider theme={theme}>
@@ -246,7 +248,8 @@ class Layout extends Component {
             </ThemeProvider>
             )}
             {/* </ContextConsumer> */}
-          </ContextProviderComponent>
+            {/* </ContextProviderComponent> */}
+          </MenuContextProvider>
         )}
       />
     );
