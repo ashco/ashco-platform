@@ -10,11 +10,11 @@ import {
 } from '../components/Context/HiddenContext';
 import { theme } from '../config/theme';
 
-import HeroImg from '../components/Icons/HeroImg';
 import Header from '../components/Header/header';
 import Footer from '../components/Footer/Footer';
 import '../style/index.css';
 
+import HeroImg from '../components/HeroImg';
 import ParticleBG from '../components/ParticleBG';
 import Listener from '../components/Listener';
 
@@ -24,8 +24,8 @@ class Layout extends Component {
     this.state = {
       isHome: true,
       // isMobile: true,
-      pageMiddle: false,
-      pageBottom: false,
+      // pageMiddle: false,
+      // pageBottom: false,
     };
     // this.updateIsHome();
   }
@@ -108,24 +108,6 @@ class Layout extends Component {
   //     pageLength = pageLength + 140;
   //   }
   //   const isBottom = () => pageLength - windowHeight <= scrollLength;
-
-  //   // console.log({ pageScrolled });
-  //   // console.log({ pageLength });
-  //   // console.log({ scrollLength });
-  //   // console.log({ windowHeight });
-  //   // console.log(pageLength - windowHeight);
-  //   // console.log(isBottom());
-
-  //   if (isBottom()) {
-  //     this.setState({
-  //       pageBottom: true,
-  //     });
-  //   } else if (!isBottom() && this.state.pageBottom === true) {
-  //     this.setState({
-  //       pageBottom: false,
-  //     });
-  //   }
-  // };
 
   // getBodyTop(isHome, isMobile, isMenuOpen) {
   //   let top = 0;
@@ -228,7 +210,6 @@ class Layout extends Component {
                   />
                 </LayoutWrapper>
               </ThemeProvider>
-              )}
             </HiddenContextProvider>
           </MenuContextProvider>
         )}
