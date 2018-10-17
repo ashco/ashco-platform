@@ -10,34 +10,30 @@ export class HiddenContextProvider extends React.Component {
     this.state = {
       showHeroImg: true,
       showFooterLeft: false,
-      showFooterCenter: false,
+      showFooterCenter: true,
       showFooterRight: true,
     };
   }
 
   handleHeroImg = showHeroImg => {
-    console.log(showHeroImg);
     this.setState({
       showHeroImg,
     });
   };
 
   handleFooterLeft = showFooterLeft => {
-    console.log(showFooterLeft);
     this.setState({
       showFooterLeft,
     });
   };
 
   handleFooterCenter = showFooterCenter => {
-    console.log(showFooterCenter);
     this.setState({
       showFooterCenter,
     });
   };
 
   handleFooterRight = showFooterRight => {
-    console.log(showFooterRight);
     this.setState({
       showFooterRight,
     });

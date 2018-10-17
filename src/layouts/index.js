@@ -12,7 +12,7 @@ import { theme } from '../config/theme';
 
 import HeroImg from '../components/Icons/HeroImg';
 import Header from '../components/Header/header';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer/Footer';
 import '../style/index.css';
 
 import ParticleBG from '../components/ParticleBG';
@@ -191,10 +191,25 @@ class Layout extends Component {
                     ]}
                   />
                   <HiddenContextConsumer>
-                    {({ handleHeroImg, handleCopyright }) => (
+                    {({
+                      showHeroImg,
+                      showFooterLeft,
+                      showFooterCenter,
+                      showFooterRight,
+                      handleHeroImg,
+                      handleFooterLeft,
+                      handleFooterCenter,
+                      handleFooterRight,
+                    }) => (
                       <Listener
+                        showHeroImg={showHeroImg}
+                        showFooterLeft={showFooterLeft}
+                        showFooterCenter={showFooterCenter}
+                        showFooterRight={showFooterRight}
                         handleHeroImg={handleHeroImg}
-                        handleCopyright={handleCopyright}
+                        handleFooterLeft={handleFooterLeft}
+                        handleFooterCenter={handleFooterCenter}
+                        handleFooterRight={handleFooterRight}
                       />
                     )}
                   </HiddenContextConsumer>

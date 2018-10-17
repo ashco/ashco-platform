@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import ArrowDown from './ArrowDown';
+import ArrowDown from '../Icons/ArrowDown';
 
 import { MenuContextConsumer } from '../Context/MenuContext';
 
