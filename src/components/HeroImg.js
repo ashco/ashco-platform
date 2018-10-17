@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-class HeroText extends Component {
+import { HeroImgContextConsumer } from '../Context/HeroImgContext';
+
+class HeroImg extends Component {
+  // state = {
+  //   showHeroImg: true,
+  // };
+
+  // toggleHeroImg = showHeroImg => {
+  //   this.setState({
+  //     showHeroImg,
+  //   });
+  // };
+
   render() {
     return (
-      <HeroTextWrapper>
-        {/* <AnimationLine /> */}
-        <FirstText>Welcome</FirstText>
-        <SecondText>To</SecondText>
-        <TitleLine />
-        <TitleText>
-          AshCo
-          <TitleTextPeriod>.</TitleTextPeriod>
-          io
-        </TitleText>
-      </HeroTextWrapper>
+      <HeroImgContextConsumer>
+        {({ showHeroImg }) =>
+          showHeroImg && (
+            <HeroTextWrapper>
+              {/* <AnimationLine /> */}
+              <FirstText>Welcome</FirstText>
+              <SecondText>To</SecondText>
+              <TitleLine />
+              <TitleText>
+                AshCo
+                <TitleTextPeriod>.</TitleTextPeriod>
+                io
+              </TitleText>
+            </HeroTextWrapper>
+          )
+        }
+      </HeroImgContextConsumer>
     );
   }
 }
@@ -127,4 +145,4 @@ const TitleTextPeriod = styled.span`
   color: ${props => props.theme.colorPrimary};
 `;
 
-export default HeroText;
+export default HeroImg;

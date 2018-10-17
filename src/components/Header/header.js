@@ -2,32 +2,44 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-// import Img from 'gatsby-image';
 
-import { MenuContextConsumer } from './Context/Context';
+import { MenuContextConsumer } from '../Context/MenuContext';
 
-import MenuIcon from './Icons/MenuIcon';
-import AshCoIcon from './Icons/AshCo';
+import HeaderTitle from './HeaderTitle';
+import MenuIcon from '../Icons/MenuIcon';
+
+import Responsive from 'react-responsive';
+
+// const Desktop = props => <Responsive {...props} minWidth={992} />;
+// const Tablet = props => <Responsive {...props} minWidth={768} maxWidth={991} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
+// const Default = props => <Responsive {...props} minWidth={768} />;
 
 class Header extends Component {
   render() {
-    const { title, isHome, isMobile } = this.props;
+    const { title } = this.props;
     return (
       <MenuContextConsumer>
         {({ menuOpen, toggleMenu }) => (
           <HeaderWrapper
-            isHome={isHome}
             ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
           >
             <HeaderContainer>
-              <HeaderTitle>
-                <Link to="/" onClick={toggleMenu.bind(null, 'open')}>
-                  <AshCoIcon />
-                </Link>
-                <span>{title}</span>
-              </HeaderTitle>
-              <NavLinks menuOpen={menuOpen} />
-              {isMobile && <MenuIcon />}
+              <HeaderTitle title={title} toggleMenu={toggleMenu} />
+              <Mobile>
+                {matches => {
+                  if (matches) {
+                    return (
+                      <>
+                        <NavLinks menuOpen={menuOpen} />
+                        <MenuIcon />
+                      </>
+                    );
+                  } else {
+                    return <NavLinks menuOpen={menuOpen} />;
+                  }
+                }}
+              </Mobile>
             </HeaderContainer>
           </HeaderWrapper>
         )}
@@ -84,40 +96,6 @@ const HeaderContainer = styled.nav`
   }
   @media (min-width: ${props => props.theme.widthHD}) {
     max-width: 1600px;
-  }
-`;
-
-const HeaderTitle = styled.h1`
-  margin-left: 1.4rem;
-  display: flex;
-  align-items: center;
-  font-size: 2rem;
-  font-weight: 600;
-  svg {
-    height: 5.5rem;
-    width: auto;
-  }
-  a {
-    text-decoration: none;
-    pointer-events: auto;
-  }
-  span {
-    margin-left: 0.6rem;
-  }
-
-  @media (min-width: 800px) {
-    font-size: 2.5rem;
-  }
-  @media (min-width: ${props => props.theme.widthLaptop}) {
-    font-size: 3rem;
-    svg {
-      height: 6.4rem;
-    }
-  }
-  @media (min-width: ${props => props.theme.widthHD}) {
-    svg {
-      height: 8rem;
-    }
   }
 `;
 

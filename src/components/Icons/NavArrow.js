@@ -2,28 +2,15 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import ArrowDown from './ArrowDown';
 
-import { MenuContextConsumer } from '../Context/Context';
+import { MenuContextConsumer } from '../Context/MenuContext';
 
 class NavArrow extends Component {
-  // handleClick = () => {
-  //   this.props.toggleMenu('closed');
-  //   this.scroll();
-  // };
-
-  // scroll = () => {
-  //   document
-  //     .querySelector('#home')
-  //     .scrollIntoView({ behavior: 'smooth', block: 'start' });
-  // };
-
   render() {
     return (
       <MenuContextConsumer>
         {({ toggleMenu }) => (
           <NavArrowStyle
             className="animated bounce delay-5s infinite"
-            // onClick={this.handleClick}
-            // onClick={this.scroll}
             onClick={toggleMenu.bind(null, 'close')}
           >
             <div className="fade-in">

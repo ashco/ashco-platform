@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MenuContextConsumer } from '../Context/Context';
+import { MenuContextConsumer } from '../Context/MenuContext';
 
 const MenuIcon = () => (
   <MenuContextConsumer>

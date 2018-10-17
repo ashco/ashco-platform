@@ -12,7 +12,12 @@ import ResumeIcon from './Icons/Resume';
 class Footer extends Component {
   constructor(props) {
     super(props);
-    this.state = this.handleFooterState();
+    // this.state = this.handleFooterState();
+    this.state = {
+      showFooterLeft: true,
+      showFooterCenter: true,
+      showFooterRight: true,
+    };
   }
 
   // componentWillMount() {
@@ -23,63 +28,63 @@ class Footer extends Component {
   //   }
   // }
 
-  componentDidUpdate() {
-    const stateObj = this.handleFooterState();
+  // componentDidUpdate() {
+  //   const stateObj = this.handleFooterState();
 
-    if (!isEqual(stateObj, this.state)) {
-      this.setState(stateObj);
-    }
-  }
+  //   if (!isEqual(stateObj, this.state)) {
+  //     this.setState(stateObj);
+  //   }
+  // }
 
-  handleFooterState() {
-    const {
-      pageScrolled,
-      pageMiddle,
-      pageBottom,
-      isHome,
-      isMobile,
-    } = this.props;
-    let stateObj = {
-      showFooterLeft: false,
-      showFooterCenter: false,
-      showFooterRight: false,
-    };
+  // handleFooterState() {
+  //   const {
+  //     pageScrolled,
+  //     pageMiddle,
+  //     pageBottom,
+  //     isHome,
+  //     isMobile,
+  //   } = this.props;
+  //   let stateObj = {
+  //     showFooterLeft: false,
+  //     showFooterCenter: false,
+  //     showFooterRight: false,
+  //   };
 
-    if (isMobile) {
-      if (pageBottom) {
-        stateObj = {
-          showFooterLeft: true,
-          showFooterRight: true,
-        };
-      } else {
-        stateObj = {
-          showFooterLeft: false,
-          showFooterRight: false,
-        };
-      }
-    } else {
-      if (isHome) {
-        if (!pageMiddle) {
-          stateObj = {
-            showFooterLeft: false,
-            showFooterRight: true,
-          };
-        } else {
-          stateObj = {
-            showFooterLeft: true,
-            showFooterRight: true,
-          };
-        }
-      } else {
-        stateObj = {
-          showFooterLeft: true,
-          showFooterRight: true,
-        };
-      }
-    }
-    stateObj.showFooterCenter = isHome && !pageScrolled ? true : false;
-    return stateObj;
-  }
+  //   if (isMobile) {
+  //     if (pageBottom) {
+  //       stateObj = {
+  //         showFooterLeft: true,
+  //         showFooterRight: true,
+  //       };
+  //     } else {
+  //       stateObj = {
+  //         showFooterLeft: false,
+  //         showFooterRight: false,
+  //       };
+  //     }
+  //   } else {
+  //     if (isHome) {
+  //       if (!pageMiddle) {
+  //         stateObj = {
+  //           showFooterLeft: false,
+  //           showFooterRight: true,
+  //         };
+  //       } else {
+  //         stateObj = {
+  //           showFooterLeft: true,
+  //           showFooterRight: true,
+  //         };
+  //       }
+  //     } else {
+  //       stateObj = {
+  //         showFooterLeft: true,
+  //         showFooterRight: true,
+  //       };
+  //     }
+  //   }
+  //   stateObj.showFooterCenter = isHome && !pageScrolled ? true : false;
+  //   return stateObj;
+  // }
 
   render() {
     // const { toggleMenu } = this.props;

@@ -2,17 +2,21 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-// import ContextConsumer, { ContextProviderComponent } from '../Context';
-import { MenuContextProvider } from '../components/Context/Context';
 
+import { MenuContextProvider } from '../components/Context/MenuContext';
+import {
+  HeroImgContextProvider,
+  HeroImgContextConsumer,
+} from '../components/Context/HeroImgContext';
 import { theme } from '../config/theme';
 
-import TitleText from '../components/HeroText';
-import Header from '../components/header';
+import HeroImg from '../components/Icons/HeroImg';
+import Header from '../components/Header/header';
 import Footer from '../components/Footer';
 import '../style/index.css';
 
 import ParticleBG from '../components/ParticleBG';
+import Listener from '../components/Listener';
 
 class Layout extends Component {
   constructor(props) {
@@ -20,22 +24,21 @@ class Layout extends Component {
     this.state = {
       isHome: true,
       isMobile: true,
-      // isMenuOpen: true,
       pageMiddle: false,
       pageBottom: false,
     };
-    this.updateIsHome();
+    // this.updateIsHome();
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScrollState);
-    window.addEventListener('resize', this.handleResize);
-    this.updateIsMobile();
-  }
+  // componentDidMount() {
+  //   window.addEventListener('scroll', this.handleScrollState);
+  //   window.addEventListener('resize', this.handleResize);
+  //   this.updateIsMobile();
+  // }
 
-  componentDidUpdate() {
-    this.updateIsHome();
-  }
+  // componentDidUpdate() {
+  //   this.updateIsHome();
+  // }
 
   handleResize = () => {
     setTimeout(() => {
@@ -43,14 +46,14 @@ class Layout extends Component {
     }, 1000);
   };
 
-  updateIsHome() {
-    const isHome = this.props.location.pathname === '/';
-    if (isHome !== this.state.isHome) {
-      this.setState({
-        isHome,
-      });
-    }
-  }
+  // updateIsHome() {
+  //   const isHome = this.props.location.pathname === '/';
+  //   if (isHome !== this.state.isHome) {
+  //     this.setState({
+  //       isHome,
+  //     });
+  //   }
+  // }
 
   updateIsMobile() {
     if (typeof window !== `undefined`) {
@@ -63,110 +66,91 @@ class Layout extends Component {
     }
   }
 
-  // toggleMenu = isOpen => {
-  //   if (this.state.isMobile) {
-  //     if (isOpen === 'open') {
-  //       this.setState({
-  //         isMenuOpen: true,
-  //       });
-  //     } else if (isOpen === 'closed') {
-  //       this.setState({
-  //         isMenuOpen: false,
-  //       });
-  //     } else {
-  //       this.setState({
-  //         isMenuOpen: !this.state.isMenuOpen,
-  //       });
-  //     }
+  // handleScrollState = event => {
+  //   let scrollLength = window.pageYOffset;
+  //   let windowHeight = window.innerHeight;
+  //   if (typeof window !== `undefined`) {
+  //     scrollLength = window.pageYOffset;
+  //     windowHeight = window.innerHeight;
+  //   }
+  //   const pageScrolled = scrollLength > 0;
+  //   const marginLength = 300;
+  //   const borderLength = 5;
+  //   const extraMobileMenuMargin = 300;
+
+  //   if (pageScrolled !== this.state.pageScrolled) {
+  //     this.setState({
+  //       pageScrolled,
+  //     });
+  //   }
+
+  //   let lengthToMiddle = scrollLength;
+  //   if (this.state.isMobile && this.state.isMenuOpen) {
+  //     lengthToMiddle = lengthToMiddle - extraMobileMenuMargin;
+  //   }
+
+  //   let pageMiddle = lengthToMiddle >= windowHeight * 0.55;
+
+  //   if (pageMiddle !== this.state.pageMiddle) {
+  //     this.setState({
+  //       pageMiddle,
+  //     });
+  //   }
+
+  //   let pageLength =
+  //     document.querySelector('#body').offsetHeight + marginLength;
+  //   if (this.state.isMobile && this.state.isMenuOpen) {
+  //     pageLength = pageLength + extraMobileMenuMargin;
+  //   }
+  //   if (this.state.isHome) {
+  //     pageLength = pageLength + windowHeight + borderLength;
+  //   } else {
+  //     pageLength = pageLength + 140;
+  //   }
+  //   const isBottom = () => pageLength - windowHeight <= scrollLength;
+
+  //   // console.log({ pageScrolled });
+  //   // console.log({ pageLength });
+  //   // console.log({ scrollLength });
+  //   // console.log({ windowHeight });
+  //   // console.log(pageLength - windowHeight);
+  //   // console.log(isBottom());
+
+  //   if (isBottom()) {
+  //     this.setState({
+  //       pageBottom: true,
+  //     });
+  //   } else if (!isBottom() && this.state.pageBottom === true) {
+  //     this.setState({
+  //       pageBottom: false,
+  //     });
   //   }
   // };
 
-  handleScrollState = event => {
-    let scrollLength = window.pageYOffset;
-    let windowHeight = window.innerHeight;
-    if (typeof window !== `undefined`) {
-      scrollLength = window.pageYOffset;
-      windowHeight = window.innerHeight;
-    }
-    const pageScrolled = scrollLength > 0;
-    const marginLength = 300;
-    const borderLength = 5;
-    const extraMobileMenuMargin = 300;
-
-    if (pageScrolled !== this.state.pageScrolled) {
-      this.setState({
-        pageScrolled,
-      });
-    }
-
-    let lengthToMiddle = scrollLength;
-    if (this.state.isMobile && this.state.isMenuOpen) {
-      lengthToMiddle = lengthToMiddle - extraMobileMenuMargin;
-    }
-
-    let pageMiddle = lengthToMiddle >= windowHeight * 0.55;
-
-    if (pageMiddle !== this.state.pageMiddle) {
-      this.setState({
-        pageMiddle,
-      });
-    }
-
-    let pageLength =
-      document.querySelector('#body').offsetHeight + marginLength;
-    if (this.state.isMobile && this.state.isMenuOpen) {
-      pageLength = pageLength + extraMobileMenuMargin;
-    }
-    if (this.state.isHome) {
-      pageLength = pageLength + windowHeight + borderLength;
-    } else {
-      pageLength = pageLength + 140;
-    }
-    const isBottom = () => pageLength - windowHeight <= scrollLength;
-
-    // console.log({ pageScrolled });
-    // console.log({ pageLength });
-    // console.log({ scrollLength });
-    // console.log({ windowHeight });
-    // console.log(pageLength - windowHeight);
-    // console.log(isBottom());
-
-    if (isBottom()) {
-      this.setState({
-        pageBottom: true,
-      });
-    } else if (!isBottom() && this.state.pageBottom === true) {
-      this.setState({
-        pageBottom: false,
-      });
-    }
-  };
-
-  getBodyTop(isHome, isMobile, isMenuOpen) {
-    let top = 0;
-    if (isHome) {
-      const headerHeight = isMobile ? '140px' : '15vh';
-      if (isMobile) {
-        let navMargin = isMenuOpen ? 300 : 0;
-        if (typeof window !== `undefined`) {
-          top = window.innerHeight - parseInt(headerHeight) - navMargin;
-          // top = window.innerHeight - parseInt(headerHeight);
-        }
-        top = `${top}px`;
-      } else {
-        top = 100 - parseInt(headerHeight);
-        top = `${top}vh`;
-      }
-    }
-    return top;
-  }
+  // getBodyTop(isHome, isMobile, isMenuOpen) {
+  //   let top = 0;
+  //   if (isHome) {
+  //     const headerHeight = isMobile ? '140px' : '15vh';
+  //     if (isMobile) {
+  //       let navMargin = isMenuOpen ? 300 : 0;
+  //       if (typeof window !== `undefined`) {
+  //         top = window.innerHeight - parseInt(headerHeight) - navMargin;
+  //         // top = window.innerHeight - parseInt(headerHeight);
+  //       }
+  //       top = `${top}px`;
+  //     } else {
+  //       top = 100 - parseInt(headerHeight);
+  //       top = `${top}vh`;
+  //     }
+  //   }
+  //   return top;
+  // }
 
   render() {
     const { location, children } = this.props;
     const {
       isHome,
       isMobile,
-      isMenuOpen,
       pageScrolled,
       pageMiddle,
       pageBottom,
@@ -192,63 +176,46 @@ class Layout extends Component {
                 description
               }
             }
-            background: imageSharp(id: { regex: "/bg.png/" }) {
-              sizes(maxWidth: 1240, grayscale: false) {
-                ...GatsbyImageSharpSizes
-              }
-            }
           }
         `}
         render={data => (
           <MenuContextProvider>
-            {/* <ContextProviderComponent> */}
-            {/* <ContextConsumer>
-              {({ data, set }) => ( */}
-            <ThemeProvider theme={theme}>
-              <LayoutWrapper>
-                <Helmet
-                  title={data.site.siteMetadata.title}
-                  meta={[
-                    { name: 'description', content: 'Sample' },
-                    { name: 'keywords', content: 'sample, something' },
-                  ]}
-                />
-                <Header
-                  // data={data}
-                  location={location}
-                  title={pageTitle}
-                  isHome={isHome}
-                  isMobile={isMobile}
-                  // isMenuOpen={isMenuOpen}
-                  // toggleMenu={this.toggleMenu}
-                />
-                {!isMobile ? (
-                  <TitleText />
-                ) : (
-                  isHome && !pageMiddle && <TitleText />
-                )}
-                <Body
-                  id="body"
-                  isHome={isHome}
-                  top={this.getBodyTop(isHome, isMobile, isMenuOpen)}
-                  // isMenuOpen={isMenuOpen}
-                >
-                  {children}
-                </Body>
-                <Footer
-                  pageScrolled={pageScrolled}
-                  pageMiddle={pageMiddle}
-                  pageBottom={pageBottom}
-                  isHome={isHome}
-                  isMobile={isMobile}
-                  // toggleMenu={this.toggleMenu}
-                />
-                <ParticleBG />
-              </LayoutWrapper>
-            </ThemeProvider>
-            )}
-            {/* </ContextConsumer> */}
-            {/* </ContextProviderComponent> */}
+            <HeroImgContextProvider>
+              <ThemeProvider theme={theme}>
+                <LayoutWrapper>
+                  <Helmet
+                    title={data.site.siteMetadata.title}
+                    meta={[
+                      { name: 'description', content: 'Sample' },
+                      { name: 'keywords', content: 'sample, something' },
+                    ]}
+                  />
+                  <HeroImgContextConsumer>
+                    {({ handleHeroImg }) => (
+                      <Listener handleHeroImg={handleHeroImg} />
+                    )}
+                  </HeroImgContextConsumer>
+                  <ParticleBG />
+                  <Header
+                    location={location}
+                    title={pageTitle}
+                    isMobile={isMobile}
+                  />
+                  <HeroImg />
+                  <Body id="body" isHome={isHome} top={'100vh'}>
+                    {children}
+                  </Body>
+                  <Footer
+                    pageScrolled={pageScrolled}
+                    pageMiddle={pageMiddle}
+                    pageBottom={pageBottom}
+                    isHome={isHome}
+                    isMobile={isMobile}
+                  />
+                </LayoutWrapper>
+              </ThemeProvider>
+              )}
+            </HeroImgContextProvider>
           </MenuContextProvider>
         )}
       />
