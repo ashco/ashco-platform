@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from '../../config/media';
 
 import GithubIcon from '../Icons/Github';
 import LinkedInIcon from '../Icons/LinkedIn';
@@ -67,9 +68,11 @@ const FooterRightWrapper = styled.div`
       }
     }
   }
-  @media (min-width: ${props => props.theme.widthTablet}) {
+  /* @media (min-width: ${props => props.theme.widthTablet}) { */
+  ${media.tablet`
     margin-right: 0;
-  }
+  `}
+  /* } */
 `;
 
 export default FooterRight;

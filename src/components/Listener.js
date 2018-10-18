@@ -26,10 +26,10 @@ export class Listener extends Component {
   }
 
   setFooterCenter(showFooterCenter) {
-    if (showFooterCenter && this.props.showFooterCenter) {
-      this.props.handleFooterCenter(false);
-    } else if (!showFooterCenter && !this.props.showFooterCenter) {
+    if (showFooterCenter && !this.props.showFooterCenter) {
       this.props.handleFooterCenter(true);
+    } else if (!showFooterCenter && this.props.showFooterCenter) {
+      this.props.handleFooterCenter(false);
     }
   }
 
@@ -55,16 +55,19 @@ export class Listener extends Component {
 
     // HEROIMG
     const showHeroImg = scrollLength < (windowHeight + marginTopLength) * 0.6;
-
     // LEFT
     const showFooterLeft = windowHeight + borderLength - scrollLength === 0;
+    console.log({ showFooterLeft });
+    console.log({ windowHeight });
+    console.log({ borderLength });
+    console.log({ scrollLength });
     // CENTER
     const showFooterCenter = scrollLength > 0;
     // RIGHT
 
     this.setHeroImg(showHeroImg);
     this.setFooterLeft(showFooterLeft);
-    this.setFooterCenter(showFooterCenter);
+    this.setFooterCenter(!showFooterCenter);
     this.setFooterRight(!showHeroImg);
   };
 

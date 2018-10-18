@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
+import media from '../config/media';
 import { StaticQuery, graphql } from 'gatsby';
 
 import { MenuContextProvider } from '../components/Context/MenuContext';
@@ -239,32 +240,47 @@ const Body = styled.main`
     )
     auto ${props => props.theme.mobileFooterHeight} auto;
   transition: 0.2s ease-in-out;
-  @media (min-width: ${props => props.theme.widthTablet}) {
+  /* ${media.tablet`
     margin: calc(
         ${props => props.theme.tabletHeaderHeight} -
           ${props => props.theme.mainBorderSize}
       )
       auto;
-  }
-  @media (min-width: ${props => props.theme.widthDesktop}) {
+  `} */
+  ${props => {
+    media.tablet`
+      margin: calc(
+          ${props.theme.tabletHeaderHeight} -
+            ${props.theme.mainBorderSize}
+        )
+        auto;
+    `;
+  }}
+  /* @media (min-width: ${props => props.theme.widthTablet}) { */
+  /* } */
+  /* @media (min-width: ${props => props.theme.widthDesktop}) { */
+  ${media.desktop`
     border-radius: 10px;
     margin-left: ${props => props.theme.desktopBodySideMargin};
     margin-right: ${props => props.theme.desktopBodySideMargin};
     width: calc(
       100vw - (${props => props.theme.desktopBodySideMargin} * 2) -
-        (${props => props.theme.mainBorderSize} * 2)
-    );
-    border: ${props => props.theme.mainBorderSize} solid
+      (${props => props.theme.mainBorderSize} * 2)
+      );
+      border: ${props => props.theme.mainBorderSize} solid
       ${props => props.theme.colorPrimary}80;
-  }
-  @media (min-width: ${props => props.theme.widthHD}) {
+      /* } */
+  `}
+  /* @media (min-width: ${props => props.theme.widthHD}) { */
+  ${media.hd`
     margin-left: ${props => props.theme.HDBodySideMargin};
     margin-right: ${props => props.theme.HDBodySideMargin};
     width: calc(
       100vw - (${props => props.theme.HDBodySideMargin} * 2) -
-        (${props => props.theme.mainBorderSize} * 2)
-    );
-  }
+      (${props => props.theme.mainBorderSize} * 2)
+      );
+  `}
+  /* } */
 `;
 
 export default Layout;

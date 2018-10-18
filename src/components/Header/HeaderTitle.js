@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import media from '../../config/media';
 
 import AshCoIcon from '../Icons/AshCo';
 
@@ -31,20 +32,26 @@ const HeaderTitleWrapper = styled.h1`
     margin-left: 0.6rem;
   }
 
-  @media (min-width: 800px) {
+  /* @media (min-width: 800px) { */
+  ${media.tablet`
     font-size: 2.5rem;
-  }
-  @media (min-width: ${props => props.theme.widthLaptop}) {
+  `}
+  /* } */
+  /* @media (min-width: ${props => props.theme.widthLaptop}) { */
+  ${media.laptop`
     font-size: 3rem;
     svg {
       height: 6.4rem;
     }
-  }
-  @media (min-width: ${props => props.theme.widthHD}) {
+  `}
+  /* } */
+  /* @media (min-width: ${props => props.theme.widthHD}) { */
+  ${media.hd`
     svg {
       height: 8rem;
     }
-  }
+  `}
+  /* } */
 `;
 
 export default HeaderTitle;

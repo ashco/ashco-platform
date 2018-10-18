@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import media from '../../config/media';
 
 import { MenuContextConsumer } from '../Context/MenuContext';
 
@@ -90,13 +91,12 @@ const HeaderContainer = styled.nav`
   align-items: center;
   pointer-events: none;
   height: ${props => props.theme.mobileHeaderHeight};
-
-  @media (min-width: ${props => props.theme.widthTablet}) {
+  ${media.tablet`
     height: ${props => props.theme.tabletHeaderHeight};
-  }
-  @media (min-width: ${props => props.theme.widthHD}) {
+  `};
+  ${media.hd`
     max-width: 1600px;
-  }
+  `};
 `;
 
 const NavLinksWrapper = styled.div`
@@ -112,17 +112,21 @@ const NavLinksWrapper = styled.div`
     flex-direction: column;
     align-items: flex-end;
   }
-  @media (min-width: ${props => props.theme.widthTablet}) {
+  /* @media (min-width: ${props => props.theme.widthTablet}) { */
+  ${media.tablet`
     margin: 1.45rem 1.1rem;
     position: static;
     font-size: 1.5rem;
     ul {
       flex-direction: row;
     }
-  }
-  @media (min-width: ${props => props.theme.widthDesktop}) {
+  `};
+  /* } */
+  /* @media (min-width: ${props => props.theme.widthDesktop}) { */
+  ${media.desktop`
     font-size: 1.75rem;
-  }
+  `};
+  /* } */
 `;
 
 const NavLinkItemWrapper = styled.li`
@@ -139,9 +143,9 @@ const NavLinkItemWrapper = styled.li`
       border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
     }
   }
-  @media (min-width: ${props => props.theme.widthTablet}) {
+  ${media.tablet`
     margin: 0 0.9rem;
-  }
+  `};
 `;
 
 export default Header;

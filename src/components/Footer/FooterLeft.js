@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from '../../config/media';
 
 const FooterLeft = ({ showFooterLeft }) => {
   const year = new Date().getFullYear();
@@ -53,10 +54,12 @@ const FooterLeftWrapper = styled.div`
       border-bottom: 1px solid ${props => props.theme.colorPrimary}cc;
     }
   }
-  @media (min-width: ${props => props.theme.widthTablet}) {
+  /* @media (min-width: ${props => props.theme.widthTablet}) { */
+  ${media.tablet`
     text-align: left;
     font-size: 1rem;
-  }
+  `}
+  /* } */
 `;
 
 export default FooterLeft;

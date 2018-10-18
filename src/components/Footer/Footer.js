@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from '../../config/media';
 
 import FooterLeft from './FooterLeft';
 import FooterCenter from './FooterCenter';
@@ -34,26 +35,32 @@ const FooterWrapper = styled.footer`
     color: ${props => props.theme.colorPrimary};
     transition: border-bottom 0.2s ease-out;
   }
-  @media (min-width: ${props => props.theme.widthTablet}) {
+  /* @media (min-width: ${props => props.theme.widthTablet}) { */
+  ${media.tablet`
     flex-direction: row;
     align-items: flex-end;
-  }
-  @media (min-width: ${props => props.theme.widthDesktop}) {
-    margin-left: ${props => props.theme.desktopBodySideMargin};
-    margin-right: ${props => props.theme.desktopBodySideMargin};
-    width: calc(
-      100vw - (${props => props.theme.desktopBodySideMargin} * 2) -
-        (${props => props.theme.mainBorderSize} * 2)
-    );
-  }
-  @media (min-width: ${props => props.theme.widthHD}) {
+  `}
+  /* } */
+  /* @media (min-width: ${props => props.theme.widthDesktop}) { */
+  ${media.desktop`
+  margin-left: ${props => props.theme.desktopBodySideMargin};
+  margin-right: ${props => props.theme.desktopBodySideMargin};
+  width: calc(
+    100vw - (${props => props.theme.desktopBodySideMargin} * 2) -
+      (${props => props.theme.mainBorderSize} * 2)
+      );
+  `}
+  /* } */
+  /* @media (min-width: ${props => props.theme.widthHD}) { */
+  ${media.hd`
     margin-left: ${props => props.theme.HDBodySideMargin};
     margin-right: ${props => props.theme.HDBodySideMargin};
     width: calc(
       100vw - (${props => props.theme.HDBodySideMargin} * 2) -
         (${props => props.theme.mainBorderSize} * 2)
     );
-  }
+  `}
+  /* } */
 `;
 
 export default Footer;

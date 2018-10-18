@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import media from '../config/media';
 
 import { HiddenContextConsumer } from './Context/HiddenContext';
 
@@ -70,75 +71,78 @@ const HeroTextWrapper = styled.div`
     ${props => props.theme.colorPrimary};
   border-bottom: ${props => props.theme.desktopHeroLineWidth} solid
     ${props => props.theme.colorPrimary};
-  /* p,
-  h1 {
-    margin-left: ${props => props.theme.mobileHeroLineWidth};
-  } */
-  @media (min-width: ${props => props.theme.widthTablet}) {
+  ${media.tablet`
     margin-bottom: 15.5vh;
-    /* p,
-    h1 {
-      margin-left: ${props => props.theme.tabletHeroLineWidth};
-    } */
-  }
-  @media (min-width: ${props => props.theme.widthDesktop}) {
+  `};
+  ${media.desktop`
     margin-left: 15vw;
-  }
-  @media (min-width: ${props => props.theme.widthHD}) {
+  `};
+  ${media.hd`
     margin-left: 21vw;
-  }
+  `};
 `;
 
 const FirstText = styled.p`
-  /* padding-top: 1rem; */
   font-size: 1.8rem;
   line-height: 0.6;
   color: ${props => props.theme.colorText};
-  @media (min-width: ${props => props.theme.widthLaptop}) {
+  ${media.laptop`
     font-size: 2.2rem;
-  }
-  @media (min-width: ${props => props.theme.widthHD}) {
+  `};
+  ${media.hd`
     font-size: 2.5rem;
-  }
+  `};
 `;
 
 const SecondText = styled.p`
   font-size: 1.4rem;
-  /* padding-left: 1rem; */
   line-height: 1.7;
   margin-bottom: 0.6rem;
   color: ${props => props.theme.colorText};
-  @media (min-width: ${props => props.theme.widthLaptop}) {
+  /* @media (min-width: ${props => props.theme.widthLaptop}) { */
+  ${media.laptop`
     font-size: 1.6rem;
-  }
-  @media (min-width: ${props => props.theme.widthHD}) {
+  `};
+  /* @media (min-width: ${props => props.theme.widthHD}) { */
+  ${media.hd`
     font-size: 1.9rem;
-  }
+  `};
+  /* } */
 `;
 
 const TitleLine = styled.div`
   height: 125px;
-  @media (min-width: ${props => props.theme.widthLaptop}) {
+  /* @media (min-width: ${props => props.theme.widthLaptop}) { */
+  ${media.laptop`
     height: 180px;
-  }
-  @media (min-width: ${props => props.theme.widthDesktop}) {
+  `}
+  /* } */
+  /* @media (min-width: ${props => props.theme.widthDesktop}) { */
+  ${media.desktop`
     height: 200px;
-  }
-  @media (min-width: ${props => props.theme.widthHD}) {
+  `}
+  /* } */
+  /* @media (min-width: ${props => props.theme.widthHD}) { */
+  ${media.hd`
     height: 280px;
-  }
+  `}
+  /* } */
 `;
 
 const TitleText = styled.h1`
   font-size: 3.8rem;
   line-height: 1.2;
   color: ${props => props.theme.colorText};
-  @media (min-width: ${props => props.theme.widthLaptop}) {
+  /* @media (min-width: ${props => props.theme.widthLaptop}) { */
+  ${media.laptop`
     font-size: 5.5rem;
-  }
-  @media (min-width: ${props => props.theme.widthHD}) {
+  `}
+  /* } */
+  /* @media (min-width: ${props => props.theme.widthHD}) { */
+  ${media.hd`
     font-size: 7.5rem;
-  }
+  `}
+  /* } */
 `;
 
 const TitleTextPeriod = styled.span`
