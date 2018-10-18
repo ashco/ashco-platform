@@ -1,6 +1,6 @@
 // import styled from 'styled-components';
 
-const sizes = {
+export const sizes = {
   // phone: 576,
   tablet: 768,
   laptop: 1050,
@@ -9,7 +9,7 @@ const sizes = {
 };
 
 // Iterate through the sizes and create a media template
-const media = Object.keys(sizes).reduce((acc, key) => {
+export const media = Object.keys(sizes).reduce((acc, key) => {
   acc[key] = style => `
     @media (min-width: ${sizes[key] / 16}em) {
       ${style};
@@ -18,8 +18,6 @@ const media = Object.keys(sizes).reduce((acc, key) => {
 
   return acc;
 }, {});
-
-export default media;
 
 // const Content = styled.div`
 //   height: 3em;

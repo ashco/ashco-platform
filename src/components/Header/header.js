@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import media from '../../config/media';
+import { media } from '../../config/media';
 
 import { MenuContextConsumer } from '../Context/MenuContext';
 
@@ -92,7 +92,7 @@ const HeaderContainer = styled.nav`
   pointer-events: none;
   height: ${props => props.theme.mobileHeaderHeight};
   ${media.tablet`
-    height: ${props => props.theme.tabletHeaderHeight};
+    height: ${props => props.theme.tabletHeaderHeight}vh;
   `};
   ${media.hd`
     max-width: 1600px;

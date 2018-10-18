@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
-import media from '../config/media';
+import { sizes, media } from '../config/media';
 import { StaticQuery, graphql } from 'gatsby';
 
 import { MenuContextProvider } from '../components/Context/MenuContext';
@@ -224,63 +224,42 @@ const LayoutWrapper = styled.div`
 `;
 
 const Body = styled.main`
-  border-top: ${props => props.theme.mainBorderSize} solid
-    ${props => props.theme.colorPrimary}80;
-  border-bottom: ${props => props.theme.mainBorderSize} solid
-    ${props => props.theme.colorPrimary}80;
+  border-top: 7px solid ${props => props.theme.colorPrimary}80;
+  border-bottom: 7px solid ${props => props.theme.colorPrimary}80;
   z-index: 10;
   pointer-events: none;
   position: absolute;
   overflow-y: scroll;
   width: 100vw;
-  top: calc(${props => props.top} + ${props => props.theme.mainBorderSize});
+  top: 100vh;
   margin: calc(
-      ${props => props.theme.mobileHeaderHeight} +
-        ${props => (props.isMenuOpen ? '300px' : '0px')}
+      (${props => props.theme.mobileHeaderHeight}) +
+        (${props => (props.isMenuOpen ? '300px' : '0px')})
     )
     auto ${props => props.theme.mobileFooterHeight} auto;
-  transition: 0.2s ease-in-out;
-  /* ${media.tablet`
+  /* transition: 0.2s ease-in-out; */
+  /* @media (min-width: ${props => props.theme.widthTablet}) {
     margin: calc(
-        ${props => props.theme.tabletHeaderHeight} -
+        ${props => props.theme.tabletHeaderHeight}vh -
           ${props => props.theme.mainBorderSize}
       )
       auto;
-  `} */
-  ${props => {
-    media.tablet`
-      margin: calc(
-          ${props.theme.tabletHeaderHeight} -
-            ${props.theme.mainBorderSize}
-        )
-        auto;
-    `;
-  }}
-  /* @media (min-width: ${props => props.theme.widthTablet}) { */
-  /* } */
-  /* @media (min-width: ${props => props.theme.widthDesktop}) { */
-  ${media.desktop`
+  } */
+  ${media.tablet`
+    margin: 15vh auto;
+  `}
+  @media (min-width: ${sizes.laptop}px){
     border-radius: 10px;
-    margin-left: ${props => props.theme.desktopBodySideMargin};
-    margin-right: ${props => props.theme.desktopBodySideMargin};
-    width: calc(
-      100vw - (${props => props.theme.desktopBodySideMargin} * 2) -
-      (${props => props.theme.mainBorderSize} * 2)
-      );
-      border: ${props => props.theme.mainBorderSize} solid
-      ${props => props.theme.colorPrimary}80;
-      /* } */
-  `}
-  /* @media (min-width: ${props => props.theme.widthHD}) { */
+    margin-left: 10vw;
+    margin-right: 10vw;
+    width: 80vw;
+    border: 7px solid ${props => props.theme.colorPrimary}80;
+  }
   ${media.hd`
-    margin-left: ${props => props.theme.HDBodySideMargin};
-    margin-right: ${props => props.theme.HDBodySideMargin};
-    width: calc(
-      100vw - (${props => props.theme.HDBodySideMargin} * 2) -
-      (${props => props.theme.mainBorderSize} * 2)
-      );
-  `}
-  /* } */
+    margin-left: 15vw;
+    margin-right: 15vw;
+    width: 70vw;
+  `};
 `;
 
 export default Layout;

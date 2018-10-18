@@ -14,10 +14,9 @@ export const theme = {
   // ------- RESPONSIVE SIZES -------
   // widthMobile: '',
   widthTablet: '750px',
-  widthLaptop: '1050px',
-  widthDesktop: '1450px',
-  widthHD: '2400px',
-  heightTablet: '750px',
+  // widthLaptop: '1050px',
+  // widthDesktop: '1450px',
+  // widthHD: '2400px',
 
   // ------- ELEMENT LENGTHS --------
   mobileHeaderHeight: '140px',
@@ -25,6 +24,11 @@ export const theme = {
   tabletHeaderHeight: '15vh',
   desktopBodySideMargin: '10vw',
   HDBodySideMargin: '15vw',
+  // mobileHeaderHeight: '140px',
+  // mobileFooterHeight: '300px',
+  // tabletHeaderHeight: '15vh',
+  // desktopBodySideMargin: '10vw',
+  // HDBodySideMargin: '15vw',
 
   // ------ ELEMENT STYLE VARIABLES -------
   portfolioRadius: '10px',
