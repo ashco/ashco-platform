@@ -7,9 +7,10 @@ import LinkedInIcon from '../Icons/LinkedIn';
 import TwitterIcon from '../Icons/Twitter';
 import ResumeIcon from '../Icons/Resume';
 
-const FooterRight = ({ showFooterRight }) => (
+const FooterRight = ({ showFooterRight, isMobile }) => (
   <FooterRightWrapper
-    className={showFooterRight ? 'visible-fade' : 'hidden-fade'}
+    className={!showFooterRight && isMobile && 'hidden'}
+    // className={showFooterRight ? 'visible' : isMobile && 'hidden'}
   >
     <ul>
       <li>

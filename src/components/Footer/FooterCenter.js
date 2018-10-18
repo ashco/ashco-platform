@@ -14,7 +14,6 @@ const FooterCenterWrapper = styled.div`
   flex: 1;
   margin: 0;
   position: absolute;
-  top: 15vh;
   transition: visibility 0.25s 10s, opacity 0.25s linear;
   ${media.tablet`
     position: initial;

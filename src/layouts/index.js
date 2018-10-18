@@ -24,18 +24,11 @@ class Layout extends Component {
     super(props);
     this.state = {
       isHome: true,
-      // isMobile: true,
       // pageMiddle: false,
       // pageBottom: false,
     };
     // this.updateIsHome();
   }
-
-  // componentDidMount() {
-  //   window.addEventListener('scroll', this.handleScrollState);
-  //   window.addEventListener('resize', this.handleResize);
-  //   this.updateIsMobile();
-  // }
 
   // componentDidUpdate() {
   //   this.updateIsHome();
@@ -53,17 +46,6 @@ class Layout extends Component {
   //     this.setState({
   //       isHome,
   //     });
-  //   }
-  // }
-
-  // updateIsMobile() {
-  //   if (typeof window !== `undefined`) {
-  //     const isMobile = window.innerWidth <= 750;
-  //     if (isMobile !== this.state.isMobile) {
-  //       this.setState({
-  //         isMobile,
-  //       });
-  //     }
   //   }
   // }
 
@@ -174,29 +156,7 @@ class Layout extends Component {
                     ]}
                   />
                   <HiddenContextConsumer>
-                    {({
-                      showHeroImg,
-                      showFooterLeft,
-                      showFooterCenter,
-                      showFooterRight,
-                      handleHeroImg,
-                      handleFooterLeft,
-                      handleFooterCenter,
-                      handleFooterRight,
-                      updateIsMobile,
-                    }) => (
-                      <Listener
-                        showHeroImg={showHeroImg}
-                        showFooterLeft={showFooterLeft}
-                        showFooterCenter={showFooterCenter}
-                        showFooterRight={showFooterRight}
-                        handleHeroImg={handleHeroImg}
-                        handleFooterLeft={handleFooterLeft}
-                        handleFooterCenter={handleFooterCenter}
-                        handleFooterRight={handleFooterRight}
-                        updateIsMobile={updateIsMobile}
-                      />
-                    )}
+                    {value => <Listener value={value} />}
                   </HiddenContextConsumer>
                   <ParticleBG />
                   <Header location={location} title={pageTitle} />
@@ -209,7 +169,6 @@ class Layout extends Component {
                     pageMiddle={pageMiddle}
                     pageBottom={pageBottom}
                     isHome={isHome}
-                    // isMobile={isMobile}
                   />
                 </LayoutWrapper>
               </ThemeProvider>

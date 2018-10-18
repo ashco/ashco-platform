@@ -12,34 +12,34 @@ export class Listener extends Component {
   }
 
   setHeroImg(showHeroImg) {
-    if (showHeroImg && !this.props.showHeroImg) {
-      this.props.handleHeroImg(true);
-    } else if (!showHeroImg && this.props.showHeroImg) {
-      this.props.handleHeroImg(false);
+    if (showHeroImg && !this.props.value.showHeroImg) {
+      this.props.value.handleHeroImg(true);
+    } else if (!showHeroImg && this.props.value.showHeroImg) {
+      this.props.value.handleHeroImg(false);
     }
   }
 
   setFooterLeft(showFooterLeft) {
-    if (showFooterLeft && !this.props.showFooterLeft) {
-      this.props.handleFooterLeft(true);
-    } else if (!showFooterLeft && this.props.showFooterLeft) {
-      this.props.handleFooterLeft(false);
+    if (showFooterLeft && !this.props.value.showFooterLeft) {
+      this.props.value.handleFooterLeft(true);
+    } else if (!showFooterLeft && this.props.value.showFooterLeft) {
+      this.props.value.handleFooterLeft(false);
     }
   }
 
   setFooterCenter(showFooterCenter) {
-    if (showFooterCenter && !this.props.showFooterCenter) {
-      this.props.handleFooterCenter(true);
-    } else if (!showFooterCenter && this.props.showFooterCenter) {
-      this.props.handleFooterCenter(false);
+    if (showFooterCenter && !this.props.value.showFooterCenter) {
+      this.props.value.handleFooterCenter(true);
+    } else if (!showFooterCenter && this.props.value.showFooterCenter) {
+      this.props.value.handleFooterCenter(false);
     }
   }
 
   setFooterRight(showFooterRight) {
-    if (showFooterRight && !this.props.showFooterRight) {
-      this.props.handleFooterRight(true);
-    } else if (!showFooterRight && this.props.showFooterRight) {
-      this.props.handleFooterRight(false);
+    if (showFooterRight && !this.props.value.showFooterRight) {
+      this.props.value.handleFooterRight(true);
+    } else if (!showFooterRight && this.props.value.showFooterRight) {
+      this.props.value.handleFooterRight(false);
     }
   }
 
@@ -55,8 +55,11 @@ export class Listener extends Component {
     // const marginBottomLength = 300;
     // const extraMobileMenuMargin = 300;
 
+    console.log({ scrollLength });
+    console.log({ windowHeight });
+
     // HEROIMG
-    const showHeroImg = scrollLength < (windowHeight + marginTopLength) * 0.6;
+    const showHeroImg = scrollLength < (windowHeight + marginTopLength) * 0.7;
     // LEFT
     const showFooterLeft = windowHeight + borderLength - scrollLength === 0;
     // console.log({ showFooterLeft });
@@ -75,7 +78,7 @@ export class Listener extends Component {
 
   handleResize = () => {
     // setTimeout(() => {
-    this.props.updateIsMobile();
+    this.props.value.updateIsMobile();
     // }, 1000);
   };
 
