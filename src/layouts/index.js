@@ -30,6 +30,7 @@ class Layout extends Component {
     // this.updateIsHome();
   }
 
+
   // componentDidUpdate() {
   //   this.updateIsHome();
   // }
