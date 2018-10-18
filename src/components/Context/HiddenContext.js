@@ -1,5 +1,6 @@
 // HeroContext.js
 import React from 'react';
+import { sizes } from '../../config/media';
 
 const HiddenContext = React.createContext();
 
@@ -13,6 +14,7 @@ export class HiddenContextProvider extends React.Component {
       showFooterLeft: true,
       showFooterCenter: true,
       showFooterRight: true,
+      isMobile: false,
     };
   }
 
@@ -40,6 +42,21 @@ export class HiddenContextProvider extends React.Component {
     });
   };
 
+  updateIsMobile = () => {
+    if (typeof window !== `undefined`) {
+      const isMobile = window.innerWidth <= sizes.tablet;
+      if (isMobile !== this.state.isMobile) {
+        this.setState({
+          isMobile,
+        });
+      }
+    }
+  };
+
+  componentWillMount() {
+    this.updateIsMobile();
+  }
+
   render() {
     return (
       <HiddenContext.Provider
@@ -48,10 +65,12 @@ export class HiddenContextProvider extends React.Component {
           showFooterLeft: this.state.showFooterLeft,
           showFooterCenter: this.state.showFooterCenter,
           showFooterRight: this.state.showFooterRight,
+          isMobile: this.state.isMobile,
           handleHeroImg: this.handleHeroImg,
           handleFooterLeft: this.handleFooterLeft,
           handleFooterCenter: this.handleFooterCenter,
           handleFooterRight: this.handleFooterRight,
+          updateIsMobile: this.updateIsMobile,
         }}
       >
         {this.props.children}

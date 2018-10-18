@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 
+import { HiddenContextConsumer } from '../Context/HiddenContext';
 import { MenuContextConsumer } from '../Context/MenuContext';
 
 import HeaderTitle from './HeaderTitle';
@@ -13,38 +14,30 @@ import Responsive from 'react-responsive';
 
 // const Desktop = props => <Responsive {...props} minWidth={992} />;
 // const Tablet = props => <Responsive {...props} minWidth={768} maxWidth={991} />;
-const Mobile = props => <Responsive {...props} maxWidth={767} />;
+// const Mobile = props => <Responsive {...props} maxWidth={767} />;
 // const Default = props => <Responsive {...props} minWidth={768} />;
 
 class Header extends Component {
   render() {
     const { title } = this.props;
     return (
-      <MenuContextConsumer>
-        {({ menuOpen, toggleMenu }) => (
-          <HeaderWrapper
-            ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
-          >
-            <HeaderContainer>
-              <HeaderTitle title={title} toggleMenu={toggleMenu} />
-              <Mobile>
-                {matches => {
-                  if (matches) {
-                    return (
-                      <>
-                        <NavLinks menuOpen={menuOpen} />
-                        <MenuIcon />
-                      </>
-                    );
-                  } else {
-                    return <NavLinks menuOpen={menuOpen} />;
-                  }
-                }}
-              </Mobile>
-            </HeaderContainer>
-          </HeaderWrapper>
+      <HiddenContextConsumer>
+        {({ isMobile }) => (
+          <MenuContextConsumer>
+            {({ menuOpen, toggleMenu }) => (
+              <HeaderWrapper
+                ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
+              >
+                <HeaderContainer>
+                  <HeaderTitle title={title} toggleMenu={toggleMenu} />
+                  <NavLinks menuOpen={menuOpen} />
+                  {isMobile && <MenuIcon />}
+                </HeaderContainer>
+              </HeaderWrapper>
+            )}
+          </MenuContextConsumer>
         )}
-      </MenuContextConsumer>
+      </HiddenContextConsumer>
     );
   }
 }

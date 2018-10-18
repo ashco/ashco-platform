@@ -183,6 +183,7 @@ class Layout extends Component {
                       handleFooterLeft,
                       handleFooterCenter,
                       handleFooterRight,
+                      updateIsMobile,
                     }) => (
                       <Listener
                         showHeroImg={showHeroImg}
@@ -193,13 +194,14 @@ class Layout extends Component {
                         handleFooterLeft={handleFooterLeft}
                         handleFooterCenter={handleFooterCenter}
                         handleFooterRight={handleFooterRight}
+                        updateIsMobile={updateIsMobile}
                       />
                     )}
                   </HiddenContextConsumer>
                   <ParticleBG />
                   <Header location={location} title={pageTitle} />
                   <HeroImg />
-                  <Body id="body" isHome={isHome} top={'100vh'}>
+                  <Body id="body" isHome={isHome}>
                     {children}
                   </Body>
                   <Footer

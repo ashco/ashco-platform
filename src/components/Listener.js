@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 export class Listener extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScrollState);
+    window.addEventListener('resize', this.handleResize);
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScrollState);
+    window.removeEventListener('resize', this.handleResize);
   }
 
   setHeroImg(showHeroImg) {
@@ -57,10 +59,10 @@ export class Listener extends Component {
     const showHeroImg = scrollLength < (windowHeight + marginTopLength) * 0.6;
     // LEFT
     const showFooterLeft = windowHeight + borderLength - scrollLength === 0;
-    console.log({ showFooterLeft });
-    console.log({ windowHeight });
-    console.log({ borderLength });
-    console.log({ scrollLength });
+    // console.log({ showFooterLeft });
+    // console.log({ windowHeight });
+    // // console.log({ borderLength });
+    // console.log({ scrollLength });
     // CENTER
     const showFooterCenter = scrollLength > 0;
     // RIGHT
@@ -69,6 +71,12 @@ export class Listener extends Component {
     this.setFooterLeft(showFooterLeft);
     this.setFooterCenter(!showFooterCenter);
     this.setFooterRight(!showHeroImg);
+  };
+
+  handleResize = () => {
+    // setTimeout(() => {
+    this.props.updateIsMobile();
+    // }, 1000);
   };
 
   render() {

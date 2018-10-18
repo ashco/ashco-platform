@@ -39,7 +39,7 @@ const FooterWrapper = styled.footer`
     flex-direction: row;
     align-items: flex-end;
   `}
-  ${media.desktop`
+  ${media.tablet`
     margin-left: 10vw;
     margin-right: 10vw;
     width: 80vw;
