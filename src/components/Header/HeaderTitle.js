@@ -15,6 +15,7 @@ const HeaderTitle = ({ title, toggleMenu }) => (
 );
 
 const HeaderTitleWrapper = styled.h1`
+  /* margin-top: 1.4rem; */
   margin-left: 1.4rem;
   display: flex;
   align-items: center;
@@ -32,26 +33,20 @@ const HeaderTitleWrapper = styled.h1`
     margin-left: 0.6rem;
   }
 
-  /* @media (min-width: 800px) { */
   ${media.tablet`
     font-size: 2.5rem;
   `}
-  /* } */
-  /* @media (min-width: ${props => props.theme.widthLaptop}) { */
   ${media.laptop`
     font-size: 3rem;
     svg {
       height: 6.4rem;
     }
   `}
-  /* } */
-  /* @media (min-width: ${props => props.theme.widthHD}) { */
   ${media.hd`
     svg {
       height: 8rem;
     }
   `}
-  /* } */
 `;
 
 export default HeaderTitle;

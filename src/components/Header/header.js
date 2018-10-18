@@ -92,7 +92,7 @@ const HeaderContainer = styled.nav`
   pointer-events: none;
   height: ${props => props.theme.mobileHeaderHeight};
   ${media.tablet`
-    height: ${props => props.theme.tabletHeaderHeight}vh;
+    height: 15vh;
   `};
   ${media.hd`
     max-width: 1600px;
@@ -112,21 +112,17 @@ const NavLinksWrapper = styled.div`
     flex-direction: column;
     align-items: flex-end;
   }
-  /* @media (min-width: ${props => props.theme.widthTablet}) { */
   ${media.tablet`
-    margin: 1.45rem 1.1rem;
+    margin: -1rem 1.45rem 1.1rem 1.45rem;
     position: static;
     font-size: 1.5rem;
     ul {
       flex-direction: row;
     }
   `};
-  /* } */
-  /* @media (min-width: ${props => props.theme.widthDesktop}) { */
   ${media.desktop`
     font-size: 1.75rem;
   `};
-  /* } */
 `;
 
 const NavLinkItemWrapper = styled.li`

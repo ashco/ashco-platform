@@ -22,7 +22,7 @@ const Footer = () => (
 
 const FooterWrapper = styled.footer`
   pointer-events: none;
-  z-index: 1;
+  z-index: 4;
   position: fixed;
   bottom: 0;
   width: 100%;
