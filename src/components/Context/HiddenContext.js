@@ -8,8 +8,9 @@ export class HiddenContextProvider extends React.Component {
     super(props);
 
     this.state = {
-      showHeroImg: true,
-      showFooterLeft: false,
+      showHeroImg: false,
+      // showFooterLeft: false,
+      showFooterLeft: true,
       showFooterCenter: true,
       showFooterRight: true,
     };

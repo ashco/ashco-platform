@@ -68,11 +68,9 @@ const FooterRightWrapper = styled.div`
       }
     }
   }
-  /* @media (min-width: ${props => props.theme.widthTablet}) { */
   ${media.tablet`
     margin-right: 0;
-  `}
-  /* } */
+  `};
 `;
 
 export default FooterRight;

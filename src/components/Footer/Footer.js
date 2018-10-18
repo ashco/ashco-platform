@@ -35,32 +35,20 @@ const FooterWrapper = styled.footer`
     color: ${props => props.theme.colorPrimary};
     transition: border-bottom 0.2s ease-out;
   }
-  /* @media (min-width: ${props => props.theme.widthTablet}) { */
   ${media.tablet`
     flex-direction: row;
     align-items: flex-end;
   `}
-  /* } */
-  /* @media (min-width: ${props => props.theme.widthDesktop}) { */
   ${media.desktop`
-  margin-left: ${props => props.theme.desktopBodySideMargin};
-  margin-right: ${props => props.theme.desktopBodySideMargin};
-  width: calc(
-    100vw - (${props => props.theme.desktopBodySideMargin} * 2) -
-      (${props => props.theme.mainBorderSize} * 2)
-      );
+    margin-left: 10vw;
+    margin-right: 10vw;
+    width: 80vw;
   `}
-  /* } */
-  /* @media (min-width: ${props => props.theme.widthHD}) { */
   ${media.hd`
-    margin-left: ${props => props.theme.HDBodySideMargin};
-    margin-right: ${props => props.theme.HDBodySideMargin};
-    width: calc(
-      100vw - (${props => props.theme.HDBodySideMargin} * 2) -
-        (${props => props.theme.mainBorderSize} * 2)
-    );
+    margin-left: 15vw;
+    margin-right: 15vw;
+    width: 70vw;
   `}
-  /* } */
 `;
 
 export default Footer;

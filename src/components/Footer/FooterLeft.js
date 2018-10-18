@@ -54,12 +54,10 @@ const FooterLeftWrapper = styled.div`
       border-bottom: 1px solid ${props => props.theme.colorPrimary}cc;
     }
   }
-  /* @media (min-width: ${props => props.theme.widthTablet}) { */
   ${media.tablet`
     text-align: left;
     font-size: 1rem;
-  `}
-  /* } */
+  `};
 `;
 
 export default FooterLeft;
