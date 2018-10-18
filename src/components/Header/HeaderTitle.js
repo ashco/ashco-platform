@@ -15,7 +15,6 @@ const HeaderTitle = ({ title, toggleMenu }) => (
 );
 
 const HeaderTitleWrapper = styled.h1`
-  /* margin-top: 1.4rem; */
   margin-left: 1.4rem;
   display: flex;
   align-items: center;
