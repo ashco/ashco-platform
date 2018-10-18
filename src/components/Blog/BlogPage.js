@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { MainContainer, ContentWrapper, Tag, TagContainer } from '../helpers';
+import { graphql } from 'gatsby';
 
 const BlogPage = ({ data }) => {
   if (!data) return null;
@@ -65,3 +66,5 @@ export const query = graphql`
     }
   }
 `;
+
+// export default BlogPage;

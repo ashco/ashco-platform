@@ -1,171 +1,122 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
+import { sizes, media } from '../config/media';
+import { StaticQuery, graphql } from 'gatsby';
 
+import { MenuContextProvider } from '../components/Context/MenuContext';
+import {
+  HiddenContextProvider,
+  HiddenContextConsumer,
+} from '../components/Context/HiddenContext';
 import { theme } from '../config/theme';
 
-import TitleText from '../components/HeroText';
-import Header from '../components/header';
-import Footer from '../components/Footer';
+import Header from '../components/Header/header';
+import Footer from '../components/Footer/Footer';
 import '../style/index.css';
 
+import HeroImg from '../components/HeroImg';
 import ParticleBG from '../components/ParticleBG';
+import Listener from '../components/Listener';
 
 class Layout extends Component {
-  state = {
-    isHome: true,
-    isMobile: true,
-    isMenuOpen: true,
-    pageMiddle: false,
-    pageBottom: false,
-  };
-
-  componentWillMount() {
-    this.updateIsHome();
-    this.updateIsMobile();
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHome: true,
+      // pageMiddle: false,
+      // pageBottom: false,
+    };
+    // this.updateIsHome();
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScrollState);
-    window.addEventListener('resize', this.handleResize);
-  }
 
-  componentDidUpdate() {
-    this.updateIsHome();
-  }
+  // componentDidUpdate() {
+  //   this.updateIsHome();
+  // }
 
-  handleResize = () => {
-    setTimeout(() => {
-      this.updateIsMobile();
-    }, 1000);
-  };
+  // handleResize = () => {
+  //   setTimeout(() => {
+  //     this.updateIsMobile();
+  //   }, 1000);
+  // };
 
-  updateIsHome() {
-    const isHome = this.props.location.pathname === '/';
-    if (isHome !== this.state.isHome) {
-      this.setState({
-        isHome,
-      });
-    }
-  }
+  // updateIsHome() {
+  //   const isHome = this.props.location.pathname === '/';
+  //   if (isHome !== this.state.isHome) {
+  //     this.setState({
+  //       isHome,
+  //     });
+  //   }
+  // }
 
-  updateIsMobile() {
-    if (typeof window !== `undefined`) {
-      const isMobile = window.innerWidth <= 750;
-      if (isMobile !== this.state.isMobile) {
-        this.setState({
-          isMobile,
-        });
-      }
-    }
-  }
+  // handleScrollState = event => {
+  //   let scrollLength = window.pageYOffset;
+  //   let windowHeight = window.innerHeight;
+  //   if (typeof window !== `undefined`) {
+  //     scrollLength = window.pageYOffset;
+  //     windowHeight = window.innerHeight;
+  //   }
+  //   const pageScrolled = scrollLength > 0;
+  //   const marginLength = 300;
+  //   const borderLength = 5;
+  //   const extraMobileMenuMargin = 300;
 
-  toggleMenu = isOpen => {
-    if (this.state.isMobile) {
-      if (isOpen === 'open') {
-        this.setState({
-          isMenuOpen: true,
-        });
-      } else if (isOpen === 'closed') {
-        this.setState({
-          isMenuOpen: false,
-        });
-      } else {
-        this.setState({
-          isMenuOpen: !this.state.isMenuOpen,
-        });
-      }
-    }
-  };
+  //   if (pageScrolled !== this.state.pageScrolled) {
+  //     this.setState({
+  //       pageScrolled,
+  //     });
+  //   }
 
-  handleScrollState = event => {
-    let scrollLength = window.pageYOffset;
-    let windowHeight = window.innerHeight;
-    if (typeof window !== `undefined`) {
-      scrollLength = window.pageYOffset;
-      windowHeight = window.innerHeight;
-    }
-    const pageScrolled = scrollLength > 0;
-    const marginLength = 300;
-    const borderLength = 5;
-    const extraMobileMenuMargin = 300;
+  //   let lengthToMiddle = scrollLength;
+  //   if (this.state.isMobile && this.state.isMenuOpen) {
+  //     lengthToMiddle = lengthToMiddle - extraMobileMenuMargin;
+  //   }
 
-    console.log({ pageScrolled });
+  //   let pageMiddle = lengthToMiddle >= windowHeight * 0.55;
 
-    if (pageScrolled !== this.state.pageScrolled) {
-      this.setState({
-        pageScrolled,
-      });
-    }
+  //   if (pageMiddle !== this.state.pageMiddle) {
+  //     this.setState({
+  //       pageMiddle,
+  //     });
+  //   }
 
-    let lengthToMiddle = scrollLength;
-    if (this.state.isMobile && this.state.isMenuOpen) {
-      lengthToMiddle = lengthToMiddle - extraMobileMenuMargin;
-    }
+  //   let pageLength =
+  //     document.querySelector('#body').offsetHeight + marginLength;
+  //   if (this.state.isMobile && this.state.isMenuOpen) {
+  //     pageLength = pageLength + extraMobileMenuMargin;
+  //   }
+  //   if (this.state.isHome) {
+  //     pageLength = pageLength + windowHeight + borderLength;
+  //   } else {
+  //     pageLength = pageLength + 140;
+  //   }
+  //   const isBottom = () => pageLength - windowHeight <= scrollLength;
 
-    let pageMiddle = lengthToMiddle >= windowHeight * 0.55;
-
-    if (pageMiddle !== this.state.pageMiddle) {
-      this.setState({
-        pageMiddle,
-      });
-    }
-
-    let pageLength =
-      document.querySelector('#body').offsetHeight + marginLength;
-    if (this.state.isMobile && this.state.isMenuOpen) {
-      pageLength = pageLength + extraMobileMenuMargin;
-    }
-    if (this.state.isHome) {
-      pageLength = pageLength + windowHeight + borderLength;
-    } else {
-      pageLength = pageLength + 140;
-    }
-    const isBottom = () => pageLength - windowHeight <= scrollLength;
-
-    console.log({ pageLength });
-    console.log({ scrollLength });
-    console.log({ windowHeight });
-    console.log(pageLength - windowHeight);
-    console.log(isBottom());
-
-    if (isBottom()) {
-      this.setState({
-        pageBottom: true,
-      });
-    } else if (!isBottom() && this.state.pageBottom === true) {
-      this.setState({
-        pageBottom: false,
-      });
-    }
-  };
-
-  getBodyTop(isHome, isMobile, isMenuOpen) {
-    let top = 0;
-    if (isHome) {
-      const headerHeight = isMobile ? '140px' : '15vh';
-      if (isMobile) {
-        let navMargin = isMenuOpen ? 300 : 0;
-        if (typeof window !== `undefined`) {
-          top = window.innerHeight - parseInt(headerHeight) - navMargin;
-          // top = window.innerHeight - parseInt(headerHeight);
-        }
-        top = `${top}px`;
-      } else {
-        top = 100 - parseInt(headerHeight);
-        top = `${top}vh`;
-      }
-    }
-    return top;
-  }
+  // getBodyTop(isHome, isMobile, isMenuOpen) {
+  //   let top = 0;
+  //   if (isHome) {
+  //     const headerHeight = isMobile ? '140px' : '15vh';
+  //     if (isMobile) {
+  //       let navMargin = isMenuOpen ? 300 : 0;
+  //       if (typeof window !== `undefined`) {
+  //         top = window.innerHeight - parseInt(headerHeight) - navMargin;
+  //         // top = window.innerHeight - parseInt(headerHeight);
+  //       }
+  //       top = `${top}px`;
+  //     } else {
+  //       top = 100 - parseInt(headerHeight);
+  //       top = `${top}vh`;
+  //     }
+  //   }
+  //   return top;
+  // }
 
   render() {
-    const { children, data, location } = this.props;
+    const { location, children } = this.props;
     const {
       isHome,
-      isMobile,
-      isMenuOpen,
+      // isMobile,
       pageScrolled,
       pageMiddle,
       pageBottom,
@@ -182,115 +133,95 @@ class Layout extends Component {
     }
 
     return (
-      <ThemeProvider theme={theme}>
-        <LayoutWrapper>
-          <Helmet
-            title={data.site.siteMetadata.title}
-            meta={[
-              { name: 'description', content: 'Sample' },
-              { name: 'keywords', content: 'sample, something' },
-            ]}
-          />
-          <Header
-            data={data}
-            location={location}
-            title={pageTitle}
-            isHome={isHome}
-            isMobile={isMobile}
-            isMenuOpen={isMenuOpen}
-            toggleMenu={this.toggleMenu}
-          />
-          {!isMobile ? <TitleText /> : isHome && !pageMiddle && <TitleText />}
-          <Body
-            id="body"
-            isHome={isHome}
-            top={this.getBodyTop(isHome, isMobile, isMenuOpen)}
-            isMenuOpen={isMenuOpen}
-          >
-            {children()}
-          </Body>
-          <Footer
-            pageScrolled={pageScrolled}
-            pageMiddle={pageMiddle}
-            pageBottom={pageBottom}
-            isHome={isHome}
-            isMobile={isMobile}
-            toggleMenu={this.toggleMenu}
-          />
-          <ParticleBG />
-        </LayoutWrapper>
-      </ThemeProvider>
+      <StaticQuery
+        query={graphql`
+          query LayoutQuery {
+            site {
+              siteMetadata {
+                title
+                description
+              }
+            }
+          }
+        `}
+        render={data => (
+          <MenuContextProvider>
+            <HiddenContextProvider>
+              <ThemeProvider theme={theme}>
+                <LayoutWrapper>
+                  <Helmet
+                    title={data.site.siteMetadata.title}
+                    meta={[
+                      { name: 'description', content: 'Sample' },
+                      { name: 'keywords', content: 'sample, something' },
+                    ]}
+                  />
+                  <HiddenContextConsumer>
+                    {value => <Listener value={value} />}
+                  </HiddenContextConsumer>
+                  <ParticleBG />
+                  <Header location={location} title={pageTitle} />
+                  <HeroImg />
+                  <Body id="body" isHome={isHome}>
+                    {children}
+                  </Body>
+                  <Footer
+                    pageScrolled={pageScrolled}
+                    pageMiddle={pageMiddle}
+                    pageBottom={pageBottom}
+                    isHome={isHome}
+                  />
+                </LayoutWrapper>
+              </ThemeProvider>
+            </HiddenContextProvider>
+          </MenuContextProvider>
+        )}
+      />
     );
   }
 }
-
-Layout.propTypes = {
-  children: PropTypes.func,
-};
 
 const LayoutWrapper = styled.div`
   color: ${props => props.theme.colorText};
 `;
 
 const Body = styled.main`
-  border-top: ${props => props.theme.mainBorderSize} solid
-    ${props => props.theme.colorPrimary}80;
-  border-bottom: ${props => props.theme.mainBorderSize} solid
-    ${props => props.theme.colorPrimary}80;
+  border-top: 7px solid ${props => props.theme.colorPrimary}80;
+  border-bottom: 7px solid ${props => props.theme.colorPrimary}80;
   z-index: 10;
   pointer-events: none;
   position: absolute;
   overflow-y: scroll;
   width: 100vw;
-  top: calc(${props => props.top} + ${props => props.theme.mainBorderSize});
+  top: 100vh;
   margin: calc(
-      ${props => props.theme.mobileHeaderHeight} +
-        ${props => (props.isMenuOpen ? '300px' : '0px')}
+      (${props => props.theme.mobileHeaderHeight}) +
+        (${props => (props.isMenuOpen ? '300px' : '0px')})
     )
     auto ${props => props.theme.mobileFooterHeight} auto;
-  transition: 0.2s ease-in-out;
-  @media (min-width: ${props => props.theme.widthTablet}) {
+  /* transition: 0.2s ease-in-out; */
+  /* @media (min-width: ${props => props.theme.widthTablet}) {
     margin: calc(
-        ${props => props.theme.tabletHeaderHeight} -
+        ${props => props.theme.tabletHeaderHeight}vh -
           ${props => props.theme.mainBorderSize}
       )
       auto;
-  }
-  @media (min-width: ${props => props.theme.widthDesktop}) {
+  } */
+  ${media.tablet`
+    margin: 15vh auto;
+  `}
+  @media (min-width: ${sizes.laptop}px){
     border-radius: 10px;
-    margin-left: ${props => props.theme.desktopBodySideMargin};
-    margin-right: ${props => props.theme.desktopBodySideMargin};
-    width: calc(
-      100vw - (${props => props.theme.desktopBodySideMargin} * 2) -
-        (${props => props.theme.mainBorderSize} * 2)
-    );
-    border: ${props => props.theme.mainBorderSize} solid
-      ${props => props.theme.colorPrimary}80;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    width: 80vw;
+    border: 7px solid ${props => props.theme.colorPrimary}80;
   }
-  @media (min-width: ${props => props.theme.widthHD}) {
-    margin-left: ${props => props.theme.HDBodySideMargin};
-    margin-right: ${props => props.theme.HDBodySideMargin};
-    width: calc(
-      100vw - (${props => props.theme.HDBodySideMargin} * 2) -
-        (${props => props.theme.mainBorderSize} * 2)
-    );
-  }
+  ${media.hd`
+    margin-left: 15vw;
+    margin-right: 15vw;
+    width: 70vw;
+  `};
 `;
 
 export default Layout;
-
-export const query = graphql`
-  query LayoutQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-    background: imageSharp(id: { regex: "/bg.png/" }) {
-      sizes(maxWidth: 1240, grayscale: false) {
-        ...GatsbyImageSharpSizes
-      }
-    }
-  }
-`;

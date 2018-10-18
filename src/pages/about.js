@@ -1,42 +1,73 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { StaticQuery, graphql } from 'gatsby';
 
 import { MainContainer, ContentWrapper } from '../components/helpers';
 
-const About = ({ data }) => {
+const About = () => {
   return (
-    <MainContainer>
-      <ContentWrapper
-        width="1200px"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <AboutInfoContainer>
-          <p>{data.contentfulAboutInfo.aboutMe.aboutMe}</p>
-        </AboutInfoContainer>
-        <AboutSkillsContainer>
-          {data.allContentfulAboutDataColumn.edges.map(skill => {
-            return (
-              <SkillColumn key={skill.node.id}>
-                <h4>{skill.node.title}</h4>
-                <p>{skill.node.description.description}</p>
-                <h5>{skill.node.listHeader1}</h5>
-                <p>{skill.node.listItems1.join(', ')}</p>
-                <h5>{skill.node.listHeader2}</h5>
-                <ul>
-                  {skill.node.listItems1.map(item => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </SkillColumn>
-            );
-          })}
-        </AboutSkillsContainer>
-      </ContentWrapper>
-    </MainContainer>
+    <StaticQuery
+      query={graphql`
+        query AboutList {
+          contentfulAboutInfo {
+            aboutMe {
+              aboutMe
+            }
+          }
+          allContentfulAboutDataColumn {
+            edges {
+              node {
+                columnNum
+                id
+                title
+                description {
+                  id
+                  description
+                }
+                listHeader1
+                listItems1
+                listHeader2
+                listItems2
+              }
+            }
+          }
+        }
+      `}
+      render={data => (
+        <MainContainer>
+          <ContentWrapper
+            width="1200px"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <AboutInfoContainer>
+              <p>{data.contentfulAboutInfo.aboutMe.aboutMe}</p>
+            </AboutInfoContainer>
+            <AboutSkillsContainer>
+              {data.allContentfulAboutDataColumn.edges.map(skill => {
+                return (
+                  <SkillColumn key={skill.node.id}>
+                    <h4>{skill.node.title}</h4>
+                    <p>{skill.node.description.description}</p>
+                    <h5>{skill.node.listHeader1}</h5>
+                    <p>{skill.node.listItems1.join(', ')}</p>
+                    <h5>{skill.node.listHeader2}</h5>
+                    <ul>
+                      {skill.node.listItems1.map(item => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </SkillColumn>
+                );
+              })}
+            </AboutSkillsContainer>
+          </ContentWrapper>
+        </MainContainer>
+      )}
+    />
   );
 };
 
@@ -68,30 +99,3 @@ const SkillColumn = styled.div`
 `;
 
 export default About;
-
-export const query = graphql`
-  query AboutList {
-    contentfulAboutInfo {
-      aboutMe {
-        aboutMe
-      }
-    }
-    allContentfulAboutDataColumn {
-      edges {
-        node {
-          columnNum
-          id
-          title
-          description {
-            id
-            description
-          }
-          listHeader1
-          listItems1
-          listHeader2
-          listItems2
-        }
-      }
-    }
-  }
-`;

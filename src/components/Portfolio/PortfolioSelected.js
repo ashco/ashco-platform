@@ -19,11 +19,15 @@ const PortfolioSelected = ({ project }) => (
         </TagContainer>
       </PortfolioSelectedLeftContainer>
       <PortfolioSelectedRightContainer>
-        <a href={project.liveSiteLink} target="_blank">
+        <a
+          href={project.liveSiteLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <DesktopIcon />
           <p>Live Site</p>
         </a>
-        <a href={project.githubLink} target="_blank">
+        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
           <GithubIcon />
           <p>Github</p>
         </a>

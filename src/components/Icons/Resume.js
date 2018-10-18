@@ -2,7 +2,7 @@ import React from 'react';
 import { withTheme } from 'styled-components';
 
 const Resume = ({ theme }) => {
-  const { colorPrimary, colorText } = theme;
+  const { colorText } = theme;
   return (
     <svg
       aria-hidden="true"

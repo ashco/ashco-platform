@@ -18,6 +18,7 @@ class ParticleBG extends Component {
           position: 'fixed',
           top: 0,
           left: 0,
+          zIndex: -10,
         }}
         params={{
           particles: {

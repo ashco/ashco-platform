@@ -4,8 +4,9 @@ import PortfolioSelected from './PortfolioSelected';
 import PortfolioListing from './PortfolioListing';
 import PortfolioListingContainer from './PortfolioListingContainer';
 import { MainContainer } from '../helpers';
+import { graphql } from 'gatsby';
 
-export class PortfolioPage extends Component {
+class PortfolioPage extends Component {
   render() {
     const { data } = this.props;
     if (!data) return null;
