@@ -9,12 +9,12 @@ export class HiddenContextProvider extends React.Component {
     super(props);
 
     this.state = {
-      showHeroImg: false,
-      // showFooterLeft: false,
-      showFooterLeft: true,
+      showHeroImg: true,
+      showFooterLeft: false,
       showFooterCenter: true,
       showFooterRight: true,
       isMobile: false,
+      isHome: true,
     };
   }
 
@@ -53,7 +53,24 @@ export class HiddenContextProvider extends React.Component {
     }
   };
 
+  updateIsHome = () => {
+    const isHome = this.props.pathname === '/';
+    if (isHome !== this.state.isHome) {
+      this.setState({
+        isHome,
+      });
+    }
+  };
+
   componentWillMount() {
+    this.updateIsMobile();
+    this.updateIsHome();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.pathname !== this.props.pathname) {
+      this.updateIsHome();
+    }
     this.updateIsMobile();
   }
 
@@ -66,11 +83,12 @@ export class HiddenContextProvider extends React.Component {
           showFooterCenter: this.state.showFooterCenter,
           showFooterRight: this.state.showFooterRight,
           isMobile: this.state.isMobile,
+          isHome: this.state.isHome,
           handleHeroImg: this.handleHeroImg,
           handleFooterLeft: this.handleFooterLeft,
           handleFooterCenter: this.handleFooterCenter,
           handleFooterRight: this.handleFooterRight,
-          updateIsMobile: this.updateIsMobile,
+          updateIsHome: this.updateIsHome,
         }}
       >
         {this.props.children}

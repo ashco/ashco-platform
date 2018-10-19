@@ -145,7 +145,7 @@ class Layout extends Component {
         `}
         render={data => (
           <MenuContextProvider>
-            <HiddenContextProvider>
+            <HiddenContextProvider pathname={location.pathname}>
               <ThemeProvider theme={theme}>
                 <LayoutWrapper>
                   <Helmet
@@ -206,13 +206,13 @@ const Body = styled.main`
       auto;
   } */
   ${media.tablet`
-    margin: 15vh auto;
+    margin: 17vh auto 13vh auto;
   `}
   @media (min-width: ${sizes.laptop}px){
     border-radius: 10px;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    width: 80vw;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    width: 84vw;
     border: 7px solid ${props => props.theme.colorPrimary}80;
   }
   ${media.hd`

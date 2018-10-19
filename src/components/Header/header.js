@@ -14,8 +14,6 @@ class Header extends Component {
   render() {
     const { pathname } = this.props;
 
-    console.log(pathname);
-    // const { location } = this.props;
     return (
       <HiddenContextConsumer>
         {({ isMobile }) => (
