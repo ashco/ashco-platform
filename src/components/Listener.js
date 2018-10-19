@@ -59,7 +59,10 @@ export class Listener extends Component {
     console.log({ windowHeight });
 
     // HEROIMG
-    const showHeroImg = scrollLength < (windowHeight + marginTopLength) * 0.7;
+    let showHeroImg = scrollLength < (windowHeight + marginTopLength) * 0.7;
+    if (!this.props.value.isMobile) {
+      showHeroImg = true;
+    }
     // LEFT
     const showFooterLeft = windowHeight + borderLength - scrollLength === 0;
     // console.log({ showFooterLeft });
@@ -74,12 +77,6 @@ export class Listener extends Component {
     this.setFooterLeft(showFooterLeft);
     this.setFooterCenter(!showFooterCenter);
     this.setFooterRight(!showHeroImg);
-  };
-
-  handleResize = () => {
-    // setTimeout(() => {
-    this.props.value.updateIsMobile();
-    // }, 1000);
   };
 
   render() {

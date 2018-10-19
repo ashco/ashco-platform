@@ -5,14 +5,11 @@ import { media } from '../config/media';
 import { HiddenContextConsumer } from './Context/HiddenContext';
 
 class HeroImg extends Component {
-  componentWillMount() {
-    // is;
-  }
-
   render() {
     return (
       <HiddenContextConsumer>
-        {({ showHeroImg }) =>
+        {({ showHeroImg, isHome }) =>
+          isHome &&
           showHeroImg && (
             <HeroTextWrapper>
               {/* <AnimationLine /> */}

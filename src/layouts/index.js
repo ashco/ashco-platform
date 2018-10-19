@@ -20,15 +20,15 @@ import ParticleBG from '../components/ParticleBG';
 import Listener from '../components/Listener';
 
 class Layout extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHome: true,
-      // pageMiddle: false,
-      // pageBottom: false,
-    };
-    // this.updateIsHome();
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     isHome: true,
+  //     // pageMiddle: false,
+  //     // pageBottom: false,
+  //   };
+  //   // this.updateIsHome();
+  // }
 
   // componentDidUpdate() {
   //   this.updateIsHome();
@@ -113,13 +113,13 @@ class Layout extends Component {
 
   render() {
     const { location, children } = this.props;
-    const {
-      isHome,
-      // isMobile,
-      pageScrolled,
-      pageMiddle,
-      pageBottom,
-    } = this.state;
+    // const {
+    //   isHome,
+    //   // isMobile,
+    //   pageScrolled,
+    //   pageMiddle,
+    //   pageBottom,
+    // } = this.state;
 
     // let pageTitleArr = location.pathname.split('/');
     // let pageTitle = '';
@@ -150,24 +150,29 @@ class Layout extends Component {
                 <LayoutWrapper>
                   <Helmet
                     title={data.site.siteMetadata.title}
-                    meta={[{ name: 'hi', content: 'bro' }]}
+                    meta={[{ name: 'sup', content: 'bro' }]}
                   >
                     <html lang="en" />
                   </Helmet>
+                  <ParticleBG />
                   <HiddenContextConsumer>
                     {value => <Listener value={value} />}
                   </HiddenContextConsumer>
-                  <ParticleBG />
                   <Header pathname={location.pathname} />
                   <HeroImg />
-                  <Body id="body" isHome={isHome}>
-                    {children}
-                  </Body>
+                  <HiddenContextConsumer>
+                    {({ isHome }) => (
+                      <Body id="body" isHome={isHome}>
+                        {children}
+                      </Body>
+                    )}
+                  </HiddenContextConsumer>
                   <Footer
-                    pageScrolled={pageScrolled}
-                    pageMiddle={pageMiddle}
-                    pageBottom={pageBottom}
-                    isHome={isHome}
+                  // pageScrolled={pageScrolled}
+                  // pageMiddle={pageMiddle}
+                  // pageBottom={pageBottom}
+                  // isHome={isHome}
+                  // isMobile={isMobile}
                   />
                 </LayoutWrapper>
               </ThemeProvider>

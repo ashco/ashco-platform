@@ -10,11 +10,22 @@ import { HiddenContextConsumer } from '../Context/HiddenContext';
 
 const Footer = () => (
   <HiddenContextConsumer>
-    {({ showFooterLeft, showFooterCenter, showFooterRight, isMobile }) => (
+    {({
+      showFooterLeft,
+      showFooterCenter,
+      showFooterRight,
+      handleFooterRight,
+      isMobile,
+      isHome,
+    }) => (
       <FooterWrapper>
         <FooterLeft showFooterLeft={showFooterLeft} />
-        <FooterCenter showFooterCenter={showFooterCenter} />
-        <FooterRight showFooterRight={showFooterRight} isMobile={isMobile} />
+        {isHome && <FooterCenter showFooterCenter={showFooterCenter} />}
+        <FooterRight
+          showFooterRight={showFooterRight}
+          handleFooterRight={handleFooterRight}
+          isMobile={isMobile}
+        />
       </FooterWrapper>
     )}
   </HiddenContextConsumer>
