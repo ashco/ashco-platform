@@ -17,7 +17,7 @@ import '../style/index.css';
 import HeroImg from '../components/HeroImg';
 import ParticleBG from '../components/ParticleBG';
 import Listener from '../components/Listener';
-import Body from '../components/Body';
+import Main from '../components/Main';
 
 class Layout extends Component {
   render() {
@@ -46,17 +46,17 @@ class Layout extends Component {
                   >
                     <html lang="en" />
                   </Helmet>
-                  <ParticleBG />
                   <HiddenContextConsumer>
                     {value => <Listener value={value} />}
                   </HiddenContextConsumer>
+                  <ParticleBG />
                   <Header pathname={location.pathname} />
                   <HeroImg />
                   <HiddenContextConsumer>
                     {({ isHome, isMobile }) => (
-                      <Body id="body" isHome={isHome} isMobile={isMobile}>
+                      <Main isHome={isHome} isMobile={isMobile}>
                         {children}
-                      </Body>
+                      </Main>
                     )}
                   </HiddenContextConsumer>
                   <Footer />

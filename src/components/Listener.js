@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// Component runs event listeners and runs update fncs when events trigger
 export class Listener extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScrollState);
@@ -50,7 +51,6 @@ export class Listener extends Component {
       scrollLength = window.pageYOffset;
       windowHeight = window.innerHeight;
     }
-    const borderLength = 7; // TODO: Make Global Variable
     const marginTopLength = 140;
     // const marginBottomLength = 300;
     // const extraMobileMenuMargin = 300;
@@ -63,15 +63,8 @@ export class Listener extends Component {
     if (!this.props.value.isMobile) {
       showHeroImg = true;
     }
-    // LEFT
-    const showFooterLeft = windowHeight + borderLength - scrollLength === 0;
-    // console.log({ showFooterLeft });
-    // console.log({ windowHeight });
-    // // console.log({ borderLength });
-    // console.log({ scrollLength });
-    // CENTER
+    const showFooterLeft = windowHeight - scrollLength <= 0;
     const showFooterCenter = scrollLength > 0;
-    // RIGHT
 
     this.setHeroImg(showHeroImg);
     this.setFooterLeft(showFooterLeft);

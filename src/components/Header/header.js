@@ -79,7 +79,7 @@ const HeaderContainer = styled.nav`
   pointer-events: none;
   height: ${props => props.theme.mobileHeaderHeight};
   ${media.tablet`
-    height: 15vh;
+    height: 13vh;
   `};
   ${media.hd`
     max-width: 1600px;

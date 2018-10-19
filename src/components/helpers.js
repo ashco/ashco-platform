@@ -9,8 +9,7 @@ export const MainContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  min-height: 70vh;
-  height: 530px;
+  height: 100%;
   background-color: ${props => props.theme.colorBackground};
   /* @media (min-width: ${props => props.theme.widthDesktop}) { */
   ${media.tablet`
