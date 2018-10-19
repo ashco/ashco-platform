@@ -45,13 +45,15 @@ export class Listener extends Component {
   }
 
   handleScrollState = event => {
+    const { isHome, isMobile } = this.props.value;
+
     let scrollLength;
     let windowHeight;
     if (typeof window !== `undefined`) {
       scrollLength = window.pageYOffset;
       windowHeight = window.innerHeight;
     }
-    const marginTopLength = 140;
+    const mobileMarginTopLength = 140;
     // const marginBottomLength = 300;
     // const extraMobileMenuMargin = 300;
 
@@ -59,17 +61,34 @@ export class Listener extends Component {
     // console.log({ windowHeight });
 
     // HEROIMG
-    let showHeroImg = scrollLength < (windowHeight + marginTopLength) * 0.7;
-    if (!this.props.value.isMobile) {
+    let showHeroImg =
+      scrollLength < (windowHeight + mobileMarginTopLength) * 0.7;
+    if (!isMobile && isHome) {
       showHeroImg = true;
+    } else if (!isMobile && !isHome) {
+      showHeroImg = false;
     }
-    const showFooterLeft = windowHeight - scrollLength <= 0;
-    const showFooterCenter = scrollLength > 0;
+    // FOOTER LEFT
+    let showFooterLeft = windowHeight - scrollLength <= 0;
+    if (!isHome) {
+      showFooterLeft = true;
+    }
+    // FOOTER CENTER
+    let showFooterCenter = scrollLength > 0;
+    if (!isHome) {
+      showFooterCenter = false;
+    }
+    // FOOTER RIGHT
+    let showFooterRight =
+      scrollLength > (windowHeight + mobileMarginTopLength) * 0.7;
+    if (!isMobile) {
+      showFooterRight = true;
+    }
 
     this.setHeroImg(showHeroImg);
     this.setFooterLeft(showFooterLeft);
     this.setFooterCenter(!showFooterCenter);
-    this.setFooterRight(!showHeroImg);
+    this.setFooterRight(showFooterRight);
   };
 
   render() {
