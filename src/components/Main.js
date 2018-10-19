@@ -4,30 +4,44 @@ import styled from 'styled-components';
 import { sizes, media } from '../config/media';
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      height: null,
-    };
-  }
-  componentDidMount() {
-    const marginTop = this.mainElement.getBoundingClientRect().top;
-    const marginBottom = this.mainElement.getBoundingClientRect().bottom;
-    const elHeight = this.mainElement.clientHeight;
-    const height = marginTop + elHeight + marginBottom;
-    console.log(height);
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     height: null,
+  //   };
+  // }
+  // componentDidMount() {
+  //   const marginTop = this.mainElement.getBoundingClientRect().top;
+  //   const marginBottom = this.mainElement.getBoundingClientRect().bottom;
+  //   const elHeight = this.mainElement.clientHeight;
+  //   const height = marginTop + elHeight + marginBottom;
 
-    this.setState({ height });
-  }
+  //   this.setState({ height });
+  // }
 
   render() {
     // Calculate top margin
-    const { children, isMobile, isHome } = this.props;
+    const { children, isMobile, isHome, menuOpen } = this.props;
+    let marginTop = 100;
+
+    if (isMobile) {
+      if (typeof window !== `undefined`) {
+        marginTop = isHome ? `${window.innerHeight + 140}px` : `140px`;
+        if (menuOpen && !isHome) {
+          console.log('blam!');
+          marginTop = '400px';
+        }
+      }
+    } else {
+      marginTop = isHome ? '113vh' : '13vh';
+    }
+
     return (
       <MainWrapper
-        ref={mainElement => {
-          this.mainElement = mainElement;
-        }}
+        // ref={mainElement => {
+        //   this.mainElement = mainElement;
+        // }}
+        marginTop={marginTop}
       >
         {children}
       </MainWrapper>
@@ -53,15 +67,14 @@ const MainWrapper = styled.main`
   height: 530px;
   min-height: 77vh;
   /* top: 100vh; */
-  margin: calc(
-      (100vh + ${props => props.theme.mobileHeaderHeight}) +
-        (${props => (props.isMenuOpen ? '300px' : '0px')})
-    )
-    auto ${props => props.theme.mobileFooterHeight} auto;
-  ${media.tablet`
-    margin: 113vh auto 10vh auto;
-  `}
-  @media (min-width: ${sizes.laptop}px){
+  margin: 0 auto 240px auto;
+  margin-top: ${props => props.marginTop};
+  @media (min-width: ${sizes.tablet}px) {
+    /* margin: 113vh auto 10vh auto; */
+    margin: 0 auto 10vh auto;
+    margin-top: ${props => props.marginTop};
+  }
+  @media (min-width: ${sizes.laptop}px) {
     border-radius: 10px;
     margin-left: 8vw;
     margin-right: 8vw;

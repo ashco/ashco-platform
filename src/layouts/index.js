@@ -3,11 +3,11 @@ import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 
-import { MenuContextProvider } from '../components/Context/MenuContext';
+// import { MenuContextProvider } from '../components/Context/MenuContext';
 import {
-  HiddenContextProvider,
-  HiddenContextConsumer,
-} from '../components/Context/HiddenContext';
+  VisualContextProvider,
+  VisualContextConsumer,
+} from '../components/Context/VisualContext';
 import { theme } from '../config/theme';
 
 import Header from '../components/Header/header';
@@ -36,34 +36,36 @@ class Layout extends Component {
           }
         `}
         render={data => (
-          <MenuContextProvider>
-            <HiddenContextProvider pathname={location.pathname}>
-              <ThemeProvider theme={theme}>
-                <LayoutWrapper>
-                  <Helmet
-                    title={data.site.siteMetadata.title}
-                    meta={[{ name: 'sup', content: 'bro' }]}
-                  >
-                    <html lang="en" />
-                  </Helmet>
-                  <HiddenContextConsumer>
-                    {value => <Listener value={value} />}
-                  </HiddenContextConsumer>
-                  <ParticleBG />
-                  <Header pathname={location.pathname} />
-                  <HeroImg />
-                  <HiddenContextConsumer>
-                    {({ isHome, isMobile }) => (
-                      <Main isHome={isHome} isMobile={isMobile}>
-                        {children}
-                      </Main>
-                    )}
-                  </HiddenContextConsumer>
-                  <Footer />
-                </LayoutWrapper>
-              </ThemeProvider>
-            </HiddenContextProvider>
-          </MenuContextProvider>
+          <VisualContextProvider pathname={location.pathname}>
+            <ThemeProvider theme={theme}>
+              <LayoutWrapper>
+                <Helmet
+                  title={data.site.siteMetadata.title}
+                  meta={[{ name: 'sup', content: 'bro' }]}
+                >
+                  <html lang="en" />
+                </Helmet>
+                <VisualContextConsumer>
+                  {value => <Listener value={value} />}
+                </VisualContextConsumer>
+                <ParticleBG />
+                <Header pathname={location.pathname} />
+                <HeroImg />
+                <VisualContextConsumer>
+                  {({ isHome, isMobile, menuOpen }) => (
+                    <Main
+                      isHome={isHome}
+                      isMobile={isMobile}
+                      menuOpen={menuOpen}
+                    >
+                      {children}
+                    </Main>
+                  )}
+                </VisualContextConsumer>
+                <Footer />
+              </LayoutWrapper>
+            </ThemeProvider>
+          </VisualContextProvider>
         )}
       />
     );

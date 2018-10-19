@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { media } from '../config/media';
 
-import { HiddenContextConsumer } from './Context/HiddenContext';
+import { VisualContextConsumer } from './Context/VisualContext';
 
 class HeroImg extends Component {
   render() {
     return (
-      <HiddenContextConsumer>
+      <VisualContextConsumer>
         {({ showHeroImg, isHome }) =>
           isHome &&
           showHeroImg && (
@@ -24,7 +24,7 @@ class HeroImg extends Component {
             </HeroTextWrapper>
           )
         }
-      </HiddenContextConsumer>
+      </VisualContextConsumer>
     );
   }
 }

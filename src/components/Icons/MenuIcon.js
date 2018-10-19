@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MenuContextConsumer } from '../Context/MenuContext';
+import { VisualContextConsumer } from '../Context/VisualContext';
 
 const MenuIcon = () => (
-  <MenuContextConsumer>
+  <VisualContextConsumer>
     {({ menuOpen, toggleMenu }) => (
       <MenuIconWrapper
         onClick={toggleMenu}
@@ -15,7 +15,7 @@ const MenuIcon = () => (
         <span />
       </MenuIconWrapper>
     )}
-  </MenuContextConsumer>
+  </VisualContextConsumer>
 );
 
 const MenuIconWrapper = styled.div`

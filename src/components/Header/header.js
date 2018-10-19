@@ -4,8 +4,8 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 
-import { HiddenContextConsumer } from '../Context/HiddenContext';
-import { MenuContextConsumer } from '../Context/MenuContext';
+import { VisualContextConsumer } from '../Context/VisualContext';
+// import { MenuContextConsumer } from '../Context/MenuContext';
 
 import HeaderTitle from './HeaderTitle';
 import MenuIcon from '../Icons/MenuIcon';
@@ -15,23 +15,23 @@ class Header extends Component {
     const { pathname } = this.props;
 
     return (
-      <HiddenContextConsumer>
-        {({ isMobile }) => (
-          <MenuContextConsumer>
-            {({ menuOpen, toggleMenu }) => (
-              <HeaderWrapper
-                ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
-              >
-                <HeaderContainer>
-                  <HeaderTitle pathname={pathname} toggleMenu={toggleMenu} />
-                  <NavLinks menuOpen={menuOpen} />
-                  {isMobile && <MenuIcon />}
-                </HeaderContainer>
-              </HeaderWrapper>
-            )}
-          </MenuContextConsumer>
+      <VisualContextConsumer>
+        {({ isMobile, menuOpen, toggleMenu }) => (
+          // <MenuContextConsumer>
+          //   {({ menuOpen, toggleMenu }) => (
+          <HeaderWrapper
+            ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
+          >
+            <HeaderContainer>
+              <HeaderTitle pathname={pathname} toggleMenu={toggleMenu} />
+              <NavLinks menuOpen={menuOpen} />
+              {isMobile && <MenuIcon />}
+            </HeaderContainer>
+          </HeaderWrapper>
+          //   )}
+          // </MenuContextConsumer>
         )}
-      </HiddenContextConsumer>
+      </VisualContextConsumer>
     );
   }
 }
@@ -51,7 +51,7 @@ const NavLinks = ({ menuOpen }) => (
 );
 
 const NavLinkItem = ({ to, title }) => (
-  <MenuContextConsumer>
+  <VisualContextConsumer>
     {({ toggleMenu }) => (
       <NavLinkItemWrapper>
         <Link to={to} onClick={toggleMenu.bind(null, 'close')}>
@@ -59,7 +59,7 @@ const NavLinkItem = ({ to, title }) => (
         </Link>
       </NavLinkItemWrapper>
     )}
-  </MenuContextConsumer>
+  </VisualContextConsumer>
 );
 
 const HeaderWrapper = styled.header`

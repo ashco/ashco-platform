@@ -5,11 +5,16 @@ export class Listener extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScrollState);
     window.addEventListener('resize', this.handleResize);
+    this.handleScrollState();
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScrollState);
     window.removeEventListener('resize', this.handleResize);
+  }
+
+  componentDidUpdate() {
+    this.handleScrollState();
   }
 
   setHeroImg(showHeroImg) {
@@ -70,7 +75,7 @@ export class Listener extends Component {
     }
     // FOOTER LEFT
     let showFooterLeft = windowHeight - scrollLength <= 0;
-    if (!isHome) {
+    if (!isHome && !isMobile) {
       showFooterLeft = true;
     }
     // FOOTER CENTER
@@ -84,6 +89,9 @@ export class Listener extends Component {
     if (!isMobile) {
       showFooterRight = true;
     }
+    // } else if (isMobile && !isHome) {
+    //   showFooterRight = true;
+    // }
 
     this.setHeroImg(showHeroImg);
     this.setFooterLeft(showFooterLeft);

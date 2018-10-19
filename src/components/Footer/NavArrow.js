@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import ArrowDown from '../Icons/ArrowDown';
 
-import { MenuContextConsumer } from '../Context/MenuContext';
+import { VisualContextConsumer } from '../Context/VisualContext';
 
 class NavArrow extends Component {
   render() {
     return (
-      <MenuContextConsumer>
+      <VisualContextConsumer>
         {({ toggleMenu }) => (
           <NavArrowStyle
             className="animated bounce delay-5s infinite"
@@ -19,7 +19,7 @@ class NavArrow extends Component {
             </div>
           </NavArrowStyle>
         )}
-      </MenuContextConsumer>
+      </VisualContextConsumer>
     );
   }
 }

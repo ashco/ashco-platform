@@ -6,10 +6,10 @@ import FooterLeft from './FooterLeft';
 import FooterCenter from './FooterCenter';
 import FooterRight from './FooterRight';
 
-import { HiddenContextConsumer } from '../Context/HiddenContext';
+import { VisualContextConsumer } from '../Context/VisualContext';
 
 const Footer = () => (
-  <HiddenContextConsumer>
+  <VisualContextConsumer>
     {({
       showFooterLeft,
       showFooterCenter,
@@ -28,7 +28,7 @@ const Footer = () => (
         />
       </FooterWrapper>
     )}
-  </HiddenContextConsumer>
+  </VisualContextConsumer>
 );
 
 const FooterWrapper = styled.footer`
