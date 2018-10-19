@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'AshCo.io',
+    siteUrl: `https://www.ashco.io`,
     description: 'Welcome to Ashland',
   },
   plugins: [

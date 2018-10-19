@@ -30,7 +30,6 @@ class Layout extends Component {
     // this.updateIsHome();
   }
 
-
   // componentDidUpdate() {
   //   this.updateIsHome();
   // }
@@ -151,11 +150,10 @@ class Layout extends Component {
                 <LayoutWrapper>
                   <Helmet
                     title={data.site.siteMetadata.title}
-                    meta={[
-                      { name: 'description', content: 'Sample' },
-                      { name: 'keywords', content: 'sample, something' },
-                    ]}
-                  />
+                    meta={[{ name: 'hi', content: 'bro' }]}
+                  >
+                    <html lang="en" />
+                  </Helmet>
                   <HiddenContextConsumer>
                     {value => <Listener value={value} />}
                   </HiddenContextConsumer>

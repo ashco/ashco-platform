@@ -61,7 +61,7 @@ const HeroTextWrapper = styled.div`
   border-bottom: 8px solid ${props => props.theme.colorPrimary};
   ${media.tablet`
     margin-left: 11.5vw;
-    margin-bottom: 15.5vh;
+    margin-bottom: 16vh;
   `};
   ${media.desktop`
     margin-left: 15.5vw;

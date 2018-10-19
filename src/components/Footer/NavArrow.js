@@ -12,6 +12,7 @@ class NavArrow extends Component {
           <NavArrowStyle
             className="animated bounce delay-5s infinite"
             onClick={toggleMenu.bind(null, 'close')}
+            aria-hidden="true"
           >
             <div className="fade-in">
               <ArrowDown />
