@@ -3,7 +3,7 @@
 export const sizes = {
   // phone: 576,
   tablet: 768,
-  laptop: 1050,
+  laptop: 1200,
   desktop: 1450,
   hd: 2400,
 };

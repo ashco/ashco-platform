@@ -30,7 +30,7 @@ const HeaderTitleWrapper = styled.h1`
   font-size: 2rem;
   font-weight: 600;
   svg {
-    height: 5.5rem;
+    height: 6.5vh;
     width: auto;
   }
   a {
@@ -47,12 +47,12 @@ const HeaderTitleWrapper = styled.h1`
   ${media.laptop`
     font-size: 3rem;
     svg {
-      height: 6.4rem;
+      height: 8vh;
     }
   `}
   ${media.hd`
     svg {
-      height: 8rem;
+      height: 11.5vh;
     }
   `}
 `;

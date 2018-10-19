@@ -55,8 +55,8 @@ export class Listener extends Component {
     // const marginBottomLength = 300;
     // const extraMobileMenuMargin = 300;
 
-    console.log({ scrollLength });
-    console.log({ windowHeight });
+    // console.log({ scrollLength });
+    // console.log({ windowHeight });
 
     // HEROIMG
     let showHeroImg = scrollLength < (windowHeight + marginTopLength) * 0.7;
