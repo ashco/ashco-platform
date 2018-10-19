@@ -121,15 +121,15 @@ class Layout extends Component {
       pageBottom,
     } = this.state;
 
-    let pageTitleArr = location.pathname.split('/');
-    let pageTitle = '';
-    if (pageTitleArr.length >= 0) {
-      pageTitle = pageTitleArr[pageTitleArr.length - 1];
-      pageTitle = pageTitle
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-    }
+    // let pageTitleArr = location.pathname.split('/');
+    // let pageTitle = '';
+    // if (pageTitleArr.length >= 0) {
+    //   pageTitle = pageTitleArr[pageTitleArr.length - 1];
+    //   pageTitle = pageTitle
+    //     .split('-')
+    //     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    //     .join(' ');
+    // }
 
     return (
       <StaticQuery
@@ -158,7 +158,7 @@ class Layout extends Component {
                     {value => <Listener value={value} />}
                   </HiddenContextConsumer>
                   <ParticleBG />
-                  <Header location={location} title={pageTitle} />
+                  <Header pathname={location.pathname} />
                   <HeroImg />
                   <Body id="body" isHome={isHome}>
                     {children}

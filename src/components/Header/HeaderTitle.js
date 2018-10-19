@@ -5,18 +5,23 @@ import { media } from '../../config/media';
 
 import AshCoIcon from '../Icons/AshCo';
 
-const HeaderTitle = ({ title, toggleMenu }) => (
-  <HeaderTitleWrapper>
-    <Link
-      to="/"
-      aria-label="hero-screen"
-      onClick={toggleMenu.bind(null, 'open')}
-    >
-      <AshCoIcon />
-    </Link>
-    <span>{title}</span>
-  </HeaderTitleWrapper>
-);
+const HeaderTitle = ({ pathname, toggleMenu }) => {
+  let pageTitle = pathname.split('/')[1];
+  pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
+
+  return (
+    <HeaderTitleWrapper>
+      <Link
+        to="/"
+        aria-label="hero-screen"
+        onClick={toggleMenu.bind(null, 'open')}
+      >
+        <AshCoIcon />
+      </Link>
+      <span>{pageTitle}</span>
+    </HeaderTitleWrapper>
+  );
+};
 
 const HeaderTitleWrapper = styled.h1`
   margin-left: 1.4rem;

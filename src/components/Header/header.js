@@ -12,7 +12,10 @@ import MenuIcon from '../Icons/MenuIcon';
 
 class Header extends Component {
   render() {
-    const { title } = this.props;
+    const { pathname } = this.props;
+
+    console.log(pathname);
+    // const { location } = this.props;
     return (
       <HiddenContextConsumer>
         {({ isMobile }) => (
@@ -22,7 +25,7 @@ class Header extends Component {
                 ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
               >
                 <HeaderContainer>
-                  <HeaderTitle title={title} toggleMenu={toggleMenu} />
+                  <HeaderTitle pathname={pathname} toggleMenu={toggleMenu} />
                   <NavLinks menuOpen={menuOpen} />
                   {isMobile && <MenuIcon />}
                 </HeaderContainer>
