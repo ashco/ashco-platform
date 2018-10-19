@@ -30,7 +30,7 @@ const HeaderTitleWrapper = styled.h1`
   font-size: 2rem;
   font-weight: 600;
   svg {
-    height: 6.5vh;
+    height: 11vh;
     width: auto;
   }
   a {
@@ -42,19 +42,22 @@ const HeaderTitleWrapper = styled.h1`
   }
 
   ${media.tablet`
-    font-size: 2.5rem;
+  font-size: 2.5rem;
+      svg {
+        height: 9.5vh;
+      }
   `}
   ${media.laptop`
     font-size: 3rem;
     svg {
-      height: 8vh;
+      height: 10.5vh;
     }
   `}
-  ${media.hd`
+  /* ${media.hd`
     svg {
       height: 11.5vh;
     }
-  `}
+  `} */
 `;
 
 export default HeaderTitle;

@@ -49,17 +49,15 @@ const FooterWrapper = styled.footer`
   ${media.tablet`
     flex-direction: row;
     align-items: flex-end;
-  `}
-  ${media.tablet`
-    margin-left: 10vw;
-    margin-right: 10vw;
-    width: 80vw;
-  `}
+    margin-left: 8vw;
+    margin-right: 8vw;
+    width: 84vw;
+  `};
   ${media.hd`
     margin-left: 15vw;
     margin-right: 15vw;
     width: 70vw;
-  `}
+  `};
 `;
 
 export default Footer;
