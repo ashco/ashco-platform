@@ -7,7 +7,11 @@ import AshCoIcon from '../Icons/AshCo';
 
 const HeaderTitle = ({ title, toggleMenu }) => (
   <HeaderTitleWrapper>
-    <Link to="/" onClick={toggleMenu.bind(null, 'open')}>
+    <Link
+      to="/"
+      aria-label="hero-screen"
+      onClick={toggleMenu.bind(null, 'open')}
+    >
       <AshCoIcon />
     </Link>
     <span>{title}</span>
