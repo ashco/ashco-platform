@@ -23,6 +23,7 @@ export class VisualContextProvider extends React.Component {
     if (typeof window !== `undefined`) {
       const isMobile = window.innerWidth <= sizes.tablet;
       if (isMobile !== this.state.isMobile) {
+        console.log(isMobile);
         this.setState({
           isMobile,
         });
@@ -39,20 +40,23 @@ export class VisualContextProvider extends React.Component {
     }
   };
 
-  toggleMenu = menuState => {
-    if (menuState === 'open') {
-      this.setState({
-        menuOpen: true,
-      });
-    } else if (menuState === 'close') {
-      this.setState({
-        menuOpen: false,
-      });
-    } else {
-      this.setState({
-        menuOpen: !this.state.menuOpen,
-      });
-    }
+  toggleMenu = menuOpen => {
+    // if (menuState === 'open') {
+    //   this.setState({
+    //     menuOpen: true,
+    //   });
+    // } else if (menuState === 'close') {
+    //   this.setState({
+    //     menuOpen: false,
+    //   });
+    // } else {
+    //   this.setState({
+    //     menuOpen: !this.state.menuOpen,
+    //   });
+    // }
+    this.setState({
+      menuOpen,
+    });
   };
 
   handleHeroImg = showHeroImg => {
@@ -102,6 +106,7 @@ export class VisualContextProvider extends React.Component {
           showFooterLeft: this.state.showFooterLeft,
           showFooterCenter: this.state.showFooterCenter,
           showFooterRight: this.state.showFooterRight,
+          updateIsMobile: this.updateIsMobile,
           updateIsHome: this.updateIsHome,
           toggleMenu: this.toggleMenu,
           handleHeroImg: this.handleHeroImg,
