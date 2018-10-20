@@ -204,9 +204,9 @@ a {
   animation-iteration-count: infinite;
 }
 
-.animated.delay-5s {
-  -webkit-animation-delay: 5s;
-  animation-delay: 5s;
+.animated.delay-7s {
+  -webkit-animation-delay: 10s;
+  animation-delay: 10s;
 }
 
 @keyframes bounce {

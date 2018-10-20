@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { media } from '../config/media';
 
 import { VisualContextConsumer } from './Context/VisualContext';
@@ -8,7 +8,7 @@ class HeroImg extends Component {
   render() {
     return (
       <VisualContextConsumer>
-        {({ showHeroImg, isHome }) =>
+        {({ showHeroImg, isHome, isMobile }) =>
           isHome &&
           showHeroImg && (
             <HeroTextWrapper>
@@ -18,7 +18,7 @@ class HeroImg extends Component {
               <TitleLine />
               <TitleText>
                 AshCo
-                <TitleTextPeriod>.</TitleTextPeriod>
+                <TitlePeriod isMobile={isMobile}>.</TitlePeriod>
                 io
               </TitleText>
             </HeroTextWrapper>
@@ -28,6 +28,29 @@ class HeroImg extends Component {
     );
   }
 }
+
+// Create the keyframes
+const pulse = keyframes`
+  0%, 35% {
+    opacity: 1
+  }
+  50% {
+    opacity: 0
+  }
+  65%, 100% {
+    opacity: 1
+  }
+`;
+
+const TitlePeriod = styled.span`
+  color: ${props => props.theme.colorPrimary};
+  /* animation-name: ${props => !props.isMobile && pulse}; */
+  animation-name: ${pulse};
+  animation-duration: 5s;
+  animation-delay: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+`;
 
 // // keyframes returns a unique name based on a hash of the contents of the keyframes
 // const drawLine = keyframes`
@@ -120,10 +143,6 @@ const TitleText = styled.h1`
   `} ${media.hd`
     font-size: 7.5rem;
   `};
-`;
-
-const TitleTextPeriod = styled.span`
-  color: ${props => props.theme.colorPrimary};
 `;
 
 export default HeroImg;

@@ -121,7 +121,7 @@ export class EventListener extends Component {
 
   handleResize = event => {
     const obj = this.calcShowStates();
-
+    console.log('hit');
     this.props.value.updateIsMobile();
     this.setHeroImg(obj.showHeroImg);
     this.setFooterLeft(obj.showFooterLeft);
