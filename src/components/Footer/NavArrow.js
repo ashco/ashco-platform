@@ -10,7 +10,7 @@ class NavArrow extends Component {
       <VisualContextConsumer>
         {({ toggleMenu }) => (
           <NavArrowStyle
-            className="animated bounce delay-5s infinite"
+            className="animated bounce delay-10s infinite"
             onClick={toggleMenu.bind(null, false)}
             aria-hidden="true"
           >

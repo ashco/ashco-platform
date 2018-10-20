@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 
-import AshCoIcon from '../Icons/AshCo_v2';
+import AshCoIcon from '../Icons/AshCo';
 
 const HeaderTitle = ({ pathname, toggleMenu }) => {
   let pageTitle = pathname.split('/')[1];
@@ -30,7 +30,7 @@ const HeaderTitleWrapper = styled.h1`
   font-size: 2rem;
   font-weight: 600;
   svg {
-    height: 11vh;
+    height: 8vh;
     width: auto;
   }
   a {
@@ -42,22 +42,11 @@ const HeaderTitleWrapper = styled.h1`
   }
 
   ${media.tablet`
-  font-size: 2.5rem;
-      svg {
-        height: 9.5vh;
-      }
-  `}
+    font-size: 2.5rem;
+  `};
   ${media.laptop`
     font-size: 3rem;
-    svg {
-      height: 8.5vh;
-    }
-  `}
-  /* ${media.hd`
-    svg {
-      height: 11.5vh;
-    }
-  `} */
+  `};
 `;
 
 export default HeaderTitle;

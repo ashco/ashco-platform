@@ -7,71 +7,57 @@ const AshCo = ({ theme }) => {
   // const colorText = '#eeeeee80';
   return (
     <svg
-      width="1164"
-      height="1010"
-      viewBox="0 0 1164 1010"
+      width="832"
+      height="838"
+      viewBox="0 0 832 838"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g filter="url(#filter0_df)">
+      <g filter="url(#filter0_f)">
         <path
           fillRule="evenodd"
           clipRule="evenodd"
-          d="M580 154L546.084 218.315L182.914 907H250.745L580 282.63L909.255 907H977.086L613.916 218.315L580 154Z"
+          d="M416 0L370.406 86.4606L0.456787 788H77.3705L416 145.852L754.63 788H831.543L461.594 86.4606L416 0Z"
           fill={colorText}
         />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
-          d="M764.994 780.773C717.906 829.026 652.122 859 579.3 859C436.031 859 320 742.98 320 600C320 457.02 436.031 341 579.3 341C652.13 341 717.922 370.981 765.01 419.244L815.961 368.366C755.828 307.047 672.011 269 579.3 269C396.328 269 248 417.194 248 600C248 782.806 396.328 931 579.3 931C672.031 931 755.864 892.936 816 831.594L764.994 780.773Z"
+          d="M612.1 682.838C562.297 733.74 492.838 765.33 416 765.33C264.492 765.33 141.67 642.508 141.67 491C141.67 339.492 264.492 216.67 416 216.67C492.84 216.67 562.302 248.262 612.104 299.166L663.529 247.816C600.571 183.74 512.926 144 416 144C224.357 144 69 299.357 69 491C69 682.643 224.357 838 416 838C512.953 838 600.618 798.238 663.58 734.132L612.1 682.838Z"
           fill={colorPrimary}
         />
+        <circle cx="416" cy="491" r="171" stroke={colorText} strokeWidth="44" />
         <path
-          d="M745.5 600C745.5 691.403 671.403 765.5 580 765.5C488.597 765.5 414.5 691.403 414.5 600C414.5 508.597 488.597 434.5 580 434.5C671.403 434.5 745.5 508.597 745.5 600Z"
-          stroke={colorText}
-          strokeWidth="44"
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M404 591V390H427V591H404ZM396 406.31C357.592 415.345 329 449.834 329 491C329 532.166 357.592 566.655 396 575.69V550.759C371.01 542.399 353 518.803 353 491C353 463.197 371.01 439.601 396 431.241V406.31ZM503 491C503 532.523 473.911 567.251 435 575.919V551.084C460.508 543.026 479 519.172 479 491C479 462.828 460.508 438.974 435 430.916V406.081C473.911 414.749 503 449.477 503 491Z"
+          fill={colorPrimary}
         />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
-          d="M568 717.5H591V482.5H568V717.5ZM560 515.31C521.591 524.345 493 558.834 493 600C493 641.166 521.591 675.655 560 684.69V659.759C535.01 651.399 517 627.803 517 600C517 572.197 535.01 548.601 560 540.241V515.31ZM599 539.916V515.081C637.911 523.749 667 558.477 667 600C667 641.523 637.911 676.251 599 684.919V660.084C624.508 652.026 643 628.172 643 600C643 571.828 624.508 547.974 599 539.916Z"
-          fill={colorPrimary}
+          d="M369.949 86.4606L415.543 0L461.137 86.4606L563.198 280H486.285L415.543 145.852L344.802 280H267.888L369.949 86.4606Z"
+          fill={colorText}
         />
       </g>
       <defs>
         <filter
-          id="filter0_df"
-          x="0"
-          y="0"
-          width="1164"
-          height="1010"
+          id="filter0_f"
+          x="-164"
+          y="-109"
+          width="1156"
+          height="1002"
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          />
-          <feOffset dx="4" dy="4" />
-          <feGaussianBlur stdDeviation="2.5" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow"
-          />
           <feBlend
             mode="normal"
             in="SourceGraphic"
-            in2="effect1_dropShadow"
+            in2="BackgroundImageFix"
             result="shape"
           />
-          <feGaussianBlur stdDeviation="0.5" result="effect2_foregroundBlur" />
+          <feGaussianBlur stdDeviation="0.5" result="effect1_foregroundBlur" />
         </filter>
       </defs>
     </svg>
