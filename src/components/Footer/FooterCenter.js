@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media } from '../../config/media';
+import { media } from '../../config/config';
 
 import NavArrow from './NavArrow';
 
-const FooterCenter = ({ showFooterCenter }) => (
+const FooterCenter = ({ showFooterCenter, toggleMenu }) => (
   <FooterCenterWrapper className={showFooterCenter ? 'visible' : 'hidden'}>
-    <NavArrow />
+    <NavArrow toggleMenu={toggleMenu} />
   </FooterCenterWrapper>
 );
 

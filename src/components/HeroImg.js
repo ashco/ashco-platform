@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { media } from '../config/media';
+import { media } from '../config/config';
 
 import { VisualContextConsumer } from './Context/VisualContext';
 
@@ -8,10 +8,9 @@ class HeroImg extends Component {
   render() {
     return (
       <VisualContextConsumer>
-        {({ showHeroImg, isHome, isMobile }) =>
-          isHome &&
+        {({ showHeroImg, isMobile, isHome }) =>
           showHeroImg && (
-            <HeroTextWrapper>
+            <HeroTextWrapper isHome={isHome}>
               {/* <AnimationLine /> */}
               <FirstText>Welcome</FirstText>
               <SecondText>To</SecondText>
@@ -77,7 +76,9 @@ const HeroTextWrapper = styled.div`
   pointer-events: none;
   position: fixed;
   z-index: -5;
-  bottom: 0;
+  /* bottom: 0; */
+  bottom: ${props => (props.isHome ? 0 : 'auto')};
+  top: ${props => (props.isHome ? 'auto' : '240px')};
   left: 0;
   font-weight: 600;
   margin: 0 10vw 8.5vh 10vw;
@@ -141,7 +142,8 @@ const TitleText = styled.h1`
   ${media.laptop`
     line-height: 1.1;
     font-size: 5.5rem;
-  `} ${media.hd`
+  `};
+  ${media.hd`
     font-size: 7.5rem;
   `};
 `;

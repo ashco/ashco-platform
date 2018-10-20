@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { media } from '../../config/media';
+import { media } from '../../config/config';
 
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 

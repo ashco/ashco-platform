@@ -1,6 +1,6 @@
 // HeroContext.js
 import React from 'react';
-import { sizes } from '../../config/media';
+import { sizes } from '../../config/config';
 
 const VisualContext = React.createContext();
 
@@ -12,10 +12,10 @@ export class VisualContextProvider extends React.Component {
       isMobile: false,
       isHome: true,
       menuOpen: true,
-      showHeroImg: true,
+      showHeroImg: false,
       showFooterLeft: false,
-      showFooterCenter: true,
-      showFooterRight: true,
+      showFooterCenter: false,
+      showFooterRight: false,
     };
   }
 
@@ -23,7 +23,6 @@ export class VisualContextProvider extends React.Component {
     if (typeof window !== `undefined`) {
       const isMobile = window.innerWidth <= sizes.tablet;
       if (isMobile !== this.state.isMobile) {
-        console.log(isMobile);
         this.setState({
           isMobile,
         });
@@ -41,19 +40,6 @@ export class VisualContextProvider extends React.Component {
   };
 
   toggleMenu = menuOpen => {
-    // if (menuState === 'open') {
-    //   this.setState({
-    //     menuOpen: true,
-    //   });
-    // } else if (menuState === 'close') {
-    //   this.setState({
-    //     menuOpen: false,
-    //   });
-    // } else {
-    //   this.setState({
-    //     menuOpen: !this.state.menuOpen,
-    //   });
-    // }
     this.setState({
       menuOpen,
     });

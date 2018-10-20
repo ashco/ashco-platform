@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import styled from 'styled-components';
-import { sizes, media } from '../config/media';
+import { sizes, media } from '../config/config';
 
 class Main extends Component {
   // constructor(props) {
@@ -28,8 +28,7 @@ class Main extends Component {
       if (typeof window !== `undefined`) {
         marginTop = isHome ? `${window.innerHeight + 140}px` : `140px`;
         if (menuOpen && !isHome) {
-          console.log('blam!');
-          marginTop = '400px';
+          marginTop = '605px';
         }
       }
     } else {

@@ -3,7 +3,7 @@ import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
 // Component runs event listeners and runs update fncs when events trigger
-export class EventListener extends Component {
+export class ListenerLogic extends Component {
   componentDidMount() {
     window.addEventListener('scroll', throttle(this.handleScrollState, 100));
     window.addEventListener('resize', debounce(this.handleResize, 100));
@@ -15,10 +15,6 @@ export class EventListener extends Component {
     window.removeEventListener('scroll', this.handleScrollState);
     window.removeEventListener('resize', this.handleResize);
   }
-
-  // componentDidUpdate() {
-  //   // this.handleScrollState();
-  // }
 
   setHeroImg(showHeroImg) {
     if (showHeroImg && !this.props.value.showHeroImg) {
@@ -78,8 +74,6 @@ export class EventListener extends Component {
 
     const obj = {};
 
-    //
-
     // HEROIMG
     obj.showHeroImg =
       scrollLength < (windowHeight + mobileMarginTopLength) * 0.7;
@@ -99,6 +93,9 @@ export class EventListener extends Component {
       obj.showFooterCenter = false;
     }
     // FOOTER RIGHT
+    console.log({ scrollLength });
+    console.log({ windowHeight });
+    console.log({ mobileMarginTopLength });
     obj.showFooterRight =
       scrollLength > (windowHeight + mobileMarginTopLength) * 0.7;
     if (!isMobile) {
@@ -121,7 +118,7 @@ export class EventListener extends Component {
 
   handleResize = event => {
     const obj = this.calcShowStates();
-    console.log('hit');
+
     this.props.value.updateIsMobile();
     this.setHeroImg(obj.showHeroImg);
     this.setFooterLeft(obj.showFooterLeft);
@@ -134,4 +131,4 @@ export class EventListener extends Component {
   }
 }
 
-export default EventListener;
+export default ListenerLogic;

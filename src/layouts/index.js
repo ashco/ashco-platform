@@ -3,12 +3,11 @@ import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 
-// import { MenuContextProvider } from '../components/Context/MenuContext';
 import {
   VisualContextProvider,
   VisualContextConsumer,
 } from '../components/Context/VisualContext';
-import { theme } from '../config/theme';
+import { theme } from '../config/config';
 
 import Header from '../components/Header/header';
 import Footer from '../components/Footer/Footer';
@@ -16,7 +15,7 @@ import '../style/index.css';
 
 import HeroImg from '../components/HeroImg';
 import ParticleBG from '../components/ParticleBG';
-import EventListener from '../components/EventListener';
+import ListenerLogic from '../components/ListenerLogic';
 import Main from '../components/Main';
 
 class Layout extends Component {
@@ -46,7 +45,7 @@ class Layout extends Component {
                   <html lang="en" />
                 </Helmet>
                 <VisualContextConsumer>
-                  {value => <EventListener value={value} />}
+                  {value => <ListenerLogic value={value} />}
                 </VisualContextConsumer>
                 <ParticleBG />
                 <Header pathname={location.pathname} />

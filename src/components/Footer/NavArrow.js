@@ -2,24 +2,26 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import ArrowDown from '../Icons/ArrowDown';
 
-import { VisualContextConsumer } from '../Context/VisualContext';
-
 class NavArrow extends Component {
+  handleClick = () => {
+    this.props.toggleMenu(false);
+    if (typeof window !== `undefined`) {
+      const scrollLength = window.innerHeight;
+      window.scrollTo({ top: scrollLength, behavior: 'smooth' });
+    }
+  };
+
   render() {
     return (
-      <VisualContextConsumer>
-        {({ toggleMenu }) => (
-          <NavArrowStyle
-            className="animated bounce delay-10s infinite"
-            onClick={toggleMenu.bind(null, false)}
-            aria-hidden="true"
-          >
-            <div className="fade-in">
-              <ArrowDown />
-            </div>
-          </NavArrowStyle>
-        )}
-      </VisualContextConsumer>
+      <NavArrowStyle
+        className="animated bounce delay-10s infinite"
+        onClick={this.handleClick}
+        aria-hidden="true"
+      >
+        <div className="fade-in">
+          <ArrowDown />
+        </div>
+      </NavArrowStyle>
     );
   }
 }

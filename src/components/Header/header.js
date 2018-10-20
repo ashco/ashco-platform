@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { media } from '../../config/media';
+import { media } from '../../config/config';
 
 import { VisualContextConsumer } from '../Context/VisualContext';
 // import { MenuContextConsumer } from '../Context/MenuContext';
@@ -67,6 +67,11 @@ const HeaderWrapper = styled.header`
   pointer-events: none;
   width: 100%;
   z-index: 5;
+  ${media.laptop`
+    width: 84vw;
+    margin-left: 8vw;
+    margin-right: 8vw;
+  `};
 `;
 
 const HeaderContainer = styled.nav`
@@ -77,7 +82,7 @@ const HeaderContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
-  height: ${props => props.theme.mobileHeaderHeight};
+  height: 140px;
   ${media.tablet`
     height: 13vh;
   `};

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media } from '../../config/media';
+import { media } from '../../config/config';
 
 import FooterLeft from './FooterLeft';
 import FooterCenter from './FooterCenter';
@@ -17,10 +17,16 @@ const Footer = () => (
       handleFooterRight,
       isMobile,
       isHome,
+      toggleMenu,
     }) => (
       <FooterWrapper>
         <FooterLeft showFooterLeft={showFooterLeft} />
-        {isHome && <FooterCenter showFooterCenter={showFooterCenter} />}
+        {isHome && (
+          <FooterCenter
+            showFooterCenter={showFooterCenter}
+            toggleMenu={toggleMenu}
+          />
+        )}
         <FooterRight
           showFooterRight={showFooterRight}
           handleFooterRight={handleFooterRight}
@@ -49,6 +55,11 @@ const FooterWrapper = styled.footer`
   ${media.tablet`
     flex-direction: row;
     align-items: flex-end;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    width: 90vw;
+  `};
+  ${media.laptop`
     margin-left: 8vw;
     margin-right: 8vw;
     width: 84vw;
