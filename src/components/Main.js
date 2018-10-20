@@ -4,20 +4,23 @@ import styled from 'styled-components';
 import { sizes, media } from '../config/config';
 
 class Main extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     height: null,
-  //   };
-  // }
-  // componentDidMount() {
-  //   const marginTop = this.mainElement.getBoundingClientRect().top;
-  //   const marginBottom = this.mainElement.getBoundingClientRect().bottom;
-  //   const elHeight = this.mainElement.clientHeight;
-  //   const height = marginTop + elHeight + marginBottom;
+  constructor(props) {
+    super(props);
+    this.state = {
+      height: null,
+    };
+    this.mainEl = React.createRef();
+  }
+  componentDidMount() {
+    const mainElHeight = this.mainEl.current.offsetHeight;
+    console.log(mainElHeight);
+    //   const marginTop = this.mainElement.getBoundingClientRect().top;
+    //   const marginBottom = this.mainElement.getBoundingClientRect().bottom;
+    //   const elHeight = this.mainElement.clientHeight;
+    //   const height = marginTop + elHeight + marginBottom;
 
-  //   this.setState({ height });
-  // }
+    //   this.setState({ height });
+  }
 
   render() {
     // Calculate top margin
@@ -36,12 +39,7 @@ class Main extends Component {
     }
 
     return (
-      <MainWrapper
-        // ref={mainElement => {
-        //   this.mainElement = mainElement;
-        // }}
-        marginTop={marginTop}
-      >
+      <MainWrapper ref={this.mainEl} marginTop={marginTop}>
         {children}
       </MainWrapper>
     );
@@ -63,13 +61,15 @@ const MainWrapper = styled.main`
   position: absolute;
   overflow-y: scroll;
   width: 100vw;
-  height: 530px;
-  min-height: 77vh;
+  /* height: 530px; */
+  /* min-height: 77vh; */
+  min-height: calc(100vh - 140px - 140px);
   /* top: 100vh; */
   margin: 0 auto 240px auto;
   margin-top: ${props => props.marginTop};
   @media (min-width: ${sizes.tablet}px) {
     /* margin: 113vh auto 10vh auto; */
+    min-height: calc(100vh - (${props => props.marginTop}) - 10vh);
     margin: 0 auto 10vh auto;
     margin-top: ${props => props.marginTop};
   }

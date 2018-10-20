@@ -70,7 +70,6 @@ export class ListenerLogic extends Component {
     let bodyLength = 600;
     if (typeof document !== 'undefined') {
       // bodyLength = document.getElementById('body').offsetHeight;
-      console.log(document.getElementById('body'));
     }
     const marginBottomLength = 240;
     // const extraMobileMenuMargin = 300;
@@ -89,7 +88,7 @@ export class ListenerLogic extends Component {
       showFooterRight: false,
     };
 
-    console.log({ bottomScreenPoint });
+    // console.log({ bottomScreenPoint });
 
     // MOBILE
     if (isMobile) {
@@ -103,8 +102,8 @@ export class ListenerLogic extends Component {
       // FOOTER RIGHT
       // if () {
 
-      console.log({ scrollLength });
-      console.log({ windowHeight });
+      // console.log({ scrollLength });
+      // console.log({ windowHeight });
       obj.showFooterLeft = true;
       obj.showFooterRight = true;
       // }

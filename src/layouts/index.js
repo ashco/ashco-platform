@@ -55,7 +55,6 @@ class Layout extends Component {
                 <VisualContextConsumer>
                   {({ isHome, isMobile, menuOpen }) => (
                     <Main
-                      className="body"
                       isHome={isHome}
                       isMobile={isMobile}
                       menuOpen={menuOpen}
