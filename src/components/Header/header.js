@@ -54,7 +54,7 @@ const NavLinkItem = ({ to, title }) => (
   <VisualContextConsumer>
     {({ toggleMenu }) => (
       <NavLinkItemWrapper>
-        <Link to={to} onClick={toggleMenu.bind(null, 'close')}>
+        <Link to={to} onClick={toggleMenu.bind(null, false)}>
           {title}
         </Link>
       </NavLinkItemWrapper>

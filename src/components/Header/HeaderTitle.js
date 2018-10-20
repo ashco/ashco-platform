@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 
-import AshCoIcon from '../Icons/AshCo';
+import AshCoIcon from '../Icons/AshCo_v2';
 
 const HeaderTitle = ({ pathname, toggleMenu }) => {
   let pageTitle = pathname.split('/')[1];
@@ -14,7 +14,7 @@ const HeaderTitle = ({ pathname, toggleMenu }) => {
       <Link
         to="/"
         aria-label="hero-screen"
-        onClick={toggleMenu.bind(null, 'open')}
+        onClick={toggleMenu.bind(null, true)}
       >
         <AshCoIcon />
       </Link>
@@ -50,7 +50,7 @@ const HeaderTitleWrapper = styled.h1`
   ${media.laptop`
     font-size: 3rem;
     svg {
-      height: 10.5vh;
+      height: 8.5vh;
     }
   `}
   /* ${media.hd`

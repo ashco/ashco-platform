@@ -3,7 +3,7 @@ import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
 // Component runs event listeners and runs update fncs when events trigger
-export class Listener extends Component {
+export class EventListener extends Component {
   componentDidMount() {
     window.addEventListener('scroll', throttle(this.handleScrollState, 100));
     window.addEventListener('resize', debounce(this.handleResize, 100));
@@ -134,4 +134,4 @@ export class Listener extends Component {
   }
 }
 
-export default Listener;
+export default EventListener;

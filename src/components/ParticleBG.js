@@ -5,7 +5,7 @@ import { withTheme } from 'styled-components';
 import isEqual from 'lodash.isequal';
 
 class ParticleBG extends Component {
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     return !isEqual(nextProps, this.props);
   }
 
