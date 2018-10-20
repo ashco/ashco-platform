@@ -16,7 +16,7 @@ import '../style/index.css';
 
 import HeroImg from '../components/HeroImg';
 import ParticleBG from '../components/ParticleBG';
-import Listener from '../components/Listener';
+import EventListener from '../components/EventListener';
 import Main from '../components/Main';
 
 class Layout extends Component {
@@ -46,7 +46,7 @@ class Layout extends Component {
                   <html lang="en" />
                 </Helmet>
                 <VisualContextConsumer>
-                  {value => <Listener value={value} />}
+                  {value => <EventListener value={value} />}
                 </VisualContextConsumer>
                 <ParticleBG />
                 <Header pathname={location.pathname} />

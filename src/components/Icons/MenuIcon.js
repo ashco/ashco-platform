@@ -6,7 +6,7 @@ const MenuIcon = () => (
   <VisualContextConsumer>
     {({ menuOpen, toggleMenu }) => (
       <MenuIconWrapper
-        onClick={toggleMenu}
+        onClick={toggleMenu.bind(null, !menuOpen)}
         id="menu-icon"
         className={menuOpen && 'open'}
       >
