@@ -57,8 +57,8 @@ class Main extends Component {
 // };
 
 const MainWrapper = styled.main`
-  border-top: 7px solid ${props => props.theme.colorPrimary}80;
-  border-bottom: 7px solid ${props => props.theme.colorPrimary}80;
+  border-top: 7px solid ${props => props.theme.colorPrimary}90;
+  border-bottom: 7px solid ${props => props.theme.colorPrimary}90;
   z-index: 10;
   pointer-events: none;
   position: absolute;
@@ -79,7 +79,7 @@ const MainWrapper = styled.main`
     margin-left: 8vw;
     margin-right: 8vw;
     width: 84vw;
-    border: 7px solid ${props => props.theme.colorPrimary}80;
+    border: 7px solid ${props => props.theme.colorPrimary}90;
   }
   ${media.hd`
     margin-left: 15vw;

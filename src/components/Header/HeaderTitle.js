@@ -50,7 +50,7 @@ const HeaderTitleWrapper = styled.h1`
   ${media.laptop`
     font-size: 3rem;
     svg {
-      height: 8.5vh;
+      height: 8vh;
     }
   `}
   /* ${media.hd`
