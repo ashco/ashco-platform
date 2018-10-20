@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 
-import AshCoIcon from '../Icons/AshCo_v2';
+import AshCoIcon from '../Icons/AshCo';
 
 const HeaderTitle = ({ pathname, toggleMenu }) => {
   let pageTitle = pathname.split('/')[1];
