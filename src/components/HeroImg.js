@@ -73,6 +73,7 @@ const TitlePeriod = styled.span`
 // `;
 
 const HeroTextWrapper = styled.div`
+  user-select: none;
   pointer-events: none;
   position: fixed;
   z-index: -5;

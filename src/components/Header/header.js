@@ -113,6 +113,7 @@ const NavLinksWrapper = styled.div`
 `;
 
 const NavLinkItemWrapper = styled.li`
+  user-select: none;
   margin: 0.9rem;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;

@@ -204,7 +204,7 @@ a {
   animation-iteration-count: infinite;
 }
 
-.animated.delay-7s {
+.animated.delay-10s {
   -webkit-animation-delay: 10s;
   animation-delay: 10s;
 }
