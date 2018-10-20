@@ -10,11 +10,17 @@ import TwitterIcon from '../Icons/Twitter';
 import ResumeIcon from '../Icons/Resume';
 
 class FooterRight extends Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     if (this.props.isMobile) {
       this.props.handleFooterRight(false);
     }
   }
+  // componentWillMount() {
+  //   if (this.props.isMobile) {
+  //     this.props.handleFooterRight(false);
+  //   }
+  // }
 
   render() {
     const { showFooterRight, isMobile } = this.props;

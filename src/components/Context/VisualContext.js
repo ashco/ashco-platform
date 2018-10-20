@@ -8,9 +8,16 @@ export class VisualContextProvider extends React.Component {
   constructor(props) {
     super(props);
 
+    let isMobile;
+    if (typeof window !== `undefined`) {
+      isMobile = window.innerWidth <= sizes.tablet;
+    }
+
+    const isHome = this.props.pathname === '/';
+
     this.state = {
-      isMobile: false,
-      isHome: true,
+      isMobile,
+      isHome,
       menuOpen: true,
       showHeroImg: false,
       showFooterLeft: false,
@@ -68,11 +75,6 @@ export class VisualContextProvider extends React.Component {
       showFooterRight,
     });
   };
-
-  componentWillMount() {
-    this.updateIsMobile();
-    this.updateIsHome();
-  }
 
   componentDidUpdate(prevProps) {
     if (prevProps.pathname !== this.props.pathname) {
