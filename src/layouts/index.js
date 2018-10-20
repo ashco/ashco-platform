@@ -45,7 +45,9 @@ class Layout extends Component {
                   <html lang="en" />
                 </Helmet>
                 <VisualContextConsumer>
-                  {value => <ListenerLogic value={value} />}
+                  {value => (
+                    <ListenerLogic value={value} pathname={location.pathname} />
+                  )}
                 </VisualContextConsumer>
                 <ParticleBG />
                 <Header pathname={location.pathname} />
@@ -53,6 +55,7 @@ class Layout extends Component {
                 <VisualContextConsumer>
                   {({ isHome, isMobile, menuOpen }) => (
                     <Main
+                      className="body"
                       isHome={isHome}
                       isMobile={isMobile}
                       menuOpen={menuOpen}

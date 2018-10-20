@@ -8,21 +8,24 @@ class HeroImg extends Component {
   render() {
     return (
       <VisualContextConsumer>
-        {({ showHeroImg, isMobile, isHome }) =>
-          showHeroImg && (
-            <HeroTextWrapper isHome={isHome}>
-              {/* <AnimationLine /> */}
-              <FirstText>Welcome</FirstText>
-              <SecondText>To</SecondText>
-              <TitleLine />
-              <TitleText>
-                AshCo
-                <TitlePeriod isMobile={isMobile}>.</TitlePeriod>
-                io
-              </TitleText>
-            </HeroTextWrapper>
-          )
-        }
+        {({ showHeroImg, isMobile, isHome }) => {
+          // console.log({ showHeroImg });
+          return (
+            showHeroImg && (
+              <HeroTextWrapper isHome={isHome}>
+                {/* <AnimationLine /> */}
+                <FirstText>Welcome</FirstText>
+                <SecondText>To</SecondText>
+                <TitleLine />
+                <TitleText>
+                  AshCo
+                  <StrobeWrapper>.</StrobeWrapper>
+                  io
+                </TitleText>
+              </HeroTextWrapper>
+            )
+          );
+        }}
       </VisualContextConsumer>
     );
   }
@@ -41,7 +44,7 @@ const pulse = keyframes`
   }
 `;
 
-const TitlePeriod = styled.span`
+const StrobeWrapper = styled.span`
   color: ${props => props.theme.colorPrimary};
   /* animation-name: ${props => !props.isMobile && pulse}; */
   animation-name: ${pulse};

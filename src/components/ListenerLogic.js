@@ -66,69 +66,129 @@ export class ListenerLogic extends Component {
       windowHeight = window.innerHeight;
     }
     const mobileMarginTopLength = 140;
-    // const marginBottomLength = 300;
+    // const bodyBorderLength = 7;
+    let bodyLength = 600;
+    if (typeof document !== 'undefined') {
+      // bodyLength = document.getElementById('body').offsetHeight;
+      console.log(document.getElementById('body'));
+    }
+    const marginBottomLength = 240;
     // const extraMobileMenuMargin = 300;
+    const midScreenPoint = (windowHeight + mobileMarginTopLength) * 0.7;
+    const bottomScreenPoint =
+      mobileMarginTopLength +
+      // bodyBorderLength * 2 +
+      bodyLength +
+      marginBottomLength -
+      windowHeight;
 
-    // console.log({ scrollLength });
-    // console.log({ windowHeight });
+    const obj = {
+      showHeroImg: false,
+      showFooterLeft: false,
+      showFooterCenter: false,
+      showFooterRight: false,
+    };
 
-    const obj = {};
+    console.log({ bottomScreenPoint });
 
-    // HEROIMG
-    obj.showHeroImg =
-      scrollLength < (windowHeight + mobileMarginTopLength) * 0.7;
-    if (!isMobile && isHome) {
-      obj.showHeroImg = true;
-    } else if (!isMobile && !isHome) {
-      obj.showHeroImg = false;
-    }
-    // FOOTER LEFT
-    obj.showFooterLeft = windowHeight - scrollLength <= 0;
-    if (!isHome && !isMobile) {
-      obj.showFooterLeft = true;
-    }
-    // FOOTER CENTER
-    obj.showFooterCenter = scrollLength > 0;
-    if (!isHome) {
-      obj.showFooterCenter = false;
-    }
-    // FOOTER RIGHT
-    // console.log({ scrollLength });
-    const midPagePoint = (windowHeight + mobileMarginTopLength) * 0.7;
-    // console.log(midPagePoint);
-    // console.log(scrollLength);
-
+    // MOBILE
     if (isMobile) {
-      obj.showFooterRight = scrollLength > midPagePoint;
+      // HEROIMG
+      if (!isHome) {
+        obj.showHeroImg = true;
+      } else {
+        obj.showHeroImg = scrollLength < midScreenPoint;
+      }
+      // FOOTER LEFT
+      // FOOTER RIGHT
+      // if () {
+
+      console.log({ scrollLength });
+      console.log({ windowHeight });
+      obj.showFooterLeft = true;
+      obj.showFooterRight = true;
+      // }
+      // DEFAULT
     } else {
+      // HEROIMG
+      if (isHome) {
+        obj.showHeroImg = true;
+      }
+      // FOOTER LEFT
+      if (isHome) {
+        obj.showFooterLeft = windowHeight - scrollLength <= 0;
+      } else {
+        obj.showFooterLeft = true;
+      }
+      // FOOTER RIGHT
       obj.showFooterRight = true;
     }
-    // console.log(obj.showFooterRight);
 
+    // FOOTER CENTER - ALL SIZES
+    if (isHome) {
+      obj.showFooterCenter = scrollLength <= 100;
+      console.log(obj.showFooterCenter);
+    }
+    // DEFAULT
+
+    // HEROIMG
+    // obj.showHeroImg = scrollLength < midScreenPoint;
+    // if (!isMobile && isHome) {
+    //   obj.showHeroImg = true;
+    // } else if (!isMobile && !isHome) {
+    //   obj.showHeroImg = false;
     // }
+
+    // // FOOTER LEFT
+    // obj.showFooterLeft = windowHeight - scrollLength <= 0;
+    // if (!isHome && !isMobile) {
+    //   obj.showFooterLeft = true;
+    // }
+    // // FOOTER CENTER
+    // obj.showFooterCenter = scrollLength > 0;
+    // if (!isHome) {
+    //   obj.showFooterCenter = false;
+    // }
+    // // FOOTER RIGHT
+    // const midPagePoint = (windowHeight + mobileMarginTopLength) * 0.7;
+
+    // if (isMobile) {
+    //   obj.showFooterRight = scrollLength > midPagePoint;
+    // } else {
+    //   obj.showFooterRight = true;
+    // }
+    // console.log(obj);
     return obj;
   }
 
-  handleScrollState = event => {
+  handleScrollState = () => {
     const obj = this.calcShowStates();
 
     this.setHeroImg(obj.showHeroImg);
     this.setFooterLeft(obj.showFooterLeft);
-    this.setFooterCenter(!obj.showFooterCenter);
+    this.setFooterCenter(obj.showFooterCenter);
     this.setFooterRight(obj.showFooterRight);
   };
 
-  handleResize = event => {
+  handleResize = () => {
     const obj = this.calcShowStates();
-
-    console.log('hihihi');
 
     this.props.value.updateIsMobile();
     this.setHeroImg(obj.showHeroImg);
     this.setFooterLeft(obj.showFooterLeft);
-    // this.setFooterCenter(!obj.showFooterCenter);
+    this.setFooterCenter(obj.showFooterCenter);
     this.setFooterRight(obj.showFooterRight);
   };
+
+  componentDidUpdate() {
+    const obj = this.calcShowStates();
+
+    this.props.value.updateIsMobile();
+    this.setHeroImg(obj.showHeroImg);
+    this.setFooterLeft(obj.showFooterLeft);
+    this.setFooterCenter(!obj.showFooterCenter);
+    this.setFooterRight(obj.showFooterRight);
+  }
 
   render() {
     return <div />;
