@@ -58,7 +58,7 @@ const IndexPage = () => (
     `}
     render={data => (
       <MainContainer>
-        <AnchorPoint id="home" isMobile={isMobile} />
+        <AnchorPoint id="home" />
         <ContentWrapper width="990px">
           <About />
           <Portfolio projects={data.allContentfulPortfolioProject.edges} />
