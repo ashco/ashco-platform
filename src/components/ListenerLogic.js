@@ -61,25 +61,17 @@ export class ListenerLogic extends Component {
 
     let scrollLength;
     let windowHeight;
+    let bodyLength = 600;
+    const mobileMarginTopLength = 140;
     if (typeof window !== `undefined`) {
       scrollLength = window.pageYOffset;
       windowHeight = window.innerHeight;
     }
-    const mobileMarginTopLength = 140;
-    // const bodyBorderLength = 7;
-    let bodyLength = 600;
     if (typeof document !== 'undefined') {
-      // bodyLength = document.getElementById('body').offsetHeight;
+      bodyLength = document.documentElement.scrollHeight;
     }
-    const marginBottomLength = 240;
-    // const extraMobileMenuMargin = 300;
     const midScreenPoint = (windowHeight + mobileMarginTopLength) * 0.7;
-    const bottomScreenPoint =
-      mobileMarginTopLength +
-      // bodyBorderLength * 2 +
-      bodyLength +
-      marginBottomLength -
-      windowHeight;
+    const bottomScreenPoint = bodyLength === scrollLength + windowHeight;
 
     const obj = {
       showHeroImg: false,
@@ -87,8 +79,6 @@ export class ListenerLogic extends Component {
       showFooterCenter: false,
       showFooterRight: false,
     };
-
-    // console.log({ bottomScreenPoint });
 
     // MOBILE
     if (isMobile) {
@@ -100,13 +90,10 @@ export class ListenerLogic extends Component {
       }
       // FOOTER LEFT
       // FOOTER RIGHT
-      // if () {
-
-      // console.log({ scrollLength });
-      // console.log({ windowHeight });
-      obj.showFooterLeft = true;
-      obj.showFooterRight = true;
-      // }
+      if (bottomScreenPoint) {
+        obj.showFooterLeft = true;
+        obj.showFooterRight = true;
+      }
       // DEFAULT
     } else {
       // HEROIMG
@@ -114,49 +101,22 @@ export class ListenerLogic extends Component {
         obj.showHeroImg = true;
       }
       // FOOTER LEFT
-      if (isHome) {
-        obj.showFooterLeft = windowHeight - scrollLength <= 0;
-      } else {
+      if (bottomScreenPoint) {
         obj.showFooterLeft = true;
       }
       // FOOTER RIGHT
-      obj.showFooterRight = true;
+      if (isHome) {
+        obj.showFooterRight = true;
+        // } else {
+        //   console.log({ bottomScreenPoint });
+        //   obj.showFooterRight = bottomScreenPoint ? true : false;
+        // }
+      }
     }
-
     // FOOTER CENTER - ALL SIZES
     if (isHome) {
       obj.showFooterCenter = scrollLength <= 100;
-      console.log(obj.showFooterCenter);
     }
-    // DEFAULT
-
-    // HEROIMG
-    // obj.showHeroImg = scrollLength < midScreenPoint;
-    // if (!isMobile && isHome) {
-    //   obj.showHeroImg = true;
-    // } else if (!isMobile && !isHome) {
-    //   obj.showHeroImg = false;
-    // }
-
-    // // FOOTER LEFT
-    // obj.showFooterLeft = windowHeight - scrollLength <= 0;
-    // if (!isHome && !isMobile) {
-    //   obj.showFooterLeft = true;
-    // }
-    // // FOOTER CENTER
-    // obj.showFooterCenter = scrollLength > 0;
-    // if (!isHome) {
-    //   obj.showFooterCenter = false;
-    // }
-    // // FOOTER RIGHT
-    // const midPagePoint = (windowHeight + mobileMarginTopLength) * 0.7;
-
-    // if (isMobile) {
-    //   obj.showFooterRight = scrollLength > midPagePoint;
-    // } else {
-    //   obj.showFooterRight = true;
-    // }
-    // console.log(obj);
     return obj;
   }
 

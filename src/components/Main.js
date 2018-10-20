@@ -13,7 +13,8 @@ class Main extends Component {
   }
   componentDidMount() {
     const mainElHeight = this.mainEl.current.offsetHeight;
-    console.log(mainElHeight);
+    // console.log(mainElHeight);
+    this.props.updateMainElHeight(mainElHeight);
     //   const marginTop = this.mainElement.getBoundingClientRect().top;
     //   const marginBottom = this.mainElement.getBoundingClientRect().bottom;
     //   const elHeight = this.mainElement.clientHeight;
@@ -65,7 +66,8 @@ const MainWrapper = styled.main`
   /* min-height: 77vh; */
   min-height: calc(100vh - 140px - 140px);
   /* top: 100vh; */
-  margin: 0 auto 240px auto;
+  /* margin: 0 auto 240px auto; */
+  margin: 0 auto 220px auto;
   margin-top: ${props => props.marginTop};
   @media (min-width: ${sizes.tablet}px) {
     /* margin: 113vh auto 10vh auto; */
