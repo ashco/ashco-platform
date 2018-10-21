@@ -10,7 +10,7 @@ export const MainContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   height: 100%;
-  background-color: ${props => props.theme.colorBackground};
+
   /* @media (min-width: ${props => props.theme.widthDesktop}) { */
   ${media.tablet`
     box-shadow: 0px 0px 60px -25px inset ${props => props.theme.colorPrimary};

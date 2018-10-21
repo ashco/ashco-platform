@@ -5,15 +5,12 @@ import { media } from '../../config/config';
 import NavArrow from './NavArrow';
 
 const FooterCenter = ({ showFooterCenter, toggleMenu }) => {
-  // console.log(introWait);
-  // setTimeout(() => {
-  //   timeout = true;
-  //   console.log(object)
-  // }, 4000);
-
+  console.log(showFooterCenter);
   return (
-    <FooterCenterWrapper>
-      {showFooterCenter && <NavArrow toggleMenu={toggleMenu} />}
+    <FooterCenterWrapper
+      className={showFooterCenter ? 'visible-fade' : 'hidden-fade'}
+    >
+      <NavArrow toggleMenu={toggleMenu} />
     </FooterCenterWrapper>
   );
 };

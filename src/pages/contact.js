@@ -123,7 +123,7 @@ const Button = styled.button`
   padding: 0.5rem 1rem 0.5rem 1rem;
   background-color: ${props => props.theme.colorBackground};
   border-radius: 3px;
-  color: ${props => props.theme.colorText};
+  color: ${props => (props.disabled ? '#88888890' : props.theme.colorText)};
   font-size: 1.1rem;
   border: 3px solid
     ${props => (props.disabled ? '#888888' : props.theme.colorPrimary)}90;
