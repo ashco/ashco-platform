@@ -42,13 +42,11 @@ class ContactPage extends Component {
 
   render() {
     return (
-      <MainContainer width="600px">
-        <TextWrapper>
-          <SectionTitle>Wanna chat?</SectionTitle>
-          <p>
-            Fill out this form and I'll get back to you soon as life lets me.
-          </p>
-        </TextWrapper>
+      <ContactWrapper>
+        {/* <TextWrapper> */}
+        <SectionTitle>Wanna chat?</SectionTitle>
+        <p>Fill out this form and I'll get back to you soon as life lets me.</p>
+        {/* </TextWrapper> */}
         <FormWrapper
           onSubmit={this.validateForm}
           name="contact"
@@ -91,17 +89,22 @@ class ContactPage extends Component {
             </Button>
           </div>
         </FormWrapper>
-      </MainContainer>
+      </ContactWrapper>
     );
   }
 }
 
-const TextWrapper = styled.div`
-  margin: 2em 0;
+const ContactWrapper = styled(MainContainer)`
+  max-width: 600px;
 `;
 
+// const TextWrapper = styled.div`
+//   margin: 2em 0;
+// `;
+
 const FormWrapper = styled.form`
-  margin: auto;
+  margin-top: 0.75rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   > p {
@@ -111,16 +114,6 @@ const FormWrapper = styled.form`
     color: ${props => props.theme.colorText};
     padding-bottom: 0.5rem;
   }
-`;
-
-const Button = styled.button`
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  background-color: ${props => props.theme.colorBackground};
-  border-radius: 3px;
-  color: ${props => (props.disabled ? '#88888890' : props.theme.colorText)};
-  font-size: 1.1rem;
-  border: 3px solid
-    ${props => (props.disabled ? '#888888' : props.theme.colorPrimary)}90;
 `;
 
 const FormInputWrapper = styled.p`
@@ -138,9 +131,19 @@ const FormInputWrapper = styled.p`
     border-radius: 3px;
   }
   textarea {
-    height: 8rem;
+    height: 10rem;
     resize: none;
   }
+`;
+
+const Button = styled.button`
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: ${props => props.theme.colorBackground};
+  border-radius: 3px;
+  color: ${props => (props.disabled ? '#88888890' : props.theme.colorText)};
+  font-size: 1.1rem;
+  border: 3px solid
+    ${props => (props.disabled ? '#888888' : props.theme.colorPrimary)}90;
 `;
 
 export default ContactPage;
