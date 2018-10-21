@@ -9,13 +9,17 @@ const BlogListing = ({ post }) => (
     <Link to={`blog/${post.slug}`}>
       <h3>{post.title}</h3>
       <p className="createdAt">{post.createdAt}</p>
-      <p>{post.body.childMarkdownRemark.excerpt}</p>
+      <p className="excerpt">{post.body.childMarkdownRemark.excerpt}</p>
     </Link>
   </BlogListingWrapper>
 );
 
 const BlogListingWrapper = styled.article`
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
+  padding: 0.3rem 0.5rem;
+  /* border-radius: 3px; */
+  border-left: 4px solid transparent;
+  /* border: 4px solid transparent; */
   a {
     color: ${props => props.theme.colorText};
     h3 {
@@ -27,18 +31,16 @@ const BlogListingWrapper = styled.article`
       font-weight: 300;
       font-size: 0.9rem;
     }
+    p.excerpt {
+      margin-bottom: 0;
+    }
   }
   /* ANIMATIONS */
-  box-shadow: none;
-  border-bottom: none;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  /* transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, */
-  /* transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s; */
+  /* transition: border 0.1s ease-in; */
+  transition: border-left 0.1s ease-in;
   &:hover {
-    box-shadow: rgba(140, 101, 179, 0.5) 0px 8px 20px;
-    color: rgb(102, 51, 153);
-    background: transparent;
-    transform: translateY(-3px);
+    border-left: 4px solid ${props => props.theme.colorPrimary}90;
+    /* border: 4px solid ${props => props.theme.colorPrimary}90; */
   }
 `;
 
