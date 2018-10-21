@@ -2,16 +2,24 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import { MainContainer, SectionTitle, Tag, TagContainer } from '../helpers';
+import {
+  MainContainer,
+  HeaderTextContainer,
+  SectionTitle,
+  Tag,
+  TagContainer,
+} from '../helpers';
 
 const BlogPage = ({ data }) => {
   if (!data) return null;
   const isHeroImage = data.contentfulBlogPost.heroImage;
   // const hasTags = data.contentfulBlogPost.tags;
-  console.log(data);
   return (
     <BlogPageWrapper>
       <SectionTitle>{data.contentfulBlogPost.title}</SectionTitle>
+      {/* <HeaderTextContainer>
+        <h2>{data.contentfulBlogPost.title}</h2>
+      </HeaderTextContainer> */}
       {isHeroImage && (
         <img
           src={data.contentfulBlogPost.heroImage.resize.src}
@@ -89,5 +97,3 @@ export const query = graphql`
     }
   }
 `;
-
-// export default BlogPage;

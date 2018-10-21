@@ -109,14 +109,10 @@ export class ListenerLogic extends Component {
       if (isHome) {
         obj.showFooterRight = true;
       } else if (bottomScreenPoint) {
-        console.log({ bottomScreenPoint });
         obj.showFooterRight = true;
-        //   obj.showFooterRight = bottomScreenPoint ? true : false;
-        // }
       }
     }
     // FOOTER CENTER - ALL SIZES
-    // console.log({ topScreenPoint });
     if (isHome) {
       obj.showFooterCenter = topScreenPoint;
     }

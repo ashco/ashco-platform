@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { MainContainer, SectionTitle } from '../components/helpers';
+import {
+  MainContainer,
+  SectionTitle,
+  HeaderTextContainer,
+} from '../components/helpers';
 
 // const ContactPage = () => {
 class ContactPage extends Component {
@@ -43,10 +47,14 @@ class ContactPage extends Component {
   render() {
     return (
       <ContactWrapper>
-        {/* <TextWrapper> */}
-        <SectionTitle>Wanna chat?</SectionTitle>
-        <p>Fill out this form and I'll get back to you soon as life lets me.</p>
-        {/* </TextWrapper> */}
+        {/* <SectionTitle>Wanna chat?</SectionTitle>
+        <p>Fill out this form and I'll get back to you soon as life lets me.</p> */}
+        <HeaderTextContainer>
+          <h2>Wanna chat?</h2>
+          <p>
+            Fill out this form and I'll get back to you soon as life lets me.
+          </p>
+        </HeaderTextContainer>
         <FormWrapper
           onSubmit={this.validateForm}
           name="contact"
@@ -95,7 +103,7 @@ class ContactPage extends Component {
 }
 
 const ContactWrapper = styled(MainContainer)`
-  max-width: 600px;
+  max-width: 660px;
 `;
 
 // const TextWrapper = styled.div`
@@ -103,7 +111,6 @@ const ContactWrapper = styled(MainContainer)`
 // `;
 
 const FormWrapper = styled.form`
-  margin-top: 0.75rem;
   width: 100%;
   display: flex;
   flex-direction: column;

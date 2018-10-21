@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import BlogListing from '../components/Blog/BlogListing';
-import { MainContainer } from '../components/helpers';
+import { MainContainer, HeaderTextContainer } from '../components/helpers';
 
 const BlogPage = () => (
   <StaticQuery
@@ -28,6 +28,10 @@ const BlogPage = () => (
     `}
     render={data => (
       <BlogWrapper>
+        {/* <HeaderTextContainer>
+          <h2>Sometimes I Write</h2>
+          <p>But I never said I was a good writer.</p>
+        </HeaderTextContainer> */}
         {data.allContentfulBlogPost.edges.map(({ node }) => (
           <BlogListing post={node} key={node.id} />
         ))}
@@ -38,7 +42,7 @@ const BlogPage = () => (
 
 const BlogWrapper = styled(MainContainer)`
   max-width: 660px;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
 `;
 
 export default BlogPage;
