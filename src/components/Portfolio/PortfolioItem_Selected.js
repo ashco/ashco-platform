@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Tag, TagContainer } from '../helpers';
+// import { Tag, TagContainer } from '../helpers';
 
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
@@ -12,13 +12,17 @@ const PortfolioItem_Selected = ({ project }) => (
     <PortfolioItem_SelectedTextContainer>
       <PortfolioItem_SelectedLeftContainer>
         {project.description.description}
-        <TagContainer>
+        {/* <TagContainer>
           {project.tags.map(tag => (
             <Tag key={tag}>{tag}</Tag>
           ))}
-        </TagContainer>
+        </TagContainer> */}
       </PortfolioItem_SelectedLeftContainer>
       <PortfolioItem_SelectedRightContainer>
+        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+          <GithubIcon />
+          <p>Github</p>
+        </a>
         <a
           href={project.liveSiteLink}
           target="_blank"
@@ -26,10 +30,6 @@ const PortfolioItem_Selected = ({ project }) => (
         >
           <DesktopIcon />
           <p>Live Site</p>
-        </a>
-        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-          <GithubIcon />
-          <p>Github</p>
         </a>
       </PortfolioItem_SelectedRightContainer>
     </PortfolioItem_SelectedTextContainer>
