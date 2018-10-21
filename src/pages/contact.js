@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import {
-  MainContainer,
+  DefaultContainer,
   SectionTitle,
   HeaderTextContainer,
 } from '../components/helpers';
@@ -102,7 +102,7 @@ class ContactPage extends Component {
   }
 }
 
-const ContactContainer = styled(MainContainer)`
+const ContactContainer = styled(DefaultContainer)`
   max-width: 660px;
 `;
 

@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../config/config';
 
-export const MainContainer = styled.div`
+export const DefaultContainer = styled.div`
   pointer-events: auto;
   display: flex;
   flex-direction: column;

@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import BlogListing from '../components/Blog/BlogListing';
-import { MainContainer, HeaderTextContainer } from '../components/helpers';
+import { DefaultContainer, HeaderTextContainer } from '../components/helpers';
 
 const BlogPage = () => (
   <StaticQuery
@@ -40,7 +40,7 @@ const BlogPage = () => (
   />
 );
 
-const BlogWrapper = styled(MainContainer)`
+const BlogWrapper = styled(DefaultContainer)`
   max-width: 660px;
   /* margin-top: 3rem; */
 `;

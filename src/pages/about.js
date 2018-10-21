@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 
-import { MainContainer } from '../components/helpers';
+import { DefaultContainer } from '../components/helpers';
 
 const About = () => {
   return (
@@ -34,7 +34,7 @@ const About = () => {
         }
       `}
       render={data => (
-        <MainContainer
+        <DefaultContainer
           width="1200px"
           style={{
             display: 'flex',
@@ -63,7 +63,7 @@ const About = () => {
               );
             })}
           </AboutSkillsContainer>
-        </MainContainer>
+        </DefaultContainer>
       )}
     />
   );

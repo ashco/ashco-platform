@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { MainContainer } from '../helpers';
+import { DefaultContainer } from '../helpers';
 
-export const PortfolioContainer = styled(MainContainer)`
+export const PortfolioContainer = styled(DefaultContainer)`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import {
-  MainContainer,
+  DefaultContainer,
   HeaderTextContainer,
   SectionTitle,
   Tag,
@@ -46,7 +46,7 @@ const BlogPage = ({ data }) => {
   );
 };
 
-const BlogPageWrapper = styled(MainContainer)`
+const BlogPageWrapper = styled(DefaultContainer)`
   max-width: 720px;
   img {
     width: 100%;

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PortfolioItem_Selected from './PortfolioItem_Selected';
 import PortfolioListing from './PortfolioItem';
 import { PortfolioContainer } from './PortfolioHelpers';
-// import { MainContainer } from '../helpers';
+// import { DefaultContainer } from '../helpers';
 import { graphql } from 'gatsby';
 
 class PortfolioPage_Selected extends Component {
@@ -11,14 +11,14 @@ class PortfolioPage_Selected extends Component {
     const { data } = this.props;
     if (!data) return null;
     return (
-      // <MainContainer>
+      // <DefaultContainer>
       <PortfolioContainer>
         <PortfolioItem_Selected project={data.contentfulPortfolioProject} />
         {data.allContentfulPortfolioProject.edges.map(({ node }) => (
           <PortfolioListing project={node} key={node.id} />
         ))}
       </PortfolioContainer>
-      // </MainContainer>
+      // </DefaultContainer>
     );
   }
 }

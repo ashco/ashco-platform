@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import AnchorPoint from '../components/AnchorPoint';
 import About from '../components/Main/AboutSection';
@@ -7,7 +8,7 @@ import Blog from '../components/Main/BlogSection';
 import Contact from '../components/Main/ContactSection';
 import { StaticQuery, graphql } from 'gatsby';
 
-import { MainContainer } from '../components/helpers';
+import { DefaultContainer } from '../components/helpers';
 
 const IndexPage = () => (
   <StaticQuery
@@ -67,5 +68,9 @@ const IndexPage = () => (
     )}
   />
 );
+
+const MainContainer = styled(DefaultContainer)`
+  /* height: 77vh; */
+`;
 
 export default IndexPage;
