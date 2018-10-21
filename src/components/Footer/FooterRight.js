@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { media } from '../../config/media';
+import { media } from '../../config/config';
 
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
@@ -10,16 +10,22 @@ import TwitterIcon from '../Icons/Twitter';
 import ResumeIcon from '../Icons/Resume';
 
 class FooterRight extends Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     if (this.props.isMobile) {
       this.props.handleFooterRight(false);
     }
   }
+  // componentWillMount() {
+  //   if (this.props.isMobile) {
+  //     this.props.handleFooterRight(false);
+  //   }
+  // }
 
   render() {
     const { showFooterRight, isMobile } = this.props;
     return (
-      <FooterRightWrapper className={!showFooterRight && isMobile && 'hidden'}>
+      <FooterRightWrapper className={!showFooterRight && 'hidden'}>
         <ul>
           <li>
             <OutboundLink

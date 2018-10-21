@@ -3,10 +3,10 @@ import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
 // Component runs event listeners and runs update fncs when events trigger
-export class EventListener extends Component {
+export class ListenerLogic extends Component {
   componentDidMount() {
-    window.addEventListener('scroll', throttle(this.handleScrollState, 100));
-    window.addEventListener('resize', debounce(this.handleResize, 100));
+    window.addEventListener('scroll', throttle(this.handleScrollState, 200));
+    window.addEventListener('resize', debounce(this.handleResize, 200));
     this.handleScrollState();
     this.handleResize();
   }
@@ -15,10 +15,6 @@ export class EventListener extends Component {
     window.removeEventListener('scroll', this.handleScrollState);
     window.removeEventListener('resize', this.handleResize);
   }
-
-  // componentDidUpdate() {
-  //   // this.handleScrollState();
-  // }
 
   setHeroImg(showHeroImg) {
     if (showHeroImg && !this.props.value.showHeroImg) {
@@ -65,73 +61,99 @@ export class EventListener extends Component {
 
     let scrollLength;
     let windowHeight;
+    let bodyLength = 600;
+    const mobileMarginTopLength = 140;
     if (typeof window !== `undefined`) {
       scrollLength = window.pageYOffset;
       windowHeight = window.innerHeight;
     }
-    const mobileMarginTopLength = 140;
-    // const marginBottomLength = 300;
-    // const extraMobileMenuMargin = 300;
-
-    // console.log({ scrollLength });
-    // console.log({ windowHeight });
-
-    const obj = {};
-
-    //
-
-    // HEROIMG
-    obj.showHeroImg =
-      scrollLength < (windowHeight + mobileMarginTopLength) * 0.7;
-    if (!isMobile && isHome) {
-      obj.showHeroImg = true;
-    } else if (!isMobile && !isHome) {
-      obj.showHeroImg = false;
+    if (typeof document !== 'undefined') {
+      bodyLength = document.documentElement.scrollHeight;
     }
-    // FOOTER LEFT
-    obj.showFooterLeft = windowHeight - scrollLength <= 0;
-    if (!isHome && !isMobile) {
-      obj.showFooterLeft = true;
+    const topScreenPoint = scrollLength <= 100;
+    const midScreenPoint = (windowHeight + mobileMarginTopLength) * 0.7;
+    const bottomScreenPoint = bodyLength === scrollLength + windowHeight;
+
+    const obj = {
+      showHeroImg: false,
+      showFooterLeft: false,
+      showFooterCenter: false,
+      showFooterRight: false,
+    };
+
+    // MOBILE
+    if (isMobile) {
+      // HEROIMG
+      if (!isHome) {
+        obj.showHeroImg = true;
+      } else {
+        obj.showHeroImg = scrollLength < midScreenPoint;
+      }
+      // FOOTER LEFT
+      // FOOTER RIGHT
+      if (bottomScreenPoint) {
+        obj.showFooterLeft = true;
+        obj.showFooterRight = true;
+      }
+      // DEFAULT
+    } else {
+      // HEROIMG
+      if (isHome) {
+        obj.showHeroImg = true;
+      }
+      // FOOTER LEFT
+      if (bottomScreenPoint) {
+        obj.showFooterLeft = true;
+      }
+      // FOOTER RIGHT
+      if (isHome) {
+        obj.showFooterRight = true;
+        // } else {
+        //   console.log({ bottomScreenPoint });
+        //   obj.showFooterRight = bottomScreenPoint ? true : false;
+        // }
+      }
     }
-    // FOOTER CENTER
-    obj.showFooterCenter = scrollLength > 0;
-    if (!isHome) {
-      obj.showFooterCenter = false;
+    // FOOTER CENTER - ALL SIZES
+    // console.log({ topScreenPoint });
+    if (isHome) {
+      obj.showFooterCenter = topScreenPoint;
     }
-    // FOOTER RIGHT
-    obj.showFooterRight =
-      scrollLength > (windowHeight + mobileMarginTopLength) * 0.7;
-    if (!isMobile) {
-      obj.showFooterRight = true;
-    }
-    // } else if (isMobile && !isHome) {
-    //   showFooterRight = true;
-    // }
     return obj;
   }
 
-  handleScrollState = event => {
+  handleScrollState = () => {
     const obj = this.calcShowStates();
 
     this.setHeroImg(obj.showHeroImg);
     this.setFooterLeft(obj.showFooterLeft);
-    this.setFooterCenter(!obj.showFooterCenter);
+    this.setFooterCenter(obj.showFooterCenter);
     this.setFooterRight(obj.showFooterRight);
   };
 
-  handleResize = event => {
+  handleResize = () => {
     const obj = this.calcShowStates();
-    console.log('hit');
+
     this.props.value.updateIsMobile();
     this.setHeroImg(obj.showHeroImg);
     this.setFooterLeft(obj.showFooterLeft);
-    // this.setFooterCenter(!obj.showFooterCenter);
+    this.setFooterCenter(obj.showFooterCenter);
     this.setFooterRight(obj.showFooterRight);
   };
+
+  componentDidUpdate() {
+    const obj = this.calcShowStates();
+
+    this.props.value.updateIsMobile();
+    this.setHeroImg(obj.showHeroImg);
+    this.setFooterLeft(obj.showFooterLeft);
+    this.setFooterCenter(obj.showFooterCenter);
+    this.setFooterRight(obj.showFooterRight);
+  }
 
   render() {
     return <div />;
   }
 }
 
-export default EventListener;
+export default ListenerLogic;

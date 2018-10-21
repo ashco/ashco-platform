@@ -1,5 +1,6 @@
 import React from 'react';
 
+import AnchorPoint from '../components/AnchorPoint';
 import About from '../components/Main/AboutSection';
 import Portfolio from '../components/Main/PortfolioSection';
 import Blog from '../components/Main/BlogSection';
@@ -57,7 +58,8 @@ const IndexPage = () => (
     `}
     render={data => (
       <MainContainer>
-        <ContentWrapper width="990px" id="home">
+        <AnchorPoint id="home" />
+        <ContentWrapper width="990px">
           <About />
           <Portfolio projects={data.allContentfulPortfolioProject.edges} />
           <Blog posts={data.allContentfulBlogPost.edges} />

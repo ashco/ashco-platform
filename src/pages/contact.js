@@ -122,7 +122,7 @@ const FormWrapper = styled.form`
 const Button = styled.button`
   padding: 0.5rem 1rem 0.5rem 1rem;
   background-color: ${props => props.theme.colorBackground};
-  border-radius: ${props => props.theme.contactRadius};
+  border-radius: 3px;
   color: ${props => props.theme.colorText};
   font-size: 1.1rem;
   border: 3px solid
@@ -141,7 +141,7 @@ const FormInputWrapper = styled.p`
     padding-left: 4px;
     font-size: 16px;
     color: ${props => props.theme.colorText};
-    border-radius: ${props => props.theme.contactRadius};
+    border-radius: 3px;
   }
   textarea {
     height: 8rem;

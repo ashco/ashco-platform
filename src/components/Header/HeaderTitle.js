@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { media } from '../../config/media';
+import { media } from '../../config/config';
 
 import AshCoIcon from '../Icons/AshCo';
 
@@ -38,7 +38,7 @@ const HeaderTitleWrapper = styled.h1`
     pointer-events: auto;
   }
   span {
-    margin-left: 0.6rem;
+    margin-left: 0.8rem;
   }
 
   ${media.tablet`

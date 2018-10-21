@@ -1,6 +1,6 @@
 // HeroContext.js
 import React from 'react';
-import { sizes } from '../../config/media';
+import { sizes } from '../../config/config';
 
 const VisualContext = React.createContext();
 
@@ -8,14 +8,21 @@ export class VisualContextProvider extends React.Component {
   constructor(props) {
     super(props);
 
+    let isMobile;
+    if (typeof window !== `undefined`) {
+      isMobile = window.innerWidth <= sizes.tablet;
+    }
+
+    const isHome = this.props.pathname === '/';
+
     this.state = {
-      isMobile: false,
-      isHome: true,
+      isMobile,
+      isHome,
       menuOpen: true,
-      showHeroImg: true,
+      showHeroImg: false,
       showFooterLeft: false,
-      showFooterCenter: true,
-      showFooterRight: true,
+      showFooterCenter: false,
+      showFooterRight: false,
     };
   }
 
@@ -23,7 +30,6 @@ export class VisualContextProvider extends React.Component {
     if (typeof window !== `undefined`) {
       const isMobile = window.innerWidth <= sizes.tablet;
       if (isMobile !== this.state.isMobile) {
-        console.log(isMobile);
         this.setState({
           isMobile,
         });
@@ -41,19 +47,6 @@ export class VisualContextProvider extends React.Component {
   };
 
   toggleMenu = menuOpen => {
-    // if (menuState === 'open') {
-    //   this.setState({
-    //     menuOpen: true,
-    //   });
-    // } else if (menuState === 'close') {
-    //   this.setState({
-    //     menuOpen: false,
-    //   });
-    // } else {
-    //   this.setState({
-    //     menuOpen: !this.state.menuOpen,
-    //   });
-    // }
     this.setState({
       menuOpen,
     });
@@ -83,12 +76,8 @@ export class VisualContextProvider extends React.Component {
     });
   };
 
-  componentWillMount() {
-    this.updateIsMobile();
-    this.updateIsHome();
-  }
-
   componentDidUpdate(prevProps) {
+    // only run if path changes
     if (prevProps.pathname !== this.props.pathname) {
       this.updateIsHome();
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { media } from '../config/media';
+import { media } from '../config/config';
 
 export const MainContainer = styled.div`
   pointer-events: auto;
@@ -22,11 +22,9 @@ export const ContentWrapper = styled.div`
   max-width: ${props => (props.width ? props.width : '990px')};
   width: 90%;
   margin: 0px auto;
-  /* @media (min-width: ${props => props.theme.widthTablet}) { */
   ${media.tablet`
     margin-top: 2.5rem;
-  `}
-  /* } */
+  `};
 `;
 
 export const PageLink = ({ to, text }) => (
