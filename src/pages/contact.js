@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import {
-  MainContainer,
-  ContentWrapper,
-  MainTitle,
-} from '../components/helpers';
+import { MainContainer, SectionTitle } from '../components/helpers';
 
 // const ContactPage = () => {
 class ContactPage extends Component {
@@ -46,57 +42,55 @@ class ContactPage extends Component {
 
   render() {
     return (
-      <MainContainer>
-        <ContentWrapper width="600px">
-          <TextWrapper>
-            <MainTitle>Wanna chat?</MainTitle>
-            <p>
-              Fill out this form and I'll get back to you soon as life lets me.
-            </p>
-          </TextWrapper>
-          <FormWrapper
-            onSubmit={this.validateForm}
-            name="contact"
-            method="post"
-            action="/thanks"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" />
-            <FormInputWrapper>
-              <label htmlFor="name">Your name:</label>
-              <input
-                type="text"
-                name="name"
-                value={this.state.name}
-                onChange={this.handleChange}
-              />
-            </FormInputWrapper>
-            <FormInputWrapper>
-              <label htmlFor="email">Your email:</label>
-              <input
-                type="email"
-                name="email"
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-            </FormInputWrapper>
-            <FormInputWrapper>
-              <label htmlFor="message">Your message:</label>
-              <textarea
-                name="message"
-                value={this.state.message}
-                onChange={this.handleChange}
-              />
-            </FormInputWrapper>
-            <div>
-              <Button type="submit" disabled={this.state.disabled}>
-                Send
-              </Button>
-            </div>
-          </FormWrapper>
-        </ContentWrapper>
+      <MainContainer width="600px">
+        <TextWrapper>
+          <SectionTitle>Wanna chat?</SectionTitle>
+          <p>
+            Fill out this form and I'll get back to you soon as life lets me.
+          </p>
+        </TextWrapper>
+        <FormWrapper
+          onSubmit={this.validateForm}
+          name="contact"
+          method="post"
+          action="/thanks"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" />
+          <FormInputWrapper>
+            <label htmlFor="name">Your name:</label>
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </FormInputWrapper>
+          <FormInputWrapper>
+            <label htmlFor="email">Your email:</label>
+            <input
+              type="email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </FormInputWrapper>
+          <FormInputWrapper>
+            <label htmlFor="message">Your message:</label>
+            <textarea
+              name="message"
+              value={this.state.message}
+              onChange={this.handleChange}
+            />
+          </FormInputWrapper>
+          <div>
+            <Button type="submit" disabled={this.state.disabled}>
+              Send
+            </Button>
+          </div>
+        </FormWrapper>
       </MainContainer>
     );
   }

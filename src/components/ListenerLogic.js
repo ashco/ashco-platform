@@ -95,7 +95,7 @@ export class ListenerLogic extends Component {
         obj.showFooterLeft = true;
         obj.showFooterRight = true;
       }
-      // DEFAULT
+      // DEFAULT SIZE
     } else {
       // HEROIMG
       if (isHome) {
@@ -108,8 +108,9 @@ export class ListenerLogic extends Component {
       // FOOTER RIGHT
       if (isHome) {
         obj.showFooterRight = true;
-        // } else {
-        //   console.log({ bottomScreenPoint });
+      } else if (bottomScreenPoint) {
+        console.log({ bottomScreenPoint });
+        obj.showFooterRight = true;
         //   obj.showFooterRight = bottomScreenPoint ? true : false;
         // }
       }

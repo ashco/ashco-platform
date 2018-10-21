@@ -1,7 +1,9 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
+
 import BlogListing from '../components/Blog/BlogListing';
-import { MainContainer, ContentWrapper } from '../components/helpers';
+import { MainContainer } from '../components/helpers';
 
 const BlogPage = () => (
   <StaticQuery
@@ -25,24 +27,18 @@ const BlogPage = () => (
       }
     `}
     render={data => (
-      <MainContainer>
-        <ContentWrapper width="900px">
-          {data.allContentfulBlogPost.edges.map(({ node }) => (
-            <BlogListing post={node} key={node.id} />
-          ))}
-        </ContentWrapper>
-      </MainContainer>
+      <BlogWrapper>
+        {data.allContentfulBlogPost.edges.map(({ node }) => (
+          <BlogListing post={node} key={node.id} />
+        ))}
+      </BlogWrapper>
     )}
-    // render={data => (
-    //   <MainContainer>
-    //     <ContentWrapper width="900px">
-    //       {data.allContentfulBlogPost.edges.map(({ node }) => (
-    //         <BlogListing post={node} key={node.id} />
-    //       ))}
-    //     </ContentWrapper>
-    //   </MainContainer>
-    // )}
   />
 );
+
+const BlogWrapper = styled(MainContainer)`
+  max-width: 660px;
+  margin-top: 3rem;
+`;
 
 export default BlogPage;

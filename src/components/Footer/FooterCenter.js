@@ -5,7 +5,6 @@ import { media } from '../../config/config';
 import NavArrow from './NavArrow';
 
 const FooterCenter = ({ showFooterCenter, toggleMenu }) => {
-  console.log(showFooterCenter);
   return (
     <FooterCenterWrapper
       className={showFooterCenter ? 'visible-fade' : 'hidden-fade'}
@@ -16,7 +15,6 @@ const FooterCenter = ({ showFooterCenter, toggleMenu }) => {
 };
 
 const FooterCenterWrapper = styled.div`
-  /* opacity: ${props => (props.showFooterCenter ? 1 : 0)}; */
   animation-delay: 10s;
   flex: 1;
   margin: 0;

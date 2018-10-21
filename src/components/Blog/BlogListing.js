@@ -13,7 +13,7 @@ const BlogListing = ({ post }) => (
 );
 
 const BlogListingWrapper = styled.article`
-  margin: 1rem 0;
+  margin: 0.8rem 0 0 0;
   a {
     color: ${props => props.theme.colorText};
     h3 {
