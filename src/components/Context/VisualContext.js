@@ -19,7 +19,6 @@ export class VisualContextProvider extends React.Component {
       isMobile,
       isHome,
       menuOpen: true,
-      updateMainElHeight: 640,
       showHeroImg: false,
       showFooterLeft: false,
       showFooterCenter: false,
@@ -45,13 +44,6 @@ export class VisualContextProvider extends React.Component {
         isHome,
       });
     }
-  };
-
-  updateMainElHeight = mainElHeight => {
-    if (mainElHeight !== this.state.mainElHeight) {
-      this.setState({ mainElHeight });
-    }
-    console.log('trig', this.state.mainElHeight);
   };
 
   toggleMenu = menuOpen => {
@@ -106,7 +98,6 @@ export class VisualContextProvider extends React.Component {
           updateIsMobile: this.updateIsMobile,
           updateIsHome: this.updateIsHome,
           toggleMenu: this.toggleMenu,
-          updateMainElHeight: this.updateMainElHeight,
           handleHeroImg: this.handleHeroImg,
           handleFooterLeft: this.handleFooterLeft,
           handleFooterCenter: this.handleFooterCenter,

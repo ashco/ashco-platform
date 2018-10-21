@@ -16,17 +16,14 @@ const Footer = () => (
       showFooterRight,
       handleFooterRight,
       isMobile,
-      isHome,
       toggleMenu,
     }) => (
       <FooterWrapper>
         <FooterLeft showFooterLeft={showFooterLeft} />
-        {isHome && (
-          <FooterCenter
-            showFooterCenter={showFooterCenter}
-            toggleMenu={toggleMenu}
-          />
-        )}
+        <FooterCenter
+          showFooterCenter={showFooterCenter}
+          toggleMenu={toggleMenu}
+        />
         <FooterRight
           showFooterRight={showFooterRight}
           handleFooterRight={handleFooterRight}
