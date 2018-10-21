@@ -6,7 +6,7 @@ const FooterLeft = ({ showFooterLeft }) => {
   const year = new Date().getFullYear();
   return (
     <FooterLeftWrapper
-      className={showFooterLeft ? 'visible-fade' : 'hidden-fade'}
+    // className={showFooterLeft ? 'visible-fade' : 'hidden-fade'}
     >
       <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
       <p>
