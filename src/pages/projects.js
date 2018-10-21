@@ -1,8 +1,9 @@
 import React from 'react';
 
-import PortfolioListing from '../components/Portfolio/PortfolioListing';
-import PortfolioListingContainer from '../components/Portfolio/PortfolioListingContainer';
-import { MainContainer } from '../components/helpers';
+import PortfolioItem from '../components/Portfolio/PortfolioItem';
+// import PortfolioListingContainer from '../components/Portfolio/PortfolioListingContainer';
+import { PortfolioContainer } from '../components/Portfolio/PortfolioHelpers';
+// import { MainContainer } from '../components/helpers';
 import { StaticQuery, graphql } from 'gatsby';
 
 const PortfolioPage = () => (
@@ -33,13 +34,13 @@ const PortfolioPage = () => (
       }
     `}
     render={data => (
-      <MainContainer>
-        <PortfolioListingContainer>
-          {data.allContentfulPortfolioProject.edges.map(({ node }) => (
-            <PortfolioListing project={node} key={node.id} />
-          ))}
-        </PortfolioListingContainer>
-      </MainContainer>
+      // <MainContainer>
+      <PortfolioContainer>
+        {data.allContentfulPortfolioProject.edges.map(({ node }) => (
+          <PortfolioItem project={node} key={node.id} />
+        ))}
+      </PortfolioContainer>
+      // </MainContainer>
     )}
   />
 );

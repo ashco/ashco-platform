@@ -46,7 +46,7 @@ class ContactPage extends Component {
 
   render() {
     return (
-      <ContactWrapper>
+      <ContactContainer>
         {/* <SectionTitle>Wanna chat?</SectionTitle>
         <p>Fill out this form and I'll get back to you soon as life lets me.</p> */}
         <HeaderTextContainer>
@@ -97,12 +97,12 @@ class ContactPage extends Component {
             </Button>
           </div>
         </FormWrapper>
-      </ContactWrapper>
+      </ContactContainer>
     );
   }
 }
 
-const ContactWrapper = styled(MainContainer)`
+const ContactContainer = styled(MainContainer)`
   max-width: 660px;
 `;
 

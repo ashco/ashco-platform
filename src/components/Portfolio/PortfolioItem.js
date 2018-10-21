@@ -3,14 +3,14 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import {
-  PortfolioListingWrapper,
-  PortfolioHoverArea,
+  PortfolioItemWrapper,
+  PortfolioItemHoverArea,
 } from './PortfolioHelpers';
 
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
-class PortfolioListing extends Component {
+class PortfolioItem extends Component {
   state = {};
 
   componentDidMount() {
@@ -29,11 +29,11 @@ class PortfolioListing extends Component {
 
     return (
       // <div>
-      <PortfolioListingWrapper>
+      <PortfolioItemWrapper>
         <Link to={`/projects/${project.slug}`}>
           <img src={project.image.resize.src} alt={project.title} />
         </Link>
-        <PortfolioHoverArea>
+        <PortfolioItemHoverArea>
           <h3>{title}</h3>
           <LinkContainer>
             <a
@@ -55,8 +55,8 @@ class PortfolioListing extends Component {
               <GithubIcon />
             </a>
           </LinkContainer>
-        </PortfolioHoverArea>
-      </PortfolioListingWrapper>
+        </PortfolioItemHoverArea>
+      </PortfolioItemWrapper>
       // </div>
     );
   }
@@ -66,4 +66,4 @@ const LinkContainer = styled.div`
   display: flex;
 `;
 
-export default PortfolioListing;
+export default PortfolioItem;

@@ -6,19 +6,19 @@ import { Tag, TagContainer } from '../helpers';
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
-const PortfolioSelected = ({ project }) => (
-  <PortfolioSelectedWrapper>
+const PortfolioItem_Selected = ({ project }) => (
+  <PortfolioItem_SelectedWrapper>
     <img src={project.image.resize.src} alt={project.image.title} />
-    <PortfolioSelectedTextContainer>
-      <PortfolioSelectedLeftContainer>
+    <PortfolioItem_SelectedTextContainer>
+      <PortfolioItem_SelectedLeftContainer>
         {project.description.description}
         <TagContainer>
           {project.tags.map(tag => (
             <Tag key={tag}>{tag}</Tag>
           ))}
         </TagContainer>
-      </PortfolioSelectedLeftContainer>
-      <PortfolioSelectedRightContainer>
+      </PortfolioItem_SelectedLeftContainer>
+      <PortfolioItem_SelectedRightContainer>
         <a
           href={project.liveSiteLink}
           target="_blank"
@@ -31,12 +31,12 @@ const PortfolioSelected = ({ project }) => (
           <GithubIcon />
           <p>Github</p>
         </a>
-      </PortfolioSelectedRightContainer>
-    </PortfolioSelectedTextContainer>
-  </PortfolioSelectedWrapper>
+      </PortfolioItem_SelectedRightContainer>
+    </PortfolioItem_SelectedTextContainer>
+  </PortfolioItem_SelectedWrapper>
 );
 
-const PortfolioSelectedWrapper = styled.div`
+const PortfolioItem_SelectedWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -46,7 +46,7 @@ const PortfolioSelectedWrapper = styled.div`
   }
 `;
 
-const PortfolioSelectedTextContainer = styled.div`
+const PortfolioItem_SelectedTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -59,9 +59,9 @@ const PortfolioSelectedTextContainer = styled.div`
     ${props => props.theme.portfolioRadius};
 `;
 
-const PortfolioSelectedLeftContainer = styled.div``;
+const PortfolioItem_SelectedLeftContainer = styled.div``;
 
-const PortfolioSelectedRightContainer = styled.div`
+const PortfolioItem_SelectedRightContainer = styled.div`
   display: flex;
   margin: 20px 30px;
   a {
@@ -72,4 +72,4 @@ const PortfolioSelectedRightContainer = styled.div`
   }
 `;
 
-export default PortfolioSelected;
+export default PortfolioItem_Selected;
