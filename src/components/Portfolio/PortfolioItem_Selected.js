@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import Img from 'gatsby-image';
 // import { Tag, TagContainer } from '../helpers';
 
 import GithubIcon from '../Icons/Github';
@@ -8,7 +8,8 @@ import DesktopIcon from '../Icons/Desktop';
 
 const PortfolioItem_Selected = ({ project }) => (
   <PortfolioItem_SelectedWrapper>
-    <img src={project.image.resize.src} alt={project.image.title} />
+    {/* <img src={project.image.resize.src} alt={project.image.title} /> */}
+    <Img fluid={project.image.fluid} alt={project.image.title} />
     <PortfolioItem_SelectedTextContainer>
       <PortfolioItem_SelectedLeftContainer>
         {project.description.description}
@@ -40,7 +41,9 @@ const PortfolioItem_SelectedWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  img {
+  .gatsby-image-wrapper {
+    width: 90vw;
+    height: 60vw;
     display: block;
     border-radius: ${props => props.theme.portfolioRadius};
   }

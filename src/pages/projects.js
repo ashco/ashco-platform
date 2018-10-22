@@ -20,14 +20,14 @@ const PortfolioPage = () => (
               slug
               image {
                 id
-                resize(width: 400, height: 240, resizingBehavior: SCALE) {
+                # resize(width: 600, height: 360, resizingBehavior: SCALE) {
+                fluid(maxWidth: 600) {
+                  aspectRatio
+                  sizes
                   src
-                  width
-                  height
+                  srcSet
                 }
               }
-              githubLink
-              liveSiteLink
             }
           }
         }

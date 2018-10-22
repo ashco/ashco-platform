@@ -81,7 +81,7 @@ export const query = graphql`
       heroImage {
         id
         title
-        resize(width: 600) {
+        resize(width: 720) {
           src
           width
           height
