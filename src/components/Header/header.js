@@ -104,6 +104,9 @@ const NavLinksWrapper = styled.div`
     flex-direction: column;
     align-items: flex-end;
   }
+  @media (min-width: 700px) {
+    font-size: 1.6rem;
+  }
   ${media.tablet`
     margin: -1rem 1.45rem 1.1rem 1.45rem;
     position: static;

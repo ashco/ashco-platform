@@ -45,7 +45,7 @@ class PortfolioItem extends Component {
         </Link>
         <PortfolioItemOverlay>
           <h3>{title}</h3>
-          <LinkContainer>
+          <div style={{ display: 'flex' }}>
             <a
               href={project.liveSiteLink}
               target="_blank"
@@ -64,7 +64,7 @@ class PortfolioItem extends Component {
             >
               <GithubIcon />
             </a>
-          </LinkContainer>
+          </div>
         </PortfolioItemOverlay>
       </PortfolioItemWrapper>
       // </div>
@@ -72,8 +72,8 @@ class PortfolioItem extends Component {
   }
 }
 
-const LinkContainer = styled.div`
-  display: flex;
-`;
+// const LinkContainer = styled.div`
+//   display: flex;
+// `;
 
 export default PortfolioItem;

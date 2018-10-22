@@ -8,31 +8,31 @@ import DesktopIcon from '../Icons/Desktop';
 
 const PortfolioItem_Selected = ({ project }) => (
   <PortfolioItem_SelectedWrapper>
-    {/* <img src={project.image.resize.src} alt={project.image.title} /> */}
     <Img fluid={project.image.fluid} alt={project.image.title} />
     <PortfolioItem_SelectedTextContainer>
-      <PortfolioItem_SelectedLeftContainer>
-        {project.description.description}
+      <div className="container-left">
+        <h3>{project.title}</h3>
+        <p>{project.description.description}</p>
         {/* <TagContainer>
           {project.tags.map(tag => (
             <Tag key={tag}>{tag}</Tag>
           ))}
         </TagContainer> */}
-      </PortfolioItem_SelectedLeftContainer>
-      <PortfolioItem_SelectedRightContainer>
-        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-          <GithubIcon />
-          <p>Github</p>
-        </a>
+      </div>
+      <div className="container-right">
         <a
           href={project.liveSiteLink}
           target="_blank"
           rel="noopener noreferrer"
         >
           <DesktopIcon />
-          <p>Live Site</p>
+          {/* <p>Live Site</p> */}
         </a>
-      </PortfolioItem_SelectedRightContainer>
+        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+          <GithubIcon />
+          {/* <p>Github</p> */}
+        </a>
+      </div>
     </PortfolioItem_SelectedTextContainer>
   </PortfolioItem_SelectedWrapper>
 );
@@ -40,38 +40,54 @@ const PortfolioItem_Selected = ({ project }) => (
 const PortfolioItem_SelectedWrapper = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  /* max-width: 600px; */
+  border-top: 5px solid ${props => props.theme.colorPrimary}90;
+  border-bottom: 5px solid ${props => props.theme.colorPrimary}90;
+  /* box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px;
+  background: transparent;
+  transform: translateY(-3px); */
   .gatsby-image-wrapper {
-    width: 90vw;
+    /* width: 90vw; */
+    border-bottom: 2px solid ${props => props.theme.colorPrimary}90;
     height: 60vw;
-    display: block;
-    border-radius: ${props => props.theme.portfolioRadius};
+    /* max-width: 600px; */
+    max-height: 400px;
+    /* border-radius: ${props => props.theme.portfolioRadius} */
+      /* ${props => props.theme.portfolioRadius} 0 0; */
   }
 `;
 
 const PortfolioItem_SelectedTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  bottom: 0;
-  height: 160px;
-  opacity: 0.7;
-  background: #000;
-  width: 900px;
-  border-radius: 0 0 ${props => props.theme.portfolioRadius}
-    ${props => props.theme.portfolioRadius};
-`;
+  align-items: center;
+  opacity: 0.8;
+  /* padding: 1.5rem; */
+  /* width: 90%; */
+  margin: 1rem 2rem;
+  /* border-top: none; */
+  /* border-radius: 0 0 ${props => props.theme.portfolioRadius}
+    ${props => props.theme.portfolioRadius}; */
+  .container-left {
+    margin-right: 1rem;
+    h3 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
 
-const PortfolioItem_SelectedLeftContainer = styled.div``;
-
-const PortfolioItem_SelectedRightContainer = styled.div`
-  display: flex;
-  margin: 20px 30px;
-  a {
+  }
+  .container-right {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 10px;
+    /* margin: 20px 30px; */
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 10px;
+    }
   }
 `;
 

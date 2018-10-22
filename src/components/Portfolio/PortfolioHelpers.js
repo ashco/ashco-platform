@@ -51,8 +51,8 @@ export const PortfolioItemWrapper = styled.article`
     margin: 10px;
     .gatsby-image-wrapper {
       margin: 0;
-      width: 40vw;
-      height: 27vw;
+      width: 47vw;
+      height: 31vw;
       max-width: 480px;
       max-height: 320px;
     }
@@ -78,6 +78,7 @@ export const PortfolioItemOverlay = styled.div`
   align-items: center;
   padding: 1rem;
   color: ${props => props.theme.colorText};
+  opacity: 0.8;
   h3 {
     margin-left: 0.6rem;
     font-size: 2.2rem;
