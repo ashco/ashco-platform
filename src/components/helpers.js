@@ -11,7 +11,6 @@ export const DefaultContainer = styled.div`
   align-items: flex-start;
   height: 100%;
   max-width: 990px;
-  /* width: 90%; */
   margin: 2.2rem auto;
 
   ${media.tablet`

@@ -8,6 +8,7 @@ export const PortfolioContainer = styled(DefaultContainer)`
   flex-flow: row wrap;
   justify-content: space-around;
   max-width: 1020px;
+  margin-top: 0;
   ${media.hd`
     max-width: 1400px;
   `};

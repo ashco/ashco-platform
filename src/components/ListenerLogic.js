@@ -70,7 +70,7 @@ export class ListenerLogic extends Component {
     if (typeof document !== 'undefined') {
       bodyLength = document.documentElement.scrollHeight;
     }
-    const topScreenPoint = scrollLength <= 100;
+    const topScreenPoint = scrollLength <= 50;
     const midScreenPoint = (windowHeight + mobileMarginTopLength) * 0.7;
     const bottomScreenPoint = bodyLength === scrollLength + windowHeight;
 
@@ -85,7 +85,7 @@ export class ListenerLogic extends Component {
     if (isMobile) {
       // HEROIMG
       if (!isHome) {
-        obj.showHeroImg = true;
+        obj.showHeroImg = topScreenPoint;
       } else {
         obj.showHeroImg = scrollLength < midScreenPoint;
       }

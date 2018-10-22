@@ -43,19 +43,30 @@ const PortfolioItem_SelectedWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   /* max-width: 600px; */
-  border-top: 5px solid ${props => props.theme.colorPrimary}90;
+  /* border-top: 5px solid ${props => props.theme.colorPrimary}90; */
   border-bottom: 5px solid ${props => props.theme.colorPrimary}90;
-  /* box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px;
-  background: transparent;
-  transform: translateY(-3px); */
+  /* box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px; */
+  /* background: transparent; */
+  /* transform: translateY(-3px); */
+  max-height: 83vh;
+  margin-bottom: 1rem;
   .gatsby-image-wrapper {
     /* width: 90vw; */
     border-bottom: 2px solid ${props => props.theme.colorPrimary}90;
     height: 60vw;
     /* max-width: 600px; */
-    max-height: 400px;
     /* border-radius: ${props => props.theme.portfolioRadius} */
       /* ${props => props.theme.portfolioRadius} 0 0; */
+  }
+  @media (min-width: 1000px) {
+    margin-top: 3rem;
+    width: 990px;
+    border: 3px solid ${props => props.theme.colorPrimary}90;
+    border-radius: 10px;
+    .gatsby-image-wrapper {
+      border-radius: 5px 5px 0 0;
+      border-bottom: none;
+    }
   }
 `;
 
@@ -63,15 +74,15 @@ const PortfolioItem_SelectedTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  opacity: 0.8;
+  opacity: 0.9;
   /* padding: 1.5rem; */
   /* width: 90%; */
-  margin: 1rem 2rem;
+  padding: 1rem 2rem;
   /* border-top: none; */
   /* border-radius: 0 0 ${props => props.theme.portfolioRadius}
     ${props => props.theme.portfolioRadius}; */
   .container-left {
-    margin-right: 1rem;
+    margin: 1rem 1rem 1rem 0;
     h3 {
       font-size: 2.2rem;
       font-weight: 600;
@@ -88,6 +99,12 @@ const PortfolioItem_SelectedTextContainer = styled.div`
       align-items: center;
       margin: 0 10px;
     }
+  }
+  @media (min-width: 1000px) {
+    position: absolute;
+    bottom: 0;
+    background: ${props => props.theme.colorBackground};
+    border-top: 3px solid ${props => props.theme.colorPrimary}90;
   }
 `;
 
