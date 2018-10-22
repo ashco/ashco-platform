@@ -70,7 +70,7 @@ export class ListenerLogic extends Component {
     if (typeof document !== 'undefined') {
       bodyLength = document.documentElement.scrollHeight;
     }
-    const topScreenPoint = scrollLength <= 100;
+    const topScreenPoint = scrollLength <= 50;
     const midScreenPoint = (windowHeight + mobileMarginTopLength) * 0.7;
     const bottomScreenPoint = bodyLength === scrollLength + windowHeight;
 
@@ -85,7 +85,7 @@ export class ListenerLogic extends Component {
     if (isMobile) {
       // HEROIMG
       if (!isHome) {
-        obj.showHeroImg = true;
+        obj.showHeroImg = topScreenPoint;
       } else {
         obj.showHeroImg = scrollLength < midScreenPoint;
       }
@@ -95,7 +95,7 @@ export class ListenerLogic extends Component {
         obj.showFooterLeft = true;
         obj.showFooterRight = true;
       }
-      // DEFAULT
+      // DEFAULT SIZE
     } else {
       // HEROIMG
       if (isHome) {
@@ -108,14 +108,11 @@ export class ListenerLogic extends Component {
       // FOOTER RIGHT
       if (isHome) {
         obj.showFooterRight = true;
-        // } else {
-        //   console.log({ bottomScreenPoint });
-        //   obj.showFooterRight = bottomScreenPoint ? true : false;
-        // }
+      } else if (bottomScreenPoint) {
+        obj.showFooterRight = true;
       }
     }
     // FOOTER CENTER - ALL SIZES
-    // console.log({ topScreenPoint });
     if (isHome) {
       obj.showFooterCenter = topScreenPoint;
     }

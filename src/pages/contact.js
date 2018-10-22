@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import {
-  MainContainer,
-  ContentWrapper,
-  MainTitle,
+  DefaultContainer,
+  SectionTitle,
+  HeaderTextContainer,
 } from '../components/helpers';
 
 // const ContactPage = () => {
@@ -46,68 +46,72 @@ class ContactPage extends Component {
 
   render() {
     return (
-      <MainContainer>
-        <ContentWrapper width="600px">
-          <TextWrapper>
-            <MainTitle>Wanna chat?</MainTitle>
-            <p>
-              Fill out this form and I'll get back to you soon as life lets me.
-            </p>
-          </TextWrapper>
-          <FormWrapper
-            onSubmit={this.validateForm}
-            name="contact"
-            method="post"
-            action="/thanks"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" />
-            <FormInputWrapper>
-              <label htmlFor="name">Your name:</label>
-              <input
-                type="text"
-                name="name"
-                value={this.state.name}
-                onChange={this.handleChange}
-              />
-            </FormInputWrapper>
-            <FormInputWrapper>
-              <label htmlFor="email">Your email:</label>
-              <input
-                type="email"
-                name="email"
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-            </FormInputWrapper>
-            <FormInputWrapper>
-              <label htmlFor="message">Your message:</label>
-              <textarea
-                name="message"
-                value={this.state.message}
-                onChange={this.handleChange}
-              />
-            </FormInputWrapper>
-            <div>
-              <Button type="submit" disabled={this.state.disabled}>
-                Send
-              </Button>
-            </div>
-          </FormWrapper>
-        </ContentWrapper>
-      </MainContainer>
+      <ContactContainer>
+        {/* <SectionTitle>Wanna chat?</SectionTitle>
+        <p>Fill out this form and I'll get back to you soon as life lets me.</p> */}
+        <HeaderTextContainer>
+          <h2>Wanna chat?</h2>
+          <p>
+            Fill out this form and I'll get back to you soon as life lets me.
+          </p>
+        </HeaderTextContainer>
+        <FormWrapper
+          onSubmit={this.validateForm}
+          name="contact"
+          method="post"
+          action="/thanks"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" />
+          <FormInputWrapper>
+            <label htmlFor="name">Your name:</label>
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </FormInputWrapper>
+          <FormInputWrapper>
+            <label htmlFor="email">Your email:</label>
+            <input
+              type="email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </FormInputWrapper>
+          <FormInputWrapper>
+            <label htmlFor="message">Your message:</label>
+            <textarea
+              name="message"
+              value={this.state.message}
+              onChange={this.handleChange}
+            />
+          </FormInputWrapper>
+          <div>
+            <Button type="submit" disabled={this.state.disabled}>
+              Send
+            </Button>
+          </div>
+        </FormWrapper>
+      </ContactContainer>
     );
   }
 }
 
-const TextWrapper = styled.div`
-  margin: 2em 0;
+const ContactContainer = styled(DefaultContainer)`
+  max-width: 660px;
 `;
 
+// const TextWrapper = styled.div`
+//   margin: 2em 0;
+// `;
+
 const FormWrapper = styled.form`
-  margin: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   > p {
@@ -117,16 +121,6 @@ const FormWrapper = styled.form`
     color: ${props => props.theme.colorText};
     padding-bottom: 0.5rem;
   }
-`;
-
-const Button = styled.button`
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  background-color: ${props => props.theme.colorBackground};
-  border-radius: 3px;
-  color: ${props => props.theme.colorText};
-  font-size: 1.1rem;
-  border: 3px solid
-    ${props => (props.disabled ? '#888888' : props.theme.colorPrimary)}90;
 `;
 
 const FormInputWrapper = styled.p`
@@ -144,9 +138,19 @@ const FormInputWrapper = styled.p`
     border-radius: 3px;
   }
   textarea {
-    height: 8rem;
+    height: 10rem;
     resize: none;
   }
+`;
+
+const Button = styled.button`
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: ${props => props.theme.colorBackground};
+  border-radius: 3px;
+  color: ${props => (props.disabled ? '#88888890' : props.theme.colorText)};
+  font-size: 1.1rem;
+  border: 3px solid
+    ${props => (props.disabled ? '#888888' : props.theme.colorPrimary)}90;
 `;
 
 export default ContactPage;

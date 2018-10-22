@@ -8,12 +8,11 @@ class HeroImg extends Component {
   render() {
     return (
       <VisualContextConsumer>
-        {({ showHeroImg, isMobile, isHome }) => {
+        {({ showHeroImg, isHome }) => {
           // console.log({ showHeroImg });
           return (
             showHeroImg && (
               <HeroTextWrapper isHome={isHome}>
-                {/* <AnimationLine /> */}
                 <FirstText>Welcome</FirstText>
                 <SecondText>To</SecondText>
                 <TitleLine />

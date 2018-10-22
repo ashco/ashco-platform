@@ -15,7 +15,7 @@ const Footer = () => (
       showFooterCenter,
       showFooterRight,
       handleFooterRight,
-      isMobile,
+      // isMobile,
       toggleMenu,
     }) => (
       <FooterWrapper>
@@ -27,7 +27,7 @@ const Footer = () => (
         <FooterRight
           showFooterRight={showFooterRight}
           handleFooterRight={handleFooterRight}
-          isMobile={isMobile}
+          // isMobile={isMobile}
         />
       </FooterWrapper>
     )}
@@ -52,9 +52,9 @@ const FooterWrapper = styled.footer`
   ${media.tablet`
     flex-direction: row;
     align-items: flex-end;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    width: 90vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    width: 96vw;
   `};
   ${media.laptop`
     margin-left: 8vw;

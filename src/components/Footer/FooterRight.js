@@ -23,9 +23,11 @@ class FooterRight extends Component {
   // }
 
   render() {
-    const { showFooterRight, isMobile } = this.props;
+    const { showFooterRight } = this.props;
     return (
-      <FooterRightWrapper className={!showFooterRight && 'hidden'}>
+      <FooterRightWrapper
+        className={showFooterRight ? 'visible-fade' : 'hidden-fade'}
+      >
         <ul>
           <li>
             <OutboundLink

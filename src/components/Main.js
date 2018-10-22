@@ -65,9 +65,11 @@ const MainWrapper = styled.main`
   /* margin: 0 auto 240px auto; */
   margin: 0 auto 220px auto;
   margin-top: ${props => props.marginTop};
+  background-color: ${props => props.theme.colorBackground};
   @media (min-width: ${sizes.tablet}px) {
     /* margin: 113vh auto 10vh auto; */
-    min-height: calc(100vh - (${props => props.marginTop}) - 10vh);
+    /* min-height: calc(100vh - (${props => props.marginTop}) - 10vh); */
+    min-height: 77vh;
     margin: 0 auto 10vh auto;
     margin-top: ${props => props.marginTop};
   }

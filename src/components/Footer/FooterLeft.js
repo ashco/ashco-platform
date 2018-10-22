@@ -6,7 +6,7 @@ const FooterLeft = ({ showFooterLeft }) => {
   const year = new Date().getFullYear();
   return (
     <FooterLeftWrapper
-    // className={showFooterLeft ? 'visible-fade' : 'hidden-fade'}
+      className={showFooterLeft ? 'visible-fade' : 'hidden-fade'}
     >
       <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
       <p>
@@ -57,6 +57,10 @@ const FooterLeftWrapper = styled.div`
   ${media.tablet`
     text-align: left;
     font-size: 1rem;
+    margin: 0rem 1rem 1rem 1rem;
+  `};
+  ${media.laptop`
+    margin: 0rem 1.5rem 1.5rem 1.5rem;
   `};
 `;
 

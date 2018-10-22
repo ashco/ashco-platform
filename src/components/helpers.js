@@ -3,27 +3,18 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../config/config';
 
-export const MainContainer = styled.div`
+export const DefaultContainer = styled.div`
   pointer-events: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   height: 100%;
-  background-color: ${props => props.theme.colorBackground};
-  /* @media (min-width: ${props => props.theme.widthDesktop}) { */
+  max-width: 990px;
+  margin: 2.2rem auto;
+
   ${media.tablet`
     box-shadow: 0px 0px 60px -25px inset ${props => props.theme.colorPrimary};
-  `};
-  /* } */
-`;
-
-export const ContentWrapper = styled.div`
-  max-width: ${props => (props.width ? props.width : '990px')};
-  width: 90%;
-  margin: 0px auto;
-  ${media.tablet`
-    margin-top: 2.5rem;
   `};
 `;
 
@@ -44,10 +35,23 @@ const PageLinkWrapper = styled.div`
   }
 `;
 
-export const MainTitle = styled.h2`
-  margin-bottom: 0.2em;
+export const HeaderTextContainer = styled.div`
+  margin-bottom: 0.75rem;
+  h2 {
+    margin-bottom: 0.25em;
+    font-size: 2.2rem;
+    line-height: 1em;
+    font-weight: 600;
+  }
+  p {
+    font-size: 1.1rem;
+  }
+`;
+
+export const SectionTitle = styled.h2`
+  margin-bottom: 0.25em;
   font-size: 2.2rem;
-  line-height: 1.2em;
+  line-height: 1em;
   font-weight: 600;
 `;
 

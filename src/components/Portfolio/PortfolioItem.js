@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import {
-  PortfolioListingWrapper,
-  PortfolioHoverArea,
-} from './PortfolioHelpers';
+import { PortfolioItemWrapper, PortfolioItemOverlay } from './PortfolioHelpers';
 
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
-class PortfolioListing extends Component {
+class PortfolioItem extends Component {
   state = {};
 
   componentDidMount() {
@@ -26,16 +24,28 @@ class PortfolioListing extends Component {
   render() {
     const { title } = this.state;
     const { project } = this.props;
-
     return (
       // <div>
-      <PortfolioListingWrapper>
+      <PortfolioItemWrapper>
         <Link to={`/projects/${project.slug}`}>
-          <img src={project.image.resize.src} alt={project.title} />
+          <Img
+            style={
+              {
+                // // position: 'absolute',
+                // // left: 0,
+                // // top: 0,
+                // width: '400px',
+                // height: '240px',
+              }
+            }
+            fluid={project.image.fluid}
+            alt={project.title}
+          />
+          {/* <img src={project.image.resize.src} alt={project.title} /> */}
         </Link>
-        <PortfolioHoverArea>
+        <PortfolioItemOverlay>
           <h3>{title}</h3>
-          <LinkContainer>
+          <div style={{ display: 'flex' }}>
             <a
               href={project.liveSiteLink}
               target="_blank"
@@ -54,16 +64,16 @@ class PortfolioListing extends Component {
             >
               <GithubIcon />
             </a>
-          </LinkContainer>
-        </PortfolioHoverArea>
-      </PortfolioListingWrapper>
+          </div>
+        </PortfolioItemOverlay>
+      </PortfolioItemWrapper>
       // </div>
     );
   }
 }
 
-const LinkContainer = styled.div`
-  display: flex;
-`;
+// const LinkContainer = styled.div`
+//   display: flex;
+// `;
 
-export default PortfolioListing;
+export default PortfolioItem;

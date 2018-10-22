@@ -1,29 +1,26 @@
 import React, { Component } from 'react';
 
-import PortfolioSelected from './PortfolioSelected';
-import PortfolioListing from './PortfolioListing';
-import PortfolioListingContainer from './PortfolioListingContainer';
-import { MainContainer } from '../helpers';
+import PortfolioItem_Selected from './PortfolioItem_Selected';
+import PortfolioItem from './PortfolioItem';
+import { PortfolioContainer } from './PortfolioHelpers';
 import { graphql } from 'gatsby';
 
-class PortfolioPage extends Component {
+class PortfolioPage_Selected extends Component {
   render() {
     const { data } = this.props;
     if (!data) return null;
     return (
-      <MainContainer>
-        <PortfolioSelected project={data.contentfulPortfolioProject} />
-        <PortfolioListingContainer>
-          {data.allContentfulPortfolioProject.edges.map(({ node }) => (
-            <PortfolioListing project={node} key={node.id} />
-          ))}
-        </PortfolioListingContainer>
-      </MainContainer>
+      <PortfolioContainer>
+        <PortfolioItem_Selected project={data.contentfulPortfolioProject} />
+        {data.allContentfulPortfolioProject.edges.map(({ node }) => (
+          <PortfolioItem project={node} key={node.id} />
+        ))}
+      </PortfolioContainer>
     );
   }
 }
 
-export default PortfolioPage;
+export default PortfolioPage_Selected;
 
 export const query = graphql`
   query PortfolioQuery($slug: String!) {
@@ -42,8 +39,11 @@ export const query = graphql`
       image {
         id
         title
-        resize(width: 900) {
+        fluid(maxWidth: 1200) {
+          aspectRatio
+          sizes
           src
+          srcSet
         }
       }
     }
@@ -58,10 +58,11 @@ export const query = graphql`
           slug
           image {
             id
-            resize(width: 400, height: 240, resizingBehavior: SCALE) {
+            fluid(maxWidth: 600) {
+              aspectRatio
+              sizes
               src
-              width
-              height
+              srcSet
             }
           }
           githubLink
