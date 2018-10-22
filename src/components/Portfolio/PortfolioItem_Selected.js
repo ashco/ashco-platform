@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 // import { Tag, TagContainer } from '../helpers';
+import { media } from '../../config/config';
 
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
@@ -59,8 +60,9 @@ const PortfolioItem_SelectedWrapper = styled.div`
       /* ${props => props.theme.portfolioRadius} 0 0; */
   }
   @media (min-width: 1000px) {
-    margin-top: 3rem;
+    margin-top: 2rem;
     width: 990px;
+    height: 660px;
     border: 3px solid ${props => props.theme.colorPrimary}90;
     border-radius: 10px;
     .gatsby-image-wrapper {
@@ -68,6 +70,10 @@ const PortfolioItem_SelectedWrapper = styled.div`
       border-bottom: none;
     }
   }
+  ${media.hd`
+    width: 1300px;
+    height: 880px;
+  `};
 `;
 
 const PortfolioItem_SelectedTextContainer = styled.div`
@@ -106,6 +112,8 @@ const PortfolioItem_SelectedTextContainer = styled.div`
     background: ${props => props.theme.colorBackground};
     border-top: 3px solid ${props => props.theme.colorPrimary}90;
   }
+  ${media.hd`
+  `};
 `;
 
 export default PortfolioItem_Selected;

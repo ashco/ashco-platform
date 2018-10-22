@@ -9,8 +9,11 @@ export const PortfolioContainer = styled(DefaultContainer)`
   justify-content: space-around;
   max-width: 1020px;
   margin-top: 0;
+  /* ${media.tablet`
+    margin: 2rem auto;
+  `}; */
   ${media.hd`
-    max-width: 1400px;
+    max-width: 1320px;
   `};
 `;
 
