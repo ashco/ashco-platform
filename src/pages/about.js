@@ -162,6 +162,7 @@ const SkillColumn = styled.div`
   }
   li {
     margin-bottom: 0.2rem;
+    line-height: 1.15;
   }
   @media (min-width: ${sizes.laptop}px) {
     border: 1px solid ${props => props.theme.colorPrimary};
