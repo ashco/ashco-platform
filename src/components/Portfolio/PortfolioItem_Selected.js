@@ -55,7 +55,7 @@ const PortfolioItem_SelectedWrapper = styled.div`
     height: 60vw;
   }
   @media (min-width: 1000px) {
-    margin-top: 1rem;
+    margin-top: 0.8rem;
     width: 990px;
     height: 660px;
     .gatsby-image-wrapper {
