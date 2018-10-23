@@ -42,7 +42,7 @@ const BlogPage = () => (
 
 const BlogWrapper = styled(DefaultContainer)`
   max-width: 660px;
-  /* margin-top: 3rem; */
+  width: 100%;
 `;
 
 export default BlogPage;

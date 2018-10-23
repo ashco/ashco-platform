@@ -23,13 +23,19 @@ const PortfolioItem_Selected = ({ project }) => (
       <div className="container-right">
         <a
           href={project.liveSiteLink}
+          title="Live Link"
           target="_blank"
           rel="noopener noreferrer"
         >
           <DesktopIcon />
           {/* <p>Live Site</p> */}
         </a>
-        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+        <a
+          href={project.githubLink}
+          title="Github Link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <GithubIcon />
           {/* <p>Github</p> */}
         </a>
@@ -43,7 +49,7 @@ const PortfolioItem_SelectedWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* max-width: 600px; */
+  /* width: 100%; */
   /* border-top: 5px solid ${props => props.theme.colorPrimary}90; */
   border-bottom: 5px solid ${props => props.theme.colorPrimary}90;
   /* box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px; */
@@ -104,8 +110,15 @@ const PortfolioItem_SelectedTextContainer = styled.div`
       flex-direction: column;
       align-items: center;
       margin: 0 10px;
+      padding-bottom: 3px;
+      border-bottom: 3px solid transparent;
+      transition: border-bottom 0.2s ease-out;
+      &:hover {
+        border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
+      }
     }
   }
+
   @media (min-width: 1000px) {
     position: absolute;
     bottom: 0;

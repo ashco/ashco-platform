@@ -48,10 +48,16 @@ const BlogPage = ({ data }) => {
 
 const BlogPageWrapper = styled(DefaultContainer)`
   max-width: 720px;
+  width: 90%;
   img {
     width: 100%;
     margin: 0.5rem 0;
   }
+  /* div,
+  h2 {
+    width: 90%;
+    margin: auto;
+  } */
   div.createdAt {
     border-bottom: 2px solid ${props => props.theme.colorPrimary}90;
     margin-bottom: 1rem;

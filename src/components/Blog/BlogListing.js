@@ -18,6 +18,7 @@ const BlogListingWrapper = styled.article`
   margin-bottom: 0.8rem;
   padding: 0.3rem 0.5rem;
   /* border-radius: 3px; */
+  /* width: 90%; */
   border-left: 4px solid transparent;
   /* border: 4px solid transparent; */
   a {

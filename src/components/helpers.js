@@ -11,8 +11,8 @@ export const DefaultContainer = styled.div`
   align-items: flex-start;
   height: 100%;
   max-width: 990px;
-  margin: 2.2rem auto;
-
+  margin: 1.5rem auto;
+  /* width: 90%; */
   ${media.tablet`
     box-shadow: 0px 0px 60px -25px inset ${props => props.theme.colorPrimary};
   `};

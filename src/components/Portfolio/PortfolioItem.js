@@ -28,6 +28,9 @@ class PortfolioItem extends Component {
       // <div>
       <PortfolioItemWrapper>
         <Link to={`/projects/${project.slug}`}>
+          <div className="overlay">
+            <h3>{title}</h3>
+          </div>
           <Img
             style={
               {
@@ -43,7 +46,7 @@ class PortfolioItem extends Component {
           />
           {/* <img src={project.image.resize.src} alt={project.title} /> */}
         </Link>
-        <PortfolioItemOverlay>
+        {/* <PortfolioItemOverlay>
           <h3>{title}</h3>
           <div style={{ display: 'flex' }}>
             <a
@@ -65,7 +68,7 @@ class PortfolioItem extends Component {
               <GithubIcon />
             </a>
           </div>
-        </PortfolioItemOverlay>
+        </PortfolioItemOverlay> */}
       </PortfolioItemWrapper>
       // </div>
     );

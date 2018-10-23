@@ -104,6 +104,7 @@ class ContactPage extends Component {
 
 const ContactContainer = styled(DefaultContainer)`
   max-width: 660px;
+  width: 90%;
 `;
 
 // const TextWrapper = styled.div`
