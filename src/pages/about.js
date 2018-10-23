@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 
+import { media, sizes } from '../config/config';
+
 import { DefaultContainer } from '../components/helpers';
 import FrontEnd from '../components/Icons/FrontEnd';
 import BackEnd from '../components/Icons/BackEnd';
@@ -48,6 +50,7 @@ const About = () => {
           </AboutInfoContainer>
           <AboutSkillsContainer>
             {data.allContentfulAboutDataColumn.edges.map((skill, i) => {
+              console.log(skill.node);
               return (
                 <SkillColumn key={skill.node.id}>
                   {imgArr[i]}
@@ -57,7 +60,7 @@ const About = () => {
                   <p>{skill.node.listItems1.join(', ')}</p>
                   <h5>{skill.node.listHeader2}</h5>
                   <ul>
-                    {skill.node.listItems1.map(item => (
+                    {skill.node.listItems2.map(item => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
@@ -77,14 +80,15 @@ const AboutContainer = styled(DefaultContainer)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  ${media.desktop`
+    max-width: 1200px;
+  `};
 `;
 
 const AboutInfoContainer = styled.div`
-  /* width: 60%; */
   max-width: 700px;
   text-align: center;
   margin: 1rem 0 2rem 0;
-  /* border-radius: 10px; */
   h2 {
     font-size: 1.9rem;
     font-weight: 600;
@@ -95,6 +99,15 @@ const AboutInfoContainer = styled.div`
     line-height: 1.1;
     margin-top: 1rem;
   }
+  ${media.laptop`
+    max-width: 900px;
+    h2 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  `};
 `;
 
 const AboutSkillsContainer = styled.div`
@@ -105,9 +118,42 @@ const AboutSkillsContainer = styled.div`
   border: 1px solid ${props => props.theme.colorPrimary};
   border-radius: 15px;
 
-  /* width: 80%; */
-  /* padding: 5rem; */
-  /* margin-left: 20px; */
+  ${media.laptop`
+    flex-direction: row;
+    border: none;
+    /* flex-direction: row;
+    border: none;
+    svg {
+      height: 6rem;
+      width: 6rem;
+      border-bottom: 2px solid ${props => props.theme.colorPrimary};
+      margin-bottom: 0.8rem;
+    }
+    h4,
+    h5 {
+      color: ${props => props.theme.colorPrimary};
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    p {
+      line-height: 1.1;
+    }
+    li {
+      margin-bottom: 0.2rem;
+    } */
+  `};
+`;
+
+const SkillColumn = styled.div`
+  text-align: center;
+  /* width: 25vw; */
+  width: 100%;
+  margin: 0 1rem;
+  padding: 1.2rem;
+  border-bottom: 1px solid ${props => props.theme.colorPrimary};
+  :last-child {
+    border-bottom: none;
+  }
   svg {
     height: 5rem;
     width: 5rem;
@@ -126,17 +172,20 @@ const AboutSkillsContainer = styled.div`
   li {
     margin-bottom: 0.2rem;
   }
-`;
+  @media (min-width: ${sizes.laptop}px) {
+    border: 1px solid ${props => props.theme.colorPrimary};
+    border-radius: 15px;
+    :last-child {
+      border-bottom: 1px solid ${props => props.theme.colorPrimary};
+    }
+    h4 {
+      font-size: 1.4rem;
+    }
+    h5, p, li {
+      font-size: 1.1rem;
+    }
+  };
 
-const SkillColumn = styled.div`
-  text-align: center;
-  /* width: 25vw; */
-  margin: 0 1rem;
-  padding: 1.2rem;
-  border-bottom: 1px solid ${props => props.theme.colorPrimary};
-  :last-child {
-    border-bottom: none;
-  }
   /* width: */
   /* border: 1px solid ${props => props.theme.colorPrimary}; */
 `;
