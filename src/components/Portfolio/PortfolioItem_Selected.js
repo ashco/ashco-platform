@@ -55,14 +55,20 @@ const PortfolioItem_SelectedWrapper = styled.div`
     height: 60vw;
   }
   @media (min-width: 1000px) {
-    margin-top: 2rem;
+    margin-top: 1rem;
     width: 990px;
     height: 660px;
     .gatsby-image-wrapper {
-      border-radius: 10px;
+      position: static !important;
       border-bottom: none;
+      img {
+        border-radius: 10px;
+      }
     }
   }
+  ${media.desktop`
+    margin-top: 2rem;
+  `};
   ${media.hd`
     width: 1300px;
     height: 880px;
