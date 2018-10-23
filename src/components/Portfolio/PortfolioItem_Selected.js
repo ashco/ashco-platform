@@ -23,13 +23,19 @@ const PortfolioItem_Selected = ({ project }) => (
       <div className="container-right">
         <a
           href={project.liveSiteLink}
+          title="Live Link"
           target="_blank"
           rel="noopener noreferrer"
         >
           <DesktopIcon />
           {/* <p>Live Site</p> */}
         </a>
-        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+        <a
+          href={project.githubLink}
+          title="Github Link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <GithubIcon />
           {/* <p>Github</p> */}
         </a>
@@ -43,33 +49,26 @@ const PortfolioItem_SelectedWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* max-width: 600px; */
-  /* border-top: 5px solid ${props => props.theme.colorPrimary}90; */
-  border-bottom: 5px solid ${props => props.theme.colorPrimary}90;
-  /* box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px; */
-  /* background: transparent; */
-  /* transform: translateY(-3px); */
   max-height: 83vh;
   margin-bottom: 1rem;
   .gatsby-image-wrapper {
-    /* width: 90vw; */
-    border-bottom: 2px solid ${props => props.theme.colorPrimary}90;
     height: 60vw;
-    /* max-width: 600px; */
-    /* border-radius: ${props => props.theme.portfolioRadius} */
-      /* ${props => props.theme.portfolioRadius} 0 0; */
   }
   @media (min-width: 1000px) {
-    margin-top: 2rem;
+    margin-top: 0.8rem;
     width: 990px;
     height: 660px;
-    border: 3px solid ${props => props.theme.colorPrimary}90;
-    border-radius: 10px;
     .gatsby-image-wrapper {
-      border-radius: 5px 5px 0 0;
+      position: static !important;
       border-bottom: none;
+      img {
+        border-radius: 10px;
+      }
     }
   }
+  /* ${media.desktop` */
+    /* margin-top: 2rem; */
+  /* `}; */
   ${media.hd`
     width: 1300px;
     height: 880px;
@@ -81,12 +80,9 @@ const PortfolioItem_SelectedTextContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   opacity: 0.9;
-  /* padding: 1.5rem; */
-  /* width: 90%; */
-  padding: 1rem 2rem;
-  /* border-top: none; */
-  /* border-radius: 0 0 ${props => props.theme.portfolioRadius}
-    ${props => props.theme.portfolioRadius}; */
+  padding: 0.8rem 1.6rem;
+  border-top: 3px solid ${props => props.theme.colorPrimary}cc;
+  border-bottom: 5px solid ${props => props.theme.colorPrimary}cc;
   .container-left {
     margin: 1rem 1rem 1rem 0;
     h3 {
@@ -94,25 +90,50 @@ const PortfolioItem_SelectedTextContainer = styled.div`
       font-weight: 600;
       margin-bottom: 0.4rem;
     }
-
+    p {
+      line-height: 1.1;
+    }
   }
   .container-right {
     display: flex;
-    /* margin: 20px 30px; */
+    flex-direction: column;
     a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0 10px;
+      margin: 0.5rem;
+      padding-bottom: 3px;
+      border-bottom: 3px solid transparent;
+      transition: border-bottom 0.2s ease-out;
+      &:hover {
+        border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
+      }
     }
   }
+
   @media (min-width: 1000px) {
     position: absolute;
     bottom: 0;
     background: ${props => props.theme.colorBackground};
-    border-top: 3px solid ${props => props.theme.colorPrimary}90;
+    border: 3px solid ${props => props.theme.colorPrimary}cc;
+    border-radius: 0 0 10px 10px;
   }
+  ${media.desktop`
+    .container-left {
+      h3 {
+        font-size: 2.4rem;
+      }
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  `};
   ${media.hd`
+    .container-left {
+      h3 {
+        font-size: 2.7rem;
+      }
+      p {
+        font-size: 1.25rem;
+      }
+    }
   `};
 `;
 

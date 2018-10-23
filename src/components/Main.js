@@ -56,7 +56,8 @@ const MainWrapper = styled.main`
   z-index: 10;
   pointer-events: none;
   position: absolute;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+  overflow: auto;
   width: 100vw;
   /* height: 530px; */
   /* min-height: 77vh; */

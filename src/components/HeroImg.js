@@ -9,20 +9,28 @@ class HeroImg extends Component {
     return (
       <VisualContextConsumer>
         {({ showHeroImg, isHome }) => {
-          // console.log({ showHeroImg });
           return (
-            showHeroImg && (
-              <HeroTextWrapper isHome={isHome}>
-                <FirstText>Welcome</FirstText>
-                <SecondText>To</SecondText>
-                <TitleLine />
-                <TitleText>
-                  AshCo
-                  <StrobeWrapper>.</StrobeWrapper>
-                  io
-                </TitleText>
-              </HeroTextWrapper>
-            )
+            <HeroTextWrapper
+              className={
+                showHeroImg
+                  ? isHome
+                    ? 'visible'
+                    : 'visible-fade'
+                  : isHome
+                    ? 'hidden'
+                    : 'hidden-fade'
+              }
+              isHome={isHome}
+            >
+              <FirstText>Welcome</FirstText>
+              <SecondText>To</SecondText>
+              <TitleLine />
+              <TitleText>
+                AshCo
+                <StrobeWrapper>.</StrobeWrapper>
+                io
+              </TitleText>
+            </HeroTextWrapper>
           );
         }}
       </VisualContextConsumer>
