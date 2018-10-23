@@ -165,6 +165,9 @@ const SkillColumn = styled.div`
   }
   @media (min-width: ${sizes.laptop}px) {
     border: 1px solid ${props => props.theme.colorPrimary};
+    /* box-shadow: 0 5px 5px 0 ${props =>
+      props.theme.colorPrimary}80, 0 0 0 1px ${props =>
+  props.theme.colorPrimary}; */
     border-radius: 15px;
     :last-child {
       border-bottom: 1px solid ${props => props.theme.colorPrimary};

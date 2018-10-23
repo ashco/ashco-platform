@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
+import { media } from '../config/config';
 
 import BlogListing from '../components/Blog/BlogListing';
 import { DefaultContainer } from '../components/helpers';
@@ -28,10 +29,7 @@ const BlogPage = () => (
     `}
     render={data => (
       <BlogWrapper>
-        {/* <HeaderTextContainer>
-          <h2>Sometimes I Write</h2>
-          <p>But I never said I was a good writer.</p>
-        </HeaderTextContainer> */}
+        <h2>Cashto's Soapbox</h2>
         {data.allContentfulBlogPost.edges.map(({ node }) => (
           <BlogListing post={node} key={node.id} />
         ))}
@@ -43,6 +41,25 @@ const BlogPage = () => (
 const BlogWrapper = styled(DefaultContainer)`
   max-width: 660px;
   width: 100%;
+  h2 {
+    margin-bottom: 1rem;
+    margin-left: 0.75rem;
+    font-size: 2.1rem;
+    line-height: 1em;
+    font-weight: 600;
+  }
+  ${media.desktop`
+    max-width: 760px;
+    h2 {
+      font-size: 2.4rem;
+    }
+  `};
+  ${media.desktop`
+    max-width: 900px;
+    h2 {
+      font-size: 2.6rem;
+    }
+  `};
 `;
 
 export default BlogPage;

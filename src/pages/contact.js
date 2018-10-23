@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { sizes, media } from '../config/config';
+import { media } from '../config/config';
 
 import { DefaultContainer } from '../components/helpers';
 
@@ -126,7 +126,7 @@ const HeaderTextContainer = styled.div`
   `};
   ${media.desktop`
     h2 {
-      font-size: 2.9rem;
+      font-size: 2.7rem;
     }
     p {
       font-size: 1.4rem;

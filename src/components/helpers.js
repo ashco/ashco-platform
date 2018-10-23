@@ -48,13 +48,6 @@ const PageLinkWrapper = styled.div`
 //   }
 // `;
 
-export const SectionTitle = styled.h2`
-  margin-bottom: 0.25em;
-  font-size: 2.2rem;
-  line-height: 1em;
-  font-weight: 600;
-`;
-
 export const Tag = styled.div`
   background: #2c768e;
   height: 30px;

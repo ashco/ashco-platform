@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-// import { HeaderTextContainer } from '../helpers';
+import { media } from '../../config/config';
 
 const BlogListing = ({ post }) => (
   <BlogListingWrapper>
@@ -17,10 +17,7 @@ const BlogListing = ({ post }) => (
 const BlogListingWrapper = styled.article`
   margin-bottom: 0.8rem;
   padding: 0.3rem 0.5rem;
-  /* border-radius: 3px; */
-  /* width: 90%; */
-  border-left: 4px solid transparent;
-  /* border: 4px solid transparent; */
+  border-left: 0.25rem solid transparent;
   a {
     color: ${props => props.theme.colorText};
     h3 {
@@ -36,13 +33,36 @@ const BlogListingWrapper = styled.article`
       margin-bottom: 0;
     }
   }
-  /* ANIMATIONS */
-  /* transition: border 0.1s ease-in; */
   transition: border-left 0.1s ease-in;
   &:hover {
-    border-left: 4px solid ${props => props.theme.colorPrimary}90;
-    /* border: 4px solid ${props => props.theme.colorPrimary}90; */
+    border-left: 0.25rem solid ${props => props.theme.colorPrimary}90;
   }
+  ${media.desktop`
+    a{
+      h3 {
+        font-size: 1.7rem;
+      }
+      p.createdAt {
+        font-size: 1rem;
+      }
+      p.excerpt {
+        font-size: 1.1rem;
+      }
+    }
+  `};
+  ${media.hd`
+    a {
+      h3 {
+        font-size: 1.9rem;
+      }
+      p.createdAt {
+        font-size: 1.1rem;
+      }
+      p.excerpt {
+        font-size: 1.3rem;
+      }
+    }
+  `};
 `;
 
 export default BlogListing;

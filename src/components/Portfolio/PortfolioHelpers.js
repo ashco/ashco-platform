@@ -12,6 +12,9 @@ export const PortfolioContainer = styled(DefaultContainer)`
   /* ${media.tablet`
     margin: 2rem auto;
   `}; */
+  ${media.laptop`
+    margin: 2rem auto;
+  `};
   ${media.hd`
     max-width: 1320px;
   `};
@@ -42,7 +45,7 @@ export const PortfolioItemWrapper = styled.article`
     justify-content: center;
     h3 {
       margin-left: 0.6rem;
-      font-size: 2.7rem;
+      font-size: 2.2rem;
       font-weight: 600;
       transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
       /* transition: font-size 100ms linear 0s; */
@@ -68,7 +71,7 @@ export const PortfolioItemWrapper = styled.article`
       opacity: 1;
     } */
     .overlay h3 {
-      font-size: 2.8rem;
+      font-size: 2.3rem;
     }
     .gatsby-image-wrapper {
       opacity: 0.25;
@@ -76,6 +79,14 @@ export const PortfolioItemWrapper = styled.article`
   }
   ${media.tablet`
     margin: 10px;
+    .overlay h3 {
+      font-size: 2.5rem;
+    }
+    &:hover {
+      .overlay h3 {
+        font-size: 2.6rem;
+      }
+    }
     .gatsby-image-wrapper {
       margin: 0;
       width: 47vw;
@@ -84,7 +95,16 @@ export const PortfolioItemWrapper = styled.article`
       max-height: 320px;
     }
   `};
-  ${media.hd`
+  ${media.tablet`
+    .overlay h3 {
+      font-size: 2.7rem;
+    }
+    &:hover {
+      .overlay h3 {
+        font-size: 2.8rem;
+      }
+    }
+  `} ${media.hd`
     max-width: 1400px;
     .gatsby-image-wrapper {
       margin: 0;
