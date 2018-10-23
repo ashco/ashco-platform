@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import {
   DefaultContainer,
-  HeaderTextContainer,
+  // HeaderTextContainer,
   SectionTitle,
   Tag,
   TagContainer,

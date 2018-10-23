@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { sizes, media } from '../config/config';
 
-import {
-  DefaultContainer,
-  SectionTitle,
-  HeaderTextContainer,
-} from '../components/helpers';
+import { DefaultContainer } from '../components/helpers';
 
 // const ContactPage = () => {
 class ContactPage extends Component {
@@ -47,8 +44,6 @@ class ContactPage extends Component {
   render() {
     return (
       <ContactContainer>
-        {/* <SectionTitle>Wanna chat?</SectionTitle>
-        <p>Fill out this form and I'll get back to you soon as life lets me.</p> */}
         <HeaderTextContainer>
           <h2>Wanna chat?</h2>
           <p>
@@ -105,11 +100,39 @@ class ContactPage extends Component {
 const ContactContainer = styled(DefaultContainer)`
   max-width: 660px;
   width: 90%;
+  @media (min-width: 750px) {
+    margin: 3rem auto;
+  }
 `;
 
-// const TextWrapper = styled.div`
-//   margin: 2em 0;
-// `;
+const HeaderTextContainer = styled.div`
+  margin-bottom: 0.75rem;
+  h2 {
+    margin-bottom: 0.35em;
+    font-size: 2.2rem;
+    line-height: 1em;
+    font-weight: 600;
+  }
+  p {
+    font-size: 1.1rem;
+  }
+  ${media.desktop`
+    h2 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  `};
+  ${media.desktop`
+    h2 {
+      font-size: 2.9rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+  `};
+`;
 
 const FormWrapper = styled.form`
   width: 100%;
@@ -122,6 +145,16 @@ const FormWrapper = styled.form`
     color: ${props => props.theme.colorText};
     padding-bottom: 0.5rem;
   }
+  ${media.desktop`
+    > p {
+      font-size: 1.2rem;
+    }
+  `};
+  ${media.hd`
+    > p {
+      font-size: 1.4rem;
+    }
+  `};
 `;
 
 const FormInputWrapper = styled.p`
@@ -134,24 +167,40 @@ const FormInputWrapper = styled.p`
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 4px;
-    font-size: 16px;
+    font-size: 1.1rem;
     color: ${props => props.theme.colorText};
     border-radius: 3px;
   }
   textarea {
-    height: 10rem;
+    height: 12rem;
     resize: none;
   }
+  ${media.desktop`
+    input, textarea {
+      font-size: 1.2rem;
+    }
+  `};
+  ${media.hd`
+    input, textarea {
+      font-size: 1.4rem;
+    }
+  `};
 `;
 
 const Button = styled.button`
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem;
   background-color: ${props => props.theme.colorBackground};
   border-radius: 3px;
   color: ${props => (props.disabled ? '#88888890' : props.theme.colorText)};
   font-size: 1.1rem;
   border: 3px solid
     ${props => (props.disabled ? '#888888' : props.theme.colorPrimary)}90;
+  ${media.desktop`
+    font-size: 1.2rem;
+  `};
+  ${media.hd`
+    font-size: 1.4rem;
+  `};
 `;
 
 export default ContactPage;

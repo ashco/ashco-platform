@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { HeaderTextContainer } from '../helpers';
+// import { HeaderTextContainer } from '../helpers';
 
 const BlogListing = ({ post }) => (
   <BlogListingWrapper>

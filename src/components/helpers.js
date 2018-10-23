@@ -35,18 +35,18 @@ const PageLinkWrapper = styled.div`
   }
 `;
 
-export const HeaderTextContainer = styled.div`
-  margin-bottom: 0.75rem;
-  h2 {
-    margin-bottom: 0.25em;
-    font-size: 2.2rem;
-    line-height: 1em;
-    font-weight: 600;
-  }
-  p {
-    font-size: 1.1rem;
-  }
-`;
+// export const HeaderTextContainer = styled.div`
+//   margin-bottom: 0.75rem;
+//   h2 {
+//     margin-bottom: 0.35em;
+//     font-size: 2.2rem;
+//     line-height: 1em;
+//     font-weight: 600;
+//   }
+//   p {
+//     font-size: 1.1rem;
+//   }
+// `;
 
 export const SectionTitle = styled.h2`
   margin-bottom: 0.25em;

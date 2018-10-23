@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import BlogListing from '../components/Blog/BlogListing';
-import { DefaultContainer, HeaderTextContainer } from '../components/helpers';
+import { DefaultContainer } from '../components/helpers';
 
 const BlogPage = () => (
   <StaticQuery
