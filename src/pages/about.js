@@ -80,8 +80,11 @@ const AboutContainer = styled(DefaultContainer)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  ${media.desktop`
+  ${media.laptop`
     max-width: 1200px;
+  `};
+  ${media.hd`
+    max-width: 1440px;
   `};
 `;
 
@@ -108,6 +111,15 @@ const AboutInfoContainer = styled.div`
       font-size: 1.2rem;
     }
   `};
+  ${media.hd`
+    max-width: 1000px;
+    h2 {
+      font-size: 2.8rem;
+    }
+    p {
+      font-size: 1.35rem;
+    }
+  `};
 `;
 
 const AboutSkillsContainer = styled.div`
@@ -121,32 +133,11 @@ const AboutSkillsContainer = styled.div`
   ${media.laptop`
     flex-direction: row;
     border: none;
-    /* flex-direction: row;
-    border: none;
-    svg {
-      height: 6rem;
-      width: 6rem;
-      border-bottom: 2px solid ${props => props.theme.colorPrimary};
-      margin-bottom: 0.8rem;
-    }
-    h4,
-    h5 {
-      color: ${props => props.theme.colorPrimary};
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-    p {
-      line-height: 1.1;
-    }
-    li {
-      margin-bottom: 0.2rem;
-    } */
   `};
 `;
 
 const SkillColumn = styled.div`
   text-align: center;
-  /* width: 25vw; */
   width: 100%;
   margin: 0 1rem;
   padding: 1.2rem;
@@ -178,11 +169,26 @@ const SkillColumn = styled.div`
     :last-child {
       border-bottom: 1px solid ${props => props.theme.colorPrimary};
     }
+
     h4 {
       font-size: 1.4rem;
     }
     h5, p, li {
       font-size: 1.1rem;
+    }
+  };
+  @media (min-width: ${sizes.hd}px) {
+    svg {
+    height: 6.5rem;
+    width: 6.5rem;
+    border-bottom: 4px solid ${props => props.theme.colorPrimary};
+    margin-bottom: 1.2rem;
+  }
+    h4 {
+      font-size: 1.6rem;
+    }
+    h5, p, li {
+      font-size: 1.2rem;
     }
   };
 
