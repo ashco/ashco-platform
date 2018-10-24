@@ -1,7 +1,8 @@
 import React from 'react';
 // import { withTheme } from 'styled-components';
 
-const FrontEnd = ({ color }) => {
+const FrontEnd = () => {
+  const color = 'red';
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

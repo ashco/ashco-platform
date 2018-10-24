@@ -155,8 +155,14 @@ const SkillColumn = styled.div`
     border-bottom: none;
   }
   svg {
+    path, rect, polygon  {
+      fill: ${props => props.theme.colorPrimary};
+    }
+    polyline, path {
+      stroke: ${props => props.theme.colorPrimary};
+    }
     height: 5rem;
-    width: 5rem;
+    width: 90%;
     border-bottom: 2px solid ${props => props.theme.colorPrimary};
     margin-bottom: 0.8rem;
   }
@@ -179,6 +185,12 @@ const SkillColumn = styled.div`
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     svg {
       border-bottom: 2px solid ${props => props.theme.colorPrimary}dd;
+      path, rect, polygon  {
+        fill: ${props => props.theme.colorPrimary}dd;
+      }
+      polyline, path {
+        stroke: ${props => props.theme.colorPrimary}dd;
+      }
     }
     &:hover {
       border: 2px solid ${props => props.theme.colorPrimary};
@@ -186,6 +198,12 @@ const SkillColumn = styled.div`
       transform: translateY(-3px);
       svg {
         border-bottom: 2px solid ${props => props.theme.colorPrimary};
+        path, rect, polygon  {
+          fill: ${props => props.theme.colorPrimary};
+        }
+        polyline, path {
+          stroke: ${props => props.theme.colorPrimary};
+        }
       }
       h4, h5 {
         color: ${props => props.theme.colorPrimary};
@@ -207,7 +225,7 @@ const SkillColumn = styled.div`
   @media (min-width: ${sizes.hd}px) {
     svg {
       height: 6.5rem;
-      width: 6.5rem;
+      /* width: 6.5rem; */
       border-bottom: 4px solid ${props => props.theme.colorPrimary}dd;
       margin-bottom: 1.2rem;
     }

@@ -10,7 +10,8 @@ const Thanks = () => (
     <h2>You da best!</h2>
     <MailSent />
     <p>
-      Let me take a look at your message and I'll get back to you soon as I can.
+      Let me take a look at your message and I'll get back to you as soon as I
+      can.
     </p>
   </ThanksContainer>
 );
