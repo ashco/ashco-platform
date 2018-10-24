@@ -44,7 +44,7 @@ const PortfolioItemWrapper = styled.article`
   display: flex;
   justify-content: center;
   position: relative;
-  margin: 0.75rem 0;
+  margin: 0.75rem auto;
   border-radius: ${props => props.theme.portfolioRadius};
   /* ANIMATION */
   box-shadow: none;

@@ -29,7 +29,7 @@ const BlogPage = () => (
     `}
     render={data => (
       <BlogWrapper>
-        <h2>Cashto's Soapbox</h2>
+        <h2>The Soapbox</h2>
         {data.allContentfulBlogPost.edges.map(({ node }) => (
           <BlogListing post={node} key={node.id} />
         ))}

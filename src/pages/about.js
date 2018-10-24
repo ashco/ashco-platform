@@ -7,10 +7,10 @@ import { media, sizes } from '../config/config';
 import { DefaultContainer } from '../components/helpers';
 import FrontEnd from '../components/Icons/FrontEnd';
 import BackEnd from '../components/Icons/BackEnd';
-import Chicken from '../components/Icons/Chicken';
+import EverythingElse from '../components/Icons/EverythingElse';
 
 const About = () => {
-  const imgArr = [<FrontEnd />, <BackEnd />, <Chicken />];
+  const imgArr = [<FrontEnd />, <BackEnd />, <EverythingElse />];
 
   return (
     <StaticQuery
@@ -50,7 +50,6 @@ const About = () => {
           </AboutInfoContainer>
           <AboutSkillsContainer>
             {data.allContentfulAboutDataColumn.edges.map((skill, i) => {
-              console.log(skill.node);
               return (
                 <SkillColumn key={skill.node.id}>
                   {imgArr[i]}
@@ -75,7 +74,6 @@ const About = () => {
 };
 
 const AboutContainer = styled(DefaultContainer)`
-  /* width: 1200px; */
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -148,12 +146,13 @@ const SkillColumn = styled.div`
   svg {
     height: 5rem;
     width: 5rem;
-    border-bottom: 2px solid ${props => props.theme.colorPrimary};
+    border-bottom: 2px solid ${props => props.theme.colorPrimary}dd;
     margin-bottom: 0.8rem;
   }
   h4,
   h5 {
-    color: ${props => props.theme.colorPrimary};
+    /* color: ${props => props.theme.colorPrimary}; */
+    color: ${props => props.theme.colorPrimary}dd;
     font-weight: 600;
     margin-bottom: 0.3rem;
   }
@@ -165,12 +164,18 @@ const SkillColumn = styled.div`
     line-height: 1.15;
   }
   @media (min-width: ${sizes.laptop}px) {
-    border: 2px solid ${props => props.theme.colorPrimary};
+    /* border: 2px solid ${props => props.theme.colorPrimary}; */
+    border: 2px solid ${props => props.theme.colorPrimary}dd;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     &:hover {
+      border: 2px solid ${props => props.theme.colorPrimary};
       box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px;
     /* background: transparent; */
       transform: translateY(-3px);
+      h4, h5 {
+        color: ${props => props.theme.colorPrimary};
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+      }
     }
     /* box-shadow: 0 5px 5px 0 ${props =>
       props.theme.colorPrimary}80, 0 0 0 1px ${props =>

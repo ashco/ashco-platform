@@ -10,9 +10,7 @@ const PortfolioPage = () => (
   <StaticQuery
     query={graphql`
       query PortfolioList {
-        allContentfulPortfolioProject(
-          sort: { fields: [createdAt], order: DESC }
-        ) {
+        allContentfulPortfolioProject(sort: { fields: [order], order: DESC }) {
           edges {
             node {
               id
