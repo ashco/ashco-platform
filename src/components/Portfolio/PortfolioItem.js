@@ -49,6 +49,7 @@ const PortfolioItemWrapper = styled.article`
   /* ANIMATION */
   box-shadow: none;
   border-bottom: none;
+  overflow: hidden;
 
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   .overlay {
@@ -79,17 +80,12 @@ const PortfolioItemWrapper = styled.article`
     box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px;
     /* background: transparent; */
     transform: translateY(-3px);
-    /* .gatsby-image-wrapper {
-      opacity: 0.3;
-    } */
-    /* div {
-      opacity: 1;
-    } */
     .overlay h3 {
       font-size: 2.3rem;
     }
     .gatsby-image-wrapper {
       opacity: 0.25;
+      transform: scale(1.03);
     }
   }
   ${media.tablet`
