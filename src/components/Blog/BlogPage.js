@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../../config/config';
 
-import { DefaultContainer, Tag, TagContainer } from '../helpers';
+import { DefaultContainer } from '../helpers';
 
 const BlogPage = ({ data }) => {
   if (!data) return null;

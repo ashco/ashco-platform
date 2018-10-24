@@ -104,7 +104,8 @@ export const PortfolioItemWrapper = styled.article`
         font-size: 2.8rem;
       }
     }
-  `} ${media.hd`
+  `};
+  ${media.hd`
     max-width: 1400px;
     .gatsby-image-wrapper {
       margin: 0;
