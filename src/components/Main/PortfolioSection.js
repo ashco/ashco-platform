@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import PortfolioListing from './PortfolioListing';
+// import PortfolioListing from './PortfolioListing';
 import { PageLink } from '../helpers';
 // import { PortfolioListingContainer } from './Portfolio/PortfolioHelpers';
 

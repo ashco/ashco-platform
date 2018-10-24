@@ -39,7 +39,7 @@ const BlogPage = ({ data }) => {
 };
 
 const BlogPageWrapper = styled(DefaultContainer)`
-  max-width: 720px;
+  max-width: 700px;
   width: 90%;
   h2 {
     margin-bottom: 0.25em;
@@ -67,7 +67,7 @@ const BlogPageWrapper = styled(DefaultContainer)`
     }
   }
   ${media.desktop`
-    max-width: 800px;
+    max-width: 760px;
     h2 {
       font-size: 2.5rem;
     }
@@ -83,7 +83,7 @@ const BlogPageWrapper = styled(DefaultContainer)`
   }
   `};
   ${media.hd`
-    max-width: 960px;
+    max-width: 820px;
     h2 {
       font-size: 2.7rem;
     }

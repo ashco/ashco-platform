@@ -165,7 +165,13 @@ const SkillColumn = styled.div`
     line-height: 1.15;
   }
   @media (min-width: ${sizes.laptop}px) {
-    border: 1px solid ${props => props.theme.colorPrimary};
+    border: 2px solid ${props => props.theme.colorPrimary};
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    &:hover {
+      box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px;
+    /* background: transparent; */
+      transform: translateY(-3px);
+    }
     /* box-shadow: 0 5px 5px 0 ${props =>
       props.theme.colorPrimary}80, 0 0 0 1px ${props =>
   props.theme.colorPrimary}; */

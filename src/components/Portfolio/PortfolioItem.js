@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import { media } from '../../config/config';
 
 import { PortfolioItemWrapper, PortfolioItemOverlay } from './PortfolioHelpers';
 

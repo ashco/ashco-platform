@@ -42,10 +42,10 @@ const NavLinks = ({ menuOpen }) => (
   >
     <ul>
       <NavLinkItem to="/#home" title="Home" />
-      <NavLinkItem to="/about" title="About" />
-      <NavLinkItem to="/projects" title="Projects" />
-      <NavLinkItem to="/blog" title="Blog" />
-      <NavLinkItem to="/contact" title="Contact" />
+      <NavLinkItem to="/about/" title="About" />
+      <NavLinkItem to="/projects/" title="Projects" />
+      <NavLinkItem to="/blog/" title="Blog" />
+      <NavLinkItem to="/contact/" title="Contact" />
     </ul>
   </NavLinksWrapper>
 );

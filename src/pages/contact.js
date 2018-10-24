@@ -64,6 +64,7 @@ class ContactPage extends Component {
             <label htmlFor="name">Your name:</label>
             <input
               type="text"
+              id="name"
               name="name"
               value={this.state.name}
               onChange={this.handleChange}
@@ -73,6 +74,7 @@ class ContactPage extends Component {
             <label htmlFor="email">Your email:</label>
             <input
               type="email"
+              id="email"
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
@@ -81,6 +83,7 @@ class ContactPage extends Component {
           <FormInputWrapper>
             <label htmlFor="message">Your message:</label>
             <textarea
+              id="message"
               name="message"
               value={this.state.message}
               onChange={this.handleChange}

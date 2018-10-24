@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import {
   PortfolioContainer,
-  PortfolioItemHoverArea,
+  // PortfolioItemHoverArea,
 } from '../Portfolio/PortfolioHelpers';
 
 const PortfolioListing = ({ project }) => (

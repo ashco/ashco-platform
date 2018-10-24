@@ -39,7 +39,7 @@ const BlogPage = () => (
 );
 
 const BlogWrapper = styled(DefaultContainer)`
-  max-width: 660px;
+  max-width: 700px;
   width: 100%;
   margin: 1.8rem auto;
   h2 {
@@ -58,8 +58,8 @@ const BlogWrapper = styled(DefaultContainer)`
       font-size: 2.4rem;
     }
   `};
-  ${media.desktop`
-    max-width: 900px;
+  ${media.hd`
+    max-width: 820px;
     h2 {
       font-size: 2.6rem;
     }
