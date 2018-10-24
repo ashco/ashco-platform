@@ -39,8 +39,9 @@ const BlogPage = () => (
 );
 
 const BlogWrapper = styled(DefaultContainer)`
-  max-width: 660px;
+  max-width: 700px;
   width: 100%;
+  margin: 1.8rem auto;
   h2 {
     margin-bottom: 1rem;
     margin-left: 0.75rem;
@@ -48,14 +49,17 @@ const BlogWrapper = styled(DefaultContainer)`
     line-height: 1em;
     font-weight: 600;
   }
+  ${media.tablet`
+    margin: 3rem auto;
+  `};
   ${media.desktop`
     max-width: 760px;
     h2 {
       font-size: 2.4rem;
     }
   `};
-  ${media.desktop`
-    max-width: 900px;
+  ${media.hd`
+    max-width: 820px;
     h2 {
       font-size: 2.6rem;
     }

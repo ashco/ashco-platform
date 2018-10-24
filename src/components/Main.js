@@ -58,7 +58,7 @@ const MainWrapper = styled.main`
   position: absolute;
   /* overflow-y: scroll; */
   overflow: auto;
-  width: 100vw;
+  width: 100%;
   /* height: 530px; */
   /* min-height: 77vh; */
   min-height: calc(100vh - 140px - 140px);

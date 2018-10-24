@@ -7,10 +7,10 @@ import { media } from '../../config/config';
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
-const PortfolioItem_Selected = ({ project }) => (
-  <PortfolioItem_SelectedWrapper>
+const PortfolioItemSelected = ({ project }) => (
+  <PortfolioItemSelectedWrapper>
     <Img fluid={project.image.fluid} alt={project.image.title} />
-    <PortfolioItem_SelectedTextContainer>
+    <PortfolioItemSelectedTextContainer>
       <div className="container-left">
         <h3>{project.title}</h3>
         <p>{project.description.description}</p>
@@ -40,11 +40,11 @@ const PortfolioItem_Selected = ({ project }) => (
           {/* <p>Github</p> */}
         </a>
       </div>
-    </PortfolioItem_SelectedTextContainer>
-  </PortfolioItem_SelectedWrapper>
+    </PortfolioItemSelectedTextContainer>
+  </PortfolioItemSelectedWrapper>
 );
 
-const PortfolioItem_SelectedWrapper = styled.div`
+const PortfolioItemSelectedWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -75,7 +75,7 @@ const PortfolioItem_SelectedWrapper = styled.div`
   `};
 `;
 
-const PortfolioItem_SelectedTextContainer = styled.div`
+const PortfolioItemSelectedTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -137,4 +137,4 @@ const PortfolioItem_SelectedTextContainer = styled.div`
   `};
 `;
 
-export default PortfolioItem_Selected;
+export default PortfolioItemSelected;

@@ -32,6 +32,7 @@ class FooterRight extends Component {
           <li>
             <OutboundLink
               href="https://github.com/ashco"
+              title="Github"
               aria-label="Github"
               target="_blank"
               rel="noopener noreferrer"
@@ -42,6 +43,7 @@ class FooterRight extends Component {
           <li>
             <OutboundLink
               href="https://www.linkedin.com/in/ashtonchristie/"
+              title="LinkedIn"
               aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
@@ -52,6 +54,7 @@ class FooterRight extends Component {
           <li>
             <OutboundLink
               href="https://twitter.com/AshCo_Io"
+              title="Twitter"
               aria-label="Twitter"
               target="_blank"
               rel="noopener noreferrer"
@@ -62,6 +65,7 @@ class FooterRight extends Component {
           <li>
             <OutboundLink
               href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view"
+              title="Resume"
               aria-label="Resume"
               target="_blank"
               rel="noopener noreferrer"

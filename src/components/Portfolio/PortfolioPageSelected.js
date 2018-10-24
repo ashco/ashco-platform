@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
-import PortfolioItem_Selected from './PortfolioItem_Selected';
+import PortfolioItemSelected from './PortfolioItemSelected';
 import PortfolioItem from './PortfolioItem';
 import { PortfolioContainer } from './PortfolioHelpers';
 import { graphql } from 'gatsby';
 
-class PortfolioPage_Selected extends Component {
+class PortfolioPageSelected extends Component {
   render() {
     const { data } = this.props;
     if (!data) return null;
     return (
       <PortfolioContainer>
-        <PortfolioItem_Selected project={data.contentfulPortfolioProject} />
+        <PortfolioItemSelected project={data.contentfulPortfolioProject} />
         {data.allContentfulPortfolioProject.edges.map(({ node }) => (
           <PortfolioItem project={node} key={node.id} />
         ))}
@@ -20,7 +20,7 @@ class PortfolioPage_Selected extends Component {
   }
 }
 
-export default PortfolioPage_Selected;
+export default PortfolioPageSelected;
 
 export const query = graphql`
   query PortfolioQuery($slug: String!) {
