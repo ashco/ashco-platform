@@ -4,8 +4,6 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { media } from '../../config/config';
 
-// import { PortfolioItemWrapper } from './PortfolioHelpers';
-
 class PortfolioItem extends Component {
   state = {};
 
@@ -36,11 +34,6 @@ class PortfolioItem extends Component {
 }
 
 const PortfolioItemWrapper = styled.article`
-  /* max-width: 100%;
-  max-height: 100%; */
-  /* width: 400px;
-  margin:
-  height: 240px; */
   display: flex;
   justify-content: center;
   position: relative;
@@ -60,11 +53,11 @@ const PortfolioItemWrapper = styled.article`
     align-items: center;
     justify-content: center;
     h3 {
+      color: ${props => props.theme.colorText};
       margin-left: 0.6rem;
       font-size: 2.2rem;
       font-weight: 600;
       transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-      /* transition: font-size 100ms linear 0s; */
     }
   }
   .gatsby-image-wrapper {
@@ -78,7 +71,6 @@ const PortfolioItemWrapper = styled.article`
   }
   &:hover {
     box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px;
-    /* background: transparent; */
     transform: translateY(-3px);
     .overlay h3 {
       font-size: 2.3rem;
@@ -122,8 +114,6 @@ const PortfolioItemWrapper = styled.article`
       margin: 0;
       width: 420px;
       height: 280px;
-      /* max-width: 480px;
-      max-height: 320px; */
     }
   `};
 `;

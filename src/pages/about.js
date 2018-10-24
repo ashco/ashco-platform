@@ -9,8 +9,19 @@ import FrontEnd from '../components/Icons/FrontEnd';
 import BackEnd from '../components/Icons/BackEnd';
 import EverythingElse from '../components/Icons/EverythingElse';
 
-const About = () => {
-  const imgArr = [<FrontEnd />, <BackEnd />, <EverythingElse />];
+import { withTheme } from 'styled-components';
+
+const About = props => {
+  console.log(props.theme);
+  const { colorPrimary } = props.theme;
+  const imgArr = [
+    // <FrontEnd color="red" />,
+    // <BackEnd color="red" />,
+    // <EverythingElse color="red" />,
+    <FrontEnd color={colorPrimary} />,
+    <BackEnd color={colorPrimary} />,
+    <EverythingElse color={colorPrimary} />,
+  ];
 
   return (
     <StaticQuery
@@ -146,12 +157,11 @@ const SkillColumn = styled.div`
   svg {
     height: 5rem;
     width: 5rem;
-    border-bottom: 2px solid ${props => props.theme.colorPrimary}dd;
+    border-bottom: 2px solid ${props => props.theme.colorPrimary};
     margin-bottom: 0.8rem;
   }
   h4,
   h5 {
-    /* color: ${props => props.theme.colorPrimary}; */
     color: ${props => props.theme.colorPrimary}dd;
     font-weight: 600;
     margin-bottom: 0.3rem;
@@ -167,19 +177,21 @@ const SkillColumn = styled.div`
     /* border: 2px solid ${props => props.theme.colorPrimary}; */
     border: 2px solid ${props => props.theme.colorPrimary}dd;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    svg {
+      border-bottom: 2px solid ${props => props.theme.colorPrimary}dd;
+    }
     &:hover {
       border: 2px solid ${props => props.theme.colorPrimary};
       box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px;
-    /* background: transparent; */
       transform: translateY(-3px);
+      svg {
+        border-bottom: 2px solid ${props => props.theme.colorPrimary};
+      }
       h4, h5 {
         color: ${props => props.theme.colorPrimary};
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
       }
     }
-    /* box-shadow: 0 5px 5px 0 ${props =>
-      props.theme.colorPrimary}80, 0 0 0 1px ${props =>
-  props.theme.colorPrimary}; */
     border-radius: 15px;
     :last-child {
       border-bottom: 1px solid ${props => props.theme.colorPrimary};
@@ -194,16 +206,21 @@ const SkillColumn = styled.div`
   };
   @media (min-width: ${sizes.hd}px) {
     svg {
-    height: 6.5rem;
-    width: 6.5rem;
-    border-bottom: 4px solid ${props => props.theme.colorPrimary};
-    margin-bottom: 1.2rem;
-  }
+      height: 6.5rem;
+      width: 6.5rem;
+      border-bottom: 4px solid ${props => props.theme.colorPrimary}dd;
+      margin-bottom: 1.2rem;
+    }
     h4 {
       font-size: 1.6rem;
     }
     h5, p, li {
       font-size: 1.2rem;
+    }
+    &:hover {
+      svg {
+        border-bottom: 4px solid ${props => props.theme.colorPrimary};
+      }
     }
   };
 
@@ -211,4 +228,4 @@ const SkillColumn = styled.div`
   /* border: 1px solid ${props => props.theme.colorPrimary}; */
 `;
 
-export default About;
+export default withTheme(About);

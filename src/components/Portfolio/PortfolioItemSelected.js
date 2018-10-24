@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-// import { Tag, TagContainer } from '../helpers';
 import { media } from '../../config/config';
 
 import GithubIcon from '../Icons/Github';
@@ -14,11 +13,6 @@ const PortfolioItemSelected = ({ project }) => (
       <div className="container-left">
         <h3>{project.title}</h3>
         <p>{project.description.description}</p>
-        {/* <TagContainer>
-          {project.tags.map(tag => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </TagContainer> */}
       </div>
       <div className="container-right">
         {project.liveSiteLink && (
@@ -49,7 +43,6 @@ const PortfolioItemSelectedWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* max-height: 83vh; */
   margin-bottom: 1rem;
   .gatsby-image-wrapper {
     height: 60vw;
@@ -66,9 +59,6 @@ const PortfolioItemSelectedWrapper = styled.div`
       }
     }
   }
-  /* ${media.desktop` */
-    /* margin-top: 2rem; */
-  /* `}; */
   ${media.hd`
     width: 1300px;
     height: 880px;
