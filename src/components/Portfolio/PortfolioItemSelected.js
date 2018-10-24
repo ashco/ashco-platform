@@ -21,15 +21,16 @@ const PortfolioItemSelected = ({ project }) => (
         </TagContainer> */}
       </div>
       <div className="container-right">
-        <a
-          href={project.liveSiteLink}
-          title="Live Link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <DesktopIcon />
-          {/* <p>Live Site</p> */}
-        </a>
+        {project.liveSiteLink && (
+          <a
+            href={project.liveSiteLink}
+            title="Live Link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <DesktopIcon />
+          </a>
+        )}
         <a
           href={project.githubLink}
           title="Github Link"
@@ -37,7 +38,6 @@ const PortfolioItemSelected = ({ project }) => (
           rel="noopener noreferrer"
         >
           <GithubIcon />
-          {/* <p>Github</p> */}
         </a>
       </div>
     </PortfolioItemSelectedTextContainer>

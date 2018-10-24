@@ -48,7 +48,7 @@ export const query = graphql`
       }
     }
     allContentfulPortfolioProject(
-      sort: { fields: [createdAt], order: DESC }
+      sort: { fields: [order], order: DESC }
       filter: { slug: { ne: $slug } }
     ) {
       edges {
