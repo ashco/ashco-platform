@@ -49,7 +49,7 @@ const PortfolioItemSelectedWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-height: 83vh;
+  /* max-height: 83vh; */
   margin-bottom: 1rem;
   .gatsby-image-wrapper {
     height: 60vw;

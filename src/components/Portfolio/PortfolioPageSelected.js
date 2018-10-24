@@ -4,6 +4,7 @@ import PortfolioItemSelected from './PortfolioItemSelected';
 import PortfolioItem from './PortfolioItem';
 import { PortfolioContainer } from './PortfolioHelpers';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 
 class PortfolioPageSelected extends Component {
   render() {
@@ -12,13 +13,20 @@ class PortfolioPageSelected extends Component {
     return (
       <PortfolioContainer>
         <PortfolioItemSelected project={data.contentfulPortfolioProject} />
-        {data.allContentfulPortfolioProject.edges.map(({ node }) => (
-          <PortfolioItem project={node} key={node.id} />
-        ))}
+        <PortfolioExtraItemsWrapper>
+          {data.allContentfulPortfolioProject.edges.map(({ node }) => (
+            <PortfolioItem project={node} key={node.id} />
+          ))}
+        </PortfolioExtraItemsWrapper>
       </PortfolioContainer>
     );
   }
 }
+
+const PortfolioExtraItemsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 export default PortfolioPageSelected;
 
