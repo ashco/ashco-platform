@@ -12,12 +12,8 @@ import EverythingElse from '../components/Icons/EverythingElse';
 import { withTheme } from 'styled-components';
 
 const About = props => {
-  console.log(props.theme);
   const { colorPrimary } = props.theme;
   const imgArr = [
-    // <FrontEnd color="red" />,
-    // <BackEnd color="red" />,
-    // <EverythingElse color="red" />,
     <FrontEnd color={colorPrimary} />,
     <BackEnd color={colorPrimary} />,
     <EverythingElse color={colorPrimary} />,
@@ -55,6 +51,7 @@ const About = props => {
       `}
       render={data => (
         <AboutContainer>
+          {/* <AngleSVG /> */}
           <AboutInfoContainer>
             <h2>Hi, I'm Ash. I build things.</h2>
             <p>{data.contentfulAboutInfo.aboutMe.aboutMe}</p>
@@ -84,7 +81,43 @@ const About = props => {
   );
 };
 
+const AngleSVG = () => {
+  return (
+    <AngleSVGWrapper
+      width="553px"
+      height="274px"
+      viewBox="0 0 553 274"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        id="Page-2"
+        stroke="none"
+        stroke-width="1"
+        fill="none"
+        fill-rule="evenodd"
+      >
+        <g id="Artboard" fill="#000000">
+          <polygon id="Path" points="0 0 0 274 553 0" />
+        </g>
+      </g>
+    </AngleSVGWrapper>
+  );
+};
+
+const AngleSVGWrapper = styled.svg`
+  position: absolute;
+  top: 0;
+  /* height: 40px; */
+  width: 100%;
+  polygon {
+    fill: ${props => props.theme.colorPrimary}90;
+  }
+`;
+
 const AboutContainer = styled(DefaultContainer)`
+  /* margin: 0; */
+
   width: 90%;
   display: flex;
   flex-direction: column;
