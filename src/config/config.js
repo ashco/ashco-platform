@@ -10,9 +10,10 @@ export const theme = {
   // colorPrimary: '#D27831',
   // colorSecondary: '#E39B2F',
   // ORANGE
+  // colorLighter: '#E39B2F',
+  colorLighter: '#E5A830',
   colorPrimary: '#D27831',
-  colorSecondary: '#FF685C',
-  colorThirdly: '#E39B2F',
+  colorDarker: '#FF685C',
   // RED
   // colorPrimary: '#FF5D5B',
   // colorSecondary: '#FF685C',

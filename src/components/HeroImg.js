@@ -97,7 +97,7 @@ const HeroTextWrapper = styled.div`
   border-bottom: 8px solid ${props => props.theme.colorPrimary}; */
   border-left: 8px solid;
   border-bottom: 8px solid;
-  border-image: linear-gradient(135deg, ${props => props.theme.colorThirdly} 0%,${props => props.theme.colorPrimary} 50%,${props => props.theme.colorSecondary} 100%);
+  border-image: linear-gradient(135deg, ${props => props.theme.colorLighter} 0%,${props => props.theme.colorPrimary} 50%,${props => props.theme.colorDarker} 100%);
   /* border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary} 0%,${props => props.theme.colorSecondary} 100%); */
   border-image-slice: 1;
 

@@ -91,7 +91,7 @@ const MainWrapper = styled.main`
   border-bottom: 7px solid ${props => props.theme.colorPrimary}90; */
   border-top: 7px solid;
   border-bottom: 7px solid;
-  border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary}90 0%,${props => props.theme.colorSecondary}90 100%);
+  border-image: linear-gradient(135deg, ${props => props.theme.colorDarker} 0%,${props => props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
   border-image-slice: 1;
 
   z-index: 10;
@@ -122,7 +122,7 @@ const MainWrapper = styled.main`
     width: 84vw;
     /* border: 7px solid ${props => props.theme.colorPrimary}90; */
     border: 8px solid;
-    border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%);
+    border-image: linear-gradient(135deg, ${props => props.theme.colorDarker} 0%,${props => props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
     border-image-slice: 1;
   }
   ${media.hd`

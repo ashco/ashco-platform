@@ -148,17 +148,17 @@ const AboutInfoContainer = styled.div`
     line-height: 1.1;
     margin-top: 1rem;
   }
-  ${media.laptop`
+  @media (min-width: ${sizes.laptop}px) {
     max-width: 900px;
     h2 {
-      border-bottom: 3px
+      border-bottom: 3px solid ${props => props.theme.colorPrimary};
       width: 60%;
       font-size: 2.2rem;
     }
     p {
       font-size: 1.2rem;
     }
-  `};
+  };
   ${media.hd`
     max-width: 1000px;
     h2 {
@@ -209,8 +209,7 @@ const SkillColumn = styled.div`
     margin-bottom: 0.8rem; */
   }
   h4 {
-    border-bottom: 2px solid ${props => props.theme.colorPrimary};
-    /* border-bottom: 2px solid ${props => props.theme.colorSecondary}; */
+    border-bottom: 2px solid ${props => props.theme.colorSecondary};
     padding-bottom: 0.8rem;
     margin-top: -0.6rem;
     margin-bottom: 0.8rem;
@@ -259,7 +258,8 @@ const SkillColumn = styled.div`
     }
     &:hover {
       border: 2px solid ${props => props.theme.colorPrimary};
-      box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px;
+      /* box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px; */
+      box-shadow: ${props => props.theme.colorLighter}40 0px 8px 20px;
       transform: translateY(-3px);
       svg {
         /* border-bottom: 2px solid ${props => props.theme.colorPrimary}; */
