@@ -12,12 +12,13 @@ import EverythingElse from '../components/Icons/EverythingElse';
 import { withTheme } from 'styled-components';
 
 const About = props => {
-  const { colorPrimary } = props.theme;
+  const { colorPrimary, colorLighter, colorDarker } = props.theme;
   const imgArr = [
-    <FrontEnd color={colorPrimary} />,
+    <FrontEnd color={colorDarker} />,
     <BackEnd color={colorPrimary} />,
-    <EverythingElse color={colorPrimary} />,
+    <EverythingElse color={colorLighter} />,
   ];
+  const colorArr = [colorDarker, colorPrimary, colorLighter];
 
   return (
     <StaticQuery
@@ -51,7 +52,6 @@ const About = props => {
       `}
       render={data => (
         <AboutContainer>
-          {/* <AngleSVG /> */}
           <AboutInfoContainer>
             <h2>Hi, I'm Ash. I build things.</h2>
             <p>{data.contentfulAboutInfo.aboutMe.aboutMe}</p>
@@ -59,7 +59,7 @@ const About = props => {
           <AboutSkillsContainer>
             {data.allContentfulAboutDataColumn.edges.map((skill, i) => {
               return (
-                <SkillColumn key={skill.node.id}>
+                <SkillColumnColor color={colorArr[i]} key={skill.node.id}>
                   {imgArr[i]}
                   <h4>{skill.node.title}</h4>
                   <p>{skill.node.description.description}</p>
@@ -71,7 +71,7 @@ const About = props => {
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
-                </SkillColumn>
+                </SkillColumnColor>
               );
             })}
           </AboutSkillsContainer>
@@ -81,29 +81,29 @@ const About = props => {
   );
 };
 
-const AngleSVG = () => {
-  return (
-    <AngleSVGWrapper
-      width="553px"
-      height="274px"
-      viewBox="0 0 553 274"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        id="Page-2"
-        stroke="none"
-        stroke-width="1"
-        fill="none"
-        fill-rule="evenodd"
-      >
-        <g id="Artboard" fill="#000000">
-          <polygon id="Path" points="0 0 0 274 553 0" />
-        </g>
-      </g>
-    </AngleSVGWrapper>
-  );
-};
+// const AngleSVG = () => {
+//   return (
+//     <AngleSVGWrapper
+//       width="553px"
+//       height="274px"
+//       viewBox="0 0 553 274"
+//       version="1.1"
+//       xmlns="http://www.w3.org/2000/svg"
+//     >
+//       <g
+//         id="Page-2"
+//         stroke="none"
+//         stroke-width="1"
+//         fill="none"
+//         fill-rule="evenodd"
+//       >
+//         <g id="Artboard" fill="#000000">
+//           <polygon id="Path" points="0 0 0 274 553 0" />
+//         </g>
+//       </g>
+//     </AngleSVGWrapper>
+//   );
+// };
 
 const AngleSVGWrapper = styled.svg`
   position: absolute;
@@ -115,8 +115,6 @@ const AngleSVGWrapper = styled.svg`
 `;
 
 const AboutContainer = styled(DefaultContainer)`
-  /* margin: 0; */
-
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -158,7 +156,7 @@ const AboutInfoContainer = styled.div`
     p {
       font-size: 1.2rem;
     }
-  };
+  }
   ${media.hd`
     max-width: 1000px;
     h2 {
@@ -194,27 +192,23 @@ const SkillColumn = styled.div`
     border-bottom: none;
   }
   svg {
-    path, rect, polygon  {
-      /* fill: ${props => props.theme.colorSecondary}; */
+    path,
+    rect,
+    polygon {
       fill: ${props => props.theme.colorPrimary};
     }
-    polyline, path {
-      /* stroke: ${props => props.theme.colorSecondary}; */
+    polyline,
+    path {
       stroke: ${props => props.theme.colorPrimary};
     }
     height: 5rem;
     width: 90%;
-    /* border-bottom: 2px solid ${props => props.theme.colorPrimary}; */
-    /* border-bottom: 2px solid ${props => props.theme.colorSecondary};
-    margin-bottom: 0.8rem; */
   }
   h4 {
     border-bottom: 2px solid ${props => props.theme.colorSecondary};
     padding-bottom: 0.8rem;
     margin-top: -0.6rem;
     margin-bottom: 0.8rem;
-
-
   }
   h5 {
     margin-bottom: 0.3rem;
@@ -222,7 +216,6 @@ const SkillColumn = styled.div`
   h4,
   h5 {
     color: ${props => props.theme.colorPrimary}dd;
-    /* color: ${props => props.theme.colorSecondary}dd; */
     font-weight: 600;
   }
   p {
@@ -233,80 +226,115 @@ const SkillColumn = styled.div`
     line-height: 1.15;
   }
   @media (min-width: ${sizes.laptop}px) {
-    /* border: 2px solid ${props => props.theme.colorPrimary}; */
-    border: 2px solid ${props => props.theme.colorPrimary}dd;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     border-radius: 15px;
     :last-child {
-      border-bottom: 2px solid ${props => props.theme.colorPrimary};
-    }
-    svg {
-      /* border-bottom: 2px solid ${props => props.theme.colorPrimary}dd; */
-      path, rect, polygon  {
-        fill: ${props => props.theme.colorPrimary}dd;
-      }
-      polyline, path {
-        stroke: ${props => props.theme.colorPrimary}dd;
-      }
     }
     h4 {
-      border-bottom: 3px solid ${props => props.theme.colorPrimary}dd;
       font-size: 1.4rem;
     }
-    h5, p, li {
+    h5,
+    p,
+    li {
       font-size: 1.1rem;
     }
     &:hover {
-      border: 2px solid ${props => props.theme.colorPrimary};
-      /* box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px; */
-      box-shadow: ${props => props.theme.colorLighter}40 0px 8px 20px;
       transform: translateY(-3px);
-      svg {
-        /* border-bottom: 2px solid ${props => props.theme.colorPrimary}; */
-        path, rect, polygon  {
-          fill: ${props => props.theme.colorPrimary};
-        }
-        polyline, path {
-          stroke: ${props => props.theme.colorPrimary};
-        }
-      }
-      h4 {
-        border-bottom: 3px solid ${props => props.theme.colorPrimary};
-      }
-      h4, h5 {
-        color: ${props => props.theme.colorPrimary};
+      h4,
+      h5 {
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
       }
     }
-
-  };
+  }
   @media (min-width: ${sizes.hd}px) {
-    border: 3px solid ${props => props.theme.colorPrimary}dd;
     svg {
       height: 6.5rem;
-      /* border-bottom: 4px solid ${props => props.theme.colorPrimary}dd; */
-      /* margin-bottom: 1.2rem; */
     }
     h4 {
-      border-bottom: 4px solid ${props => props.theme.colorPrimary}dd;
       font-size: 1.6rem;
     }
-    h5, p, li {
+    h5,
+    p,
+    li {
       font-size: 1.2rem;
     }
-    &:hover {
-      border: 3px solid ${props => props.theme.colorPrimary};
-      h4 {
-        border-bottom: 4px solid ${props => props.theme.colorPrimary};
-      }
-      /* svg {
-        border-bottom: 4px solid ${props => props.theme.colorPrimary};
-      } */
-    }
-  };
+  }
+`;
 
-  /* width: */
-  /* border: 1px solid ${props => props.theme.colorPrimary}; */
+const SkillColumnColor = styled(SkillColumn)`
+  border-bottom: 1px solid ${props => props.color};
+  svg {
+    path,
+    rect,
+    polygon {
+      fill: ${props => props.color};
+    }
+    polyline,
+    path {
+      stroke: ${props => props.color};
+    }
+  }
+  h4 {
+    border-bottom: 2px solid ${props => props.color};
+  }
+  h4,
+  h5 {
+    color: ${props => props.color}dd;
+  }
+  @media (min-width: ${sizes.laptop}px) {
+    border: 2px solid ${props => props.color}dd;
+    :last-child {
+      border-bottom: 2px solid ${props => props.color};
+    }
+    svg {
+      path,
+      rect,
+      polygon {
+        fill: ${props => props.color}dd;
+      }
+      polyline,
+      path {
+        stroke: ${props => props.color}dd;
+      }
+    }
+    h4 {
+      border-bottom: 3px solid ${props => props.color}dd;
+    }
+    &:hover {
+      border: 2px solid ${props => props.color};
+      box-shadow: ${props => props.color}40 0px 8px 20px;
+      svg {
+        path,
+        rect,
+        polygon {
+          fill: ${props => props.color};
+        }
+        polyline,
+        path {
+          stroke: ${props => props.color};
+        }
+      }
+      h4 {
+        border-bottom: 3px solid ${props => props.color};
+      }
+      h4,
+      h5 {
+        color: ${props => props.color};
+      }
+    }
+  }
+  @media (min-width: ${sizes.hd}px) {
+    border: 3px solid ${props => props.color}dd;
+    h4 {
+      border-bottom: 4px solid ${props => props.color}dd;
+    }
+    &:hover {
+      border: 3px solid ${props => props.color};
+      h4 {
+        border-bottom: 4px solid ${props => props.color};
+      }
+    }
+  }
 `;
 
 export default withTheme(About);
