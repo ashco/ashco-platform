@@ -108,7 +108,6 @@ const AngleSVG = () => {
 const AngleSVGWrapper = styled.svg`
   position: absolute;
   top: 0;
-  /* height: 40px; */
   width: 100%;
   polygon {
     fill: ${props => props.theme.colorPrimary}90;
@@ -134,10 +133,15 @@ const AboutInfoContainer = styled.div`
   max-width: 700px;
   text-align: center;
   margin: 1rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   h2 {
     font-size: 1.9rem;
     font-weight: 600;
     color: ${props => props.theme.colorPrimary};
+    border-bottom: 1.6px solid ${props => props.theme.colorPrimary};
+    padding-bottom: 0.6rem;
   }
   p {
     font-size: 1.1rem;
@@ -147,6 +151,7 @@ const AboutInfoContainer = styled.div`
   ${media.laptop`
     max-width: 900px;
     h2 {
+      width: 60%;
       font-size: 2.2rem;
     }
     p {
@@ -189,21 +194,36 @@ const SkillColumn = styled.div`
   }
   svg {
     path, rect, polygon  {
+      /* fill: ${props => props.theme.colorSecondary}; */
       fill: ${props => props.theme.colorPrimary};
     }
     polyline, path {
+      /* stroke: ${props => props.theme.colorSecondary}; */
       stroke: ${props => props.theme.colorPrimary};
     }
     height: 5rem;
     width: 90%;
+    /* border-bottom: 2px solid ${props => props.theme.colorPrimary}; */
+    /* border-bottom: 2px solid ${props => props.theme.colorSecondary};
+    margin-bottom: 0.8rem; */
+  }
+  h4 {
     border-bottom: 2px solid ${props => props.theme.colorPrimary};
+    /* border-bottom: 2px solid ${props => props.theme.colorSecondary}; */
+    padding-bottom: 0.8rem;
+    margin-top: -0.6rem;
     margin-bottom: 0.8rem;
+
+
+  }
+  h5 {
+    margin-bottom: 0.3rem;
   }
   h4,
   h5 {
     color: ${props => props.theme.colorPrimary}dd;
+    /* color: ${props => props.theme.colorSecondary}dd; */
     font-weight: 600;
-    margin-bottom: 0.3rem;
   }
   p {
     line-height: 1.1;
@@ -216,8 +236,12 @@ const SkillColumn = styled.div`
     /* border: 2px solid ${props => props.theme.colorPrimary}; */
     border: 2px solid ${props => props.theme.colorPrimary}dd;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    border-radius: 15px;
+    :last-child {
+      border-bottom: 2px solid ${props => props.theme.colorPrimary};
+    }
     svg {
-      border-bottom: 2px solid ${props => props.theme.colorPrimary}dd;
+      /* border-bottom: 2px solid ${props => props.theme.colorPrimary}dd; */
       path, rect, polygon  {
         fill: ${props => props.theme.colorPrimary}dd;
       }
@@ -225,12 +249,19 @@ const SkillColumn = styled.div`
         stroke: ${props => props.theme.colorPrimary}dd;
       }
     }
+    h4 {
+      border-bottom: 3px solid ${props => props.theme.colorPrimary}dd;
+      font-size: 1.4rem;
+    }
+    h5, p, li {
+      font-size: 1.1rem;
+    }
     &:hover {
       border: 2px solid ${props => props.theme.colorPrimary};
       box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px;
       transform: translateY(-3px);
       svg {
-        border-bottom: 2px solid ${props => props.theme.colorPrimary};
+        /* border-bottom: 2px solid ${props => props.theme.colorPrimary}; */
         path, rect, polygon  {
           fill: ${props => props.theme.colorPrimary};
         }
@@ -238,40 +269,38 @@ const SkillColumn = styled.div`
           stroke: ${props => props.theme.colorPrimary};
         }
       }
+      h4 {
+        border-bottom: 3px solid ${props => props.theme.colorPrimary};
+      }
       h4, h5 {
         color: ${props => props.theme.colorPrimary};
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
       }
     }
-    border-radius: 15px;
-    :last-child {
-      border-bottom: 1px solid ${props => props.theme.colorPrimary};
-    }
 
-    h4 {
-      font-size: 1.4rem;
-    }
-    h5, p, li {
-      font-size: 1.1rem;
-    }
   };
   @media (min-width: ${sizes.hd}px) {
+    border: 3px solid ${props => props.theme.colorPrimary}dd;
     svg {
       height: 6.5rem;
-      /* width: 6.5rem; */
-      border-bottom: 4px solid ${props => props.theme.colorPrimary}dd;
-      margin-bottom: 1.2rem;
+      /* border-bottom: 4px solid ${props => props.theme.colorPrimary}dd; */
+      /* margin-bottom: 1.2rem; */
     }
     h4 {
+      border-bottom: 4px solid ${props => props.theme.colorPrimary}dd;
       font-size: 1.6rem;
     }
     h5, p, li {
       font-size: 1.2rem;
     }
     &:hover {
-      svg {
+      border: 3px solid ${props => props.theme.colorPrimary};
+      h4 {
         border-bottom: 4px solid ${props => props.theme.colorPrimary};
       }
+      /* svg {
+        border-bottom: 4px solid ${props => props.theme.colorPrimary};
+      } */
     }
   };
 

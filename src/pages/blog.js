@@ -44,7 +44,7 @@ const BlogWrapper = styled(DefaultContainer)`
   /* margin: 1.8rem auto; */
   h2 {
     margin-bottom: 1rem;
-    margin-left: 0.75rem;
+    /* margin-left: 0.75rem; */
     font-size: 2.2rem;
     line-height: 1em;
     font-weight: 600;

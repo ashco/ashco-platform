@@ -23,6 +23,7 @@ const BlogListingWrapper = styled.article`
     h3 {
       color: ${props => props.theme.colorPrimary};
       margin-bottom: 0.2rem;
+      font-weight: 500;
     }
     p.createdAt {
       margin-bottom: 0.2rem;
@@ -36,6 +37,9 @@ const BlogListingWrapper = styled.article`
   transition: border-left 0.1s ease-in;
   &:hover {
     border-left: 0.25rem solid ${props => props.theme.colorPrimary}90;
+    /* border-left: 3px solid;
+    border-image: linear-gradient(to bottom, ${props => props.theme.colorPrimary}90 0%,${props => props.theme.colorSecondary}90 100%);
+    border-image-slice: 1; */
   }
   ${media.desktop`
     a{

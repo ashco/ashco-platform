@@ -39,20 +39,61 @@ class Main extends Component {
       marginTop = isHome ? '113vh' : '13vh';
     }
 
-    return <MainWrapper marginTop={marginTop}>{children}</MainWrapper>;
+    return (
+      <MainWrapper marginTop={marginTop}>
+        {/* <Angle1 /> */}
+        {children}
+      </MainWrapper>
+    );
   }
 }
-// const Body = ({ children }) => {
-//   // Calculate top margin
-//   // const { children, isMobile, isHome } = this.props;
-//   console.log(this);
-//   const bodyEl = React.createRef();
-//   return <BodyWrapper ref={bodyEl}>{children}</BodyWrapper>;
-// };
+
+const Angle1 = () => {
+  return (
+    <Angle1Wrapper>
+      {/* <div className="box" /> */}
+      {/* <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <polygon fill="white" points="0,100 100,0 100,100" />
+      </svg> */}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon class="svg--sm" fill="white" points="0,100 65,21 100,100"/>
+        {/* <polygon class="svg--sm" fill="white" points="0,0 30,100 65,21 90,100 100,75 100,100 0,100"/> */}
+    {/* <polygon class="svg--lg" fill="white" points="0,0 15,100 33,21 45,100 50,75 55,100 72,20 85,100 95,50 100,80 100,100 0,100" /> */}
+      </svg>
+    </Angle1Wrapper>
+  );
+};
+
+const Angle1Wrapper = styled.div`
+  .box {
+    background-color: ${props => props.theme.colorPrimary}90;
+    height: 20px;
+  }
+  svg {
+    position: relative;
+    top: 0;
+    background-color: ${props => props.theme.colorPrimary}90;
+    height: 4vw;
+    width: 100%;
+    polygon {
+      fill: ${props => props.theme.colorBackground};
+    }
+  }
+`;
+
 
 const MainWrapper = styled.main`
-  border-top: 7px solid ${props => props.theme.colorPrimary}90;
-  border-bottom: 7px solid ${props => props.theme.colorPrimary}90;
+  /* border-top: 7px solid ${props => props.theme.colorPrimary}90;
+  border-bottom: 7px solid ${props => props.theme.colorPrimary}90; */
+  border-top: 7px solid;
+  border-bottom: 7px solid;
+  border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary}90 0%,${props => props.theme.colorSecondary}90 100%);
+  border-image-slice: 1;
+
   z-index: 10;
   pointer-events: none;
   position: absolute;
@@ -79,7 +120,10 @@ const MainWrapper = styled.main`
     margin-left: 8vw;
     margin-right: 8vw;
     width: 84vw;
-    border: 7px solid ${props => props.theme.colorPrimary}90;
+    /* border: 7px solid ${props => props.theme.colorPrimary}90; */
+    border: 8px solid;
+    border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%);
+    border-image-slice: 1;
   }
   ${media.hd`
     margin-left: 15vw;

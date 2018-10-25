@@ -93,8 +93,13 @@ const HeroTextWrapper = styled.div`
   font-weight: 600;
   margin: 0 10vw 8.5vh 10vw;
   padding: 30px 35px 0px 10px;
-  border-left: 8px solid ${props => props.theme.colorPrimary};
-  border-bottom: 8px solid ${props => props.theme.colorPrimary};
+  /* border-left: 8px solid ${props => props.theme.colorPrimary};
+  border-bottom: 8px solid ${props => props.theme.colorPrimary}; */
+  border-left: 8px solid;
+  border-bottom: 8px solid;
+  border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary} 0%,${props => props.theme.colorSecondary} 100%);
+  border-image-slice: 1;
+
   ${media.tablet`
     margin-left: 11.5vw;
     margin-bottom: 16vh;

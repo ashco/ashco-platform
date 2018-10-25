@@ -8,7 +8,6 @@ import { DefaultContainer } from '../helpers';
 const BlogPage = ({ data }) => {
   if (!data) return null;
   const isHeroImage = data.contentfulBlogPost.heroImage;
-  // const hasTags = data.contentfulBlogPost.tags;
   return (
     <BlogPageWrapper>
       <h2>{data.contentfulBlogPost.title}</h2>
@@ -18,13 +17,6 @@ const BlogPage = ({ data }) => {
           alt={data.contentfulBlogPost.heroImage.title}
         />
       )}
-      {/* {hasTags && (
-          <TagContainer>
-            {data.contentfulBlogPost.tags.map(tag => (
-              <Tag>{tag}</Tag>
-            ))}
-          </TagContainer>
-        )} */}
       <div className="createdAt">
         <p>{data.contentfulBlogPost.createdAt}</p>
       </div>
@@ -52,7 +44,10 @@ const BlogPageWrapper = styled(DefaultContainer)`
     margin: 0.5rem 0;
   }
   div.createdAt {
-    border-bottom: 2px solid ${props => props.theme.colorPrimary}90;
+    /* border-bottom: 2px solid ${props => props.theme.colorPrimary}90; */
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, ${props => props.theme.colorPrimary}cc 0%,${props => props.theme.colorSecondary}cc 100%);
+    border-image-slice: 1;
     margin-bottom: 1rem;
     padding-right: 2rem;
     font-weight: 300;
@@ -108,7 +103,7 @@ export const query = graphql`
       id
       title
       slug
-      tags
+      # tags
       createdAt(formatString: "MMMM DD, YYYY")
       heroImage {
         id

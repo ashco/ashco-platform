@@ -3,8 +3,19 @@ export const theme = {
   // colorPrimary: '#d27831',
   // colorPrimary: '#d35151',
   // colorPrimary: '#49afd7',
-  colorPrimary: '#2de5b4',
+  // colorPrimary: '#2de5b4',
   // colorPrimary: '#9974dd',
+
+  // ORANGE
+  // colorPrimary: '#D27831',
+  // colorSecondary: '#E39B2F',
+  // RED
+  // colorPrimary: '#FF5D5B',
+  // colorSecondary: '#FF685C',
+  // BLUE
+  colorPrimary: '#4AA9D9',
+  colorSecondary: '#4AC7D9',
+
 
   colorBackground: '#1f1f1f',
   colorText: '#dfdfdf',
@@ -14,6 +25,7 @@ export const theme = {
 
   // ------ ELEMENT STYLE VARIABLES -------
   portfolioRadius: '5px',
+  borderGradient: 'linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%)',
 };
 
 export const globalVars = {};

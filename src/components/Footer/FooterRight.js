@@ -91,6 +91,9 @@ const FooterRightWrapper = styled.div`
       a {
         &:hover {
           border-bottom: 4px solid ${props => props.theme.colorPrimary}cc;
+          /* border-bottom: 4px solid;
+          border-image: linear-gradient(to right, ${props => props.theme.colorPrimary} 0%,${props => props.theme.colorSecondary} 100%);
+          border-image-slice: 1; */
         }
       }
     }

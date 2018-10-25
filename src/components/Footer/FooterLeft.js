@@ -52,6 +52,9 @@ const FooterLeftWrapper = styled.div`
   a {
     &:hover {
       border-bottom: 1px solid ${props => props.theme.colorPrimary}cc;
+      /* border-bottom: 1px solid;
+      border-image: linear-gradient(to right, ${props => props.theme.colorPrimary} 0%,${props => props.theme.colorSecondary} 100%);
+      border-image-slice: 1; */
     }
   }
   ${media.tablet`

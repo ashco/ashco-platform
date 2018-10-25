@@ -90,9 +90,17 @@ class ContactPage extends Component {
             />
           </FormInputWrapper>
           <div>
-            <Button type="submit" disabled={this.state.disabled}>
-              Send
-            </Button>
+            {this.state.disabled ?
+              <ButtonDisabled type="submit">
+                Send
+              </ButtonDisabled>
+                :
+              <ButtonActive type="submit">
+                Send
+              </ButtonActive>
+
+
+          }
           </div>
         </FormWrapper>
       </ContactContainer>
@@ -165,7 +173,10 @@ const FormInputWrapper = styled.p`
   flex-direction: column;
   input,
   textarea {
-    border: solid 3px ${props => props.theme.colorPrimary}90;
+    /* border: solid 3px ${props => props.theme.colorPrimary}90; */
+    border: 3px solid;
+    border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%);
+    border-image-slice: 1;
     background-color: ${props => props.theme.colorBackground};
     padding-top: 8px;
     padding-bottom: 8px;
@@ -192,18 +203,26 @@ const FormInputWrapper = styled.p`
 
 const Button = styled.button`
   padding: 0.5rem 1.2rem 0.5rem 1.2rem;
-  background-color: ${props => props.theme.colorBackground};
-  border-radius: 3px;
-  color: ${props => (props.disabled ? '#88888890' : props.theme.colorText)};
   font-size: 1.1rem;
-  border: 3px solid
-    ${props => (props.disabled ? '#888888' : props.theme.colorPrimary)}90;
+  background-color: ${props => props.theme.colorBackground};
+  border: 4px solid;
   ${media.desktop`
     font-size: 1.2rem;
   `};
   ${media.hd`
     font-size: 1.4rem;
   `};
+`
+
+const ButtonActive = styled(Button)`
+    border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%);
+    border-image-slice: 1;
+    color: ${props => props.theme.colorText};
+`;
+
+const ButtonDisabled = styled(Button)`
+    border-color: #88888890;
+    color: #88888870;
 `;
 
 export default ContactPage;

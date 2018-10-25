@@ -133,6 +133,9 @@ const NavLinkItemWrapper = styled.li`
     transition: border-bottom 0.2s ease-out;
     &:hover {
       border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
+      /* border-bottom: 3px solid;
+      border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary} 0%,${props => props.theme.colorSecondary} 100%);
+      border-image-slice: 1; */
     }
   }
   ${media.tablet`
