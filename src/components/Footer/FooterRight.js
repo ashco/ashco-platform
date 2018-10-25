@@ -84,6 +84,9 @@ const FooterRightWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin: 0 1.5rem 1.5rem 1.5rem;
+  svg {
+    height: 3rem;
+  }
   ul {
     display: flex;
     li {
@@ -92,7 +95,9 @@ const FooterRightWrapper = styled.div`
         &:hover {
           border-bottom: 4px solid ${props => props.theme.colorPrimary}cc;
           /* border-bottom: 4px solid;
-          border-image: linear-gradient(to right, ${props => props.theme.colorPrimary} 0%,${props => props.theme.colorSecondary} 100%);
+          border-image: linear-gradient(to right, ${props =>
+            props.theme.colorPrimary} 0%,${props =>
+  props.theme.colorSecondary} 100%);
           border-image-slice: 1; */
         }
       }

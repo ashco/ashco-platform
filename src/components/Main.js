@@ -59,10 +59,14 @@ const Angle1 = () => {
       >
         <polygon fill="white" points="0,100 100,0 100,100" />
       </svg> */}
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon class="svg--sm" fill="white" points="0,100 65,21 100,100"/>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <polygon class="svg--sm" fill="white" points="0,100 65,21 100,100" />
         {/* <polygon class="svg--sm" fill="white" points="0,0 30,100 65,21 90,100 100,75 100,100 0,100"/> */}
-    {/* <polygon class="svg--lg" fill="white" points="0,0 15,100 33,21 45,100 50,75 55,100 72,20 85,100 95,50 100,80 100,100 0,100" /> */}
+        {/* <polygon class="svg--lg" fill="white" points="0,0 15,100 33,21 45,100 50,75 55,100 72,20 85,100 95,50 100,80 100,100 0,100" /> */}
       </svg>
     </Angle1Wrapper>
   );
@@ -85,13 +89,14 @@ const Angle1Wrapper = styled.div`
   }
 `;
 
-
 const MainWrapper = styled.main`
   /* border-top: 7px solid ${props => props.theme.colorPrimary}90;
   border-bottom: 7px solid ${props => props.theme.colorPrimary}90; */
   border-top: 7px solid;
   border-bottom: 7px solid;
-  border-image: linear-gradient(135deg, ${props => props.theme.colorDarker} 0%,${props => props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
+  border-image: linear-gradient(135deg, ${props =>
+    props.theme.colorDarker} 0%,${props =>
+  props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
   border-image-slice: 1;
 
   z-index: 10;
@@ -112,17 +117,26 @@ const MainWrapper = styled.main`
     /* margin: 113vh auto 10vh auto; */
     /* min-height: calc(100vh - (${props => props.marginTop}) - 10vh); */
     min-height: 77vh;
-    margin: 0 auto 10vh auto;
+    margin-bottom: 7.8rem;
     margin-top: ${props => props.marginTop};
   }
+  @media (min-width: 935px) {
+    margin-bottom: 6.8rem;
+  }
+  @media (min-width: 935px) {
+    margin-bottom: 6rem;
+  }
   @media (min-width: ${sizes.laptop}px) {
+    /* margin: 0 auto 10vh auto; */
     border-radius: 10px;
     margin-left: 8vw;
     margin-right: 8vw;
     width: 84vw;
     /* border: 7px solid ${props => props.theme.colorPrimary}90; */
     border: 8px solid;
-    border-image: linear-gradient(135deg, ${props => props.theme.colorDarker} 0%,${props => props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
+    border-image: linear-gradient(135deg, ${props =>
+      props.theme.colorDarker} 0%,${props =>
+  props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
     border-image-slice: 1;
   }
   ${media.hd`

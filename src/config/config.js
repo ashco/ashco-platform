@@ -37,8 +37,6 @@ export const theme = {
     'linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%)',
 };
 
-export const globalVars = {};
-
 export const sizes = {
   tablet: 769,
   laptop: 1200,

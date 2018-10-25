@@ -67,6 +67,9 @@ const FooterLeftWrapper = styled.div`
   ${media.laptop`
     margin: 0rem 1.5rem 1.5rem 1.5rem;
   `};
+  @media(min-width: 1604px) {
+    margin-bottom: 1.7rem;
+  }
 `;
 
 export default FooterLeft;
