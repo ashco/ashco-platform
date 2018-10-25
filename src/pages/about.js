@@ -140,7 +140,7 @@ const AboutInfoContainer = styled.div`
     font-size: 1.9rem;
     font-weight: 600;
     color: ${props => props.theme.colorPrimary};
-    border-bottom: 1.6px solid ${props => props.theme.colorPrimary};
+    border-bottom: 2px solid ${props => props.theme.colorPrimary};
     padding-bottom: 0.6rem;
   }
   p {
@@ -151,6 +151,7 @@ const AboutInfoContainer = styled.div`
   ${media.laptop`
     max-width: 900px;
     h2 {
+      border-bottom: 3px
       width: 60%;
       font-size: 2.2rem;
     }

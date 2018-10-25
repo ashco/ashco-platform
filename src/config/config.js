@@ -9,12 +9,17 @@ export const theme = {
   // ORANGE
   // colorPrimary: '#D27831',
   // colorSecondary: '#E39B2F',
+  // ORANGE
+  colorPrimary: '#D27831',
+  colorSecondary: '#FF685C',
+  colorThirdly: '#E39B2F',
   // RED
   // colorPrimary: '#FF5D5B',
   // colorSecondary: '#FF685C',
   // BLUE
-  colorPrimary: '#4AA9D9',
-  colorSecondary: '#4AC7D9',
+  // colorPrimary: '#4AA9D9',
+  // colorSecondary: '#4AC7D9',
+
 
 
   colorBackground: '#1f1f1f',
