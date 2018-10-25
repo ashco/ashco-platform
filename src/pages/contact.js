@@ -90,17 +90,11 @@ class ContactPage extends Component {
             />
           </FormInputWrapper>
           <div>
-            {this.state.disabled ?
-              <ButtonDisabled type="submit">
-                Send
-              </ButtonDisabled>
-                :
-              <ButtonActive type="submit">
-                Send
-              </ButtonActive>
-
-
-          }
+            {this.state.disabled ? (
+              <ButtonDisabled type="submit">Send</ButtonDisabled>
+            ) : (
+              <ButtonActive type="submit">Send</ButtonActive>
+            )}
           </div>
         </FormWrapper>
       </ContactContainer>
@@ -175,8 +169,12 @@ const FormInputWrapper = styled.p`
   textarea {
     /* border: solid 3px ${props => props.theme.colorPrimary}90; */
     border: 3px solid;
-    /* border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%); */
-    border-image: linear-gradient(135deg, ${props => props.theme.colorDarker} 0%,${props => props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
+    /* border-image: linear-gradient(135deg, ${props =>
+      props.theme.colorPrimary}aa 0%,${props =>
+  props.theme.colorSecondary}aa 100%); */
+    border-image: linear-gradient(135deg, ${props =>
+      props.theme.colorDarker} 0%,${props =>
+  props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
     border-image-slice: 1;
     background-color: ${props => props.theme.colorBackground};
     padding-top: 8px;
@@ -202,7 +200,7 @@ const FormInputWrapper = styled.p`
   `};
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   padding: 0.5rem 1.2rem 0.5rem 1.2rem;
   font-size: 1.1rem;
   background-color: ${props => props.theme.colorBackground};
@@ -213,18 +211,22 @@ const Button = styled.button`
   ${media.hd`
     font-size: 1.4rem;
   `};
-`
+`;
 
 const ButtonActive = styled(Button)`
-    /* border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%); */
-    border-image: linear-gradient(135deg, ${props => props.theme.colorDarker} 0%,${props => props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
+    /* border-image: linear-gradient(135deg, ${props =>
+      props.theme.colorPrimary}aa 0%,${props =>
+  props.theme.colorSecondary}aa 100%); */
+    border-image: linear-gradient(135deg, ${props =>
+      props.theme.colorDarker} 0%,${props =>
+  props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
     border-image-slice: 1;
     color: ${props => props.theme.colorText};
 `;
 
 const ButtonDisabled = styled(Button)`
-    border-color: #88888890;
-    color: #88888870;
+  border-color: #88888890;
+  color: #88888870;
 `;
 
 export default ContactPage;
