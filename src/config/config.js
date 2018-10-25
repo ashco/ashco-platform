@@ -1,27 +1,29 @@
 export const theme = {
   // ------- COLOR -------
-  // colorPrimary: '#d27831',
-  // colorPrimary: '#d35151',
-  // colorPrimary: '#49afd7',
-  // colorPrimary: '#2de5b4',
-  // colorPrimary: '#9974dd',
-
   // ORANGE
-  // colorPrimary: '#D27831',
-  // colorSecondary: '#E39B2F',
-  // ORANGE
-  // colorLighter: '#E39B2F',
-  colorLighter: '#E5A830',
-  colorPrimary: '#D27831',
-  colorDarker: '#FF685C',
+  colorLighter: '#E3854A',
+  colorPrimary: '#DD702B',
+  colorDarker: '#D65E12',
   // RED
+  // colorLighter: '#FF755D',
   // colorPrimary: '#FF5D5B',
-  // colorSecondary: '#FF685C',
+  // colorDarker: '#FF5C71',
   // BLUE
-  // colorPrimary: '#4AA9D9',
-  // colorSecondary: '#4AC7D9',
-
-
+  // colorLighter: '#4AC7D9',
+  // colorPrimary: '#4BB9DA',
+  // colorDarker: '#4AA9D9',
+  // GREEN
+  // colorLighter: '#3BF2D7',
+  // colorPrimary: '#2de5b4',
+  // colorDarker: '#21C9A4',
+  // PURPLE
+  // colorLighter: '#C87DEF',
+  // colorPrimary: '#C664EC',
+  // colorDarker: '#AE47D6',
+  // AMERICA MODE
+  // colorLighter: '#4BB9DA',
+  // colorPrimary: '#eeeeee',
+  // colorDarker: '#FF5C71',
 
   colorBackground: '#1f1f1f',
   colorText: '#dfdfdf',
@@ -31,7 +33,8 @@ export const theme = {
 
   // ------ ELEMENT STYLE VARIABLES -------
   portfolioRadius: '5px',
-  borderGradient: 'linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%)',
+  borderGradient:
+    'linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%)',
 };
 
 export const globalVars = {};
