@@ -3,8 +3,8 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 
-// import AshCoIcon from '../Icons/AshCo';
-import AshCoIcon from '../Icons/AshCoGradient';
+// import AshCoIcon from '../Icons/AshCoGradient';
+import HeroIcon from './HeroIcon';
 
 const HeaderTitle = ({ pathname, toggleMenu }) => {
   let pageTitle = pathname.split('/')[1];
@@ -17,7 +17,7 @@ const HeaderTitle = ({ pathname, toggleMenu }) => {
         aria-label="hero-screen"
         onClick={toggleMenu.bind(null, true)}
       >
-        <AshCoIcon />
+        <HeroIcon />
       </Link>
       <span>{pageTitle}</span>
     </HeaderTitleWrapper>
