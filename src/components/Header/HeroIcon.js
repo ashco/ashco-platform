@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { themeArr } from '../../config/config';
 import { Link } from 'gatsby';
 import AshCoIcon from '../Icons/AshCoGradient';
@@ -42,8 +42,10 @@ class HeroIcon extends Component {
           {themeArr.map((themeObj, i) => {
             return (
               <ButtonColor
+                className={this.state.colorsOpen && 'colors-open'}
                 onClick={this.handleTheme.bind(null, themeObj)}
                 themeObj={themeObj}
+                open={this.state.colorsOpen}
                 z={i}
                 key={i}
               />
@@ -64,6 +66,14 @@ const ButtonWrapper = styled.div`
   pointer-events: auto;
   /* margin-top: 0.6rem; */
 `;
+const openAnimation = keyframes`
+  from {
+    left: 0;
+  }
+  to {
+    left: 8rem;
+  }
+`;
 
 const ButtonColor = styled(Button)`
   position: absolute;
@@ -73,6 +83,17 @@ const ButtonColor = styled(Button)`
   margin: 0.3rem;
   background: transparent;
   z-index: ${props => 10 - props.z};
+  animation: ${openAnimation} 2s cubic-bezier(0, 0.38, 0.55, 0.96) 1;
+`;
+
+// Create the keyframes
+
+// Here we create a component that will rotate everything we pass in over two seconds
+const OpenUp = styled.div`
+  /* display: inline-block; */
+
+  /* padding: 2rem 1rem;
+  font-size: 1.2rem; */
 `;
 
 export default HeroIcon;
