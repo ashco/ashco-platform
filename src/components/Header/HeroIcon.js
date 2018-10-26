@@ -5,11 +5,27 @@ import { Link } from 'gatsby';
 import AshCoIcon from '../Icons/AshCoGradient';
 import { Button } from '../../pages/contact';
 class HeroIcon extends Component {
+  state = {
+    colorsOpen: false,
+  };
+
   handleTheme(themeObj) {
     if (typeof window !== `undefined`) {
       window.localStorage.setItem('themeObj', JSON.stringify(themeObj));
     }
   }
+
+  handleClick = () => {
+    // console.log(this.props);
+    this.props.toggleMenu(true);
+    this.toggleColors();
+  };
+
+  toggleColors = () => {
+    this.setState({
+      colorsOpen: !this.state.colorsOpen,
+    });
+  };
 
   render() {
     return (
@@ -17,7 +33,8 @@ class HeroIcon extends Component {
         <Link
           to="/"
           aria-label="hero-screen"
-          onClick={this.props.toggleMenu.bind(null, true)}
+          // onClick={this.props.toggleMenu.bind(null, true)}
+          onClick={this.handleClick}
         >
           <AshCoIcon />
         </Link>
@@ -27,6 +44,7 @@ class HeroIcon extends Component {
               <ButtonColor
                 onClick={this.handleTheme.bind(null, themeObj)}
                 themeObj={themeObj}
+                z={i}
                 key={i}
               />
             );
@@ -38,17 +56,23 @@ class HeroIcon extends Component {
 }
 
 const ButtonWrapper = styled.div`
-  display: flex;
+  position: absolute;
+  bottom: 5.2rem;
+  left: 2.6rem;
+  /* display: flex; */
   /* flex-direction: column; */
   pointer-events: auto;
-  margin-top: 0.45rem;
+  /* margin-top: 0.6rem; */
 `;
 
 const ButtonColor = styled(Button)`
+  position: absolute;
   border: 4px solid ${props => props.themeObj.colorPrimary};
   border-radius: 50%;
-  padding: 0.5rem;
+  padding: 0.52rem;
   margin: 0.3rem;
+  background: transparent;
+  z-index: ${props => 10 - props.z};
 `;
 
 export default HeroIcon;

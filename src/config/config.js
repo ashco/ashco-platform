@@ -24,6 +24,14 @@ export const themeArr = [
     colorText: '#dfdfdf',
   },
   {
+    // PURPLE
+    colorLighter: '#C87DEF',
+    colorPrimary: '#C664EC',
+    colorDarker: '#AE47D6',
+    colorBackground: '#1f1f1f',
+    colorText: '#dfdfdf',
+  },
+  {
     // BLUE
     colorLighter: '#4AC7D9',
     colorPrimary: '#4BB9DA',
@@ -36,14 +44,6 @@ export const themeArr = [
     colorLighter: '#3BF2D7',
     colorPrimary: '#2de5b4',
     colorDarker: '#21C9A4',
-    colorBackground: '#1f1f1f',
-    colorText: '#dfdfdf',
-  },
-  {
-    // PURPLE
-    colorLighter: '#C87DEF',
-    colorPrimary: '#C664EC',
-    colorDarker: '#AE47D6',
     colorBackground: '#1f1f1f',
     colorText: '#dfdfdf',
   },

@@ -12,13 +12,13 @@ import EverythingElse from '../components/Icons/EverythingElse';
 import { withTheme } from 'styled-components';
 
 const About = props => {
-  const { colorPrimary, colorLighter, colorDarker } = props.theme;
+  const { colorLighter, colorPrimary, colorDarker } = props.theme;
   const imgArr = [
-    <FrontEnd color={colorDarker} />,
-    <BackEnd color={colorPrimary} />,
+    <FrontEnd color={colorPrimary} />,
+    <BackEnd color={colorDarker} />,
     <EverythingElse color={colorLighter} />,
   ];
-  const colorArr = [colorDarker, colorPrimary, colorLighter];
+  const colorArr = [colorPrimary, colorDarker, colorLighter];
 
   return (
     <StaticQuery
