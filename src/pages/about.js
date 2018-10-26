@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 
-import { media, sizes } from '../config/config';
+import { media, sizes } from '../config/media';
 
 import { DefaultContainer } from '../components/helpers';
 import FrontEnd from '../components/Icons/FrontEnd';

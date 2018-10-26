@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '../../config/config';
+import { media } from '../../config/media';
 
 import { DefaultContainer } from '../helpers';
 

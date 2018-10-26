@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import { media } from '../config/config';
+import { media } from '../config/media';
 
 import BlogListing from '../components/Blog/BlogListing';
 import { DefaultContainer } from '../components/helpers';

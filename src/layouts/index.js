@@ -7,8 +7,8 @@ import {
   VisualContextProvider,
   VisualContextConsumer,
 } from '../components/Context/VisualContext';
-// import { theme } from '../config/config';
-import { theme } from '../pages/index';
+import { theme } from '../config/config';
+// import { theme } from '../pages/index';
 
 import Header from '../components/Header/header';
 import Footer from '../components/Footer/Footer';

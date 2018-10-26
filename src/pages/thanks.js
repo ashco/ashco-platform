@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { DefaultContainer } from '../components/helpers';
 import MailSent from '../components/Icons/MailSent';
-import { media } from '../config/config';
+import { media } from '../config/media';
 
 const Thanks = () => (
   <ThanksContainer>

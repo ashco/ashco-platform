@@ -21,17 +21,17 @@ const AshCo = ({ theme }) => {
           y2="49.4944574%"
           id="linearGradient-1"
         >
-          <stop stop-color={colorLighter} offset="0%" />
-          <stop stop-color={colorPrimary} offset="47.9771699%" />
-          <stop stop-color={colorDarker} offset="100%" />
+          <stop stopColor={colorLighter} offset="0%" />
+          <stop stopColor={colorPrimary} offset="47.9771699%" />
+          <stop stopColor={colorDarker} offset="100%" />
         </linearGradient>
       </defs>
       <g
         id="Page-3"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <g id="Artboard" transform="translate(-69.000000, -9.000000)">
           <g id="ashco-logo" transform="translate(69.000000, 9.000000)">
@@ -48,7 +48,7 @@ const AshCo = ({ theme }) => {
             <circle
               id="Oval"
               stroke="#DDDDDD"
-              stroke-width="44"
+              strokeWidth="44"
               cx="416"
               cy="491"
               r="171"

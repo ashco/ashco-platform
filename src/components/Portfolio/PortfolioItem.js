@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-import { media } from '../../config/config';
+import { media } from '../../config/media';
 
 class PortfolioItem extends Component {
   state = {};
@@ -38,7 +38,7 @@ const PortfolioItemWrapper = styled.article`
   justify-content: center;
   position: relative;
   margin: 0.75rem auto;
-  border-radius: ${props => props.theme.portfolioRadius};
+  border-radius: 5px;
   /* ANIMATION */
   box-shadow: none;
   border-bottom: none;
@@ -62,7 +62,7 @@ const PortfolioItemWrapper = styled.article`
   }
   .gatsby-image-wrapper {
     opacity: 0.3;
-    border-radius: ${props => props.theme.portfolioRadius};
+    border-radius: 5px;
     width: 90vw;
     height: 60vw;
     max-width: 600px;

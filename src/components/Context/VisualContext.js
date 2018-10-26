@@ -1,6 +1,6 @@
 // HeroContext.js
 import React from 'react';
-import { sizes } from '../../config/config';
+import { sizes } from '../../config/media';
 
 const VisualContext = React.createContext();
 

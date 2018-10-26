@@ -10,13 +10,11 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import { Button } from './contact';
 import { DefaultContainer } from '../components/helpers';
+import { themeArr } from '../config/config';
 
 class IndexPage extends Component {
   handleColor(colorObj) {
     console.log(colorObj);
-    theme.colorDarker = colorObj.colorDarker;
-    theme.colorPrimary = colorObj.colorPrimary;
-    theme.colorLighter = colorObj.colorLighter;
   }
 
   render() {
@@ -74,11 +72,12 @@ class IndexPage extends Component {
             <Portfolio projects={data.allContentfulPortfolioProject.edges} />
             <Blog posts={data.allContentfulBlogPost.edges} />
             <Contact />
-            {colorArr.map(color => {
+            {themeArr.map((themeObj, i) => {
               return (
                 <ButtonColor
-                  onClick={this.handleColor.bind(null, color)}
-                  color={color}
+                  onClick={this.handleColor.bind(null, themeObj)}
+                  themeObj={themeObj}
+                  key={i}
                 />
               );
             })}
@@ -94,71 +93,67 @@ const MainContainer = styled(DefaultContainer)`
 `;
 
 const ButtonColor = styled(Button)`
-  border-image: linear-gradient(
-    135deg,
-    ${props => props.color.colorDarker} 0%,
-    ${props => props.color.colorPrimary} 50%,
-    ${props => props.color.colorLighter} 100%
-  );
-  border-image-slice: 1;
-  color: ${props => props.theme.colorText};
+  border: 6px solid ${props => props.themeObj.colorPrimary};
+  border-radius: 50%;
+  padding: 0.6rem;
+  margin: 0.3rem;
 `;
 
-export let theme = {
-  colorLighter: '#E3854A',
-  colorPrimary: '#DD702B',
-  colorDarker: '#D65E12',
+// export let theme = {
+//   colorLighter: '#E3854A',
+//   colorPrimary: '#DD702B',
+//   colorDarker: '#D65E12',
 
-  colorBackground: '#1f1f1f',
-  colorText: '#dfdfdf',
+//   colorBackground: '#1f1f1f',
+//   colorText: '#dfdfdf',
 
-  // ------ ELEMENT STYLE VARIABLES -------
-  portfolioRadius: '5px',
-  borderGradient:
-    'linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%)',
-};
+//   // ------ ELEMENT STYLE VARIABLES -------
+//   portfolioRadius: '5px',
+//   borderGradient:
+//     'linear-gradient(135deg, ${props => props.theme.colorPrimary}aa 0%,${props => props.theme.colorSecondary}aa 100%)',
+// };
 
-const colorArr = [
-  // ------- COLOR -------
-  // ORANGE
-  {
-    text: 'ORANGE',
-    colorLighter: '#E3854A',
-    colorPrimary: '#DD702B',
-    colorDarker: '#D65E12',
-  },
-  // RED
-  {
-    text: 'RED',
-    colorLighter: '#FF755D',
-    colorPrimary: '#FF5D5B',
-    colorDarker: '#FF5C71',
-  },
-  // BLUE
-  {
-    text: 'BLUE',
-    colorLighter: '#4AC7D9',
-    colorPrimary: '#4BB9DA',
-    colorDarker: '#4AA9D9',
-  },
-  // GREEN
-  {
-    text: 'GREEN',
-    colorLighter: '#3BF2D7',
-    colorPrimary: '#2de5b4',
-    colorDarker: '#21C9A4',
-  },
-  // PURPLE
-  {
-    text: 'PURP',
-    colorLighter: '#C87DEF',
-    colorPrimary: '#C664EC',
-    colorDarker: '#AE47D6',
-  },
-  // AMERICA MODE
-  // colorLighter: '#4BB9DA',
-  // colorPrimary: '#eeeeee',
-  // colorDarker: '#FF5C71',
-];
+// const colorArr = [
+//   // ------- COLOR -------
+//   // ORANGE
+//   {
+//     text: 'ORANGE',
+//     colorLighter: '#E3854A',
+//     colorPrimary: '#DD702B',
+//     colorDarker: '#D65E12',
+//   },
+//   // RED
+//   {
+//     text: 'RED',
+//     colorLighter: '#FF755D',
+//     colorPrimary: '#FF5D5B',
+//     colorDarker: '#FF5C71',
+//   },
+//   // BLUE
+//   {
+//     text: 'BLUE',
+//     colorLighter: '#4AC7D9',
+//     colorPrimary: '#4BB9DA',
+//     colorDarker: '#4AA9D9',
+//   },
+//   // GREEN
+//   {
+//     text: 'GREEN',
+//     colorLighter: '#3BF2D7',
+//     colorPrimary: '#2de5b4',
+//     colorDarker: '#21C9A4',
+//   },
+//   // PURPLE
+//   {
+//     text: 'PURP',
+//     colorLighter: '#C87DEF',
+//     colorPrimary: '#C664EC',
+//     colorDarker: '#AE47D6',
+//   },
+//   // AMERICA MODE
+//   // colorLighter: '#4BB9DA',
+//   // colorPrimary: '#eeeeee',
+//   // colorDarker: '#FF5C71',
+// ];
 
 export default IndexPage;

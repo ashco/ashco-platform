@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import { media } from '../../config/config';
+import { media } from '../../config/media';
 
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';

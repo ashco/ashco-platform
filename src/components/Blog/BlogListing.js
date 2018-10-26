@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { media } from '../../config/config';
+import { media } from '../../config/media';
 
 const BlogListing = ({ post }) => (
   <BlogListingWrapper>

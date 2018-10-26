@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { media } from '../../config/config';
+import { media } from '../../config/media';
 
 import { VisualContextConsumer } from '../Context/VisualContext';
 // import { MenuContextConsumer } from '../Context/MenuContext';
@@ -134,7 +134,9 @@ const NavLinkItemWrapper = styled.li`
     &:hover {
       border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
       /* border-bottom: 3px solid;
-      border-image: linear-gradient(135deg, ${props => props.theme.colorPrimary} 0%,${props => props.theme.colorSecondary} 100%);
+      border-image: linear-gradient(135deg, ${props =>
+        props.theme.colorPrimary} 0%,${props =>
+  props.theme.colorSecondary} 100%);
       border-image-slice: 1; */
     }
   }

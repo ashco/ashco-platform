@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import styled from 'styled-components';
-import { sizes, media } from '../config/config';
+import { sizes, media } from '../config/media';
 
 class Main extends Component {
   // constructor(props) {
@@ -135,8 +135,8 @@ const MainWrapper = styled.main`
     /* border: 7px solid ${props => props.theme.colorPrimary}90; */
     border: 8px solid;
     border-image: linear-gradient(135deg, ${props =>
-      props.theme.colorDarker} 0%,${props =>
-  props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
+      props.theme.colorDarker}bb 0%,${props =>
+  props.theme.colorPrimary}bb 50%,${props => props.theme.colorLighter}bb 100%);
     border-image-slice: 1;
   }
   ${media.hd`

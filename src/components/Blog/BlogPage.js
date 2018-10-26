@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import { media } from '../../config/config';
+import { media } from '../../config/media';
 
 import { DefaultContainer } from '../helpers';
 
@@ -46,7 +46,9 @@ const BlogPageWrapper = styled(DefaultContainer)`
   div.createdAt {
     /* border-bottom: 2px solid ${props => props.theme.colorPrimary}90; */
     border-bottom: 2px solid;
-    border-image: linear-gradient(to right, ${props => props.theme.colorDarker}cc 0%, ${props => props.theme.colorPrimary}cc 50%, ${props => props.theme.colorLighter}cc 100%);
+    border-image: linear-gradient(to right, ${props =>
+      props.theme.colorDarker}cc 0%, ${props =>
+  props.theme.colorPrimary}cc 50%, ${props => props.theme.colorLighter}cc 100%);
     border-image-slice: 1;
     margin-bottom: 1rem;
     padding-right: 2rem;

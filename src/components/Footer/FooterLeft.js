@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media } from '../../config/config';
+import { media } from '../../config/media';
 
 const FooterLeft = ({ showFooterLeft }) => {
   const year = new Date().getFullYear();
