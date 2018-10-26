@@ -1,4 +1,5 @@
 import React from 'react';
+import { VisualContextConsumer } from '../Context/VisualContext';
 
 import styled from 'styled-components';
 import { media } from '../../config/media';

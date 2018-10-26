@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 
@@ -12,13 +12,13 @@ const HeaderTitle = ({ pathname, toggleMenu }) => {
 
   return (
     <HeaderTitleWrapper>
-      <Link
+      {/* <Link
         to="/"
         aria-label="hero-screen"
         onClick={toggleMenu.bind(null, true)}
-      >
-        <HeroIcon />
-      </Link>
+      > */}
+      <HeroIcon toggleMenu={toggleMenu} />
+      {/* </Link> */}
       <span>{pageTitle}</span>
     </HeaderTitleWrapper>
   );
