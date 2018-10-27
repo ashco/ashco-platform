@@ -1,4 +1,4 @@
-const themeDefault = {
+export const themeDefault = {
   colorLighter: '#E3854A',
   colorPrimary: '#DD702B',
   colorDarker: '#D65E12',
@@ -49,13 +49,9 @@ export const themeArr = [
   },
 ];
 
-let localStorageThemeObj;
-if (typeof localStorage !== 'undefined') {
-  localStorageThemeObj = JSON.parse(localStorage.getItem('themeObj'));
-}
+// let localStorageThemeObj;
+// if (typeof localStorage !== 'undefined') {
+//   localStorageThemeObj = JSON.parse(localStorage.getItem('themeObj'));
+// }
 
-console.log({ localStorageThemeObj });
-
-export const theme = localStorageThemeObj ? localStorageThemeObj : themeDefault;
-
-console.log({ theme });
+// export const theme = localStorageThemeObj ? localStorageThemeObj : themeDefault;

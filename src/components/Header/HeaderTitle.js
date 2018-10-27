@@ -6,7 +6,7 @@ import { media } from '../../config/media';
 // import AshCoIcon from '../Icons/AshCoGradient';
 import HeroIcon from './HeroIcon';
 
-const HeaderTitle = ({ pathname, toggleMenu }) => {
+const HeaderTitle = ({ pathname, toggleMenu, updateTheme }) => {
   let pageTitle = pathname.split('/')[1];
   pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
 
@@ -17,7 +17,7 @@ const HeaderTitle = ({ pathname, toggleMenu }) => {
         aria-label="hero-screen"
         onClick={toggleMenu.bind(null, true)}
       > */}
-      <HeroIcon toggleMenu={toggleMenu} />
+      <HeroIcon toggleMenu={toggleMenu} updateTheme={updateTheme} />
       {/* </Link> */}
       <span>{pageTitle}</span>
     </HeaderTitleWrapper>

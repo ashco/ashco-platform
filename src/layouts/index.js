@@ -19,8 +19,23 @@ import ParticleBG from '../components/ParticleBG';
 import ListenerLogic from '../components/ListenerLogic';
 import Main from '../components/Main';
 
+// import { themeDefault, themeArr } from '../config/config';
+
 class Layout extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   // let theme = themeDefault;
+  //   // if (typeof localStorage !== 'undefined') {
+  //   //   theme = JSON.parse(localStorage.getItem('themeObj'));
+  //   // }
+
+  //   this.state = {
+  //     theme,
+  //   };
+  // }
+
   render() {
+    // const { theme } = this.state;
     const { location, children } = this.props;
 
     return (
@@ -37,37 +52,44 @@ class Layout extends Component {
         `}
         render={data => (
           <VisualContextProvider pathname={location.pathname}>
-            <ThemeProvider theme={theme}>
-              <LayoutWrapper>
-                <Helmet
-                  title={data.site.siteMetadata.title}
-                  meta={[{ name: 'sup', content: 'bro' }]}
-                >
-                  <html lang="en" />
-                </Helmet>
-                <VisualContextConsumer>
-                  {value => (
-                    <ListenerLogic value={value} pathname={location.pathname} />
-                  )}
-                </VisualContextConsumer>
-                <ParticleBG />
-                <Header pathname={location.pathname} />
-                <HeroImg />
-                <VisualContextConsumer>
-                  {({ isHome, isMobile, menuOpen, updateMainElHeight }) => (
-                    <Main
-                      isHome={isHome}
-                      isMobile={isMobile}
-                      menuOpen={menuOpen}
-                      updateMainElHeight={updateMainElHeight}
+            <VisualContextConsumer>
+              {({ theme }) => (
+                <ThemeProvider theme={theme}>
+                  <LayoutWrapper>
+                    <Helmet
+                      title={data.site.siteMetadata.title}
+                      meta={[{ name: 'sup', content: 'bro' }]}
                     >
-                      {children}
-                    </Main>
-                  )}
-                </VisualContextConsumer>
-                <Footer />
-              </LayoutWrapper>
-            </ThemeProvider>
+                      <html lang="en" />
+                    </Helmet>
+                    <VisualContextConsumer>
+                      {value => (
+                        <ListenerLogic
+                          value={value}
+                          pathname={location.pathname}
+                        />
+                      )}
+                    </VisualContextConsumer>
+                    <ParticleBG />
+                    <Header pathname={location.pathname} />
+                    <HeroImg />
+                    <VisualContextConsumer>
+                      {({ isHome, isMobile, menuOpen, updateMainElHeight }) => (
+                        <Main
+                          isHome={isHome}
+                          isMobile={isMobile}
+                          menuOpen={menuOpen}
+                          updateMainElHeight={updateMainElHeight}
+                        >
+                          {children}
+                        </Main>
+                      )}
+                    </VisualContextConsumer>
+                    <Footer />
+                  </LayoutWrapper>
+                </ThemeProvider>
+              )}
+            </VisualContextConsumer>
           </VisualContextProvider>
         )}
       />

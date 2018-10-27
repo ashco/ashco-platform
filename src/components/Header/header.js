@@ -17,14 +17,18 @@ class Header extends Component {
 
     return (
       <VisualContextConsumer>
-        {({ isMobile, menuOpen, toggleMenu }) => (
+        {({ isMobile, menuOpen, toggleMenu, updateTheme }) => (
           // <MenuContextConsumer>
           //   {({ menuOpen, toggleMenu }) => (
           <HeaderWrapper
             ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
           >
             <HeaderContainer>
-              <HeaderTitle pathname={pathname} toggleMenu={toggleMenu} />
+              <HeaderTitle
+                pathname={pathname}
+                toggleMenu={toggleMenu}
+                updateTheme={updateTheme}
+              />
               <NavLinks menuOpen={menuOpen} />
               {isMobile && <MenuIcon />}
             </HeaderContainer>

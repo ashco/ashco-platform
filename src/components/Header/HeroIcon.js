@@ -9,13 +9,14 @@ class HeroIcon extends Component {
     colorsOpen: false,
   };
 
-  handleTheme(themeObj) {
+  handleUpdateTheme = themeObj => {
     if (typeof window !== `undefined`) {
       window.localStorage.setItem('themeObj', JSON.stringify(themeObj));
     }
-  }
+    this.props.updateTheme(themeObj);
+  };
 
-  handleClick = () => {
+  handleMenuToggle = () => {
     this.props.toggleMenu(true);
     this.toggleColors();
   };
@@ -33,7 +34,7 @@ class HeroIcon extends Component {
           to="/"
           aria-label="hero-screen"
           // onClick={this.props.toggleMenu.bind(null, true)}
-          onClick={this.handleClick}
+          onClick={this.handleMenuToggle}
         >
           <AshCoIcon />
         </Link>
@@ -42,7 +43,7 @@ class HeroIcon extends Component {
             return (
               <ButtonColor
                 className={this.state.colorsOpen && 'colors-open'}
-                onClick={this.handleTheme.bind(null, themeObj)}
+                onClick={this.handleUpdateTheme.bind(null, themeObj)}
                 themeObj={themeObj}
                 open={this.state.colorsOpen}
                 z={i}
