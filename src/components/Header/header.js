@@ -19,6 +19,7 @@ class Header extends Component {
       <VisualContextConsumer>
         {({
           isMobile,
+          isHome,
           navMenuOpen,
           toggleNavMenu,
           colorMenuOpen,
@@ -32,6 +33,7 @@ class Header extends Component {
           >
             <HeaderContainer>
               <HeaderTitle
+                isHome={isHome}
                 pathname={pathname}
                 toggleNavMenu={toggleNavMenu}
                 updateTheme={updateTheme}
