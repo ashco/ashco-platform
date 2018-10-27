@@ -285,3 +285,21 @@ a {
 .nav-links-hiding {
   right: -35vw;
 }
+
+.colors-open > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.colors-open button:nth-child(2) {
+  transition-delay: 0.05s;
+}
+.colors-open button:nth-child(3) {
+  transition-delay: 0.1s;
+}
+.colors-open button:nth-child(4) {
+  transition-delay: 0.15s;
+}
+.colors-open button:nth-child(5) {
+  transition-delay: 0.2s;
+}

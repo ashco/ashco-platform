@@ -16,7 +16,6 @@ class HeroIcon extends Component {
   }
 
   handleClick = () => {
-    // console.log(this.props);
     this.props.toggleMenu(true);
     this.toggleColors();
   };
@@ -38,7 +37,7 @@ class HeroIcon extends Component {
         >
           <AshCoIcon />
         </Link>
-        <ButtonWrapper>
+        <ButtonWrapper className={this.state.colorsOpen && 'colors-open'}>
           {themeArr.map((themeObj, i) => {
             return (
               <ButtonColor
@@ -58,42 +57,30 @@ class HeroIcon extends Component {
 }
 
 const ButtonWrapper = styled.div`
-  position: absolute;
-  bottom: 5.2rem;
-  left: 2.6rem;
-  /* display: flex; */
-  /* flex-direction: column; */
   pointer-events: auto;
-  /* margin-top: 0.6rem; */
-`;
-const openAnimation = keyframes`
-  from {
-    left: 0;
-  }
-  to {
-    left: 8rem;
+  margin-bottom: 0.75rem;
+  > * {
+    opacity: 0;
+    transform: translate3d(-50px, 0, 0);
+    transition: 0.15s all ease-in;
   }
 `;
 
+// const openAnimation = keyframes`
+//   from {
+//     left: 0;
+//   }
+//   to {
+//     left: 8rem;
+//   }
+// `;
+
 const ButtonColor = styled(Button)`
-  position: absolute;
   border: 4px solid ${props => props.themeObj.colorPrimary};
   border-radius: 50%;
   padding: 0.52rem;
   margin: 0.3rem;
   background: transparent;
-  z-index: ${props => 10 - props.z};
-  animation: ${openAnimation} 2s cubic-bezier(0, 0.38, 0.55, 0.96) 1;
-`;
-
-// Create the keyframes
-
-// Here we create a component that will rotate everything we pass in over two seconds
-const OpenUp = styled.div`
-  /* display: inline-block; */
-
-  /* padding: 2rem 1rem;
-  font-size: 1.2rem; */
 `;
 
 export default HeroIcon;
