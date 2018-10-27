@@ -83,7 +83,7 @@ const StrobeWrapper = styled.span`
 
 const HeroTextWrapper = styled.div`
   user-select: none;
-  pointer-events: none;
+  /* pointer-events: none; */
   position: fixed;
   z-index: -5;
   /* bottom: 0; */
@@ -105,6 +105,15 @@ const HeroTextWrapper = styled.div`
   props.theme.colorSecondary} 100%); */
   border-image-slice: 1;
 
+  transform: scale(1);
+  transition: 0.1s all ease-out;
+  &:hover {
+    transform: scale(1.025);
+    transition: 0.15s all ease-in;
+  }
+  > * {
+    pointer-events: none;
+  }
   ${media.tablet`
     margin-left: 11.5vw;
     margin-bottom: 16vh;
