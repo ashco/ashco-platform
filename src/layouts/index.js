@@ -74,11 +74,16 @@ class Layout extends Component {
                     <Header pathname={location.pathname} />
                     <HeroImg />
                     <VisualContextConsumer>
-                      {({ isHome, isMobile, menuOpen, updateMainElHeight }) => (
+                      {({
+                        isHome,
+                        isMobile,
+                        navMenuOpen,
+                        updateMainElHeight,
+                      }) => (
                         <Main
                           isHome={isHome}
                           isMobile={isMobile}
-                          menuOpen={menuOpen}
+                          navMenuOpen={navMenuOpen}
                           updateMainElHeight={updateMainElHeight}
                         >
                           {children}

@@ -5,10 +5,6 @@ import { Link } from 'gatsby';
 import AshCoIcon from '../Icons/AshCoGradient';
 import { Button } from '../../pages/contact';
 class HeroIcon extends Component {
-  state = {
-    colorsOpen: false,
-  };
-
   handleUpdateTheme = themeObj => {
     if (typeof window !== `undefined`) {
       window.localStorage.setItem('themeObj', JSON.stringify(themeObj));
@@ -16,15 +12,11 @@ class HeroIcon extends Component {
     this.props.updateTheme(themeObj);
   };
 
-  handleMenuToggle = () => {
-    this.props.toggleMenu(true);
-    this.toggleColors();
-  };
+  handleColorMenuToggle = () => {
+    const { toggleColorMenu, toggleNavMenu, colorMenuOpen } = this.props;
 
-  toggleColors = () => {
-    this.setState({
-      colorsOpen: !this.state.colorsOpen,
-    });
+    toggleColorMenu(!colorMenuOpen);
+    toggleNavMenu(true);
   };
 
   render() {
@@ -33,19 +25,18 @@ class HeroIcon extends Component {
         <Link
           to="/"
           aria-label="hero-screen"
-          // onClick={this.props.toggleMenu.bind(null, true)}
-          onClick={this.handleMenuToggle}
+          onClick={this.handleColorMenuToggle}
         >
           <AshCoIcon />
         </Link>
-        <ButtonWrapper className={this.state.colorsOpen && 'colors-open'}>
+        <ButtonWrapper
+          className={this.props.colorMenuOpen && 'color-menu-open'}
+        >
           {themeArr.map((themeObj, i) => {
             return (
               <ButtonColor
-                className={this.state.colorsOpen && 'colors-open'}
                 onClick={this.handleUpdateTheme.bind(null, themeObj)}
                 themeObj={themeObj}
-                open={this.state.colorsOpen}
                 z={i}
                 key={i}
               />
@@ -58,45 +49,30 @@ class HeroIcon extends Component {
 }
 
 const ButtonWrapper = styled.div`
-  pointer-events: auto;
+  /* pointer-events: auto; */
   margin-bottom: 0.75rem;
   margin-left: -5px;
   > * {
     opacity: 0;
     transform: translate3d(-50px, 0, 0) scale(0.5);
-    /* transition: 0.15s all ease-in; */
     transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
   }
   button:nth-child(1) {
-    /* transition-delay: 0.05s; */
     transition-delay: 0.2s;
   }
   button:nth-child(2) {
-    /* transition-delay: 0.05s; */
     transition-delay: 0.15s;
   }
   button:nth-child(3) {
-    /* transition-delay: 0.05s; */
     transition-delay: 0.1s;
   }
   button:nth-child(4) {
-    /* transition-delay: 0.05s; */
     transition-delay: 0.05s;
   }
   button:nth-child(5) {
-    /* transition-delay: 0.05s; */
     transition-delay: 0s;
   }
 `;
-
-// const openAnimation = keyframes`
-//   from {
-//     left: 0;
-//   }
-//   to {
-//     left: 8rem;
-//   }
-// `;
 
 const ButtonColor = styled(Button)`
   border: 4px solid ${props => props.themeObj.colorPrimary};

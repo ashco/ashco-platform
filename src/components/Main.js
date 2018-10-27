@@ -25,13 +25,13 @@ class Main extends Component {
 
   render() {
     // Calculate top margin
-    const { children, isMobile, isHome, menuOpen } = this.props;
+    const { children, isMobile, isHome, navMenuOpen } = this.props;
     let marginTop = 100;
 
     if (isMobile) {
       if (typeof window !== `undefined`) {
         marginTop = isHome ? `${window.innerHeight + 140}px` : `140px`;
-        if (menuOpen && !isHome) {
+        if (navMenuOpen && !isHome) {
           marginTop = '605px';
         }
       }

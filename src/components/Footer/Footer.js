@@ -16,13 +16,13 @@ const Footer = () => (
       showFooterRight,
       handleFooterRight,
       // isMobile,
-      toggleMenu,
+      toggleNavMenu,
     }) => (
       <FooterWrapper>
         <FooterLeft showFooterLeft={showFooterLeft} />
         <FooterCenter
           showFooterCenter={showFooterCenter}
-          toggleMenu={toggleMenu}
+          toggleNavMenu={toggleNavMenu}
         />
         <FooterRight
           showFooterRight={showFooterRight}

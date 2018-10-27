@@ -7,7 +7,7 @@ import FadeInWrapper from '../Animation/FadeIn';
 
 class NavArrow extends Component {
   handleClick = () => {
-    this.props.toggleMenu(false);
+    this.props.toggleNavMenu(false);
     if (typeof window !== `undefined`) {
       const scrollLength = window.innerHeight;
       window.scrollTo({ top: scrollLength, behavior: 'smooth' });

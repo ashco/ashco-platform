@@ -24,14 +24,6 @@ export class ListenerLogic extends Component {
     }
   }
 
-  setMenu(showMenu) {
-    if (showMenu && !this.props.value.showMenu) {
-      this.props.value.toggleMenu(true);
-    } else if (!showMenu && this.props.value.showMenu) {
-      this.props.value.toggleMenu(false);
-    }
-  }
-
   setFooterLeft(showFooterLeft) {
     if (showFooterLeft && !this.props.value.showFooterLeft) {
       this.props.value.handleFooterLeft(true);

@@ -25,7 +25,8 @@ export class VisualContextProvider extends React.Component {
       theme,
       isMobile,
       isHome,
-      menuOpen: true,
+      colorMenuOpen: true,
+      navMenuOpen: true,
       showHeroImg: false,
       showFooterLeft: false,
       showFooterCenter: false,
@@ -59,9 +60,15 @@ export class VisualContextProvider extends React.Component {
     }
   };
 
-  toggleMenu = menuOpen => {
+  toggleColorMenu = colorMenuOpen => {
     this.setState({
-      menuOpen,
+      colorMenuOpen,
+    });
+  };
+
+  toggleNavMenu = navMenuOpen => {
+    this.setState({
+      navMenuOpen,
     });
   };
 
@@ -104,7 +111,8 @@ export class VisualContextProvider extends React.Component {
           theme: this.state.theme,
           isMobile: this.state.isMobile,
           isHome: this.state.isHome,
-          menuOpen: this.state.menuOpen,
+          colorMenuOpen: this.state.colorMenuOpen,
+          navMenuOpen: this.state.navMenuOpen,
           showHeroImg: this.state.showHeroImg,
           showFooterLeft: this.state.showFooterLeft,
           showFooterCenter: this.state.showFooterCenter,
@@ -112,7 +120,8 @@ export class VisualContextProvider extends React.Component {
           updateTheme: this.updateTheme,
           updateIsMobile: this.updateIsMobile,
           updateIsHome: this.updateIsHome,
-          toggleMenu: this.toggleMenu,
+          toggleColorMenu: this.toggleColorMenu,
+          toggleNavMenu: this.toggleNavMenu,
           handleHeroImg: this.handleHeroImg,
           handleFooterLeft: this.handleFooterLeft,
           handleFooterCenter: this.handleFooterCenter,

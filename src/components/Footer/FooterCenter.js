@@ -4,12 +4,12 @@ import { media } from '../../config/media';
 
 import NavArrow from './NavArrow';
 
-const FooterCenter = ({ showFooterCenter, toggleMenu }) => {
+const FooterCenter = ({ showFooterCenter, toggleNavMenu }) => {
   return (
     <FooterCenterWrapper
       className={showFooterCenter ? 'visible-fade' : 'hidden-fade'}
     >
-      <NavArrow toggleMenu={toggleMenu} />
+      <NavArrow toggleNavMenu={toggleNavMenu} />
     </FooterCenterWrapper>
   );
 };

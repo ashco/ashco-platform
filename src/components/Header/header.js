@@ -17,7 +17,14 @@ class Header extends Component {
 
     return (
       <VisualContextConsumer>
-        {({ isMobile, menuOpen, toggleMenu, updateTheme }) => (
+        {({
+          isMobile,
+          navMenuOpen,
+          toggleNavMenu,
+          colorMenuOpen,
+          toggleColorMenu,
+          updateTheme,
+        }) => (
           // <MenuContextConsumer>
           //   {({ menuOpen, toggleMenu }) => (
           <HeaderWrapper
@@ -26,10 +33,12 @@ class Header extends Component {
             <HeaderContainer>
               <HeaderTitle
                 pathname={pathname}
-                toggleMenu={toggleMenu}
+                toggleNavMenu={toggleNavMenu}
                 updateTheme={updateTheme}
+                colorMenuOpen={colorMenuOpen}
+                toggleColorMenu={toggleColorMenu}
               />
-              <NavLinks menuOpen={menuOpen} />
+              <NavLinks navMenuOpen={navMenuOpen} />
               {isMobile && <MenuIcon />}
             </HeaderContainer>
           </HeaderWrapper>

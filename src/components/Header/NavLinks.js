@@ -5,9 +5,9 @@ import styled from 'styled-components';
 import { media } from '../../config/media';
 import { Link } from 'gatsby';
 
-const NavLinks = ({ menuOpen }) => (
+const NavLinks = ({ navMenuOpen }) => (
   <NavLinksWrapper
-    className={menuOpen ? 'nav-links-showing' : 'nav-links-hiding'}
+    className={navMenuOpen ? 'nav-menu-showing' : 'nav-menu-hiding'}
   >
     <ul>
       <NavLinkItem to="/#home" title="Home" />
@@ -21,9 +21,9 @@ const NavLinks = ({ menuOpen }) => (
 
 const NavLinkItem = ({ to, title }) => (
   <VisualContextConsumer>
-    {({ toggleMenu }) => (
+    {({ toggleNavMenu }) => (
       <NavLinkItemWrapper>
-        <Link to={to} onClick={toggleMenu.bind(null, false)}>
+        <Link to={to} onClick={toggleNavMenu.bind(null, false)}>
           {title}
         </Link>
       </NavLinkItemWrapper>
@@ -73,11 +73,6 @@ const NavLinkItemWrapper = styled.li`
     transition: border-bottom 0.2s ease-out;
     &:hover {
       border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
-      /* border-bottom: 3px solid;
-      border-image: linear-gradient(135deg, ${props =>
-        props.theme.colorPrimary} 0%,${props =>
-  props.theme.colorSecondary} 100%);
-      border-image-slice: 1; */
     }
   }
   ${media.tablet`
