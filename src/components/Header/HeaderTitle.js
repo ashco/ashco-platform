@@ -123,6 +123,7 @@ const HeaderTitleWrapper = styled.div`
     pointer-events: auto;
   }
   h1 {
+    /* margin-to : 0.25rem; */
     margin-left: 0.8rem;
   }
 

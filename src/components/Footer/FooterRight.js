@@ -4,6 +4,7 @@ import { media } from '../../config/media';
 
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
+import { FadeWrapper } from '../Animations';
 import GithubIcon from '../Icons/Github';
 import LinkedInIcon from '../Icons/LinkedIn';
 import TwitterIcon from '../Icons/Twitter';
@@ -21,54 +22,56 @@ class FooterRight extends Component {
     const { showFooterRight } = this.props;
     return (
       <FooterRightWrapper
-        className={showFooterRight ? 'visible-fade' : 'hidden-fade'}
+      // className={showFooterRight ? 'visible-fade' : 'hidden-fade'}
       >
-        <ul>
-          <li>
-            <OutboundLink
-              href="https://github.com/ashco"
-              title="Github"
-              aria-label="Github"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GithubIcon />
-            </OutboundLink>
-          </li>
-          <li>
-            <OutboundLink
-              href="https://www.linkedin.com/in/ashtonchristie/"
-              title="LinkedIn"
-              aria-label="LinkedIn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedInIcon />
-            </OutboundLink>
-          </li>
-          <li>
-            <OutboundLink
-              href="https://twitter.com/AshCo_Io"
-              title="Twitter"
-              aria-label="Twitter"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TwitterIcon />
-            </OutboundLink>
-          </li>
-          <li>
-            <OutboundLink
-              href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view"
-              title="Resume"
-              aria-label="Resume"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ResumeIcon />
-            </OutboundLink>
-          </li>
-        </ul>
+        <FadeWrapper visible={showFooterRight}>
+          <ul>
+            <li>
+              <OutboundLink
+                href="https://github.com/ashco"
+                title="Github"
+                aria-label="Github"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GithubIcon />
+              </OutboundLink>
+            </li>
+            <li>
+              <OutboundLink
+                href="https://www.linkedin.com/in/ashtonchristie/"
+                title="LinkedIn"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedInIcon />
+              </OutboundLink>
+            </li>
+            <li>
+              <OutboundLink
+                href="https://twitter.com/AshCo_Io"
+                title="Twitter"
+                aria-label="Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TwitterIcon />
+              </OutboundLink>
+            </li>
+            <li>
+              <OutboundLink
+                href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view"
+                title="Resume"
+                aria-label="Resume"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ResumeIcon />
+              </OutboundLink>
+            </li>
+          </ul>
+        </FadeWrapper>
       </FooterRightWrapper>
     );
   }

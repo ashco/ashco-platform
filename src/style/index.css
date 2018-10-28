@@ -281,8 +281,3 @@ a {
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-/*
-.nav-menu-closed {
-  transform: translate3d(35vw, 0, 0);
-  opacity: 0;
-} */
