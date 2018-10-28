@@ -286,7 +286,7 @@ a {
   right: -35vw;
 }
 
-.color-menu-open > * {
+.color-menu-open .color-menu-buttons-wrapper > * {
   pointer-events: auto;
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);

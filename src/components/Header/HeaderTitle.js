@@ -51,28 +51,40 @@ class HeaderTitle extends Component {
           <AshCoIcon />
         </LinkAnimate>
         {isHome ? (
-          <ButtonWrapper
-            className={this.props.colorMenuOpen && 'color-menu-open'}
-          >
-            {themeArr.map((themeObj, i) => {
-              return (
-                <ButtonColor
-                  onClick={this.handleUpdateTheme.bind(null, themeObj)}
-                  themeObj={themeObj}
-                  key={i}
-                />
-              );
-            })}
-          </ButtonWrapper>
+          <>
+            <ColorMenuWrapper
+              className={this.props.colorMenuOpen && 'color-menu-open'}
+            >
+              <span className="color-menu-message">AshCo has options!</span>
+              <div className="color-menu-buttons-wrapper">
+                {themeArr.map((themeObj, i) => {
+                  return (
+                    <ButtonColor
+                      onClick={this.handleUpdateTheme.bind(null, themeObj)}
+                      themeObj={themeObj}
+                      key={i}
+                    />
+                  );
+                })}
+              </div>
+            </ColorMenuWrapper>
+          </>
         ) : (
-          <span>{pageTitle}</span>
+          <h1>{pageTitle}</h1>
         )}
       </HeaderTitleWrapper>
     );
   }
 }
 
-const HeaderTitleWrapper = styled.h1`
+// const ColorMenuMessage = styled.span`
+//   font-size: 0.9rem;
+//   font-weight: 300;
+//   text-align: center;
+//   line-height: 1.25;
+// `;
+
+const HeaderTitleWrapper = styled.div`
   margin-left: 1.4rem;
   display: flex;
   align-items: center;
@@ -86,7 +98,7 @@ const HeaderTitleWrapper = styled.h1`
     text-decoration: none;
     pointer-events: auto;
   }
-  span {
+  h1 {
     margin-left: 0.8rem;
   }
 
@@ -107,39 +119,63 @@ const LinkAnimate = styled(Link)`
   }
 `;
 
-const ButtonWrapper = styled.div`
-  /* pointer-events: auto; */
-  margin-bottom: 0.75rem;
-  margin-left: -5px;
-  > * {
-    opacity: 0;
-    transform: translate3d(-50px, 0, 0) scale(0.5);
-    transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
+const ColorMenuWrapper = styled.div`
+  /* margin-bottom: 0.75rem;
+  margin-left: -5px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+  .color-menu-message {
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.25;
+    padding-bottom: 0.5rem;
   }
-  button:nth-child(1) {
-    transition-delay: 0.2s;
-  }
-  button:nth-child(2) {
-    transition-delay: 0.15s;
-  }
-  button:nth-child(3) {
-    transition-delay: 0.1s;
-  }
-  button:nth-child(4) {
-    transition-delay: 0.05s;
-  }
-  button:nth-child(5) {
-    transition-delay: 0s;
+  .color-menu-buttons-wrapper {
+    display: flex;
+    > * {
+      opacity: 0;
+      transform: translate3d(-50px, 0, 0) scale(0.5);
+      transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    }
+    button:hover {
+      transform: scale(1.15);
+      transition: 0.15s all ease-in;
+    }
+    button:nth-child(1) {
+      transition-delay: 0.2s;
+    }
+    button:nth-child(2) {
+      transition-delay: 0.15s;
+    }
+    button:nth-child(3) {
+      transition-delay: 0.1s;
+    }
+    button:nth-child(4) {
+      transition-delay: 0.05s;
+    }
+    button:nth-child(5) {
+      transition-delay: 0s;
+    }
   }
 `;
 
 const ButtonColor = styled(Button)`
+  cursor: pointer;
   border: 4px solid ${props => props.themeObj.colorPrimary};
   border-radius: 50%;
   /* padding: 0.52rem; */
-  padding: 0.5rem;
+  padding: 0.45rem;
   margin: 0.25rem;
   background: transparent;
+  /* transform: scale(1);
+  transition: 0.1s all ease-out;
+  &:hover {
+    transform: scale(1.15);
+    transition: 0.15s all ease-in;
+  } */
 `;
 
 export default HeaderTitle;

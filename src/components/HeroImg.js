@@ -105,12 +105,12 @@ const HeroTextWrapper = styled.div`
   props.theme.colorSecondary} 100%); */
   border-image-slice: 1;
 
-  transform: scale(1);
+  /* transform: scale(1);
   transition: 0.1s all ease-out;
   &:hover {
     transform: scale(1.025);
     transition: 0.15s all ease-in;
-  }
+  } */
   > * {
     pointer-events: none;
   }

@@ -91,7 +91,9 @@ class ContactPage extends Component {
           </FormInputWrapper>
           <div>
             {this.state.disabled ? (
-              <ButtonDisabled type="submit">Send</ButtonDisabled>
+              <ButtonDisabled disabled type="submit">
+                Send
+              </ButtonDisabled>
             ) : (
               <ButtonActive type="submit">Send</ButtonActive>
             )}
@@ -217,6 +219,7 @@ const ButtonActive = styled(Button)`
     /* border-image: linear-gradient(135deg, ${props =>
       props.theme.colorPrimary}aa 0%,${props =>
   props.theme.colorSecondary}aa 100%); */
+  cursor: pointer;
     border-image: linear-gradient(135deg, ${props =>
       props.theme.colorDarker} 0%,${props =>
   props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
