@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { media } from '../../config/media';
 import { themeArr } from '../../config/config';
 
@@ -91,6 +91,23 @@ class HeaderTitle extends Component {
   }
 }
 
+const menuFadeInOut = keyframes`
+  0%,
+  15% {
+    opacity: 0;
+    transform: scale(0.8, 0);
+  }
+  25%,
+  92% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8, 0);
+  }
+`;
+
 const HeaderTitleWrapper = styled.div`
   margin-left: 1.4rem;
   display: flex;
@@ -107,6 +124,10 @@ const HeaderTitleWrapper = styled.div`
   }
   h1 {
     margin-left: 0.8rem;
+  }
+
+  .color-menu-open span.active {
+    animation: ${menuFadeInOut} 3s;
   }
 
   .color-menu-open button {
