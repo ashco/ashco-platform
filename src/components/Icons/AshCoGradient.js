@@ -2,6 +2,7 @@ import React from 'react';
 import { withTheme } from 'styled-components';
 
 const AshCo = ({ theme }) => {
+  console.log(theme);
   const { colorPrimary, colorLighter, colorDarker, colorText } = theme;
   // const colorPrimary = '#55c2ed80';
   // const colorText = '#eeeeee80';

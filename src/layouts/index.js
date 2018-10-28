@@ -19,7 +19,7 @@ import ParticleBG from '../components/ParticleBG';
 import ListenerLogic from '../components/ListenerLogic';
 import Main from '../components/Main';
 
-// import { themeDefault, themeArr } from '../config/config';
+import { themeDefault } from '../config/config';
 
 class Layout extends Component {
   // constructor(props) {
@@ -33,9 +33,30 @@ class Layout extends Component {
   //     theme,
   //   };
   // }
+  constructor(props) {
+    super(props);
+
+    let theme = themeDefault;
+    if (typeof localStorage !== 'undefined') {
+      let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
+      if (localStorageObj) {
+        theme = localStorageObj;
+      }
+    }
+
+    this.state = {
+      theme,
+    };
+  }
+
+  updateTheme = themeObj => {
+    if (themeObj !== this.state.theme) {
+      this.setState({ theme: themeObj });
+    }
+  };
 
   render() {
-    // const { theme } = this.state;
+    const { theme } = this.state;
     const { location, children } = this.props;
 
     return (
@@ -52,51 +73,46 @@ class Layout extends Component {
         `}
         render={data => (
           <VisualContextProvider pathname={location.pathname}>
-            <VisualContextConsumer>
+            {/* <VisualContextConsumer>
               {({ theme }) => {
-                return (
-                  <ThemeProvider theme={theme}>
-                    <LayoutWrapper>
-                      <Helmet
-                        title={data.site.siteMetadata.title}
-                        meta={[{ name: 'sup', content: 'bro' }]}
-                      >
-                        <html lang="en" />
-                      </Helmet>
-                      <VisualContextConsumer>
-                        {value => (
-                          <ListenerLogic
-                            value={value}
-                            pathname={location.pathname}
-                          />
-                        )}
-                      </VisualContextConsumer>
-                      <ParticleBG />
-                      <Header pathname={location.pathname} />
-                      <HeroImg />
-                      <VisualContextConsumer>
-                        {({
-                          isHome,
-                          isMobile,
-                          navMenuOpen,
-                          updateMainElHeight,
-                        }) => (
-                          <Main
-                            isHome={isHome}
-                            isMobile={isMobile}
-                            navMenuOpen={navMenuOpen}
-                            updateMainElHeight={updateMainElHeight}
-                          >
-                            {children}
-                          </Main>
-                        )}
-                      </VisualContextConsumer>
-                      <Footer />
-                    </LayoutWrapper>
-                  </ThemeProvider>
-                );
+                return ( */}
+            <ThemeProvider theme={theme}>
+              <LayoutWrapper>
+                <Helmet
+                  title={data.site.siteMetadata.title}
+                  meta={[{ name: 'sup', content: 'bro' }]}
+                >
+                  <html lang="en" />
+                </Helmet>
+                <VisualContextConsumer>
+                  {value => (
+                    <ListenerLogic value={value} pathname={location.pathname} />
+                  )}
+                </VisualContextConsumer>
+                <ParticleBG />
+                <Header
+                  pathname={location.pathname}
+                  updateTheme={this.updateTheme}
+                />
+                <HeroImg />
+                <VisualContextConsumer>
+                  {({ isHome, isMobile, navMenuOpen, updateMainElHeight }) => (
+                    <Main
+                      isHome={isHome}
+                      isMobile={isMobile}
+                      navMenuOpen={navMenuOpen}
+                      updateMainElHeight={updateMainElHeight}
+                    >
+                      {children}
+                    </Main>
+                  )}
+                </VisualContextConsumer>
+                <Footer />
+              </LayoutWrapper>
+            </ThemeProvider>
+            {/* );
               }}
-            </VisualContextConsumer>
+            </VisualContextConsumer> */}
           </VisualContextProvider>
         )}
       />

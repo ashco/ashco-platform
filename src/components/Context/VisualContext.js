@@ -1,7 +1,7 @@
 // HeroContext.js
 import React from 'react';
 import { sizes } from '../../config/media';
-import { themeDefault } from '../../config/config';
+// import { themeDefault } from '../../config/config';
 
 const VisualContext = React.createContext();
 
@@ -16,16 +16,16 @@ export class VisualContextProvider extends React.Component {
 
     const isHome = this.props.pathname === '/';
 
-    let theme = themeDefault;
-    if (typeof localStorage !== 'undefined') {
-      let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
-      if (localStorageObj) {
-        theme = localStorageObj;
-      }
-    }
+    // let theme = themeDefault;
+    // if (typeof localStorage !== 'undefined') {
+    //   let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
+    //   if (localStorageObj) {
+    //     theme = localStorageObj;
+    //   }
+    // }
 
     this.state = {
-      theme,
+      // theme,
       isMobile,
       isHome,
       colorMenuOpen: false,
@@ -37,11 +37,11 @@ export class VisualContextProvider extends React.Component {
     };
   }
 
-  updateTheme = themeObj => {
-    if (themeObj !== this.state.theme) {
-      this.setState({ theme: themeObj });
-    }
-  };
+  // updateTheme = themeObj => {
+  //   if (themeObj !== this.state.theme) {
+  //     this.setState({ theme: themeObj });
+  //   }
+  // };
 
   updateIsMobile = () => {
     if (typeof window !== `undefined`) {
@@ -116,7 +116,7 @@ export class VisualContextProvider extends React.Component {
     return (
       <VisualContext.Provider
         value={{
-          theme: this.state.theme,
+          // theme: this.state.theme,
           isMobile: this.state.isMobile,
           isHome: this.state.isHome,
           colorMenuOpen: this.state.colorMenuOpen,
@@ -125,7 +125,7 @@ export class VisualContextProvider extends React.Component {
           showFooterLeft: this.state.showFooterLeft,
           showFooterCenter: this.state.showFooterCenter,
           showFooterRight: this.state.showFooterRight,
-          updateTheme: this.updateTheme,
+          // updateTheme: this.updateTheme,
           updateIsMobile: this.updateIsMobile,
           updateIsHome: this.updateIsHome,
           toggleColorMenu: this.toggleColorMenu,
