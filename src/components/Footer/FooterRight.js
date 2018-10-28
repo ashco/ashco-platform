@@ -16,11 +16,6 @@ class FooterRight extends Component {
       this.props.handleFooterRight(false);
     }
   }
-  // componentWillMount() {
-  //   if (this.props.isMobile) {
-  //     this.props.handleFooterRight(false);
-  //   }
-  // }
 
   render() {
     const { showFooterRight } = this.props;
@@ -94,11 +89,6 @@ const FooterRightWrapper = styled.div`
       a {
         &:hover {
           border-bottom: 4px solid ${props => props.theme.colorPrimary}cc;
-          /* border-bottom: 4px solid;
-          border-image: linear-gradient(to right, ${props =>
-            props.theme.colorPrimary} 0%,${props =>
-  props.theme.colorSecondary} 100%);
-          border-image-slice: 1; */
         }
       }
     }

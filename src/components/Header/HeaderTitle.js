@@ -39,12 +39,18 @@ class HeaderTitle extends Component {
         this.setState({
           menuActive: false,
         });
-      }, 5000);
+      }, 3000);
     } else {
       toggleColorMenu(false);
     }
     toggleNavMenu(true);
   };
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.pathname !== this.props.pathname) {
+  //     this.props.toggleColorMenu(false);
+  //   }
+  // }
 
   render() {
     const { pathname, isHome } = this.props;

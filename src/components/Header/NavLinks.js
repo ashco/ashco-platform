@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import { media } from '../../config/media';
 import { Link } from 'gatsby';
 
-const NavLinks = ({ navMenuOpen }) => (
-  <NavLinksWrapper className={!navMenuOpen && 'nav-menu-closed'}>
+const NavLinks = ({ navMenuOpen, isMobile }) => (
+  <NavLinksWrapper className={!navMenuOpen && isMobile && 'nav-menu-closed'}>
     <ul>
       <NavLinkItem to="/#home" title="Home" />
       <NavLinkItem to="/about/" title="About" />

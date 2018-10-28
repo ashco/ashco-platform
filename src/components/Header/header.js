@@ -40,7 +40,7 @@ class Header extends Component {
                 colorMenuOpen={colorMenuOpen}
                 toggleColorMenu={toggleColorMenu}
               />
-              <NavLinks navMenuOpen={navMenuOpen} />
+              <NavLinks navMenuOpen={navMenuOpen} isMobile={isMobile} />
               {isMobile && <MenuIcon />}
             </HeaderContainer>
           </HeaderWrapper>

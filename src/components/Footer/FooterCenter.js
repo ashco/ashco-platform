@@ -6,9 +6,7 @@ import NavArrow from './NavArrow';
 
 const FooterCenter = ({ showFooterCenter, toggleNavMenu }) => {
   return (
-    <FooterCenterWrapper
-      className={showFooterCenter ? 'visible-fade' : 'hidden-fade'}
-    >
+    <FooterCenterWrapper className={!showFooterCenter && 'hidden-fade'}>
       <NavArrow toggleNavMenu={toggleNavMenu} />
     </FooterCenterWrapper>
   );
@@ -19,7 +17,9 @@ const FooterCenterWrapper = styled.div`
   flex: 1;
   margin: 0;
   position: absolute;
-  transition: visibility 0.25s 10s, opacity 0.25s linear;
+  visibility: visible;
+  opacity: 1;
+  transition: all 2s linear 10s;
   ${media.tablet`
     position: initial;
     display: flex;

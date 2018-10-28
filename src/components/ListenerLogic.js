@@ -16,6 +16,14 @@ export class ListenerLogic extends Component {
     window.removeEventListener('resize', this.handleResize);
   }
 
+  updateColorMenu(showColorMenu) {
+    // console.log('trigger');
+    // console.log(this.props.value);
+    // if (!showColorMenu && this.props.value.showColorMenu) {
+    this.props.value.toggleColorMenu(false);
+    // }
+  }
+
   setHeroImg(showHeroImg) {
     if (showHeroImg && !this.props.value.showHeroImg) {
       this.props.value.handleHeroImg(true);
@@ -67,11 +75,19 @@ export class ListenerLogic extends Component {
     const bottomScreenPoint = bodyLength === scrollLength + windowHeight;
 
     const obj = {
+      showColorMenu: false,
       showHeroImg: false,
       showFooterLeft: false,
       showFooterCenter: false,
       showFooterRight: false,
     };
+
+    // COLOR MENU
+    if (isHome && scrollLength === 0) {
+      obj.showColorMenu = true;
+    } else {
+      obj.showColorMenu = false;
+    }
 
     // MOBILE
     if (isMobile) {
@@ -114,6 +130,7 @@ export class ListenerLogic extends Component {
   handleScrollState = () => {
     const obj = this.calcShowStates();
 
+    this.updateColorMenu(obj.showColorMenu);
     this.setHeroImg(obj.showHeroImg);
     this.setFooterLeft(obj.showFooterLeft);
     this.setFooterCenter(obj.showFooterCenter);

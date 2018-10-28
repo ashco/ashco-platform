@@ -289,12 +289,12 @@ a {
 
 @keyframes menuFadeInOut {
   0%,
-  8% {
+  15% {
     opacity: 0;
     transform: scale(0.8, 0);
   }
-  15%,
-  95% {
+  25%,
+  92% {
     opacity: 1;
     transform: scale(1);
   }
@@ -305,7 +305,7 @@ a {
 }
 
 .color-menu-open .color-menu-message.active {
-  animation: menuFadeInOut 5s;
+  animation: menuFadeInOut 3s;
 }
 
 .color-menu-open .color-menu-buttons-wrapper > * {
