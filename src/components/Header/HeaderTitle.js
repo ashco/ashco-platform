@@ -26,6 +26,7 @@ class HeaderTitle extends Component {
       toggleNavMenu,
       colorMenuOpen,
     } = this.props;
+    console.log('outer handleClick trigger');
 
     const isHome = pathname === '/';
     let noScroll;
@@ -34,6 +35,9 @@ class HeaderTitle extends Component {
     }
     // Only show menu text on first click, only open menu if at top of home screen
     if (!colorMenuOpen && noScroll && isHome) {
+      console.log(
+        'inner handleClick trigger - colorMenu not open, no scroll, isHome'
+      );
       toggleColorMenu(true);
       setTimeout(() => {
         this.setState({

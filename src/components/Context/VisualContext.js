@@ -64,6 +64,7 @@ export class VisualContextProvider extends React.Component {
   };
 
   toggleColorMenu = colorMenuOpen => {
+    console.log('toggleColorMenu triggered');
     if (colorMenuOpen !== this.state.colorMenuOpen) {
       this.setState({
         colorMenuOpen,
