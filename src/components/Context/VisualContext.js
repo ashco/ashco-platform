@@ -18,7 +18,10 @@ export class VisualContextProvider extends React.Component {
 
     let theme = themeDefault;
     if (typeof localStorage !== 'undefined') {
-      theme = JSON.parse(localStorage.getItem('themeObj'));
+      let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
+      if (localStorageObj) {
+        theme = localStorageObj;
+      }
     }
 
     this.state = {

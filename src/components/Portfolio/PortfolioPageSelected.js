@@ -26,6 +26,7 @@ class PortfolioPageSelected extends Component {
 const PortfolioExtraItemsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export default PortfolioPageSelected;

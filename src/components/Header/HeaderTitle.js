@@ -154,8 +154,9 @@ const ColorMenuWrapper = styled.div`
       transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
     }
     button:hover {
-      transform: scale(1.15);
+      transform: scale(1.25);
       transition: 0.15s all ease-out;
+      /* border-width: 5px; */
     }
     button:nth-child(1) {
       transition-delay: 0.2s;
@@ -179,16 +180,12 @@ const ColorMenuButton = styled(Button)`
   cursor: pointer;
   border: 4px solid ${props => props.themeObj.colorPrimary};
   border-radius: 50%;
-  /* padding: 0.52rem; */
-  padding: 0.45rem;
-  margin: 0.25rem;
+  padding: 0.4rem;
+  margin: 0.35rem;
   background: transparent;
-  /* transform: scale(1);
-  transition: 0.1s all ease-out;
   &:hover {
-    transform: scale(1.15);
-    transition: 0.15s all ease-in;
-  } */
+    border-color: ${props => props.themeObj.colorDarker};
+  }
 `;
 
 export default HeaderTitle;

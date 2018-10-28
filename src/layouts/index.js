@@ -53,47 +53,49 @@ class Layout extends Component {
         render={data => (
           <VisualContextProvider pathname={location.pathname}>
             <VisualContextConsumer>
-              {({ theme }) => (
-                <ThemeProvider theme={theme}>
-                  <LayoutWrapper>
-                    <Helmet
-                      title={data.site.siteMetadata.title}
-                      meta={[{ name: 'sup', content: 'bro' }]}
-                    >
-                      <html lang="en" />
-                    </Helmet>
-                    <VisualContextConsumer>
-                      {value => (
-                        <ListenerLogic
-                          value={value}
-                          pathname={location.pathname}
-                        />
-                      )}
-                    </VisualContextConsumer>
-                    <ParticleBG />
-                    <Header pathname={location.pathname} />
-                    <HeroImg />
-                    <VisualContextConsumer>
-                      {({
-                        isHome,
-                        isMobile,
-                        navMenuOpen,
-                        updateMainElHeight,
-                      }) => (
-                        <Main
-                          isHome={isHome}
-                          isMobile={isMobile}
-                          navMenuOpen={navMenuOpen}
-                          updateMainElHeight={updateMainElHeight}
-                        >
-                          {children}
-                        </Main>
-                      )}
-                    </VisualContextConsumer>
-                    <Footer />
-                  </LayoutWrapper>
-                </ThemeProvider>
-              )}
+              {({ theme }) => {
+                return (
+                  <ThemeProvider theme={theme}>
+                    <LayoutWrapper>
+                      <Helmet
+                        title={data.site.siteMetadata.title}
+                        meta={[{ name: 'sup', content: 'bro' }]}
+                      >
+                        <html lang="en" />
+                      </Helmet>
+                      <VisualContextConsumer>
+                        {value => (
+                          <ListenerLogic
+                            value={value}
+                            pathname={location.pathname}
+                          />
+                        )}
+                      </VisualContextConsumer>
+                      <ParticleBG />
+                      <Header pathname={location.pathname} />
+                      <HeroImg />
+                      <VisualContextConsumer>
+                        {({
+                          isHome,
+                          isMobile,
+                          navMenuOpen,
+                          updateMainElHeight,
+                        }) => (
+                          <Main
+                            isHome={isHome}
+                            isMobile={isMobile}
+                            navMenuOpen={navMenuOpen}
+                            updateMainElHeight={updateMainElHeight}
+                          >
+                            {children}
+                          </Main>
+                        )}
+                      </VisualContextConsumer>
+                      <Footer />
+                    </LayoutWrapper>
+                  </ThemeProvider>
+                );
+              }}
             </VisualContextConsumer>
           </VisualContextProvider>
         )}
@@ -101,6 +103,16 @@ class Layout extends Component {
     );
   }
 }
+
+ThemeProvider.defaultProps = {
+  theme: {
+    colorLighter: '#E3854A',
+    colorPrimary: '#DD702B',
+    colorDarker: '#D65E12',
+    colorBackground: '#1f1f1f',
+    colorText: '#dfdfdf',
+  },
+};
 
 const LayoutWrapper = styled.div`
   color: ${props => props.theme.colorText};
