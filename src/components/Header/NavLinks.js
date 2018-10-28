@@ -6,9 +6,7 @@ import { media } from '../../config/media';
 import { Link } from 'gatsby';
 
 const NavLinks = ({ navMenuOpen }) => (
-  <NavLinksWrapper
-    className={navMenuOpen ? 'nav-menu-showing' : 'nav-menu-hiding'}
-  >
+  <NavLinksWrapper className={!navMenuOpen && 'nav-menu-closed'}>
     <ul>
       <NavLinkItem to="/#home" title="Home" />
       <NavLinkItem to="/about/" title="About" />
@@ -38,6 +36,8 @@ const NavLinksWrapper = styled.div`
   right: 0;
   top: 90px;
   transition: 0.3s ease-in-out;
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
   ul {
     list-style: none;
     display: flex;

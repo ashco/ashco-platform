@@ -61,9 +61,11 @@ export class VisualContextProvider extends React.Component {
   };
 
   toggleColorMenu = colorMenuOpen => {
-    this.setState({
-      colorMenuOpen,
-    });
+    if (colorMenuOpen !== this.state.colorMenuOpen) {
+      this.setState({
+        colorMenuOpen,
+      });
+    }
   };
 
   toggleNavMenu = navMenuOpen => {
@@ -97,9 +99,9 @@ export class VisualContextProvider extends React.Component {
   };
 
   componentDidUpdate(prevProps) {
-    if (!this.state.isHome && this.state.colorMenuOpen) {
-      this.toggleColorMenu(false);
-    }
+    // if (!this.state.isHome && this.state.colorMenuOpen) {
+    //   this.toggleColorMenu(false);
+    // }
     // only run if path changes
     if (prevProps.pathname !== this.props.pathname) {
       this.updateIsHome();

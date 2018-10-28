@@ -282,8 +282,9 @@ a {
   transform: rotate(45deg);
 }
 
-.nav-menu-hiding {
-  right: -35vw;
+.nav-menu-closed {
+  transform: translate3d(35vw, 0, 0);
+  opacity: 0;
 }
 
 @keyframes menuFadeInOut {

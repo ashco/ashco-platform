@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-// import { Link } from 'gatsby';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../../config/media';
-
-import { Link } from 'gatsby';
-import AshCoIcon from '../Icons/AshCoGradient';
-import { Button } from '../../pages/contact';
-
 import { themeArr } from '../../config/config';
 
-// import AshCoIcon from '../Icons/AshCoGradient';
-// import HeroIcon from './HeroIcon';
+import AshCoIcon from '../Icons/AshCoGradient';
+import { Button } from '../../pages/contact';
 
 class HeaderTitle extends Component {
   state = {
@@ -25,9 +20,29 @@ class HeaderTitle extends Component {
   };
 
   handleClick = () => {
-    const { toggleColorMenu, toggleNavMenu, colorMenuOpen } = this.props;
+    const {
+      pathname,
+      toggleColorMenu,
+      toggleNavMenu,
+      colorMenuOpen,
+    } = this.props;
 
-    toggleColorMenu(!colorMenuOpen);
+    const isHome = pathname === '/';
+    let noScroll;
+    if (typeof window !== `undefined`) {
+      noScroll = window.pageYOffset === 0;
+    }
+    // Only show menu text on first click, only open menu if at top of home screen
+    if (!colorMenuOpen && noScroll && isHome) {
+      toggleColorMenu(true);
+      setTimeout(() => {
+        this.setState({
+          menuActive: false,
+        });
+      }, 5000);
+    } else {
+      toggleColorMenu(false);
+    }
     toggleNavMenu(true);
   };
 
@@ -55,7 +70,7 @@ class HeaderTitle extends Component {
               <div className="color-menu-buttons-wrapper">
                 {themeArr.map((themeObj, i) => {
                   return (
-                    <ButtonColor
+                    <ColorMenuButton
                       onClick={this.handleUpdateTheme.bind(null, themeObj)}
                       themeObj={themeObj}
                       key={i}
@@ -72,13 +87,6 @@ class HeaderTitle extends Component {
     );
   }
 }
-
-// const ColorMenuMessage = styled.span`
-//   font-size: 0.9rem;
-//   font-weight: 300;
-//   text-align: center;
-//   line-height: 1.25;
-// `;
 
 const HeaderTitleWrapper = styled.div`
   margin-left: 1.4rem;
@@ -141,7 +149,7 @@ const ColorMenuWrapper = styled.div`
     }
     button:hover {
       transform: scale(1.15);
-      transition: 0.15s all ease-in;
+      transition: 0.15s all ease-out;
     }
     button:nth-child(1) {
       transition-delay: 0.2s;
@@ -161,7 +169,7 @@ const ColorMenuWrapper = styled.div`
   }
 `;
 
-const ButtonColor = styled(Button)`
+const ColorMenuButton = styled(Button)`
   cursor: pointer;
   border: 4px solid ${props => props.themeObj.colorPrimary};
   border-radius: 50%;
