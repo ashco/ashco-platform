@@ -26,7 +26,6 @@ class HeaderTitle extends Component {
       toggleNavMenu,
       colorMenuOpen,
     } = this.props;
-    console.log('outer handleClick trigger');
 
     const isHome = pathname === '/';
     let noScroll;
@@ -35,9 +34,6 @@ class HeaderTitle extends Component {
     }
     // Only show menu text on first click, only open menu if at top of home screen
     if (!colorMenuOpen && noScroll && isHome) {
-      console.log(
-        'inner handleClick trigger - colorMenu not open, no scroll, isHome'
-      );
       toggleColorMenu(true);
       setTimeout(() => {
         this.setState({
@@ -71,13 +67,10 @@ class HeaderTitle extends Component {
             <ColorMenuWrapper
               className={this.props.colorMenuOpen && 'color-menu-open'}
             >
-              <span
-                className={`color-menu-message ${this.state.menuActive &&
-                  'active'}`}
-              >
+              <ColorMenuMessage className={this.state.menuActive && 'active'}>
                 AshCo has options!
-              </span>
-              <div className="color-menu-buttons-wrapper">
+              </ColorMenuMessage>
+              <ColorMenuButtonsWrapper>
                 {themeArr.map((themeObj, i) => {
                   return (
                     <ColorMenuButton
@@ -87,7 +80,7 @@ class HeaderTitle extends Component {
                     />
                   );
                 })}
-              </div>
+              </ColorMenuButtonsWrapper>
             </ColorMenuWrapper>
           </>
         ) : (
@@ -116,6 +109,28 @@ const HeaderTitleWrapper = styled.div`
     margin-left: 0.8rem;
   }
 
+  .color-menu-open button {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    transition: 0.2s all cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .color-menu-open button:nth-child(1) {
+    transition-delay: 0s;
+  }
+  .color-menu-open button:nth-child(2) {
+    transition-delay: 0.05s;
+  }
+  .color-menu-open button:nth-child(3) {
+    transition-delay: 0.1s;
+  }
+  .color-menu-open button:nth-child(4) {
+    transition-delay: 0.15s;
+  }
+  .color-menu-open button:nth-child(5) {
+    transition-delay: 0.2s;
+  }
+
   ${media.tablet`
     font-size: 2.5rem;
   `};
@@ -134,49 +149,48 @@ const LinkAnimate = styled(Link)`
 `;
 
 const ColorMenuWrapper = styled.div`
-  /* margin-bottom: 0.75rem;
-  margin-left: -5px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 1.1rem;
-  .color-menu-message {
-    font-size: 0.9rem;
-    font-weight: 300;
-    text-align: center;
-    line-height: 1.25;
-    padding-bottom: 0.5rem;
+`;
+
+const ColorMenuMessage = styled.span`
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.25;
+  padding-bottom: 0.5rem;
+  opacity: 0;
+  transform: scale(0.8, 0);
+  transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
+`;
+
+const ColorMenuButtonsWrapper = styled.div`
+  display: flex;
+  button {
     opacity: 0;
-    transform: scale(0.8, 0);
+    transform: translate3d(-50px, 0, 0) scale(0.5);
     transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
   }
-  .color-menu-buttons-wrapper {
-    display: flex;
-    > * {
-      opacity: 0;
-      transform: translate3d(-50px, 0, 0) scale(0.5);
-      transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
-    }
-    button:hover {
-      transform: scale(1.25);
-      transition: 0.15s all ease-out;
-      /* border-width: 5px; */
-    }
-    button:nth-child(1) {
-      transition-delay: 0.2s;
-    }
-    button:nth-child(2) {
-      transition-delay: 0.15s;
-    }
-    button:nth-child(3) {
-      transition-delay: 0.1s;
-    }
-    button:nth-child(4) {
-      transition-delay: 0.05s;
-    }
-    button:nth-child(5) {
-      transition-delay: 0s;
-    }
+  button:hover {
+    transform: scale(1.25);
+    transition: 0.15s all ease-out;
+  }
+  button:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+  button:nth-child(2) {
+    transition-delay: 0.15s;
+  }
+  button:nth-child(3) {
+    transition-delay: 0.1s;
+  }
+  button:nth-child(4) {
+    transition-delay: 0.05s;
+  }
+  button:nth-child(5) {
+    transition-delay: 0s;
   }
 `;
 
@@ -185,9 +199,11 @@ const ColorMenuButton = styled(Button)`
   border: 4px solid ${props => props.themeObj.colorPrimary};
   border-radius: 50%;
   padding: 0.4rem;
-  margin: 0.35rem;
+  margin: 0.4rem;
   background: transparent;
   &:hover {
+    transform: scale(1.25);
+    transition: 0.15s all ease-out;
     border-color: ${props => props.themeObj.colorDarker};
   }
 `;
