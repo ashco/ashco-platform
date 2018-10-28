@@ -4,7 +4,7 @@ import { media } from '../../config/media';
 
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-import { FadeWrapper } from '../Animations';
+import FadeWrapper from '../Animation/Fade';
 import GithubIcon from '../Icons/Github';
 import LinkedInIcon from '../Icons/LinkedIn';
 import TwitterIcon from '../Icons/Twitter';
@@ -21,9 +21,7 @@ class FooterRight extends Component {
   render() {
     const { showFooterRight } = this.props;
     return (
-      <FooterRightWrapper
-      // className={showFooterRight ? 'visible-fade' : 'hidden-fade'}
-      >
+      <FooterRightWrapper>
         <FadeWrapper visible={showFooterRight}>
           <ul>
             <li>

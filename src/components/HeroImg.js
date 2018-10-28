@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { media } from '../config/media';
 
+import FadeWrapper from './Animation/Fade';
 import { VisualContextConsumer } from './Context/VisualContext';
 
 class HeroImg extends Component {
@@ -10,27 +11,18 @@ class HeroImg extends Component {
       <VisualContextConsumer>
         {({ showHeroImg, isHome }) => {
           return (
-            <HeroTextWrapper
-              className={
-                showHeroImg
-                  ? isHome
-                    ? 'visible'
-                    : 'visible-fade'
-                  : isHome
-                    ? 'hidden'
-                    : 'hidden-fade'
-              }
-              isHome={isHome}
-            >
-              <FirstText>Welcome</FirstText>
-              <SecondText>To</SecondText>
-              <TitleLine />
-              <TitleText>
-                AshCo
-                <StrobeWrapper>.</StrobeWrapper>
-                io
-              </TitleText>
-            </HeroTextWrapper>
+            <FadeWrapper noFade={isHome} visible={showHeroImg}>
+              <HeroTextWrapper isHome={isHome}>
+                <FirstText>Welcome</FirstText>
+                <SecondText>To</SecondText>
+                <TitleLine />
+                <TitleText>
+                  AshCo
+                  <StrobeWrapper>.</StrobeWrapper>
+                  io
+                </TitleText>
+              </HeroTextWrapper>
+            </FadeWrapper>
           );
         }}
       </VisualContextConsumer>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { media } from '../../config/media';
-import { FadeWrapper } from '../Animations';
+import FadeWrapper from '../Animation/Fade';
 
 import NavArrow from './NavArrow';
 

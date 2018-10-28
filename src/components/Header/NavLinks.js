@@ -5,15 +5,19 @@ import styled from 'styled-components';
 import { media } from '../../config/media';
 import { Link } from 'gatsby';
 
+import NavMenuToggleWrapper from '../Animation/NavMenuToggle';
+
 const NavLinks = ({ navMenuOpen, isMobile }) => (
   <NavLinksWrapper>
-    <ul className={!navMenuOpen && isMobile ? 'nav-menu-closed' : undefined}>
-      <NavLinkItem to="/#home" title="Home" />
-      <NavLinkItem to="/about/" title="About" />
-      <NavLinkItem to="/projects/" title="Projects" />
-      <NavLinkItem to="/blog/" title="Blog" />
-      <NavLinkItem to="/contact/" title="Contact" />
-    </ul>
+    <NavMenuToggleWrapper closed={!navMenuOpen && isMobile}>
+      <ul>
+        <NavLinkItem to="/#home" title="Home" />
+        <NavLinkItem to="/about/" title="About" />
+        <NavLinkItem to="/projects/" title="Projects" />
+        <NavLinkItem to="/blog/" title="Blog" />
+        <NavLinkItem to="/contact/" title="Contact" />
+      </ul>
+    </NavMenuToggleWrapper>
   </NavLinksWrapper>
 );
 
@@ -35,35 +39,12 @@ const NavLinksWrapper = styled.div`
   position: absolute;
   right: 0;
   top: 90px;
-  transition: 0.3s ease-in-out;
 
   ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-  }
-  ul li {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-    transition: 0.25s ease-in;
-  }
-  ul li:nth-child(2) {
-    transition-delay: 0.05s;
-  }
-  ul li:nth-child(3) {
-    transition-delay: 0.1s;
-  }
-  ul li:nth-child(4) {
-    transition-delay: 0.15s;
-  }
-  ul li:nth-child(5) {
-    transition-delay: 0.2s;
-  }
-  ul.nav-menu-closed li {
-    transform: translate3d(35vw, 0, 0);
-    opacity: 0;
-    transition: 0.2s ease-out;
   }
   @media (min-width: 700px) {
     font-size: 1.6rem;

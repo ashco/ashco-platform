@@ -167,7 +167,7 @@ a {
   text-decoration: none;
   color: #eee;
 }
-
+/*
 .hidden {
   visibility: hidden;
   opacity: 0;
@@ -188,7 +188,7 @@ a {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s linear;
-}
+} */
 
 /* ANIMATIONS */
 
@@ -208,11 +208,11 @@ a {
   -webkit-animation-delay: 10s;
   animation-delay: 10s;
 }
-
+/*
 .bounce {
   animation-name: bounce;
   transform-origin: center bottom;
-}
+} */
 
 /* NAVICON */
 #menu-icon {

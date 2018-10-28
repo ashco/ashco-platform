@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import ArrowDown from '../Icons/ArrowDown';
 import BounceWrapper from '../Animation/Bounce';
-import FadeInWrapper from '../Animation/FadeIn';
+import InitialFooterCenterFadeInWrapper from '../Animation/InitialFooterCenterFadeIn';
 
 class NavArrow extends Component {
   handleClick = () => {
@@ -17,11 +17,11 @@ class NavArrow extends Component {
   render() {
     return (
       <NavArrowStyle onClick={this.handleClick} aria-hidden="true">
-        <FadeInWrapper>
+        <InitialFooterCenterFadeInWrapper>
           <BounceWrapper>
             <ArrowDown />
           </BounceWrapper>
-        </FadeInWrapper>
+        </InitialFooterCenterFadeInWrapper>
       </NavArrowStyle>
     );
   }
