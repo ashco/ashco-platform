@@ -13,6 +13,10 @@ import { themeArr } from '../../config/config';
 // import HeroIcon from './HeroIcon';
 
 class HeaderTitle extends Component {
+  state = {
+    menuActive: true,
+  };
+
   handleUpdateTheme = themeObj => {
     if (typeof window !== `undefined`) {
       window.localStorage.setItem('themeObj', JSON.stringify(themeObj));
@@ -28,25 +32,12 @@ class HeaderTitle extends Component {
   };
 
   render() {
-    const {
-      pathname,
-      // toggleNavMenu,
-      // colorMenuOpen,
-      // toggleColorMenu,
-      // updateTheme,
-      isHome,
-    } = this.props;
+    const { pathname, isHome } = this.props;
     let pageTitle = pathname.split('/')[1];
     pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
 
     return (
       <HeaderTitleWrapper>
-        {/* <HeroIcon
-        toggleNavMenu={toggleNavMenu}
-        updateTheme={updateTheme}
-        toggleColorMenu={toggleColorMenu}
-        colorMenuOpen={colorMenuOpen}
-      /> */}
         <LinkAnimate to="/" aria-label="hero-screen" onClick={this.handleClick}>
           <AshCoIcon />
         </LinkAnimate>
@@ -55,7 +46,12 @@ class HeaderTitle extends Component {
             <ColorMenuWrapper
               className={this.props.colorMenuOpen && 'color-menu-open'}
             >
-              <span className="color-menu-message">AshCo has options!</span>
+              <span
+                className={`color-menu-message ${this.state.menuActive &&
+                  'active'}`}
+              >
+                AshCo has options!
+              </span>
               <div className="color-menu-buttons-wrapper">
                 {themeArr.map((themeObj, i) => {
                   return (

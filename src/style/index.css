@@ -303,7 +303,7 @@ a {
   }
 }
 
-.color-menu-open .color-menu-message {
+.color-menu-open .color-menu-message.active {
   animation: menuFadeInOut 5s;
 }
 
