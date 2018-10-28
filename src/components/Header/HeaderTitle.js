@@ -132,6 +132,9 @@ const ColorMenuWrapper = styled.div`
     text-align: center;
     line-height: 1.25;
     padding-bottom: 0.5rem;
+    opacity: 0;
+    transform: scale(0.8, 0);
+    transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
   }
   .color-menu-buttons-wrapper {
     display: flex;

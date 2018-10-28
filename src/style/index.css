@@ -286,6 +286,27 @@ a {
   right: -35vw;
 }
 
+@keyframes menuFadeInOut {
+  0%,
+  8% {
+    opacity: 0;
+    transform: scale(0.8, 0);
+  }
+  15%,
+  95% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8, 0);
+  }
+}
+
+.color-menu-open .color-menu-message {
+  animation: menuFadeInOut 5s;
+}
+
 .color-menu-open .color-menu-buttons-wrapper > * {
   pointer-events: auto;
   opacity: 1;
@@ -312,8 +333,4 @@ a {
 .color-menu-open button:nth-child(5) {
   transition-delay: 0.2s;
   /* transition-delay: 0.4s; */
-}
-
-.hidden {
-  display: none;
 }
