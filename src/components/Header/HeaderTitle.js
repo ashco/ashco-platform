@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components';
 import { media } from '../../config/media';
 import { themeArr } from '../../config/config';
 
+import SelectedIconWrapper from '../Animation/SelectedIcon';
 import AshCoIcon from '../Icons/AshCoGradient';
 import { Button } from '../../pages/contact';
 
@@ -19,7 +20,7 @@ class HeaderTitle extends Component {
     this.props.updateTheme(themeObj);
   };
 
-  handleClick = () => {
+  handleIconClick = () => {
     const {
       pathname,
       toggleColorMenu,
@@ -46,27 +47,27 @@ class HeaderTitle extends Component {
     toggleNavMenu(true);
   };
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.pathname !== this.props.pathname) {
-  //     this.props.toggleColorMenu(false);
-  //   }
-  // }
+  handleButtonClick = themeObj => {
+    this.handleUpdateTheme(themeObj);
+    setTimeout(() => this.props.toggleColorMenu(false), 500);
+  };
 
   render() {
-    const { pathname, isHome } = this.props;
+    const { pathname, isHome, colorMenuOpen } = this.props;
+    console.log(pathname);
     let pageTitle = pathname.split('/')[1];
     pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
 
     return (
       <HeaderTitleWrapper>
-        <LinkAnimate to="/" aria-label="hero-screen" onClick={this.handleClick}>
-          <AshCoIcon />
-        </LinkAnimate>
+        <Link to="/" aria-label="hero-screen" onClick={this.handleIconClick}>
+          <SelectedIconWrapper open={colorMenuOpen}>
+            <AshCoIcon />
+          </SelectedIconWrapper>
+        </Link>
         {isHome ? (
           <>
-            <ColorMenuWrapper
-              className={this.props.colorMenuOpen && 'color-menu-open'}
-            >
+            <ColorMenuWrapper className={colorMenuOpen && 'color-menu-open'}>
               <ColorMenuMessage className={this.state.menuActive && 'active'}>
                 AshCo has options!
               </ColorMenuMessage>
@@ -74,7 +75,7 @@ class HeaderTitle extends Component {
                 {themeArr.map((themeObj, i) => {
                   return (
                     <ColorMenuButton
-                      onClick={this.handleUpdateTheme.bind(null, themeObj)}
+                      onClick={this.handleButtonClick.bind(null, themeObj)}
                       themeObj={themeObj}
                       key={i}
                     />
@@ -161,14 +162,14 @@ const HeaderTitleWrapper = styled.div`
   `};
 `;
 
-const LinkAnimate = styled(Link)`
-  transform: scale(1);
-  transition: 0.1s all ease-out;
-  &:hover {
-    transform: scale(1.075);
-    transition: 0.15s all ease-in;
-  }
-`;
+// const LinkAnimate = styled(Link)`
+//   transform: scale(1);
+//   transition: 0.1s all ease-out;
+//   &:hover {
+//     transform: scale(1.075);
+//     transition: 0.15s all ease-in;
+//   }
+// `;
 
 const ColorMenuWrapper = styled.div`
   display: flex;

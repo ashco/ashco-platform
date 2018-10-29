@@ -2,7 +2,6 @@ import React from 'react';
 import { withTheme } from 'styled-components';
 
 const AshCo = ({ theme }) => {
-  console.log(theme);
   const { colorPrimary, colorLighter, colorDarker, colorText } = theme;
   // const colorPrimary = '#55c2ed80';
   // const colorText = '#eeeeee80';
@@ -38,7 +37,7 @@ const AshCo = ({ theme }) => {
           <g id="ashco-logo" transform="translate(69.000000, 9.000000)">
             <polygon
               id="Path"
-              fill="#DDDDDD"
+              fill={colorText}
               points="416 0 370.406 86.461 0.457 788 77.371 788 416 145.852 754.63 788 831.54 788 461.594 86.461"
             />
             <path
@@ -48,7 +47,7 @@ const AshCo = ({ theme }) => {
             />
             <circle
               id="Oval"
-              stroke="#DDDDDD"
+              stroke={colorText}
               strokeWidth="44"
               cx="416"
               cy="491"
@@ -61,7 +60,7 @@ const AshCo = ({ theme }) => {
             />
             <polygon
               id="Path"
-              fill="#DDDDDD"
+              fill={colorText}
               points="369.949 86.461 415.543 0 461.137 86.461 563.198 280 486.285 280 415.543 145.852 344.802 280 267.888 280"
             />
           </g>
