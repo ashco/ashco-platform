@@ -53,56 +53,31 @@ const StrobeWrapper = styled.span`
   animation-iteration-count: infinite;
 `;
 
-// // keyframes returns a unique name based on a hash of the contents of the keyframes
-// const drawLine = keyframes`
-//   from {
-//     height: 0px;
-//   }
-//   to {
-//     height: 400px;
-//   }
-// `;
-
-// // Here we create a component that will rotate everything we pass in over two seconds
-// const AnimationLine = styled.div`
-//   position: relative;
-//   display: inline-block;
-//   animation: ${drawLine} 2s linear infinite;
-//   width: 8px;
-//   padding: 0;
-//   background-color: ${props => props.theme.colorPrimary};
-// `;
 
 const HeroTextWrapper = styled.div`
   user-select: none;
-  /* pointer-events: none; */
   position: fixed;
   z-index: -5;
-  /* bottom: 0; */
   bottom: ${props => (props.isHome ? 0 : 'auto')};
   top: ${props => (props.isHome ? 'auto' : '240px')};
   left: 0;
   font-weight: 600;
   margin: 0 10vw 8.5vh 10vw;
   padding: 30px 35px 0px 10px;
-  /* border-left: 8px solid ${props => props.theme.colorPrimary};
-  border-bottom: 8px solid ${props => props.theme.colorPrimary}; */
   border-left: 8px solid;
   border-bottom: 8px solid;
-  border-image: linear-gradient(135deg, ${props =>
+  border-color: ${props => props.theme.colorPrimary};
+  /* border-image: linear-gradient(135deg, ${props =>
     props.theme.colorLighter} 0%,${props =>
   props.theme.colorPrimary} 50%,${props => props.theme.colorDarker} 100%);
-  /* border-image: linear-gradient(135deg, ${props =>
-    props.theme.colorPrimary} 0%,${props =>
-  props.theme.colorSecondary} 100%); */
-  border-image-slice: 1;
-
-  /* transform: scale(1);
-  transition: 0.1s all ease-out;
+  border-image-slice: 1; */
+  transition: 0.1s all ease-in-out;
+  transform: scale(1);
   &:hover {
-    transform: scale(1.025);
-    transition: 0.15s all ease-in;
-  } */
+    transition: 0.15s all ease-in-out;
+    transform: scale(1.0375);
+  }
+
   > * {
     pointer-events: none;
   }
