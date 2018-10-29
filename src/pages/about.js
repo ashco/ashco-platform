@@ -93,14 +93,14 @@ const About = props => {
   );
 };
 
-const AngleSVGWrapper = styled.svg`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  polygon {
-    fill: ${({ theme }) => theme.colorPrimary}90;
-  }
-`;
+// const AngleSVGWrapper = styled.svg`
+//   position: absolute;
+//   top: 0;
+//   width: 100%;
+//   polygon {
+//     fill: ${({ theme }) => theme.colorPrimary}90;
+//   }
+// `;
 
 const AboutContainer = styled(DefaultContainer)`
   width: 90%;

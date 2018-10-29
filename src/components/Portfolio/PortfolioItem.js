@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 
-class PortfolioItem extends Component {
+class PortfolioItem extends PureComponent {
   render() {
     const { project } = this.props;
     return (

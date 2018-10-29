@@ -1,45 +1,49 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 import FadeWrapper from '../Animation/Fade';
 
-const FooterLeft = ({ showFooterLeft }) => {
-  const year = new Date().getFullYear();
-  return (
-    <FooterLeftWrapper>
-      <FadeWrapper visible={showFooterLeft}>
-        <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
-        <p>
-          This site is built with{' '}
-          <a
-            href="https://www.gatsbyjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Gatsbyjs
-          </a>{' '}
-          and{' '}
-          <a
-            href="https://www.contentful.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Contentful
-          </a>
-          . The source code is hosted on{' '}
-          <a
-            href="https://github.com/ashco/ashco-platform"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Github
-          </a>
-          .
-        </p>
-      </FadeWrapper>
-    </FooterLeftWrapper>
-  );
-};
+class FooterLeft extends PureComponent {
+  render() {
+    const { showFooterLeft } = this.props;
+    const year = new Date().getFullYear();
+
+    return (
+      <FooterLeftWrapper>
+        <FadeWrapper visible={showFooterLeft}>
+          <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
+          <p>
+            This site is built with{' '}
+            <a
+              href="https://www.gatsbyjs.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Gatsbyjs
+            </a>{' '}
+            and{' '}
+            <a
+              href="https://www.contentful.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contentful
+            </a>
+            . The source code is hosted on{' '}
+            <a
+              href="https://github.com/ashco/ashco-platform"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github
+            </a>
+            .
+          </p>
+        </FadeWrapper>
+      </FooterLeftWrapper>
+    );
+  }
+}
 
 const FooterLeftWrapper = styled.div`
   flex: 100;

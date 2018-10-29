@@ -29,44 +29,44 @@ class Main extends Component {
   }
 }
 
-const Angle1 = () => {
-  return (
-    <Angle1Wrapper>
-      {/* <div className="box" /> */}
-      {/* <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <polygon fill="white" points="0,100 100,0 100,100" />
-      </svg> */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <polygon class="svg--sm" fill="white" points="0,100 65,21 100,100" />
-      </svg>
-    </Angle1Wrapper>
-  );
-};
+// const Angle1 = () => {
+//   return (
+//     <Angle1Wrapper>
+//       {/* <div className="box" /> */}
+//       {/* <svg
+//         xmlns="http://www.w3.org/2000/svg"
+//         viewBox="0 0 100 100"
+//         preserveAspectRatio="none"
+//       >
+//         <polygon fill="white" points="0,100 100,0 100,100" />
+//       </svg> */}
+//       <svg
+//         xmlns="http://www.w3.org/2000/svg"
+//         viewBox="0 0 100 100"
+//         preserveAspectRatio="none"
+//       >
+//         <polygon class="svg--sm" fill="white" points="0,100 65,21 100,100" />
+//       </svg>
+//     </Angle1Wrapper>
+//   );
+// };
 
-const Angle1Wrapper = styled.div`
-  .box {
-    background-color: ${({ theme }) => theme.colorPrimary}90;
-    height: 20px;
-  }
-  svg {
-    position: relative;
-    top: 0;
-    background-color: ${({ theme }) => theme.colorPrimary}90;
-    height: 4vw;
-    width: 100%;
-    polygon {
-      fill: ${({ theme }) => theme.colorBackground};
-    }
-  }
-`;
+// const Angle1Wrapper = styled.div`
+//   .box {
+//     background-color: ${({ theme }) => theme.colorPrimary}90;
+//     height: 20px;
+//   }
+//   svg {
+//     position: relative;
+//     top: 0;
+//     background-color: ${({ theme }) => theme.colorPrimary}90;
+//     height: 4vw;
+//     width: 100%;
+//     polygon {
+//       fill: ${({ theme }) => theme.colorBackground};
+//     }
+//   }
+// `;
 
 const MainWrapper = styled.main`
   border-top: 7px solid;

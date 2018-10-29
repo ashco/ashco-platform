@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { VisualContextConsumer } from '../Context/VisualContext';
 
 import styled from 'styled-components';
@@ -7,31 +7,43 @@ import { Link } from 'gatsby';
 
 import NavMenuToggleWrapper from '../Animation/NavMenuToggle';
 
-const NavLinks = ({ navMenuOpen, isMobile }) => (
-  <NavLinksWrapper>
-    <NavMenuToggleWrapper closed={!navMenuOpen && isMobile}>
-      <ul>
-        <NavLinkItem to="/#home" title="Home" />
-        <NavLinkItem to="/about/" title="About" />
-        <NavLinkItem to="/projects/" title="Projects" />
-        <NavLinkItem to="/blog/" title="Blog" />
-        <NavLinkItem to="/contact/" title="Contact" />
-      </ul>
-    </NavMenuToggleWrapper>
-  </NavLinksWrapper>
-);
+// const NavLinks = ({ navMenuOpen, isMobile }) => (
+class NavLinks extends PureComponent {
+  render() {
+    const { navMenuOpen, isMobile } = this.props;
+    return (
+      <NavLinksWrapper>
+        <NavMenuToggleWrapper closed={!navMenuOpen && isMobile}>
+          <ul>
+            <NavLinkItem to="/#home" title="Home" />
+            <NavLinkItem to="/about/" title="About" />
+            <NavLinkItem to="/projects/" title="Projects" />
+            <NavLinkItem to="/blog/" title="Blog" />
+            <NavLinkItem to="/contact/" title="Contact" />
+          </ul>
+        </NavMenuToggleWrapper>
+      </NavLinksWrapper>
+    );
+  }
+}
 
-const NavLinkItem = ({ to, title }) => (
-  <VisualContextConsumer>
-    {({ toggleNavMenu }) => (
-      <NavLinkItemWrapper>
-        <Link to={to} onClick={toggleNavMenu.bind(null, false)}>
-          {title}
-        </Link>
-      </NavLinkItemWrapper>
-    )}
-  </VisualContextConsumer>
-);
+// const NavLinkItem = ({ to, title }) => (
+class NavLinkItem extends PureComponent {
+  render() {
+    const { to, title } = this.props;
+    return (
+      <VisualContextConsumer>
+        {({ toggleNavMenu }) => (
+          <NavLinkItemWrapper>
+            <Link to={to} onClick={toggleNavMenu.bind(null, false)}>
+              {title}
+            </Link>
+          </NavLinkItemWrapper>
+        )}
+      </VisualContextConsumer>
+    );
+  }
+}
 
 const NavLinksWrapper = styled.div`
   font-size: 1.25rem;

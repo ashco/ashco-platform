@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { media } from '../config/media';
 
 import FadeWrapper from './Animation/Fade';
 import { VisualContextConsumer } from './Context/VisualContext';
 
-class HeroImg extends Component {
+class HeroImg extends PureComponent {
   render() {
     return (
       <VisualContextConsumer>

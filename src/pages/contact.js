@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { media } from '../config/media';
 
 import { DefaultContainer } from '../components/helpers';
 
-class ContactPage extends Component {
+class ContactPage extends PureComponent {
   state = {
     name: '',
     email: '',

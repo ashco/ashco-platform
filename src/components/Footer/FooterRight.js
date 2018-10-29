@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 
@@ -10,7 +10,7 @@ import LinkedInIcon from '../Icons/LinkedIn';
 import TwitterIcon from '../Icons/Twitter';
 import ResumeIcon from '../Icons/Resume';
 
-class FooterRight extends Component {
+class FooterRight extends PureComponent {
   constructor(props) {
     super(props);
     if (this.props.isMobile) {

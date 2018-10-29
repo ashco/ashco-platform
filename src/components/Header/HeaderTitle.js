@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Link } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 import { media } from '../../config/media';
@@ -8,7 +8,7 @@ import SelectedIconWrapper from '../Animation/SelectedIcon';
 import AshCoIcon from '../Icons/AshCo';
 import { Button } from '../../pages/contact';
 
-class HeaderTitle extends Component {
+class HeaderTitle extends PureComponent {
   state = {
     menuActive: true,
   };

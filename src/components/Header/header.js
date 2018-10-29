@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 
 import styled from 'styled-components';
@@ -11,7 +11,7 @@ import HeaderTitle from './HeaderTitle';
 import NavLinks from './NavLinks';
 import MenuIcon from '../Icons/MenuIcon';
 
-class Header extends Component {
+class Header extends PureComponent {
   render() {
     const { pathname, updateTheme } = this.props;
 

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 import ArrowDown from '../Icons/ArrowDown';
 import BounceWrapper from '../Animation/Bounce';
 import InitialFooterCenterFadeInWrapper from '../Animation/InitialFooterCenterFadeIn';
 
-class NavArrow extends Component {
+class NavArrow extends PureComponent {
   handleClick = () => {
     this.props.toggleNavMenu(false);
     if (typeof window !== `undefined`) {

@@ -24,7 +24,6 @@ const ThanksContainer = styled(DefaultContainer)`
   h2 {
     font-size: 2.6rem;
     font-weight: 600;
-    /* margin-bottom: 1rem; */
   }
   svg {
     height: 10rem;

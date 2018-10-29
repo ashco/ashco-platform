@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { media } from '../../config/media';
@@ -6,37 +6,42 @@ import { media } from '../../config/media';
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
-const PortfolioItemSelected = ({ project }) => (
-  <PortfolioItemSelectedWrapper>
-    <Img fluid={project.image.fluid} alt={project.image.title} />
-    <PortfolioItemSelectedTextContainer>
-      <div className="container-left">
-        <h3>{project.title}</h3>
-        <p>{project.description.description}</p>
-      </div>
-      <div className="container-right">
-        {project.liveSiteLink && (
-          <a
-            href={project.liveSiteLink}
-            title="Live Link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <DesktopIcon />
-          </a>
-        )}
-        <a
-          href={project.githubLink}
-          title="Github Link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <GithubIcon />
-        </a>
-      </div>
-    </PortfolioItemSelectedTextContainer>
-  </PortfolioItemSelectedWrapper>
-);
+class PortfolioItemSelected extends PureComponent {
+  render() {
+    const { project } = this.props;
+    return (
+      <PortfolioItemSelectedWrapper>
+        <Img fluid={project.image.fluid} alt={project.image.title} />
+        <PortfolioItemSelectedTextContainer>
+          <div className="container-left">
+            <h3>{project.title}</h3>
+            <p>{project.description.description}</p>
+          </div>
+          <div className="container-right">
+            {project.liveSiteLink && (
+              <a
+                href={project.liveSiteLink}
+                title="Live Link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DesktopIcon />
+              </a>
+            )}
+            <a
+              href={project.githubLink}
+              title="Github Link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon />
+            </a>
+          </div>
+        </PortfolioItemSelectedTextContainer>
+      </PortfolioItemSelectedWrapper>
+    );
+  }
+}
 
 const PortfolioItemSelectedWrapper = styled.div`
   position: relative;

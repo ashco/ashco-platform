@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 import FadeWrapper from '../Animation/Fade';
 
 import NavArrow from './NavArrow';
 
-const FooterCenter = ({ showFooterCenter, toggleNavMenu }) => {
-  return (
-    <FooterCenterWrapper>
-      <FadeWrapper visible={showFooterCenter}>
-        <NavArrow toggleNavMenu={toggleNavMenu} />
-      </FadeWrapper>
-    </FooterCenterWrapper>
-  );
-};
+// const FooterCenter = ({ showFooterCenter, toggleNavMenu }) => {
+class FooterCenter extends PureComponent {
+  render() {
+    const { showFooterCenter, toggleNavMenu } = this.props;
+    return (
+      <FooterCenterWrapper>
+        <FadeWrapper visible={showFooterCenter}>
+          <NavArrow toggleNavMenu={toggleNavMenu} />
+        </FadeWrapper>
+      </FooterCenterWrapper>
+    );
+  }
+}
 
 const FooterCenterWrapper = styled.div`
   flex: 1;

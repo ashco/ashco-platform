@@ -51,7 +51,6 @@ const BlogWrapper = styled(DefaultContainer)`
   ${media.tablet`
     h2 {
       font-size: 1.9rem;
-      /* margin-left: 0; */
     }
   `};
   ${media.desktop`
