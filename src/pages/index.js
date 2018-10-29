@@ -61,11 +61,11 @@ class IndexPage extends Component {
         `}
         render={data => (
           <MainContainer>
-            <AnchorPoint id="home" />
+            {/* <AnchorPoint id="home" />
             <About />
             <Portfolio projects={data.allContentfulPortfolioProject.edges} />
             <Blog posts={data.allContentfulBlogPost.edges} />
-            <Contact />
+            <Contact /> */}
           </MainContainer>
         )}
       />

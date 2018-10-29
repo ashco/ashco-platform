@@ -7,8 +7,6 @@ import {
   VisualContextProvider,
   VisualContextConsumer,
 } from '../components/Context/VisualContext';
-// import { theme } from '../config/config';
-// import { theme } from '../pages/index';
 
 import Header from '../components/Header/header';
 import Footer from '../components/Footer/Footer';
@@ -120,18 +118,18 @@ class Layout extends Component {
   }
 }
 
-ThemeProvider.defaultProps = {
-  theme: {
-    colorLighter: '#E3854A',
-    colorPrimary: '#DD702B',
-    colorDarker: '#D65E12',
-    colorBackground: '#1f1f1f',
-    colorText: '#dfdfdf',
-  },
-};
+// ThemeProvider.defaultProps = {
+//   theme: {
+//     colorLighter: '#E3854A',
+//     colorPrimary: '#DD702B',
+//     colorDarker: '#D65E12',
+//     colorBackground: '#1f1f1f',
+//     colorText: '#dfdfdf',
+//   },
+// };
 
 const LayoutWrapper = styled.div`
-  color: ${props => props.theme.colorText};
+  color: ${({ theme }) => theme.colorText};
 `;
 
 export default Layout;

@@ -21,64 +21,27 @@ class Main extends Component {
     }
 
     return (
-      <MainWrapper marginTop={marginTop}>
-        {/* <Angle1 /> */}
+      <MainWrapper isHome={isHome} marginTop={marginTop}>
         {children}
       </MainWrapper>
     );
   }
 }
 
-// const Angle1 = () => {
-//   return (
-//     <Angle1Wrapper>
-//       {/* <div className="box" /> */}
-//       {/* <svg
-//         xmlns="http://www.w3.org/2000/svg"
-//         viewBox="0 0 100 100"
-//         preserveAspectRatio="none"
-//       >
-//         <polygon fill="white" points="0,100 100,0 100,100" />
-//       </svg> */}
-//       <svg
-//         xmlns="http://www.w3.org/2000/svg"
-//         viewBox="0 0 100 100"
-//         preserveAspectRatio="none"
-//       >
-//         <polygon class="svg--sm" fill="white" points="0,100 65,21 100,100" />
-//       </svg>
-//     </Angle1Wrapper>
-//   );
-// };
-
-// const Angle1Wrapper = styled.div`
-//   .box {
-//     background-color: ${({ theme }) => theme.colorPrimary}90;
-//     height: 20px;
-//   }
-//   svg {
-//     position: relative;
-//     top: 0;
-//     background-color: ${({ theme }) => theme.colorPrimary}90;
-//     height: 4vw;
-//     width: 100%;
-//     polygon {
-//       fill: ${({ theme }) => theme.colorBackground};
-//     }
-//   }
-// `;
-
 const MainWrapper = styled.main`
-  border-top: 7px solid;
-  border-bottom: 7px solid;
+  border-top: ${({ isHome, theme }) =>
+    isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
+  border-bottom: ${({ isHome, theme }) =>
+    isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
+  /* border-top: ${({ isHome }) => (isHome ? 'none' : '7px solid')};
+  border-bottom: ${({ isHome }) => (isHome ? 'none' : '7px solid')};
   border-image: linear-gradient(
     135deg,
     ${({ theme }) => theme.colorDarker} 0%,
     ${({ theme }) => theme.colorPrimary} 50%,
     ${({ theme }) => theme.colorLighter} 100%
   );
-  border-image-slice: 1;
-
+  border-image-slice: 1; */
   z-index: 10;
   pointer-events: none;
   position: absolute;
@@ -86,12 +49,13 @@ const MainWrapper = styled.main`
   width: 100%;
   min-height: calc(100vh - 140px - 140px);
   margin: 0 auto 220px auto;
-  margin-top: ${props => props.marginTop};
-  background-color: ${({ theme }) => theme.colorBackground};
+  margin-top: ${({ marginTop }) => marginTop};
+  background-color: ${({ theme, isHome }) =>
+    isHome ? 'transparent' : theme.colorBackground};
   @media (min-width: ${sizes.tablet}px) {
     min-height: 77vh;
     margin-bottom: 7.8rem;
-    margin-top: ${props => props.marginTop};
+    margin-top: ${({ marginTop }) => marginTop};
   }
   @media (min-width: 935px) {
     margin-bottom: 6.8rem;
@@ -104,14 +68,16 @@ const MainWrapper = styled.main`
     margin-left: 8vw;
     margin-right: 8vw;
     width: 84vw;
-    border: 8px solid;
-    border-image: linear-gradient(
+    border: ${({ isHome, theme }) =>
+      isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
+    /* border: 8px solid; */
+    /* border-image: linear-gradient(
       135deg,
       ${({ theme }) => theme.colorDarker}bb 0%,
       ${({ theme }) => theme.colorPrimary}bb 50%,
       ${({ theme }) => theme.colorLighter}bb 100%
     );
-    border-image-slice: 1;
+    border-image-slice: 1; */
   }
   ${media.hd`
     margin-left: 15vw;

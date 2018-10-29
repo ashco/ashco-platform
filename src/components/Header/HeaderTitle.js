@@ -227,7 +227,7 @@ const ColorMenuButton = styled(Button)`
   height: 0;
   width: 0;
   &:hover {
-    border-color: ${({ themeObj }) => themeObj.colorDarker};
+    border-color: ${({ themeObj }) => themeObj.colorPrimary};
   }
 `;
 

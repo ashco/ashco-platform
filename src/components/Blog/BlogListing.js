@@ -36,7 +36,8 @@ const BlogListingWrapper = styled.article`
   }
   transition: border-left 0.1s ease-in;
   &:hover {
-    border-left: 0.25rem solid ${({ theme }) => theme.colorDarker}70;
+    border-left: 0.25rem solid ${({ theme }) => theme.colorPrimary}90;
+    /* border-left: 0.25rem solid ${({ theme }) => theme.colorDarker}70; */
   }
   ${media.desktop`
     a{
