@@ -5,7 +5,8 @@ import { media } from '../../config/media';
 import { themeArr } from '../../config/config';
 
 import SelectedIconWrapper from '../Animation/SelectedIcon';
-import AshCoIcon from '../Icons/AshCoGradient';
+// import AshCoIcon from '../Icons/AshCoGradient';
+import AshCoIcon from '../Icons/AshCo';
 import { Button } from '../../pages/contact';
 
 class HeaderTitle extends Component {

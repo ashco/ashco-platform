@@ -58,7 +58,7 @@ class Layout extends Component {
   render() {
     const { theme } = this.state;
     const { location, children } = this.props;
-    console.log(theme);
+    // console.log(theme);
     return (
       <StaticQuery
         query={graphql`
