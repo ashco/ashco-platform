@@ -1,7 +1,7 @@
 export const themeDefault = {
-  colorLighter: '#E3854A',
+  // colorLighter: '#E3854A',
   colorPrimary: '#DD702B',
-  colorDarker: '#D65E12',
+  // colorDarker: '#D65E12',
   colorBackground: '#1f1f1f',
   colorText: '#dfdfdf',
 };
@@ -9,41 +9,41 @@ export const themeDefault = {
 export const themeArr = [
   {
     // ORANGE
-    colorLighter: '#E3854A',
+    // colorLighter: '#E3854A',
     colorPrimary: '#DD702B',
-    colorDarker: '#D65E12',
+    // colorDarker: '#D65E12',
     colorBackground: '#1f1f1f',
     colorText: '#dfdfdf',
   },
   {
     // RED
-    colorLighter: '#FF755D',
+    // colorLighter: '#FF755D',
     colorPrimary: '#FF5D5B',
-    colorDarker: '#FF5C71',
+    // colorDarker: '#FF5C71',
     colorBackground: '#1f1f1f',
     colorText: '#dfdfdf',
   },
   {
     // PURPLE
-    colorLighter: '#C87DEF',
+    // colorLighter: '#C87DEF',
     colorPrimary: '#C664EC',
-    colorDarker: '#AE47D6',
+    // colorDarker: '#AE47D6',
     colorBackground: '#1f1f1f',
     colorText: '#dfdfdf',
   },
   {
     // BLUE
-    colorLighter: '#4AC7D9',
+    // colorLighter: '#4AC7D9',
     colorPrimary: '#4BB9DA',
-    colorDarker: '#4AA9D9',
+    // colorDarker: '#4AA9D9',
     colorBackground: '#1f1f1f',
     colorText: '#dfdfdf',
   },
   {
     // GREEN
-    colorLighter: '#3BF2D7',
-    colorPrimary: '#2de5b4',
-    colorDarker: '#21C9A4',
+    // colorLighter: '#3BF2D7',
+    colorPrimary: '#21C9A4',
+    // colorDarker: '#',
     colorBackground: '#1f1f1f',
     colorText: '#dfdfdf',
   },
