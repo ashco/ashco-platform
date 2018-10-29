@@ -29,7 +29,8 @@ class FooterLeft extends PureComponent {
             >
               Contentful
             </a>
-            . The source code is hosted on{' '}
+            .
+            {/* The source code is hosted on{' '}
             <a
               href="https://github.com/ashco/ashco-platform"
               target="_blank"
@@ -37,7 +38,7 @@ class FooterLeft extends PureComponent {
             >
               Github
             </a>
-            .
+            . */}
           </p>
         </FadeWrapper>
       </FooterLeftWrapper>
