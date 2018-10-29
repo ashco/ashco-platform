@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { media } from '../../config/media';
 
 import { VisualContextConsumer } from '../Context/VisualContext';
-// import { MenuContextConsumer } from '../Context/MenuContext';
 
 import HeaderTitle from './HeaderTitle';
 import NavLinks from './NavLinks';
