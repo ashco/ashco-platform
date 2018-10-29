@@ -19,9 +19,9 @@ const BlogListingWrapper = styled.article`
   padding: 0.3rem 0.5rem;
   border-left: 0.25rem solid transparent;
   a {
-    color: ${props => props.theme.colorText};
+    color: ${({ theme }) => theme.colorText};
     h3 {
-      color: ${props => props.theme.colorPrimary};
+      color: ${({ theme }) => theme.colorPrimary};
       margin-bottom: 0.2rem;
       font-weight: 500;
     }
@@ -36,7 +36,7 @@ const BlogListingWrapper = styled.article`
   }
   transition: border-left 0.1s ease-in;
   &:hover {
-    border-left: 0.25rem solid ${props => props.theme.colorDarker}70;
+    border-left: 0.25rem solid ${({ theme }) => theme.colorDarker}70;
   }
   ${media.desktop`
     a{

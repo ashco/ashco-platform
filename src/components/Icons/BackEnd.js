@@ -1,8 +1,6 @@
 import React from 'react';
-// import { withTheme } from 'styled-components';
 
 const BackEnd = ({ color }) => {
-  // const { colorPrimary } = theme;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -30,5 +28,4 @@ const BackEnd = ({ color }) => {
   );
 };
 
-// export default withTheme(BackEnd);
 export default BackEnd;

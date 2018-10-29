@@ -5,26 +5,13 @@ import styled from 'styled-components';
 import { media } from '../../config/media';
 
 class PortfolioItem extends Component {
-  state = {};
-
-  componentDidMount() {
-    this.setState({ title: this.props.project.title });
-  }
-
-  updateTitle = text => {
-    this.setState({
-      title: text,
-    });
-  };
-
   render() {
-    const { title } = this.state;
     const { project } = this.props;
     return (
       <PortfolioItemWrapper>
         <Link to={`/projects/${project.slug}/`}>
           <div className="overlay">
-            <h3>{title}</h3>
+            <h3>{project.title}</h3>
           </div>
           <Img fluid={project.image.fluid} alt={project.title} />
         </Link>
@@ -39,7 +26,6 @@ const PortfolioItemWrapper = styled.article`
   position: relative;
   margin: 0.75rem auto;
   border-radius: 5px;
-  /* ANIMATION */
   box-shadow: none;
   border-bottom: none;
   overflow: hidden;
@@ -53,7 +39,7 @@ const PortfolioItemWrapper = styled.article`
     align-items: center;
     justify-content: center;
     h3 {
-      color: ${props => props.theme.colorText};
+      color: ${({ theme }) => theme.colorText};
       margin-left: 0.6rem;
       font-size: 2.2rem;
       font-weight: 600;
@@ -70,7 +56,7 @@ const PortfolioItemWrapper = styled.article`
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   }
   &:hover {
-    box-shadow: ${props => props.theme.colorPrimary}40 0px 8px 20px;
+    box-shadow: ${({ theme }) => theme.colorPrimary}40 0px 8px 20px;
     transform: translateY(-3px);
     .overlay h3 {
       font-size: 2.3rem;

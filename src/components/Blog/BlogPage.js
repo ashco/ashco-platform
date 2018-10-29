@@ -44,11 +44,13 @@ const BlogPageWrapper = styled(DefaultContainer)`
     margin: 0.5rem 0;
   }
   div.createdAt {
-    /* border-bottom: 2px solid ${props => props.theme.colorPrimary}90; */
     border-bottom: 2px solid;
-    border-image: linear-gradient(to right, ${props =>
-      props.theme.colorDarker}cc 0%, ${props =>
-  props.theme.colorPrimary}cc 50%, ${props => props.theme.colorLighter}cc 100%);
+    border-image: linear-gradient(
+      to right,
+      ${({ theme }) => theme.colorDarker}cc 0%,
+      ${({ theme }) => theme.colorPrimary}cc 50%,
+      ${({ theme }) => theme.colorLighter}cc 100%
+    );
     border-image-slice: 1;
     margin-bottom: 1rem;
     padding-right: 2rem;
@@ -105,7 +107,6 @@ export const query = graphql`
       id
       title
       slug
-      # tags
       createdAt(formatString: "MMMM DD, YYYY")
       heroImage {
         id

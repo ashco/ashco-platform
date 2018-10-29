@@ -8,16 +8,9 @@ import Blog from '../components/Main/BlogSection';
 import Contact from '../components/Main/ContactSection';
 import { StaticQuery, graphql } from 'gatsby';
 
-import { Button } from './contact';
 import { DefaultContainer } from '../components/helpers';
-import { themeArr } from '../config/config';
 
 class IndexPage extends Component {
-  // handleColor(colorObj) {
-  //   console.log(colorObj);
-  //   localStorage.setItem('themeObj', JSON.stringify(colorObj));
-  // }
-
   render() {
     return (
       <StaticQuery
@@ -73,15 +66,6 @@ class IndexPage extends Component {
             <Portfolio projects={data.allContentfulPortfolioProject.edges} />
             <Blog posts={data.allContentfulBlogPost.edges} />
             <Contact />
-            {/* {themeArr.map((themeObj, i) => {
-              return (
-                <ButtonColor
-                  onClick={this.handleColor.bind(null, themeObj)}
-                  themeObj={themeObj}
-                  key={i}
-                />
-              );
-            })} */}
           </MainContainer>
         )}
       />
@@ -89,15 +73,6 @@ class IndexPage extends Component {
   }
 }
 
-const MainContainer = styled(DefaultContainer)`
-  /* height: 77vh; */
-`;
-
-// const ButtonColor = styled(Button)`
-//   border: 6px solid ${props => props.themeObj.colorPrimary};
-//   border-radius: 50%;
-//   padding: 0.6rem;
-//   margin: 0.3rem;
-// `;
+const MainContainer = styled(DefaultContainer)``;
 
 export default IndexPage;

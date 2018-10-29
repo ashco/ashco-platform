@@ -71,10 +71,10 @@ const NavLinkItemWrapper = styled.li`
     pointer-events: auto;
     text-decoration: none;
     font-weight: 600;
-    color: ${props => props.theme.colorText};
+    color: ${({ theme }) => theme.colorText};
     transition: border-bottom 0.2s ease-out;
     &:hover {
-      border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
+      border-bottom: 3px solid ${({ theme }) => theme.colorPrimary}cc;
     }
   }
   ${media.tablet`

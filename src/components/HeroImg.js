@@ -44,8 +44,7 @@ const pulse = keyframes`
 `;
 
 const StrobeWrapper = styled.span`
-  color: ${props => props.theme.colorPrimary};
-  /* animation-name: ${props => !props.isMobile && pulse}; */
+  color: ${({ theme }) => theme.colorPrimary};
   animation-name: ${pulse};
   animation-duration: 5s;
   animation-delay: 3s;
@@ -53,24 +52,19 @@ const StrobeWrapper = styled.span`
   animation-iteration-count: infinite;
 `;
 
-
 const HeroTextWrapper = styled.div`
   user-select: none;
   position: fixed;
   z-index: -5;
-  bottom: ${props => (props.isHome ? 0 : 'auto')};
-  top: ${props => (props.isHome ? 'auto' : '240px')};
+  bottom: ${({ isHome }) => (isHome ? 0 : 'auto')};
+  top: ${({ isHome }) => (isHome ? 'auto' : '240px')};
   left: 0;
   font-weight: 600;
   margin: 0 10vw 8.5vh 10vw;
   padding: 30px 35px 0px 10px;
   border-left: 8px solid;
   border-bottom: 8px solid;
-  border-color: ${props => props.theme.colorPrimary};
-  /* border-image: linear-gradient(135deg, ${props =>
-    props.theme.colorLighter} 0%,${props =>
-  props.theme.colorPrimary} 50%,${props => props.theme.colorDarker} 100%);
-  border-image-slice: 1; */
+  border-color: ${({ theme }) => theme.colorPrimary};
   transition: 0.1s all ease-in-out;
   transform: scale(1);
   &:hover {
@@ -96,7 +90,7 @@ const HeroTextWrapper = styled.div`
 const FirstText = styled.p`
   font-size: 1.8rem;
   line-height: 0.6;
-  color: ${props => props.theme.colorText};
+  color: ${({ theme }) => theme.colorText};
   ${media.laptop`
     font-size: 2.2rem;
   `};
@@ -109,7 +103,7 @@ const SecondText = styled.p`
   font-size: 1.4rem;
   line-height: 1.7;
   margin-bottom: 0.6rem;
-  color: ${props => props.theme.colorText};
+  color: ${({ theme }) => theme.colorText};
   ${media.laptop`
     font-size: 1.6rem;
   `};
@@ -134,7 +128,7 @@ const TitleLine = styled.div`
 const TitleText = styled.h1`
   font-size: 3.8rem;
   line-height: 1.2;
-  color: ${props => props.theme.colorText};
+  color: ${({ theme }) => theme.colorText};
   ${media.laptop`
     line-height: 1.1;
     font-size: 5.5rem;

@@ -30,7 +30,7 @@ const NavArrowStyle = styled.button`
   pointer-events: auto;
   font-size: 1.5rem;
   font-weight: 600;
-  color: ${props => props.theme.colorText};
+  color: ${({ theme }) => theme.colorText};
   background: transparent;
   border: none;
   cursor: pointer;

@@ -4,7 +4,6 @@ import { media } from '../config/media';
 
 import { DefaultContainer } from '../components/helpers';
 
-// const ContactPage = () => {
 class ContactPage extends Component {
   state = {
     name: '',
@@ -149,7 +148,7 @@ const FormWrapper = styled.form`
     font-size: 1.1rem;
   }
   label {
-    color: ${props => props.theme.colorText};
+    color: ${({ theme }) => theme.colorText};
     padding-bottom: 0.5rem;
   }
   ${media.desktop`
@@ -169,21 +168,20 @@ const FormInputWrapper = styled.p`
   flex-direction: column;
   input,
   textarea {
-    /* border: solid 3px ${props => props.theme.colorPrimary}90; */
     border: 3px solid;
-    /* border-image: linear-gradient(135deg, ${props =>
-      props.theme.colorPrimary}aa 0%,${props =>
-  props.theme.colorSecondary}aa 100%); */
-    border-image: linear-gradient(135deg, ${props =>
-      props.theme.colorDarker} 0%,${props =>
-  props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
+    border-image: linear-gradient(
+      135deg,
+      ${({ theme }) => theme.colorDarker} 0%,
+      ${({ theme }) => theme.colorPrimary} 50%,
+      ${({ theme }) => theme.colorLighter} 100%
+    );
     border-image-slice: 1;
-    background-color: ${props => props.theme.colorBackground};
+    background-color: ${({ theme }) => theme.colorBackground};
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 4px;
     font-size: 1.1rem;
-    color: ${props => props.theme.colorText};
+    color: ${({ theme }) => theme.colorText};
     border-radius: 3px;
   }
   textarea {
@@ -205,7 +203,7 @@ const FormInputWrapper = styled.p`
 export const Button = styled.button`
   padding: 0.5rem 1.2rem 0.5rem 1.2rem;
   font-size: 1.1rem;
-  background-color: ${props => props.theme.colorBackground};
+  background-color: ${({ theme }) => theme.colorBackground};
   border: 4px solid;
   ${media.desktop`
     font-size: 1.2rem;
@@ -216,15 +214,15 @@ export const Button = styled.button`
 `;
 
 const ButtonActive = styled(Button)`
-    /* border-image: linear-gradient(135deg, ${props =>
-      props.theme.colorPrimary}aa 0%,${props =>
-  props.theme.colorSecondary}aa 100%); */
   cursor: pointer;
-    border-image: linear-gradient(135deg, ${props =>
-      props.theme.colorDarker} 0%,${props =>
-  props.theme.colorPrimary} 50%,${props => props.theme.colorLighter} 100%);
-    border-image-slice: 1;
-    color: ${props => props.theme.colorText};
+  border-image: linear-gradient(
+    135deg,
+    ${({ theme }) => theme.colorDarker} 0%,
+    ${({ theme }) => theme.colorPrimary} 50%,
+    ${({ theme }) => theme.colorLighter} 100%
+  );
+  border-image-slice: 1;
+  color: ${({ theme }) => theme.colorText};
 `;
 
 const ButtonDisabled = styled(Button)`

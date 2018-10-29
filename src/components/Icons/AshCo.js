@@ -3,8 +3,6 @@ import { withTheme } from 'styled-components';
 
 const AshCo = ({ theme }) => {
   const { colorPrimary, colorText } = theme;
-  // const colorPrimary = '#55c2ed80';
-  // const colorText = '#eeeeee80';
   return (
     <svg
       width="832"

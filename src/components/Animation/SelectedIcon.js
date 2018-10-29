@@ -14,8 +14,8 @@ const selectedIconAnimation = keyframes`
 
 const SelectedIconWrapper = styled.div`
   svg {
-    transform: ${props => (props.open ? 'scale(1.1)' : 'scale(1)')};
-    animation: ${props => props.open && selectedIconAnimation} 0.3s;
+    transform: ${({ open }) => (open ? 'scale(1.1)' : 'scale(1)')};
+    animation: ${({ open }) => open && selectedIconAnimation} 0.3s;
   }
 `;
 

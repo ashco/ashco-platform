@@ -5,7 +5,6 @@ import { media } from '../../config/media';
 import { themeArr } from '../../config/config';
 
 import SelectedIconWrapper from '../Animation/SelectedIcon';
-// import AshCoIcon from '../Icons/AshCoGradient';
 import AshCoIcon from '../Icons/AshCo';
 import { Button } from '../../pages/contact';
 
@@ -54,24 +53,19 @@ class HeaderTitle extends Component {
   };
 
   getPageTitle() {
-    const siteTitles = ['About', 'Projects', 'Blog', 'Contact']
+    const siteTitles = ['About', 'Projects', 'Blog', 'Contact'];
     let pageTitle = this.props.pathname.split('/')[1];
     pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
 
-    if (siteTitles.some(title => title === pageTitle)){
+    if (siteTitles.some(title => title === pageTitle)) {
       return pageTitle;
     }
   }
 
   render() {
-    const { pathname, isHome, colorMenuOpen } = this.props;
-    // let pageTitle = pathname.split('/')[1];
-
-
-    // pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
+    const { isHome, colorMenuOpen } = this.props;
 
     const pageTitle = this.getPageTitle();
-
 
     return (
       <HeaderTitleWrapper>
@@ -139,7 +133,6 @@ const HeaderTitleWrapper = styled.div`
     pointer-events: auto;
   }
   h1 {
-    /* margin-to : 0.25rem; */
     margin-left: 0.8rem;
   }
 
@@ -177,15 +170,6 @@ const HeaderTitleWrapper = styled.div`
   `};
 `;
 
-// const LinkAnimate = styled(Link)`
-//   transform: scale(1);
-//   transition: 0.1s all ease-out;
-//   &:hover {
-//     transform: scale(1.075);
-//     transition: 0.15s all ease-in;
-//   }
-// `;
-
 const ColorMenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -206,14 +190,15 @@ const ColorMenuMessage = styled.span`
 
 const ColorMenuButtonsWrapper = styled.div`
   display: flex;
+  align-items: center;
   button {
     opacity: 0;
     transform: translate3d(-50px, 0, 0) scale(0.5);
     transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
   }
   button:hover {
-    transform: scale(1.25);
-    transition: 0.15s all ease-out;
+    transform: scale(1.45);
+    transition: 0.1s all ease-out;
   }
   button:nth-child(1) {
     transition-delay: 0.2s;
@@ -234,15 +219,15 @@ const ColorMenuButtonsWrapper = styled.div`
 
 const ColorMenuButton = styled(Button)`
   cursor: pointer;
-  border: 4px solid ${props => props.themeObj.colorPrimary};
+  border: 0.25rem solid ${({ themeObj }) => themeObj.colorPrimary}dd;
   border-radius: 50%;
-  padding: 0.4rem;
-  margin: 0.4rem;
+  padding: 0.25rem;
+  margin: 0.35rem;
   background: transparent;
+  height: 0;
+  width: 0;
   &:hover {
-    transform: scale(1.25);
-    transition: 0.15s all ease-out;
-    border-color: ${props => props.themeObj.colorDarker};
+    border-color: ${({ themeObj }) => themeObj.colorDarker};
   }
 `;
 

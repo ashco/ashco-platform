@@ -89,7 +89,7 @@ const FooterRightWrapper = styled.div`
       margin: 0 0.75rem;
       a {
         &:hover {
-          border-bottom: 4px solid ${props => props.theme.colorPrimary}cc;
+          border-bottom: 4px solid ${({ theme }) => theme.colorPrimary}cc;
         }
       }
     }

@@ -12,9 +12,8 @@ export const DefaultContainer = styled.div`
   height: 100%;
   max-width: 990px;
   margin: 1.5rem auto;
-  /* width: 90%; */
   ${media.tablet`
-    box-shadow: 0px 0px 60px -25px inset ${props => props.theme.colorPrimary};
+    box-shadow: 0px 0px 60px -25px inset ${({ theme }) => theme.colorPrimary};
   `};
 `;
 
@@ -30,23 +29,10 @@ const PageLinkWrapper = styled.div`
   justify-content: center;
   align-items: center;
   a {
-    color: ${props => props.theme.colorText};
+    color: ${({ theme }) => theme.colorText};
     font-size: 1.5rem;
   }
 `;
-
-// export const HeaderTextContainer = styled.div`
-//   margin-bottom: 0.75rem;
-//   h2 {
-//     margin-bottom: 0.35em;
-//     font-size: 2.2rem;
-//     line-height: 1em;
-//     font-weight: 600;
-//   }
-//   p {
-//     font-size: 1.1rem;
-//   }
-// `;
 
 export const Tag = styled.div`
   background: #2c768e;

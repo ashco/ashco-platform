@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 
 import { media, sizes } from '../config/media';
-
+import { Link } from 'gatsby';
 import { DefaultContainer } from '../components/helpers';
 import FrontEnd from '../components/Icons/FrontEnd';
 import BackEnd from '../components/Icons/BackEnd';
@@ -24,11 +24,6 @@ const About = props => {
     <StaticQuery
       query={graphql`
         query AboutList {
-          contentfulAboutInfo {
-            aboutMe {
-              aboutMe
-            }
-          }
           allContentfulAboutDataColumn(
             sort: { fields: [columnNum], order: ASC }
           ) {
@@ -54,7 +49,24 @@ const About = props => {
         <AboutContainer>
           <AboutInfoContainer>
             <h2>Hi, I'm Ash. I build things.</h2>
-            <p>I'm a Full-Stack Web-Dev who specializes in <a href="https://reactjs.org/">React</a>. I'm a lifelong learner, and complex thing interest me. I love the challenges of coding and push myself past my limits with each project. My goal is to make a positive impact in the world and am excited to apply my skills wherever I go. Always happy to share my experiences and what I've learned so far, so hit me up!</p>
+            <p>
+              I'm a Full-Stack Web-Dev that specializes in{' '}
+              <a
+                href="https://reactjs.org/"
+                title="Reactjs"
+                aria-label="React"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                React
+              </a>
+              . I'm a lifelong learner, and complex thing interest me. I love
+              the challenges of coding and push myself past my limits with each
+              project. My goal is to make a positive impact in the world and am
+              excited to apply my skills wherever I go. Always happy to share my
+              experiences and what I've learned so far, so{' '}
+              <Link to="/contact/">hit me up!</Link>
+            </p>
           </AboutInfoContainer>
           <AboutSkillsContainer>
             {data.allContentfulAboutDataColumn.edges.map((skill, i) => {
@@ -81,36 +93,12 @@ const About = props => {
   );
 };
 
-// const AngleSVG = () => {
-//   return (
-//     <AngleSVGWrapper
-//       width="553px"
-//       height="274px"
-//       viewBox="0 0 553 274"
-//       version="1.1"
-//       xmlns="http://www.w3.org/2000/svg"
-//     >
-//       <g
-//         id="Page-2"
-//         stroke="none"
-//         stroke-width="1"
-//         fill="none"
-//         fill-rule="evenodd"
-//       >
-//         <g id="Artboard" fill="#000000">
-//           <polygon id="Path" points="0 0 0 274 553 0" />
-//         </g>
-//       </g>
-//     </AngleSVGWrapper>
-//   );
-// };
-
 const AngleSVGWrapper = styled.svg`
   position: absolute;
   top: 0;
   width: 100%;
   polygon {
-    fill: ${props => props.theme.colorPrimary}90;
+    fill: ${({ theme }) => theme.colorPrimary}90;
   }
 `;
 
@@ -121,7 +109,7 @@ const AboutContainer = styled(DefaultContainer)`
   align-items: center;
   a {
     font-weight: 500;
-    color: ${props => props.theme.colorPrimary};
+    color: ${({ theme }) => theme.colorPrimary};
     transition: all 0.2s linear;
   }
 
@@ -143,8 +131,8 @@ const AboutInfoContainer = styled.div`
   h2 {
     font-size: 1.9rem;
     font-weight: 600;
-    color: ${props => props.theme.colorPrimary};
-    border-bottom: 2px solid ${props => props.theme.colorPrimary};
+    color: ${({ theme }) => theme.colorPrimary};
+    border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
     padding-bottom: 0.6rem;
   }
   p {
@@ -155,7 +143,7 @@ const AboutInfoContainer = styled.div`
   @media (min-width: ${sizes.laptop}px) {
     max-width: 900px;
     h2 {
-      border-bottom: 3px solid ${props => props.theme.colorPrimary};
+      border-bottom: 3px solid ${({ theme }) => theme.colorPrimary};
       width: 60%;
       font-size: 2.2rem;
     }
@@ -179,7 +167,7 @@ const AboutSkillsContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid ${props => props.theme.colorPrimary};
+  border: 1px solid ${({ theme }) => theme.colorPrimary};
   border-radius: 15px;
 
   ${media.laptop`
@@ -193,7 +181,7 @@ const SkillColumn = styled.div`
   width: 100%;
   margin: 0 1rem;
   padding: 1.2rem;
-  border-bottom: 1px solid ${props => props.theme.colorPrimary};
+  border-bottom: 1px solid ${({ theme }) => theme.colorPrimary};
   :last-child {
     border-bottom: none;
   }
@@ -201,17 +189,17 @@ const SkillColumn = styled.div`
     path,
     rect,
     polygon {
-      fill: ${props => props.theme.colorPrimary};
+      fill: ${({ theme }) => theme.colorPrimary};
     }
     polyline,
     path {
-      stroke: ${props => props.theme.colorPrimary};
+      stroke: ${({ theme }) => theme.colorPrimary};
     }
     height: 5rem;
     width: 90%;
   }
   h4 {
-    border-bottom: 2px solid ${props => props.theme.colorSecondary};
+    border-bottom: 2px solid ${({ theme }) => theme.colorSecondary};
     padding-bottom: 0.8rem;
     margin-top: -0.6rem;
     margin-bottom: 0.8rem;
@@ -221,7 +209,7 @@ const SkillColumn = styled.div`
   }
   h4,
   h5 {
-    color: ${props => props.theme.colorPrimary}dd;
+    color: ${({ theme }) => theme.colorPrimary}dd;
     font-weight: 600;
   }
   p {
@@ -268,76 +256,76 @@ const SkillColumn = styled.div`
 `;
 
 const SkillColumnColor = styled(SkillColumn)`
-  border-bottom: 1px solid ${props => props.color};
+  border-bottom: 1px solid ${({ color }) => color};
   svg {
     path,
     rect,
     polygon {
-      fill: ${props => props.color};
+      fill: ${({ color }) => color};
     }
     polyline,
     path {
-      stroke: ${props => props.color};
+      stroke: ${({ color }) => color};
     }
   }
   h4 {
-    border-bottom: 2px solid ${props => props.color};
+    border-bottom: 2px solid ${({ color }) => color};
   }
   h4,
   h5 {
-    color: ${props => props.color}dd;
+    color: ${({ color }) => color}dd;
   }
   @media (min-width: ${sizes.laptop}px) {
-    border: 2px solid ${props => props.color}dd;
+    border: 2px solid ${({ color }) => color}dd;
     :last-child {
-      border-bottom: 2px solid ${props => props.color};
+      border-bottom: 2px solid ${({ color }) => color};
     }
     svg {
       path,
       rect,
       polygon {
-        fill: ${props => props.color}dd;
+        fill: ${({ color }) => color}dd;
       }
       polyline,
       path {
-        stroke: ${props => props.color}dd;
+        stroke: ${({ color }) => color}dd;
       }
     }
     h4 {
-      border-bottom: 3px solid ${props => props.color}dd;
+      border-bottom: 3px solid ${({ color }) => color}dd;
     }
     &:hover {
-      border: 2px solid ${props => props.color};
-      box-shadow: ${props => props.color}40 0px 8px 20px;
+      border: 2px solid ${({ color }) => color};
+      box-shadow: ${({ color }) => color}40 0px 8px 20px;
       svg {
         path,
         rect,
         polygon {
-          fill: ${props => props.color};
+          fill: ${({ color }) => color};
         }
         polyline,
         path {
-          stroke: ${props => props.color};
+          stroke: ${({ color }) => color};
         }
       }
       h4 {
-        border-bottom: 3px solid ${props => props.color};
+        border-bottom: 3px solid ${({ color }) => color};
       }
       h4,
       h5 {
-        color: ${props => props.color};
+        color: ${({ color }) => color};
       }
     }
   }
   @media (min-width: ${sizes.hd}px) {
-    border: 3px solid ${props => props.color}dd;
+    border: 3px solid ${({ color }) => color}dd;
     h4 {
-      border-bottom: 4px solid ${props => props.color}dd;
+      border-bottom: 4px solid ${({ color }) => color}dd;
     }
     &:hover {
-      border: 3px solid ${props => props.color};
+      border: 3px solid ${({ color }) => color};
       h4 {
-        border-bottom: 4px solid ${props => props.color};
+        border-bottom: 4px solid ${({ color }) => color};
       }
     }
   }

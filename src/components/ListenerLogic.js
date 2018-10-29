@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
-// Component runs event listeners and runs update fncs when events trigger
 export class ListenerLogic extends Component {
   componentDidMount() {
     window.addEventListener('scroll', throttle(this.handleScrollState, 200));
@@ -17,11 +16,7 @@ export class ListenerLogic extends Component {
   }
 
   updateColorMenu(showColorMenu) {
-    // console.log('trigger');
-    // console.log(this.props.value);
-    // if (!showColorMenu && this.props.value.showColorMenu) {
     this.props.value.toggleColorMenu(false);
-    // }
   }
 
   setHeroImg(showHeroImg) {

@@ -44,7 +44,7 @@ const FooterWrapper = styled.footer`
   align-items: center;
   a {
     pointer-events: auto;
-    color: ${props => props.theme.colorPrimary};
+    color: ${({ theme }) => theme.colorPrimary};
     transition: border-bottom 0.2s ease-out;
   }
   ${media.tablet`

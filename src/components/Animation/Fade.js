@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 const FadeWrapper = styled.div`
-  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
-  opacity: ${props => (props.visible ? 1 : 0)};
-  transition: ${props =>
-    props.visible
-      ? props.noFade
+  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
+  opacity: ${({ visible }) => (visible ? 1 : 0)};
+  transition: ${({ visible, noFade }) =>
+    visible
+      ? noFade
         ? 'all 0s linear'
         : 'all 0.15s linear'
-      : props.noFade
+      : noFade
         ? 'all 0s linear'
         : 'all 0.1s linear'};
 `;

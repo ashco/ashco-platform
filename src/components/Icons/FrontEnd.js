@@ -1,5 +1,4 @@
 import React from 'react';
-// import { withTheme } from 'styled-components';
 
 const FrontEnd = () => {
   const color = 'red';
@@ -43,5 +42,4 @@ const FrontEnd = () => {
   );
 };
 
-// export default withTheme(FrontEnd);
 export default FrontEnd;
