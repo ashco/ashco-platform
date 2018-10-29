@@ -1,26 +1,35 @@
 import React, { Component } from 'react';
 
-import PortfolioItem_Selected from './PortfolioItem_Selected';
+import PortfolioItemSelected from './PortfolioItemSelected';
 import PortfolioItem from './PortfolioItem';
 import { PortfolioContainer } from './PortfolioHelpers';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 
-class PortfolioPage_Selected extends Component {
+class PortfolioPageSelected extends Component {
   render() {
     const { data } = this.props;
     if (!data) return null;
     return (
       <PortfolioContainer>
-        <PortfolioItem_Selected project={data.contentfulPortfolioProject} />
-        {data.allContentfulPortfolioProject.edges.map(({ node }) => (
-          <PortfolioItem project={node} key={node.id} />
-        ))}
+        <PortfolioItemSelected project={data.contentfulPortfolioProject} />
+        <PortfolioExtraItemsWrapper>
+          {data.allContentfulPortfolioProject.edges.map(({ node }) => (
+            <PortfolioItem project={node} key={node.id} />
+          ))}
+        </PortfolioExtraItemsWrapper>
       </PortfolioContainer>
     );
   }
 }
 
-export default PortfolioPage_Selected;
+const PortfolioExtraItemsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+export default PortfolioPageSelected;
 
 export const query = graphql`
   query PortfolioQuery($slug: String!) {
@@ -48,7 +57,7 @@ export const query = graphql`
       }
     }
     allContentfulPortfolioProject(
-      sort: { fields: [createdAt], order: DESC }
+      sort: { fields: [order], order: DESC }
       filter: { slug: { ne: $slug } }
     ) {
       edges {

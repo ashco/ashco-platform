@@ -1,55 +1,53 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-// import { Tag, TagContainer } from '../helpers';
-import { media } from '../../config/config';
+import { media } from '../../config/media';
 
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
-const PortfolioItem_Selected = ({ project }) => (
-  <PortfolioItem_SelectedWrapper>
-    <Img fluid={project.image.fluid} alt={project.image.title} />
-    <PortfolioItem_SelectedTextContainer>
-      <div className="container-left">
-        <h3>{project.title}</h3>
-        <p>{project.description.description}</p>
-        {/* <TagContainer>
-          {project.tags.map(tag => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </TagContainer> */}
-      </div>
-      <div className="container-right">
-        <a
-          href={project.liveSiteLink}
-          title="Live Link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <DesktopIcon />
-          {/* <p>Live Site</p> */}
-        </a>
-        <a
-          href={project.githubLink}
-          title="Github Link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <GithubIcon />
-          {/* <p>Github</p> */}
-        </a>
-      </div>
-    </PortfolioItem_SelectedTextContainer>
-  </PortfolioItem_SelectedWrapper>
-);
+class PortfolioItemSelected extends PureComponent {
+  render() {
+    const { project } = this.props;
+    return (
+      <PortfolioItemSelectedWrapper>
+        <Img fluid={project.image.fluid} alt={project.image.title} />
+        <PortfolioItemSelectedTextContainer>
+          <div className="container-left">
+            <h3>{project.title}</h3>
+            <p>{project.description.description}</p>
+          </div>
+          <div className="container-right">
+            {project.liveSiteLink && (
+              <a
+                href={project.liveSiteLink}
+                title="Live Link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DesktopIcon />
+              </a>
+            )}
+            <a
+              href={project.githubLink}
+              title="Github Link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon />
+            </a>
+          </div>
+        </PortfolioItemSelectedTextContainer>
+      </PortfolioItemSelectedWrapper>
+    );
+  }
+}
 
-const PortfolioItem_SelectedWrapper = styled.div`
+const PortfolioItemSelectedWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-height: 83vh;
   margin-bottom: 1rem;
   .gatsby-image-wrapper {
     height: 60vw;
@@ -66,16 +64,13 @@ const PortfolioItem_SelectedWrapper = styled.div`
       }
     }
   }
-  /* ${media.desktop` */
-    /* margin-top: 2rem; */
-  /* `}; */
   ${media.hd`
     width: 1300px;
     height: 880px;
   `};
 `;
 
-const PortfolioItem_SelectedTextContainer = styled.div`
+const PortfolioItemSelectedTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -137,4 +132,4 @@ const PortfolioItem_SelectedTextContainer = styled.div`
   `};
 `;
 
-export default PortfolioItem_Selected;
+export default PortfolioItemSelected;

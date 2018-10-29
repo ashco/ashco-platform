@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 import ArrowDown from '../Icons/ArrowDown';
 import BounceWrapper from '../Animation/Bounce';
-import FadeInWrapper from '../Animation/FadeIn';
+import InitialFooterCenterFadeInWrapper from '../Animation/InitialFooterCenterFadeIn';
 
-class NavArrow extends Component {
+class NavArrow extends PureComponent {
   handleClick = () => {
-    this.props.toggleMenu(false);
+    this.props.toggleNavMenu(false);
     if (typeof window !== `undefined`) {
       const scrollLength = window.innerHeight;
       window.scrollTo({ top: scrollLength, behavior: 'smooth' });
@@ -17,11 +17,11 @@ class NavArrow extends Component {
   render() {
     return (
       <NavArrowStyle onClick={this.handleClick} aria-hidden="true">
-        <FadeInWrapper>
+        <InitialFooterCenterFadeInWrapper>
           <BounceWrapper>
             <ArrowDown />
           </BounceWrapper>
-        </FadeInWrapper>
+        </InitialFooterCenterFadeInWrapper>
       </NavArrowStyle>
     );
   }
@@ -30,7 +30,7 @@ const NavArrowStyle = styled.button`
   pointer-events: auto;
   font-size: 1.5rem;
   font-weight: 600;
-  color: ${props => props.theme.colorText};
+  color: ${({ theme }) => theme.colorText};
   background: transparent;
   border: none;
   cursor: pointer;

@@ -140,16 +140,6 @@ body {
   /* background: radial-gradient(ellipse at center, #111 10%, #323232 100%); */
 }
 
-/* h1 {
-  font-size: 3rem;
-  font-weight: 600;
-} */
-
-/* h2 {
-  font-size: 2.2rem;
-  line-height: 1.2em;
-  font-weight: 600;
-} */
 
 h3 {
   font-size: 1.5rem;
@@ -166,28 +156,6 @@ p {
 a {
   text-decoration: none;
   color: #eee;
-}
-
-.hidden {
-  visibility: hidden;
-  opacity: 0;
-}
-
-.hidden-fade {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 0.15s, opacity 0.15s linear;
-}
-
-.visible {
-  visibility: visible;
-  opacity: 1;
-}
-
-.visible-fade {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.5s linear;
 }
 
 /* ANIMATIONS */
@@ -207,11 +175,6 @@ a {
 .animated.delay-10s {
   -webkit-animation-delay: 10s;
   animation-delay: 10s;
-}
-
-.bounce {
-  animation-name: bounce;
-  transform-origin: center bottom;
 }
 
 /* NAVICON */
@@ -280,8 +243,4 @@ a {
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
-}
-
-.nav-links-hiding {
-  right: -35vw;
 }

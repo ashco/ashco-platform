@@ -1,36 +1,28 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { media } from '../config/config';
+import { media } from '../config/media';
 
+import FadeWrapper from './Animation/Fade';
 import { VisualContextConsumer } from './Context/VisualContext';
 
-class HeroImg extends Component {
+class HeroImg extends PureComponent {
   render() {
     return (
       <VisualContextConsumer>
         {({ showHeroImg, isHome }) => {
           return (
-            <HeroTextWrapper
-              className={
-                showHeroImg
-                  ? isHome
-                    ? 'visible'
-                    : 'visible-fade'
-                  : isHome
-                    ? 'hidden'
-                    : 'hidden-fade'
-              }
-              isHome={isHome}
-            >
-              <FirstText>Welcome</FirstText>
-              <SecondText>To</SecondText>
-              <TitleLine />
-              <TitleText>
-                AshCo
-                <StrobeWrapper>.</StrobeWrapper>
-                io
-              </TitleText>
-            </HeroTextWrapper>
+            <FadeWrapper noFade={isHome} visible={showHeroImg}>
+              <HeroTextWrapper isHome={isHome}>
+                <FirstText>Welcome</FirstText>
+                <SecondText>To</SecondText>
+                <TitleLine />
+                <TitleText>
+                  AshCo
+                  <StrobeWrapper>.</StrobeWrapper>
+                  io
+                </TitleText>
+              </HeroTextWrapper>
+            </FadeWrapper>
           );
         }}
       </VisualContextConsumer>
@@ -52,8 +44,7 @@ const pulse = keyframes`
 `;
 
 const StrobeWrapper = styled.span`
-  color: ${props => props.theme.colorPrimary};
-  /* animation-name: ${props => !props.isMobile && pulse}; */
+  color: ${({ theme }) => theme.colorPrimary};
   animation-name: ${pulse};
   animation-duration: 5s;
   animation-delay: 3s;
@@ -61,40 +52,29 @@ const StrobeWrapper = styled.span`
   animation-iteration-count: infinite;
 `;
 
-// // keyframes returns a unique name based on a hash of the contents of the keyframes
-// const drawLine = keyframes`
-//   from {
-//     height: 0px;
-//   }
-//   to {
-//     height: 400px;
-//   }
-// `;
-
-// // Here we create a component that will rotate everything we pass in over two seconds
-// const AnimationLine = styled.div`
-//   position: relative;
-//   display: inline-block;
-//   animation: ${drawLine} 2s linear infinite;
-//   width: 8px;
-//   padding: 0;
-//   background-color: ${props => props.theme.colorPrimary};
-// `;
-
 const HeroTextWrapper = styled.div`
   user-select: none;
-  pointer-events: none;
   position: fixed;
   z-index: -5;
-  /* bottom: 0; */
-  bottom: ${props => (props.isHome ? 0 : 'auto')};
-  top: ${props => (props.isHome ? 'auto' : '240px')};
+  bottom: ${({ isHome }) => (isHome ? 0 : 'auto')};
+  top: ${({ isHome }) => (isHome ? 'auto' : '240px')};
   left: 0;
   font-weight: 600;
   margin: 0 10vw 8.5vh 10vw;
   padding: 30px 35px 0px 10px;
-  border-left: 8px solid ${props => props.theme.colorPrimary};
-  border-bottom: 8px solid ${props => props.theme.colorPrimary};
+  border-left: 8px solid;
+  border-bottom: 8px solid;
+  border-color: ${({ theme }) => theme.colorPrimary};
+  transition: 0.1s all ease-in-out;
+  transform: scale(1);
+  &:hover {
+    transition: 0.15s all ease-in-out;
+    transform: scale(1.0375);
+  }
+
+  > * {
+    pointer-events: none;
+  }
   ${media.tablet`
     margin-left: 11.5vw;
     margin-bottom: 16vh;
@@ -110,7 +90,7 @@ const HeroTextWrapper = styled.div`
 const FirstText = styled.p`
   font-size: 1.8rem;
   line-height: 0.6;
-  color: ${props => props.theme.colorText};
+  color: ${({ theme }) => theme.colorText};
   ${media.laptop`
     font-size: 2.2rem;
   `};
@@ -123,7 +103,7 @@ const SecondText = styled.p`
   font-size: 1.4rem;
   line-height: 1.7;
   margin-bottom: 0.6rem;
-  color: ${props => props.theme.colorText};
+  color: ${({ theme }) => theme.colorText};
   ${media.laptop`
     font-size: 1.6rem;
   `};
@@ -148,7 +128,7 @@ const TitleLine = styled.div`
 const TitleText = styled.h1`
   font-size: 3.8rem;
   line-height: 1.2;
-  color: ${props => props.theme.colorText};
+  color: ${({ theme }) => theme.colorText};
   ${media.laptop`
     line-height: 1.1;
     font-size: 5.5rem;

@@ -1,37 +1,18 @@
 import React, { Component } from 'react';
 
 import styled from 'styled-components';
-import { sizes, media } from '../config/config';
+import { sizes, media } from '../config/media';
 
 class Main extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     height: null,
-  //   };
-  //   // this.mainEl = React.createRef();
-  // }
-  // componentDidMount() {
-  //   const mainElHeight = this.mainEl.current.offsetHeight;
-  //   // console.log(mainElHeight);
-  //   this.props.updateMainElHeight(mainElHeight);
-  //   //   const marginTop = this.mainElement.getBoundingClientRect().top;
-  //   //   const marginBottom = this.mainElement.getBoundingClientRect().bottom;
-  //   //   const elHeight = this.mainElement.clientHeight;
-  //   //   const height = marginTop + elHeight + marginBottom;
-
-  //   //   this.setState({ height });
-  // }
-
   render() {
     // Calculate top margin
-    const { children, isMobile, isHome, menuOpen } = this.props;
+    const { children, isMobile, isHome, navMenuOpen } = this.props;
     let marginTop = 100;
 
     if (isMobile) {
       if (typeof window !== `undefined`) {
         marginTop = isHome ? `${window.innerHeight + 140}px` : `140px`;
-        if (menuOpen && !isHome) {
+        if (navMenuOpen && !isHome) {
           marginTop = '605px';
         }
       }
@@ -39,47 +20,64 @@ class Main extends Component {
       marginTop = isHome ? '113vh' : '13vh';
     }
 
-    return <MainWrapper marginTop={marginTop}>{children}</MainWrapper>;
+    return (
+      <MainWrapper isHome={isHome} marginTop={marginTop}>
+        {children}
+      </MainWrapper>
+    );
   }
 }
-// const Body = ({ children }) => {
-//   // Calculate top margin
-//   // const { children, isMobile, isHome } = this.props;
-//   console.log(this);
-//   const bodyEl = React.createRef();
-//   return <BodyWrapper ref={bodyEl}>{children}</BodyWrapper>;
-// };
 
 const MainWrapper = styled.main`
-  border-top: 7px solid ${props => props.theme.colorPrimary}90;
-  border-bottom: 7px solid ${props => props.theme.colorPrimary}90;
+  border-top: ${({ isHome, theme }) =>
+    isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
+  border-bottom: ${({ isHome, theme }) =>
+    isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
+  /* border-top: ${({ isHome }) => (isHome ? 'none' : '7px solid')};
+  border-bottom: ${({ isHome }) => (isHome ? 'none' : '7px solid')};
+  border-image: linear-gradient(
+    135deg,
+    ${({ theme }) => theme.colorDarker} 0%,
+    ${({ theme }) => theme.colorPrimary} 50%,
+    ${({ theme }) => theme.colorLighter} 100%
+  );
+  border-image-slice: 1; */
   z-index: 10;
   pointer-events: none;
   position: absolute;
-  /* overflow-y: scroll; */
   overflow: auto;
-  width: 100vw;
-  /* height: 530px; */
-  /* min-height: 77vh; */
+  width: 100%;
   min-height: calc(100vh - 140px - 140px);
-  /* top: 100vh; */
-  /* margin: 0 auto 240px auto; */
   margin: 0 auto 220px auto;
-  margin-top: ${props => props.marginTop};
-  background-color: ${props => props.theme.colorBackground};
+  margin-top: ${({ marginTop }) => marginTop};
+  background-color: ${({ theme, isHome }) =>
+    isHome ? 'transparent' : theme.colorBackground};
   @media (min-width: ${sizes.tablet}px) {
-    /* margin: 113vh auto 10vh auto; */
-    /* min-height: calc(100vh - (${props => props.marginTop}) - 10vh); */
     min-height: 77vh;
-    margin: 0 auto 10vh auto;
-    margin-top: ${props => props.marginTop};
+    margin-bottom: 7.8rem;
+    margin-top: ${({ marginTop }) => marginTop};
+  }
+  @media (min-width: 935px) {
+    margin-bottom: 6.8rem;
+  }
+  @media (min-width: 935px) {
+    margin-bottom: 6rem;
   }
   @media (min-width: ${sizes.laptop}px) {
     border-radius: 10px;
     margin-left: 8vw;
     margin-right: 8vw;
     width: 84vw;
-    border: 7px solid ${props => props.theme.colorPrimary}90;
+    border: ${({ isHome, theme }) =>
+      isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
+    /* border: 8px solid; */
+    /* border-image: linear-gradient(
+      135deg,
+      ${({ theme }) => theme.colorDarker}bb 0%,
+      ${({ theme }) => theme.colorPrimary}bb 50%,
+      ${({ theme }) => theme.colorLighter}bb 100%
+    );
+    border-image-slice: 1; */
   }
   ${media.hd`
     margin-left: 15vw;

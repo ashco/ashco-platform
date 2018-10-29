@@ -91,5 +91,18 @@ module.exports = {
     'gatsby-transformer-sharp', // allows images
     'gatsby-plugin-sharp',
     'gatsby-plugin-netlify',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `AshCo.io`,
+        short_name: `AshCo.io`,
+        start_url: `/`,
+        background_color: `#222222`,
+        theme_color: `#222222`,
+        display: `minimal-ui`,
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
+    'gatsby-plugin-offline',
   ],
 };

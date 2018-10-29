@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-const fadeInAnimation = keyframes`
+const initialFooterCenterFadeInAnimation = keyframes`
 from, 80% {
   opacity: 0;
 }
@@ -9,13 +9,13 @@ to {
 }
 `;
 
-const FadeInWrapper = styled.div`
+const InitialFooterCenterFadeInWrapper = styled.div`
   opacity: 1;
   animation-delay: none;
-  animation-name: ${fadeInAnimation};
+  animation-name: ${initialFooterCenterFadeInAnimation};
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-duration: 10s;
 `;
 
-export default FadeInWrapper;
+export default InitialFooterCenterFadeInWrapper;

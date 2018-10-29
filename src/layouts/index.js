@@ -7,7 +7,6 @@ import {
   VisualContextProvider,
   VisualContextConsumer,
 } from '../components/Context/VisualContext';
-import { theme } from '../config/config';
 
 import Header from '../components/Header/header';
 import Footer from '../components/Footer/Footer';
@@ -18,10 +17,46 @@ import ParticleBG from '../components/ParticleBG';
 import ListenerLogic from '../components/ListenerLogic';
 import Main from '../components/Main';
 
-class Layout extends Component {
-  render() {
-    const { location, children } = this.props;
+import { themeDefault } from '../config/config';
 
+class Layout extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   // let theme = themeDefault;
+  //   // if (typeof localStorage !== 'undefined') {
+  //   //   theme = JSON.parse(localStorage.getItem('themeObj'));
+  //   // }
+
+  //   this.state = {
+  //     theme,
+  //   };
+  // }
+  constructor(props) {
+    super(props);
+
+    let theme = themeDefault;
+    if (typeof localStorage !== 'undefined') {
+      let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
+      if (localStorageObj) {
+        theme = localStorageObj;
+      }
+    }
+
+    this.state = {
+      theme,
+    };
+  }
+
+  updateTheme = themeObj => {
+    if (themeObj !== this.state.theme) {
+      this.setState({ theme: themeObj });
+    }
+  };
+
+  render() {
+    const { theme } = this.state;
+    const { location, children } = this.props;
+    // console.log(theme);
     return (
       <StaticQuery
         query={graphql`
@@ -36,6 +71,9 @@ class Layout extends Component {
         `}
         render={data => (
           <VisualContextProvider pathname={location.pathname}>
+            {/* <VisualContextConsumer>
+              {({ theme }) => {
+                return ( */}
             <ThemeProvider theme={theme}>
               <LayoutWrapper>
                 <Helmet
@@ -50,14 +88,17 @@ class Layout extends Component {
                   )}
                 </VisualContextConsumer>
                 <ParticleBG />
-                <Header pathname={location.pathname} />
+                <Header
+                  pathname={location.pathname}
+                  updateTheme={this.updateTheme}
+                />
                 <HeroImg />
                 <VisualContextConsumer>
-                  {({ isHome, isMobile, menuOpen, updateMainElHeight }) => (
+                  {({ isHome, isMobile, navMenuOpen, updateMainElHeight }) => (
                     <Main
                       isHome={isHome}
                       isMobile={isMobile}
-                      menuOpen={menuOpen}
+                      navMenuOpen={navMenuOpen}
                       updateMainElHeight={updateMainElHeight}
                     >
                       {children}
@@ -67,6 +108,9 @@ class Layout extends Component {
                 <Footer />
               </LayoutWrapper>
             </ThemeProvider>
+            {/* );
+              }}
+            </VisualContextConsumer> */}
           </VisualContextProvider>
         )}
       />
@@ -74,8 +118,18 @@ class Layout extends Component {
   }
 }
 
+// ThemeProvider.defaultProps = {
+//   theme: {
+//     colorLighter: '#E3854A',
+//     colorPrimary: '#DD702B',
+//     colorDarker: '#D65E12',
+//     colorBackground: '#1f1f1f',
+//     colorText: '#dfdfdf',
+//   },
+// };
+
 const LayoutWrapper = styled.div`
-  color: ${props => props.theme.colorText};
+  color: ${({ theme }) => theme.colorText};
 `;
 
 export default Layout;

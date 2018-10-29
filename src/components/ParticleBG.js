@@ -1,14 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Particles from 'react-particles-js';
 import { withTheme } from 'styled-components';
 
-import isEqual from 'lodash.isequal';
-
-class ParticleBG extends Component {
-  shouldComponentUpdate(nextProps) {
-    return !isEqual(nextProps, this.props);
-  }
-
+class ParticleBG extends PureComponent {
   render() {
     const { colorBackground, colorPrimary } = this.props.theme;
     return (
@@ -42,7 +36,6 @@ class ParticleBG extends Component {
                 nb_sides: 5,
               },
               image: {
-                // src: 'img/github.svg',
                 width: 100,
                 height: 100,
               },

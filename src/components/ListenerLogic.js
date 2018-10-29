@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
-// Component runs event listeners and runs update fncs when events trigger
 export class ListenerLogic extends Component {
   componentDidMount() {
     window.addEventListener('scroll', throttle(this.handleScrollState, 200));
@@ -16,19 +15,15 @@ export class ListenerLogic extends Component {
     window.removeEventListener('resize', this.handleResize);
   }
 
+  updateColorMenu(showColorMenu) {
+    this.props.value.toggleColorMenu(false);
+  }
+
   setHeroImg(showHeroImg) {
     if (showHeroImg && !this.props.value.showHeroImg) {
       this.props.value.handleHeroImg(true);
     } else if (!showHeroImg && this.props.value.showHeroImg) {
       this.props.value.handleHeroImg(false);
-    }
-  }
-
-  setMenu(showMenu) {
-    if (showMenu && !this.props.value.showMenu) {
-      this.props.value.toggleMenu(true);
-    } else if (!showMenu && this.props.value.showMenu) {
-      this.props.value.toggleMenu(false);
     }
   }
 
@@ -75,11 +70,19 @@ export class ListenerLogic extends Component {
     const bottomScreenPoint = bodyLength === scrollLength + windowHeight;
 
     const obj = {
+      showColorMenu: false,
       showHeroImg: false,
       showFooterLeft: false,
       showFooterCenter: false,
       showFooterRight: false,
     };
+
+    // COLOR MENU
+    if (isHome && scrollLength === 0) {
+      obj.showColorMenu = true;
+    } else {
+      obj.showColorMenu = false;
+    }
 
     // MOBILE
     if (isMobile) {
@@ -122,6 +125,7 @@ export class ListenerLogic extends Component {
   handleScrollState = () => {
     const obj = this.calcShowStates();
 
+    this.updateColorMenu(obj.showColorMenu);
     this.setHeroImg(obj.showHeroImg);
     this.setFooterLeft(obj.showFooterLeft);
     this.setFooterCenter(obj.showFooterCenter);

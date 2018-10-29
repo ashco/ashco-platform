@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import { media } from '../config/config';
+import { media } from '../config/media';
 
 import { DefaultContainer } from '../components/helpers';
 
-// const ContactPage = () => {
-class ContactPage extends Component {
+class ContactPage extends PureComponent {
   state = {
     name: '',
     email: '',
@@ -64,6 +63,7 @@ class ContactPage extends Component {
             <label htmlFor="name">Your name:</label>
             <input
               type="text"
+              id="name"
               name="name"
               value={this.state.name}
               onChange={this.handleChange}
@@ -73,6 +73,7 @@ class ContactPage extends Component {
             <label htmlFor="email">Your email:</label>
             <input
               type="email"
+              id="email"
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
@@ -81,15 +82,20 @@ class ContactPage extends Component {
           <FormInputWrapper>
             <label htmlFor="message">Your message:</label>
             <textarea
+              id="message"
               name="message"
               value={this.state.message}
               onChange={this.handleChange}
             />
           </FormInputWrapper>
           <div>
-            <Button type="submit" disabled={this.state.disabled}>
-              Send
-            </Button>
+            {this.state.disabled ? (
+              <ButtonDisabled disabled type="submit">
+                Send
+              </ButtonDisabled>
+            ) : (
+              <ButtonActive type="submit">Send</ButtonActive>
+            )}
           </div>
         </FormWrapper>
       </ContactContainer>
@@ -142,7 +148,7 @@ const FormWrapper = styled.form`
     font-size: 1.1rem;
   }
   label {
-    color: ${props => props.theme.colorText};
+    color: ${({ theme }) => theme.colorText};
     padding-bottom: 0.5rem;
   }
   ${media.desktop`
@@ -162,13 +168,20 @@ const FormInputWrapper = styled.p`
   flex-direction: column;
   input,
   textarea {
-    border: solid 3px ${props => props.theme.colorPrimary}90;
-    background-color: ${props => props.theme.colorBackground};
+    border: 3px solid;
+    border-image: linear-gradient(
+      135deg,
+      ${({ theme }) => theme.colorDarker} 0%,
+      ${({ theme }) => theme.colorPrimary} 50%,
+      ${({ theme }) => theme.colorLighter} 100%
+    );
+    border-image-slice: 1;
+    background-color: ${({ theme }) => theme.colorBackground};
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 4px;
     font-size: 1.1rem;
-    color: ${props => props.theme.colorText};
+    color: ${({ theme }) => theme.colorText};
     border-radius: 3px;
   }
   textarea {
@@ -187,20 +200,34 @@ const FormInputWrapper = styled.p`
   `};
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   padding: 0.5rem 1.2rem 0.5rem 1.2rem;
-  background-color: ${props => props.theme.colorBackground};
-  border-radius: 3px;
-  color: ${props => (props.disabled ? '#88888890' : props.theme.colorText)};
   font-size: 1.1rem;
-  border: 3px solid
-    ${props => (props.disabled ? '#888888' : props.theme.colorPrimary)}90;
+  background-color: ${({ theme }) => theme.colorBackground};
+  border: 4px solid;
   ${media.desktop`
     font-size: 1.2rem;
   `};
   ${media.hd`
     font-size: 1.4rem;
   `};
+`;
+
+const ButtonActive = styled(Button)`
+  cursor: pointer;
+  border-image: linear-gradient(
+    135deg,
+    ${({ theme }) => theme.colorDarker} 0%,
+    ${({ theme }) => theme.colorPrimary} 50%,
+    ${({ theme }) => theme.colorLighter} 100%
+  );
+  border-image-slice: 1;
+  color: ${({ theme }) => theme.colorText};
+`;
+
+const ButtonDisabled = styled(Button)`
+  border-color: #88888890;
+  color: #88888870;
 `;
 
 export default ContactPage;

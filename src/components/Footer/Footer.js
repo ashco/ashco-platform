@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media } from '../../config/config';
+import { media } from '../../config/media';
 
 import FooterLeft from './FooterLeft';
 import FooterCenter from './FooterCenter';
@@ -15,19 +15,17 @@ const Footer = () => (
       showFooterCenter,
       showFooterRight,
       handleFooterRight,
-      // isMobile,
-      toggleMenu,
+      toggleNavMenu,
     }) => (
       <FooterWrapper>
         <FooterLeft showFooterLeft={showFooterLeft} />
         <FooterCenter
           showFooterCenter={showFooterCenter}
-          toggleMenu={toggleMenu}
+          toggleNavMenu={toggleNavMenu}
         />
         <FooterRight
           showFooterRight={showFooterRight}
           handleFooterRight={handleFooterRight}
-          // isMobile={isMobile}
         />
       </FooterWrapper>
     )}
@@ -46,7 +44,7 @@ const FooterWrapper = styled.footer`
   align-items: center;
   a {
     pointer-events: auto;
-    color: ${props => props.theme.colorPrimary};
+    color: ${({ theme }) => theme.colorPrimary};
     transition: border-bottom 0.2s ease-out;
   }
   ${media.tablet`

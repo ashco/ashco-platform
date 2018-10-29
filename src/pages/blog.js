@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import { media } from '../config/config';
+import { media } from '../config/media';
 
 import BlogListing from '../components/Blog/BlogListing';
 import { DefaultContainer } from '../components/helpers';
@@ -29,7 +29,7 @@ const BlogPage = () => (
     `}
     render={data => (
       <BlogWrapper>
-        <h2>Cashto's Soapbox</h2>
+        <h2>Musings on life, tech, and the things in between.</h2>
         {data.allContentfulBlogPost.edges.map(({ node }) => (
           <BlogListing post={node} key={node.id} />
         ))}
@@ -39,25 +39,30 @@ const BlogPage = () => (
 );
 
 const BlogWrapper = styled(DefaultContainer)`
-  max-width: 660px;
+  max-width: 700px;
   width: 100%;
   h2 {
     margin-bottom: 1rem;
-    margin-left: 0.75rem;
-    font-size: 2.1rem;
+    font-size: 1.7rem;
     line-height: 1em;
     font-weight: 600;
+    margin: 0 0.75rem 1rem 0.75rem;
   }
-  ${media.desktop`
-    max-width: 760px;
+  ${media.tablet`
     h2 {
-      font-size: 2.4rem;
+      font-size: 1.9rem;
     }
   `};
   ${media.desktop`
-    max-width: 900px;
+    max-width: 760px;
     h2 {
-      font-size: 2.6rem;
+      font-size: 2.1rem;
+    }
+  `};
+  ${media.hd`
+    max-width: 820px;
+    h2 {
+      font-size: 2.3rem;
     }
   `};
 `;

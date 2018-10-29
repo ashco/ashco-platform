@@ -1,25 +1,28 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import { media } from '../../config/config';
+import { media } from '../../config/media';
+import FadeWrapper from '../Animation/Fade';
 
 import NavArrow from './NavArrow';
 
-const FooterCenter = ({ showFooterCenter, toggleMenu }) => {
-  return (
-    <FooterCenterWrapper
-      className={showFooterCenter ? 'visible-fade' : 'hidden-fade'}
-    >
-      <NavArrow toggleMenu={toggleMenu} />
-    </FooterCenterWrapper>
-  );
-};
+// const FooterCenter = ({ showFooterCenter, toggleNavMenu }) => {
+class FooterCenter extends PureComponent {
+  render() {
+    const { showFooterCenter, toggleNavMenu } = this.props;
+    return (
+      <FooterCenterWrapper>
+        <FadeWrapper visible={showFooterCenter}>
+          <NavArrow toggleNavMenu={toggleNavMenu} />
+        </FadeWrapper>
+      </FooterCenterWrapper>
+    );
+  }
+}
 
 const FooterCenterWrapper = styled.div`
-  animation-delay: 10s;
   flex: 1;
   margin: 0;
   position: absolute;
-  transition: visibility 0.25s 10s, opacity 0.25s linear;
   ${media.tablet`
     position: initial;
     display: flex;

@@ -1,6 +1,7 @@
 // HeroContext.js
 import React from 'react';
-import { sizes } from '../../config/config';
+import { sizes } from '../../config/media';
+// import { themeDefault } from '../../config/config';
 
 const VisualContext = React.createContext();
 
@@ -15,16 +16,32 @@ export class VisualContextProvider extends React.Component {
 
     const isHome = this.props.pathname === '/';
 
+    // let theme = themeDefault;
+    // if (typeof localStorage !== 'undefined') {
+    //   let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
+    //   if (localStorageObj) {
+    //     theme = localStorageObj;
+    //   }
+    // }
+
     this.state = {
+      // theme,
       isMobile,
       isHome,
-      menuOpen: true,
+      colorMenuOpen: false,
+      navMenuOpen: true,
       showHeroImg: false,
       showFooterLeft: false,
       showFooterCenter: false,
       showFooterRight: false,
     };
   }
+
+  // updateTheme = themeObj => {
+  //   if (themeObj !== this.state.theme) {
+  //     this.setState({ theme: themeObj });
+  //   }
+  // };
 
   updateIsMobile = () => {
     if (typeof window !== `undefined`) {
@@ -46,9 +63,17 @@ export class VisualContextProvider extends React.Component {
     }
   };
 
-  toggleMenu = menuOpen => {
+  toggleColorMenu = colorMenuOpen => {
+    if (colorMenuOpen !== this.state.colorMenuOpen) {
+      this.setState({
+        colorMenuOpen,
+      });
+    }
+  };
+
+  toggleNavMenu = navMenuOpen => {
     this.setState({
-      menuOpen,
+      navMenuOpen,
     });
   };
 
@@ -88,16 +113,20 @@ export class VisualContextProvider extends React.Component {
     return (
       <VisualContext.Provider
         value={{
+          // theme: this.state.theme,
           isMobile: this.state.isMobile,
           isHome: this.state.isHome,
-          menuOpen: this.state.menuOpen,
+          colorMenuOpen: this.state.colorMenuOpen,
+          navMenuOpen: this.state.navMenuOpen,
           showHeroImg: this.state.showHeroImg,
           showFooterLeft: this.state.showFooterLeft,
           showFooterCenter: this.state.showFooterCenter,
           showFooterRight: this.state.showFooterRight,
+          // updateTheme: this.updateTheme,
           updateIsMobile: this.updateIsMobile,
           updateIsHome: this.updateIsHome,
-          toggleMenu: this.toggleMenu,
+          toggleColorMenu: this.toggleColorMenu,
+          toggleNavMenu: this.toggleNavMenu,
           handleHeroImg: this.handleHeroImg,
           handleFooterLeft: this.handleFooterLeft,
           handleFooterCenter: this.handleFooterCenter,

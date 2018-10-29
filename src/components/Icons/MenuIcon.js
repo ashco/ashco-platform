@@ -4,11 +4,11 @@ import { VisualContextConsumer } from '../Context/VisualContext';
 
 const MenuIcon = () => (
   <VisualContextConsumer>
-    {({ menuOpen, toggleMenu }) => (
+    {({ navMenuOpen, toggleNavMenu }) => (
       <MenuIconWrapper
-        onClick={toggleMenu.bind(null, !menuOpen)}
+        onClick={toggleNavMenu.bind(null, !navMenuOpen)}
         id="menu-icon"
-        className={menuOpen && 'open'}
+        className={navMenuOpen && 'open'}
       >
         <span />
         <span />

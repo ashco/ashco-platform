@@ -1,14 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import { media } from '../../config/config';
+import { media } from '../../config/media';
 
-import { DefaultContainer, Tag, TagContainer } from '../helpers';
+import { DefaultContainer } from '../helpers';
 
 const BlogPage = ({ data }) => {
   if (!data) return null;
   const isHeroImage = data.contentfulBlogPost.heroImage;
-  // const hasTags = data.contentfulBlogPost.tags;
   return (
     <BlogPageWrapper>
       <h2>{data.contentfulBlogPost.title}</h2>
@@ -18,13 +17,6 @@ const BlogPage = ({ data }) => {
           alt={data.contentfulBlogPost.heroImage.title}
         />
       )}
-      {/* {hasTags && (
-          <TagContainer>
-            {data.contentfulBlogPost.tags.map(tag => (
-              <Tag>{tag}</Tag>
-            ))}
-          </TagContainer>
-        )} */}
       <div className="createdAt">
         <p>{data.contentfulBlogPost.createdAt}</p>
       </div>
@@ -39,7 +31,7 @@ const BlogPage = ({ data }) => {
 };
 
 const BlogPageWrapper = styled(DefaultContainer)`
-  max-width: 720px;
+  max-width: 700px;
   width: 90%;
   h2 {
     margin-bottom: 0.25em;
@@ -52,7 +44,14 @@ const BlogPageWrapper = styled(DefaultContainer)`
     margin: 0.5rem 0;
   }
   div.createdAt {
-    border-bottom: 2px solid ${props => props.theme.colorPrimary}90;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(
+      to right,
+      ${({ theme }) => theme.colorDarker}cc 0%,
+      ${({ theme }) => theme.colorPrimary}cc 50%,
+      ${({ theme }) => theme.colorLighter}cc 100%
+    );
+    border-image-slice: 1;
     margin-bottom: 1rem;
     padding-right: 2rem;
     font-weight: 300;
@@ -67,7 +66,7 @@ const BlogPageWrapper = styled(DefaultContainer)`
     }
   }
   ${media.desktop`
-    max-width: 800px;
+    max-width: 760px;
     h2 {
       font-size: 2.5rem;
     }
@@ -83,7 +82,7 @@ const BlogPageWrapper = styled(DefaultContainer)`
   }
   `};
   ${media.hd`
-    max-width: 960px;
+    max-width: 820px;
     h2 {
       font-size: 2.7rem;
     }
@@ -108,7 +107,6 @@ export const query = graphql`
       id
       title
       slug
-      tags
       createdAt(formatString: "MMMM DD, YYYY")
       heroImage {
         id
