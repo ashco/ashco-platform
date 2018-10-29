@@ -52,11 +52,25 @@ class HeaderTitle extends Component {
     setTimeout(() => this.props.toggleColorMenu(false), 500);
   };
 
+  getPageTitle() {
+    const siteTitles = ['About', 'Projects', 'Blog', 'Contact']
+    let pageTitle = this.props.pathname.split('/')[1];
+    pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
+
+    if (siteTitles.some(title => title === pageTitle)){
+      return pageTitle;
+    }
+  }
+
   render() {
     const { pathname, isHome, colorMenuOpen } = this.props;
-    console.log(pathname);
-    let pageTitle = pathname.split('/')[1];
-    pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
+    // let pageTitle = pathname.split('/')[1];
+
+
+    // pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
+
+    const pageTitle = this.getPageTitle();
+
 
     return (
       <HeaderTitleWrapper>

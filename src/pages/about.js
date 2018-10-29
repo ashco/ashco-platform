@@ -54,7 +54,7 @@ const About = props => {
         <AboutContainer>
           <AboutInfoContainer>
             <h2>Hi, I'm Ash. I build things.</h2>
-            <p>I'm a Full-Stack Javascript Developer who specializes in <a href="https://reactjs.org/">React</a>. I'm a lifelong learner, and complex thing interest me. I love the challenges of coding and push myself past my limits with each project. My goal is to make a positive impact in the world and am excited to apply my skills wherever I go. Always happy to share my experiences and what I've learned so far, so hit me up!</p>
+            <p>I'm a Full-Stack Web-Dev who specializes in <a href="https://reactjs.org/">React</a>. I'm a lifelong learner, and complex thing interest me. I love the challenges of coding and push myself past my limits with each project. My goal is to make a positive impact in the world and am excited to apply my skills wherever I go. Always happy to share my experiences and what I've learned so far, so hit me up!</p>
           </AboutInfoContainer>
           <AboutSkillsContainer>
             {data.allContentfulAboutDataColumn.edges.map((skill, i) => {
@@ -122,7 +122,9 @@ const AboutContainer = styled(DefaultContainer)`
   a {
     font-weight: 500;
     color: ${props => props.theme.colorPrimary};
+    transition: all 0.2s linear;
   }
+
   ${media.laptop`
     max-width: 1200px;
   `};
