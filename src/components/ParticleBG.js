@@ -23,8 +23,9 @@ class ParticleBG extends Component {
   shouldComponentUpdate(prevProps, prevState) {
     const newWidth = prevState.innerWidth !== this.state.innerWidth;
     const newHeight = prevState.innerHeight !== this.state.innerHeight;
+    const newTheme = prevProps.theme !== this.props.theme;
 
-    return newWidth || newHeight;
+    return newWidth || newHeight || newTheme;
   }
 
   handleResize = () => {
