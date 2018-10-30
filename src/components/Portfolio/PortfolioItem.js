@@ -47,7 +47,7 @@ const PortfolioItemWrapper = styled.article`
     }
   }
   .gatsby-image-wrapper {
-    opacity: 0.3;
+    opacity: 0.25;
     border-radius: 5px;
     width: 90vw;
     height: 60vw;

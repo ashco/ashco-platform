@@ -101,9 +101,10 @@ export class VisualContextProvider extends React.Component {
     });
   };
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(nextProps) {
     // only run if path changes
-    if (prevProps.pathname !== this.props.pathname) {
+    console.log(this.state);
+    if (nextProps.pathname !== this.props.pathname) {
       this.updateIsHome();
     }
     this.updateIsMobile();

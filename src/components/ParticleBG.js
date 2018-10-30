@@ -1,8 +1,42 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import Particles from 'react-particles-js';
 import { withTheme } from 'styled-components';
+import debounce from 'lodash.debounce';
 
-class ParticleBG extends PureComponent {
+class ParticleBG extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight,
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', debounce(this.handleResize, 500));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  shouldComponentUpdate(prevProps, prevState) {
+    const newWidth = prevState.innerWidth !== this.state.innerWidth;
+    const newHeight = prevState.innerHeight !== this.state.innerHeight;
+
+    return newWidth || newHeight;
+  }
+
+  handleResize = () => {
+    const innerWidth = window.innerWidth;
+    const innerHeight = window.innerHeight;
+
+    this.setState({
+      innerWidth,
+      innerHeight,
+    });
+  };
+
   render() {
     const { colorBackground, colorPrimary } = this.props.theme;
     return (
