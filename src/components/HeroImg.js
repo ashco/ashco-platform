@@ -3,29 +3,29 @@ import styled, { keyframes } from 'styled-components';
 import { media } from '../config/media';
 
 import FadeWrapper from './Animation/Fade';
-import { VisualContextConsumer } from './Context/VisualContext';
 
 class HeroImg extends PureComponent {
   render() {
+    const { showHeroImg, isHome } = this.props;
     return (
-      <VisualContextConsumer>
-        {({ showHeroImg, isHome }) => {
-          return (
-            <FadeWrapper noFade={isHome} visible={showHeroImg}>
-              <HeroTextWrapper isHome={isHome}>
-                <FirstText>Welcome</FirstText>
-                <SecondText>To</SecondText>
-                <TitleLine />
-                <TitleText>
-                  AshCo
-                  <StrobeWrapper>.</StrobeWrapper>
-                  io
-                </TitleText>
-              </HeroTextWrapper>
-            </FadeWrapper>
-          );
-        }}
-      </VisualContextConsumer>
+      // <VisualContextConsumer>
+      //   {({ showHeroImg, isHome }) => {
+      //     return (
+      <FadeWrapper noFade={isHome} visible={showHeroImg}>
+        <HeroTextWrapper isHome={isHome}>
+          <FirstText>Welcome</FirstText>
+          <SecondText>To</SecondText>
+          <TitleLine />
+          <TitleText>
+            AshCo
+            <StrobeWrapper>.</StrobeWrapper>
+            io
+          </TitleText>
+        </HeroTextWrapper>
+      </FadeWrapper>
+      //     );
+      //   }}
+      // </VisualContextConsumer>
     );
   }
 }

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import styled from 'styled-components';
 import { sizes, media } from '../config/media';
 
-class Main extends Component {
+class Main extends PureComponent {
   render() {
     // Calculate top margin
     const { children, isMobile, isHome, navMenuOpen } = this.props;

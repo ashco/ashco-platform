@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
@@ -19,18 +19,7 @@ import Main from '../components/Main';
 
 import { themeDefault } from '../config/config';
 
-class Layout extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   // let theme = themeDefault;
-  //   // if (typeof localStorage !== 'undefined') {
-  //   //   theme = JSON.parse(localStorage.getItem('themeObj'));
-  //   // }
-
-  //   this.state = {
-  //     theme,
-  //   };
-  // }
+class Layout extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -56,7 +45,6 @@ class Layout extends Component {
   render() {
     const { theme } = this.state;
     const { location, children } = this.props;
-    // console.log(theme);
     return (
       <StaticQuery
         query={graphql`
@@ -92,7 +80,13 @@ class Layout extends Component {
                   pathname={location.pathname}
                   updateTheme={this.updateTheme}
                 />
-                <HeroImg />
+                <VisualContextConsumer>
+                  {({ showHeroImg, isHome }) => {
+                    return (
+                      <HeroImg showHeroImg={showHeroImg} isHome={isHome} />
+                    );
+                  }}
+                </VisualContextConsumer>
                 <VisualContextConsumer>
                   {({ isHome, isMobile, navMenuOpen, updateMainElHeight }) => (
                     <Main
