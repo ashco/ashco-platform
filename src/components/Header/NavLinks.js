@@ -7,7 +7,6 @@ import { Link } from 'gatsby';
 
 import NavMenuToggleWrapper from '../Animation/NavMenuToggle';
 
-// const NavLinks = ({ navMenuOpen, isMobile }) => (
 class NavLinks extends PureComponent {
   render() {
     const { navMenuOpen, isMobile } = this.props;
@@ -27,7 +26,6 @@ class NavLinks extends PureComponent {
   }
 }
 
-// const NavLinkItem = ({ to, title }) => (
 class NavLinkItem extends PureComponent {
   render() {
     const { to, title } = this.props;
