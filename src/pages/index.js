@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-import AnchorPoint from '../components/AnchorPoint';
-import About from '../components/Main/AboutSection';
-import Portfolio from '../components/Main/PortfolioSection';
-import Blog from '../components/Main/BlogSection';
-import Contact from '../components/Main/ContactSection';
+// import AnchorPoint from '../components/AnchorPoint';
+// import About from '../components/Main/AboutSection';
+// import Portfolio from '../components/Main/PortfolioSection';
+// import Blog from '../components/Main/BlogSection';
+// import Contact from '../components/Main/ContactSection';
 import { StaticQuery, graphql } from 'gatsby';
 
 import { DefaultContainer } from '../components/helpers';
 
-class IndexPage extends Component {
+class IndexPage extends PureComponent {
   render() {
     return (
       <StaticQuery

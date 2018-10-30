@@ -12,13 +12,7 @@ import EverythingElse from '../components/Icons/EverythingElse';
 import { withTheme } from 'styled-components';
 
 const About = props => {
-  const { colorLighter, colorPrimary, colorDarker } = props.theme;
-  const imgArr = [
-    <FrontEnd color={colorPrimary} />,
-    <BackEnd color={colorDarker} />,
-    <EverythingElse color={colorLighter} />,
-  ];
-  const colorArr = [colorPrimary, colorDarker, colorLighter];
+  const imgArr = [<FrontEnd />, <BackEnd />, <EverythingElse />];
 
   return (
     <StaticQuery
@@ -71,7 +65,7 @@ const About = props => {
           <AboutSkillsContainer>
             {data.allContentfulAboutDataColumn.edges.map((skill, i) => {
               return (
-                <SkillColumnColor color={colorArr[i]} key={skill.node.id}>
+                <SkillColumn key={skill.node.id}>
                   {imgArr[i]}
                   <h4>{skill.node.title}</h4>
                   <p>{skill.node.description.description}</p>
@@ -83,7 +77,7 @@ const About = props => {
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
-                </SkillColumnColor>
+                </SkillColumn>
               );
             })}
           </AboutSkillsContainer>
@@ -92,15 +86,6 @@ const About = props => {
     />
   );
 };
-
-// const AngleSVGWrapper = styled.svg`
-//   position: absolute;
-//   top: 0;
-//   width: 100%;
-//   polygon {
-//     fill: ${({ theme }) => theme.colorPrimary}90;
-//   }
-// `;
 
 const AboutContainer = styled(DefaultContainer)`
   width: 90%;
@@ -220,12 +205,26 @@ const SkillColumn = styled.div`
     line-height: 1.15;
   }
   @media (min-width: ${sizes.laptop}px) {
+    border: 2px solid ${({ theme }) => theme.colorPrimary}dd;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     border-radius: 15px;
     :last-child {
+      border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
+    }
+    svg {
+      path,
+      rect,
+      polygon {
+        fill: ${({ theme }) => theme.colorPrimary}dd;
+      }
+      polyline,
+      path {
+        stroke: ${({ theme }) => theme.colorPrimary}dd;
+      }
     }
     h4 {
       font-size: 1.4rem;
+      border-bottom: 3px solid ${({ theme }) => theme.colorPrimary}dd;
     }
     h5,
     p,
@@ -233,18 +232,37 @@ const SkillColumn = styled.div`
       font-size: 1.1rem;
     }
     &:hover {
+      border: 2px solid ${({ theme }) => theme.colorPrimary};
+      box-shadow: ${({ theme }) => theme.colorPrimary}40 0px 8px 20px;
       transform: translateY(-3px);
+      svg {
+        path,
+        rect,
+        polygon {
+          fill: ${({ theme }) => theme.colorPrimary};
+        }
+        polyline,
+        path {
+          stroke: ${({ theme }) => theme.colorPrimary};
+        }
+      }
+      h4 {
+        border-bottom: 3px solid ${({ theme }) => theme.colorPrimary};
+      }
       h4,
       h5 {
+        color: ${({ theme }) => theme.colorPrimary};
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
       }
     }
   }
   @media (min-width: ${sizes.hd}px) {
+    border: 3px solid ${({ theme }) => theme.colorPrimary}dd;
     svg {
       height: 6.5rem;
     }
     h4 {
+      border-bottom: 4px solid ${({ theme }) => theme.colorPrimary}dd;
       font-size: 1.6rem;
     }
     h5,
@@ -252,80 +270,10 @@ const SkillColumn = styled.div`
     li {
       font-size: 1.2rem;
     }
-  }
-`;
-
-const SkillColumnColor = styled(SkillColumn)`
-  border-bottom: 1px solid ${({ color }) => color};
-  svg {
-    path,
-    rect,
-    polygon {
-      fill: ${({ color }) => color};
-    }
-    polyline,
-    path {
-      stroke: ${({ color }) => color};
-    }
-  }
-  h4 {
-    border-bottom: 2px solid ${({ color }) => color};
-  }
-  h4,
-  h5 {
-    color: ${({ color }) => color}dd;
-  }
-  @media (min-width: ${sizes.laptop}px) {
-    border: 2px solid ${({ color }) => color}dd;
-    :last-child {
-      border-bottom: 2px solid ${({ color }) => color};
-    }
-    svg {
-      path,
-      rect,
-      polygon {
-        fill: ${({ color }) => color}dd;
-      }
-      polyline,
-      path {
-        stroke: ${({ color }) => color}dd;
-      }
-    }
-    h4 {
-      border-bottom: 3px solid ${({ color }) => color}dd;
-    }
     &:hover {
-      border: 2px solid ${({ color }) => color};
-      box-shadow: ${({ color }) => color}40 0px 8px 20px;
-      svg {
-        path,
-        rect,
-        polygon {
-          fill: ${({ color }) => color};
-        }
-        polyline,
-        path {
-          stroke: ${({ color }) => color};
-        }
-      }
+      border: 3px solid ${({ theme }) => theme.colorPrimary};
       h4 {
-        border-bottom: 3px solid ${({ color }) => color};
-      }
-      h4,
-      h5 {
-        color: ${({ color }) => color};
-      }
-    }
-  }
-  @media (min-width: ${sizes.hd}px) {
-    border: 3px solid ${({ color }) => color}dd;
-    h4 {
-      border-bottom: 4px solid ${({ color }) => color}dd;
-    }
-    &:hover {
-      border: 3px solid ${({ color }) => color};
-      h4 {
-        border-bottom: 4px solid ${({ color }) => color};
+        border-bottom: 4px solid ${({ theme }) => theme.colorPrimary};
       }
     }
   }

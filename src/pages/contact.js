@@ -168,14 +168,14 @@ const FormInputWrapper = styled.p`
   flex-direction: column;
   input,
   textarea {
-    border: 3px solid;
-    border-image: linear-gradient(
+    border: 3px solid ${({ theme }) => theme.colorPrimary};
+    /* border-image: linear-gradient(
       135deg,
       ${({ theme }) => theme.colorDarker} 0%,
       ${({ theme }) => theme.colorPrimary} 50%,
       ${({ theme }) => theme.colorLighter} 100%
     );
-    border-image-slice: 1;
+    border-image-slice: 1; */
     background-color: ${({ theme }) => theme.colorBackground};
     padding-top: 8px;
     padding-bottom: 8px;
@@ -215,13 +215,14 @@ export const Button = styled.button`
 
 const ButtonActive = styled(Button)`
   cursor: pointer;
-  border-image: linear-gradient(
+  border-color: ${({ theme }) => theme.colorPrimary};
+  /* border-image: linear-gradient(
     135deg,
     ${({ theme }) => theme.colorDarker} 0%,
     ${({ theme }) => theme.colorPrimary} 50%,
     ${({ theme }) => theme.colorLighter} 100%
   );
-  border-image-slice: 1;
+  border-image-slice: 1; */
   color: ${({ theme }) => theme.colorText};
 `;
 

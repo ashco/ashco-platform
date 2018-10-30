@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { media } from '../../config/media';
 
 import { VisualContextConsumer } from '../Context/VisualContext';
-// import { MenuContextConsumer } from '../Context/MenuContext';
 
 import HeaderTitle from './HeaderTitle';
 import NavLinks from './NavLinks';
@@ -26,8 +25,6 @@ class Header extends PureComponent {
           toggleColorMenu,
           // updateTheme,
         }) => (
-          // <MenuContextConsumer>
-          //   {({ menuOpen, toggleMenu }) => (
           <HeaderWrapper
             ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
           >
@@ -44,8 +41,6 @@ class Header extends PureComponent {
               {isMobile && <MenuIcon />}
             </HeaderContainer>
           </HeaderWrapper>
-          //   )}
-          // </MenuContextConsumer>
         )}
       </VisualContextConsumer>
     );

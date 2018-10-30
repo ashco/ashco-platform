@@ -44,14 +44,14 @@ const BlogPageWrapper = styled(DefaultContainer)`
     margin: 0.5rem 0;
   }
   div.createdAt {
-    border-bottom: 2px solid;
-    border-image: linear-gradient(
+    border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
+    /* border-image: linear-gradient(
       to right,
       ${({ theme }) => theme.colorDarker}cc 0%,
       ${({ theme }) => theme.colorPrimary}cc 50%,
       ${({ theme }) => theme.colorLighter}cc 100%
     );
-    border-image-slice: 1;
+    border-image-slice: 1; */
     margin-bottom: 1rem;
     padding-right: 2rem;
     font-weight: 300;

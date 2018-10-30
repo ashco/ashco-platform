@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
-export class ListenerLogic extends Component {
+export class ListenerLogic extends PureComponent {
   componentDidMount() {
     window.addEventListener('scroll', throttle(this.handleScrollState, 200));
     window.addEventListener('resize', debounce(this.handleResize, 200));

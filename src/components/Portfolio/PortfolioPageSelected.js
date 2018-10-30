@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import PortfolioItemSelected from './PortfolioItemSelected';
 import PortfolioItem from './PortfolioItem';
@@ -6,7 +6,7 @@ import { PortfolioContainer } from './PortfolioHelpers';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-class PortfolioPageSelected extends Component {
+class PortfolioPageSelected extends PureComponent {
   render() {
     const { data } = this.props;
     if (!data) return null;

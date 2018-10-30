@@ -57,7 +57,7 @@ const FooterLeftWrapper = styled.div`
   }
   a {
     &:hover {
-      border-bottom: 1px solid ${({ theme }) => theme.colorLighter}cc;
+      border-bottom: 1px solid ${({ theme }) => theme.colorPrimary}cc;
     }
   }
   ${media.tablet`
