@@ -12,13 +12,13 @@ import MenuIcon from '../Icons/MenuIcon';
 
 class Header extends PureComponent {
   render() {
-    const { pathname, updateTheme } = this.props;
+    const { isHome, isMobile, pathname, updateTheme } = this.props;
 
     return (
       <VisualContextConsumer>
         {({
-          isMobile,
-          isHome,
+          // isMobile,
+          // isHome,
           navMenuOpen,
           toggleNavMenu,
           colorMenuOpen,

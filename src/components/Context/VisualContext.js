@@ -1,35 +1,16 @@
 // HeroContext.js
-import React from 'react';
-import { sizes } from '../../config/media';
+import React, { Component } from 'react';
 // import { themeDefault } from '../../config/config';
 
 const VisualContext = React.createContext();
 
-export class VisualContextProvider extends React.Component {
+export class VisualContextProvider extends Component {
   constructor(props) {
     super(props);
 
-    let isMobile;
-    if (typeof window !== `undefined`) {
-      isMobile = window.innerWidth <= sizes.tablet;
-    }
-
-    const isHome = this.props.pathname === '/';
-
-    // let theme = themeDefault;
-    // if (typeof localStorage !== 'undefined') {
-    //   let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
-    //   if (localStorageObj) {
-    //     theme = localStorageObj;
-    //   }
-    // }
-
     this.state = {
-      // theme,
-      isMobile,
-      isHome,
-      colorMenuOpen: false,
       navMenuOpen: true,
+      colorMenuOpen: false,
       showHeroImg: false,
       showFooterLeft: false,
       showFooterCenter: false,
@@ -43,26 +24,6 @@ export class VisualContextProvider extends React.Component {
   //   }
   // };
 
-  updateIsMobile = () => {
-    if (typeof window !== `undefined`) {
-      const isMobile = window.innerWidth <= sizes.tablet;
-      if (isMobile !== this.state.isMobile) {
-        this.setState({
-          isMobile,
-        });
-      }
-    }
-  };
-
-  updateIsHome = () => {
-    const isHome = this.props.pathname === '/';
-    if (isHome !== this.state.isHome) {
-      this.setState({
-        isHome,
-      });
-    }
-  };
-
   toggleColorMenu = colorMenuOpen => {
     if (colorMenuOpen !== this.state.colorMenuOpen) {
       this.setState({
@@ -72,63 +33,145 @@ export class VisualContextProvider extends React.Component {
   };
 
   toggleNavMenu = navMenuOpen => {
-    this.setState({
-      navMenuOpen,
-    });
+    if (navMenuOpen !== this.state.navMenuOpen) {
+      this.setState({
+        navMenuOpen,
+      });
+    }
   };
 
+  calcHeroImg() {
+    const { isMobile, isHome, innerHeight, scrollLength } = this.props;
+    const mobileMarginTop = 140;
+    const midScreenPoint = (innerHeight + mobileMarginTop) * 0.7;
+    let showHeroImg = false;
+
+    if (isMobile) {
+      if (!isHome) {
+        showHeroImg = scrollLength < 50;
+      } else {
+        showHeroImg = scrollLength < midScreenPoint;
+      }
+    } else {
+      if (isHome) {
+        showHeroImg = true;
+      }
+    }
+    return showHeroImg;
+  }
+
+  calcFooterLeft() {
+    const { innerHeight, scrollLength } = this.props;
+
+    let bodyLength;
+    if (typeof document !== 'undefined') {
+      bodyLength = document.documentElement.scrollHeight;
+    }
+
+    const bottomScreenPoint = bodyLength === innerHeight + scrollLength;
+    let showFooterLeft = false;
+
+    if (bottomScreenPoint) {
+      showFooterLeft = true;
+    }
+    return showFooterLeft;
+  }
+
+  calcFooterCenter() {
+    const { isHome, scrollLength } = this.props;
+
+    let showFooterCenter = false;
+    if (isHome) {
+      showFooterCenter = scrollLength <= 50;
+    }
+    return showFooterCenter;
+  }
+
+  calcFooterRight() {
+    const { isMobile, isHome, innerHeight, scrollLength } = this.props;
+
+    let bodyLength;
+    if (typeof document !== 'undefined') {
+      bodyLength = document.documentElement.scrollHeight;
+    }
+    const bottomScreenPoint = bodyLength === innerHeight + scrollLength;
+    let showFooterRight = false;
+
+    if (isMobile) {
+      if (bottomScreenPoint) {
+        showFooterRight = true;
+      }
+    } else {
+      if (isHome) {
+        showFooterRight = true;
+      } else if (bottomScreenPoint) {
+        showFooterRight = true;
+      }
+    }
+    return showFooterRight;
+  }
+
   handleHeroImg = showHeroImg => {
-    this.setState({
-      showHeroImg,
-    });
+    if (showHeroImg !== this.state.showHeroImg) {
+      this.setState({
+        showHeroImg,
+      });
+    }
   };
 
   handleFooterLeft = showFooterLeft => {
-    this.setState({
-      showFooterLeft,
-    });
+    if (showFooterLeft !== this.state.showFooterLeft) {
+      this.setState({
+        showFooterLeft,
+      });
+    }
   };
 
   handleFooterCenter = showFooterCenter => {
-    this.setState({
-      showFooterCenter,
-    });
+    if (showFooterCenter !== this.state.showFooterCenter) {
+      this.setState({
+        showFooterCenter,
+      });
+    }
   };
 
   handleFooterRight = showFooterRight => {
-    this.setState({
-      showFooterRight,
-    });
+    if (showFooterRight !== this.state.showFooterRight) {
+      this.setState({
+        showFooterRight,
+      });
+    }
   };
 
+  componentDidMount() {
+    this.handleHeroImg(this.calcHeroImg());
+    this.handleFooterLeft(this.calcFooterLeft());
+    this.handleFooterCenter(this.calcFooterCenter());
+    this.handleFooterRight(this.calcFooterRight());
+  }
+
   componentDidUpdate(nextProps) {
-    // only run if path changes
-    console.log(this.state);
-    if (nextProps.pathname !== this.props.pathname) {
-      this.updateIsHome();
+    if (this.props.scrollLength !== nextProps.scrollLength) {
+      this.toggleColorMenu(false);
     }
-    this.updateIsMobile();
+    this.handleHeroImg(this.calcHeroImg());
+    this.handleFooterLeft(this.calcFooterLeft());
+    this.handleFooterCenter(this.calcFooterCenter());
+    this.handleFooterRight(this.calcFooterRight());
   }
 
   render() {
     return (
       <VisualContext.Provider
         value={{
-          // theme: this.state.theme,
-          isMobile: this.state.isMobile,
-          isHome: this.state.isHome,
           colorMenuOpen: this.state.colorMenuOpen,
           navMenuOpen: this.state.navMenuOpen,
           showHeroImg: this.state.showHeroImg,
           showFooterLeft: this.state.showFooterLeft,
           showFooterCenter: this.state.showFooterCenter,
           showFooterRight: this.state.showFooterRight,
-          // updateTheme: this.updateTheme,
-          updateIsMobile: this.updateIsMobile,
-          updateIsHome: this.updateIsHome,
           toggleColorMenu: this.toggleColorMenu,
           toggleNavMenu: this.toggleNavMenu,
-          handleHeroImg: this.handleHeroImg,
           handleFooterLeft: this.handleFooterLeft,
           handleFooterCenter: this.handleFooterCenter,
           handleFooterRight: this.handleFooterRight,

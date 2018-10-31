@@ -22,13 +22,12 @@ class HeaderTitle extends PureComponent {
 
   handleIconClick = () => {
     const {
-      pathname,
+      isHome,
       toggleColorMenu,
       toggleNavMenu,
       colorMenuOpen,
     } = this.props;
 
-    const isHome = pathname === '/';
     let noScroll;
     if (typeof window !== `undefined`) {
       noScroll = window.pageYOffset === 0;
