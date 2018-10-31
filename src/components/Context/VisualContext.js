@@ -8,8 +8,13 @@ export class VisualContextProvider extends Component {
   constructor(props) {
     super(props);
 
+    let navMenuOpen = false;
+    if (this.props.isHome) {
+      navMenuOpen = true;
+    }
+
     this.state = {
-      navMenuOpen: false,
+      navMenuOpen,
       colorMenuOpen: false,
       showHeroImg: false,
       showFooterLeft: false,
