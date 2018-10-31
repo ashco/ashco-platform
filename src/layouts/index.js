@@ -61,7 +61,7 @@ class Layout extends Component {
   }
 
   componentWillUnmount() {
-    window.addEventListener('scroll', throttle(this.handleScroll, 300));
+    window.removeEventListener('scroll', this.handleScroll);
     window.removeEventListener('resize', this.handleResize);
   }
 

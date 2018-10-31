@@ -63,7 +63,7 @@ const FooterLeftWrapper = styled.div`
   ${media.tablet`
     text-align: left;
     font-size: 1rem;
-    margin: 0rem 1rem 1rem 1rem;
+    margin: 0rem 1rem 1.5rem 1rem;
   `};
   ${media.laptop`
     margin: 0rem 1.5rem 1.5rem 1.5rem;

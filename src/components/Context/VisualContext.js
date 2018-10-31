@@ -9,7 +9,7 @@ export class VisualContextProvider extends Component {
     super(props);
 
     this.state = {
-      navMenuOpen: true,
+      navMenuOpen: false,
       colorMenuOpen: false,
       showHeroImg: false,
       showFooterLeft: false,
