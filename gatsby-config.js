@@ -95,10 +95,10 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `AshCo.io`,
-        short_name: `AshCo.io`,
+        short_name: `AshCo`,
         start_url: `/`,
-        background_color: `#222222`,
-        theme_color: `#222222`,
+        background_color: `#1f1f1f`,
+        theme_color: `#1f1f1f`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
