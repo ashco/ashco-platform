@@ -85,6 +85,7 @@ class Layout extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     let shouldUpdate = false;
     if (this.state.themeObj !== nextState.themeObj) {
+      console.log('layout component is updating');
       shouldUpdate = true;
     }
     return shouldUpdate;

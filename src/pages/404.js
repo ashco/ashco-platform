@@ -4,14 +4,15 @@ import Error404 from '../components/Icons/Error404';
 import { DefaultContainer } from '../components/helpers';
 import { media } from '../config/media';
 
-const NotFoundPage = () => (
-  <Error404Container>
-    <Error404 />
-    <h2>404</h2>
-    <p>Oh no, you just fell off the internet...</p>
-  </Error404Container>
-);
-
+const NotFoundPage = () => {
+  return (
+    <Error404Container>
+      <Error404 />
+      <h2>404</h2>
+      <p>Oh no, you just fell off the internet...</p>
+    </Error404Container>
+  );
+};
 const Error404Container = styled(DefaultContainer)`
   height: 50vh;
   align-items: center;
