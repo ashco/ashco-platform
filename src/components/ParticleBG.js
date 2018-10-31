@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
 import { withTheme } from 'styled-components';
-import debounce from 'lodash.debounce';
 
 class ParticleBG extends Component {
   shouldComponentUpdate(prevProps) {

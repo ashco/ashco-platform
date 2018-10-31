@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 import debounce from 'lodash.debounce';
+import throttle from 'lodash.throttle';
 
 import {
   VisualContextProvider,
@@ -15,7 +16,6 @@ import '../style/index.css';
 
 import HeroImg from '../components/HeroImg';
 import ParticleBG from '../components/ParticleBG';
-import ListenerLogic from '../components/ListenerLogic';
 import Main from '../components/Main';
 import { sizes } from '../config/media';
 
@@ -28,6 +28,7 @@ class Layout extends PureComponent {
     let theme = themeDefault;
     let innerWidth = 0;
     let innerHeight = 0;
+    let scrollLength = 0;
     let isMobile;
     const isHome = this.props.location.pathname === '/';
 
@@ -40,6 +41,7 @@ class Layout extends PureComponent {
     if (typeof window !== `undefined`) {
       innerWidth = window.innerWidth;
       innerHeight = window.innerHeight;
+      scrollLength = window.pageYOffset;
       isMobile = window.innerWidth <= sizes.tablet;
     }
 
@@ -47,16 +49,19 @@ class Layout extends PureComponent {
       theme,
       innerWidth,
       innerHeight,
+      scrollLength,
       isMobile,
       isHome,
     };
   }
 
   componentDidMount() {
+    window.addEventListener('scroll', throttle(this.handleScroll, 300));
     window.addEventListener('resize', debounce(this.handleResize, 500));
   }
 
   componentWillUnmount() {
+    window.addEventListener('scroll', throttle(this.handleScroll, 300));
     window.removeEventListener('resize', this.handleResize);
   }
 
@@ -76,6 +81,15 @@ class Layout extends PureComponent {
       }
     }
   }
+
+  handleScroll = () => {
+    let scrollLength;
+    if (typeof window !== `undefined`) {
+      scrollLength = window.pageYOffset;
+    }
+
+    this.setState({ scrollLength });
+  };
 
   handleResize = () => {
     let innerWidth;
@@ -99,7 +113,14 @@ class Layout extends PureComponent {
   };
 
   render() {
-    const { theme, innerWidth, innerHeight, isHome, isMobile } = this.state;
+    const {
+      theme,
+      innerWidth,
+      innerHeight,
+      scrollLength,
+      isHome,
+      isMobile,
+    } = this.state;
     const { location, children } = this.props;
     return (
       <StaticQuery
@@ -114,10 +135,13 @@ class Layout extends PureComponent {
           }
         `}
         render={data => (
-          <VisualContextProvider pathname={location.pathname}>
-            {/* <VisualContextConsumer>
-              {({ theme }) => {
-                return ( */}
+          <VisualContextProvider
+            innerWidth={innerWidth}
+            innerHeight={innerHeight}
+            scrollLength={scrollLength}
+            isHome={isHome}
+            isMobile={isMobile}
+          >
             <ThemeProvider theme={theme}>
               <LayoutWrapper>
                 <Helmet
@@ -126,11 +150,6 @@ class Layout extends PureComponent {
                 >
                   <html lang="en" />
                 </Helmet>
-                <VisualContextConsumer>
-                  {value => (
-                    <ListenerLogic value={value} pathname={location.pathname} />
-                  )}
-                </VisualContextConsumer>
                 <ParticleBG innerWidth={innerWidth} innerHeight={innerHeight} />
                 <Header
                   isHome={isHome}
@@ -160,25 +179,12 @@ class Layout extends PureComponent {
                 <Footer />
               </LayoutWrapper>
             </ThemeProvider>
-            {/* );
-              }}
-            </VisualContextConsumer> */}
           </VisualContextProvider>
         )}
       />
     );
   }
 }
-
-// ThemeProvider.defaultProps = {
-//   theme: {
-//     colorLighter: '#E3854A',
-//     colorPrimary: '#DD702B',
-//     colorDarker: '#D65E12',
-//     colorBackground: '#1f1f1f',
-//     colorText: '#dfdfdf',
-//   },
-// };
 
 const LayoutWrapper = styled.div`
   color: ${({ theme }) => theme.colorText};

@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
-import debounce from 'lodash.debounce';
-import throttle from 'lodash.throttle';
+// import debounce from 'lodash.debounce';
+// import throttle from 'lodash.throttle';
 
 export class ListenerLogic extends Component {
-  componentDidMount() {
-    window.addEventListener('scroll', throttle(this.handleScrollState, 200));
-    window.addEventListener('resize', debounce(this.handleResize, 200));
-    this.handleScrollState();
-    this.handleResize();
-  }
+  // componentDidMount() {
+  //   window.addEventListener('scroll', throttle(this.handleScrollState, 200));
+  //   window.addEventListener('resize', debounce(this.handleResize, 200));
+  //   this.handleScrollState();
+  //   this.handleResize();
+  // }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScrollState);
-    window.removeEventListener('resize', this.handleResize);
-  }
+  // componentWillUnmount() {
+  //   window.removeEventListener('scroll', this.handleScrollState);
+  //   window.removeEventListener('resize', this.handleResize);
+  // }
 
-  updateColorMenu(showColorMenu) {
-    this.props.value.toggleColorMenu(false);
-  }
+  // updateColorMenu(showColorMenu) {
+  //   this.props.value.toggleColorMenu(false);
+  // }
 
-  setHeroImg(showHeroImg) {
-    if (showHeroImg && !this.props.value.showHeroImg) {
-      this.props.value.handleHeroImg(true);
-    } else if (!showHeroImg && this.props.value.showHeroImg) {
-      this.props.value.handleHeroImg(false);
-    }
-  }
+  // setHeroImg(showHeroImg) {
+  //   if (showHeroImg && !this.props.value.showHeroImg) {
+  //     this.props.value.handleHeroImg(true);
+  //   } else if (!showHeroImg && this.props.value.showHeroImg) {
+  //     this.props.value.handleHeroImg(false);
+  //   }
+  // }
 
   setFooterLeft(showFooterLeft) {
     if (showFooterLeft && !this.props.value.showFooterLeft) {
@@ -123,7 +123,7 @@ export class ListenerLogic extends Component {
   }
 
   handleScrollState = () => {
-    const obj = this.calcShowStates();
+    // const obj = this.calcShowStates();
 
     this.updateColorMenu(obj.showColorMenu);
     this.setHeroImg(obj.showHeroImg);
@@ -133,7 +133,7 @@ export class ListenerLogic extends Component {
   };
 
   handleResize = () => {
-    const obj = this.calcShowStates();
+    // const obj = this.calcShowStates();
 
     // this.props.value.updateIsMobile();
     this.setHeroImg(obj.showHeroImg);
@@ -143,7 +143,7 @@ export class ListenerLogic extends Component {
   };
 
   componentDidUpdate() {
-    const obj = this.calcShowStates();
+    // const obj = this.calcShowStates();
 
     // this.props.value.updateIsMobile();
     this.setHeroImg(obj.showHeroImg);
