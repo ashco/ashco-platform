@@ -10,7 +10,6 @@ const Error404 = ({ theme }) => {
       x="0px"
       y="0px"
       viewBox="0 0 64 80"
-      style="enable-background:new 0 0 64 64;"
     >
       <path
         fill={colorText}
