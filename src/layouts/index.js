@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
@@ -21,11 +21,11 @@ import { sizes } from '../config/media';
 
 import { themeDefault } from '../config/config';
 
-class Layout extends PureComponent {
+class Layout extends Component {
   constructor(props) {
     super(props);
 
-    let theme = themeDefault;
+    let themeObj = themeDefault;
     let innerWidth = 0;
     let innerHeight = 0;
     let scrollLength = 0;
@@ -35,7 +35,7 @@ class Layout extends PureComponent {
     if (typeof localStorage !== 'undefined') {
       let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
       if (localStorageObj) {
-        theme = localStorageObj;
+        themeObj = localStorageObj;
       }
     }
     if (typeof window !== `undefined`) {
@@ -46,7 +46,7 @@ class Layout extends PureComponent {
     }
 
     this.state = {
-      theme,
+      themeObj,
       innerWidth,
       innerHeight,
       scrollLength,
@@ -82,6 +82,14 @@ class Layout extends PureComponent {
     }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    let shouldUpdate = false;
+    if (this.state.themeObj !== nextState.themeObj) {
+      shouldUpdate = true;
+    }
+    return shouldUpdate;
+  }
+
   handleScroll = () => {
     let scrollLength;
     if (typeof window !== `undefined`) {
@@ -107,14 +115,14 @@ class Layout extends PureComponent {
   };
 
   updateTheme = themeObj => {
-    if (themeObj !== this.state.theme) {
-      this.setState({ theme: themeObj });
+    if (themeObj !== this.state.themeObj) {
+      this.setState({ themeObj });
     }
   };
 
   render() {
     const {
-      theme,
+      themeObj,
       innerWidth,
       innerHeight,
       scrollLength,
@@ -142,7 +150,7 @@ class Layout extends PureComponent {
             isHome={isHome}
             isMobile={isMobile}
           >
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={themeObj}>
               <LayoutWrapper>
                 <Helmet
                   title={data.site.siteMetadata.title}

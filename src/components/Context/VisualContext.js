@@ -172,9 +172,6 @@ export class VisualContextProvider extends Component {
           showFooterRight: this.state.showFooterRight,
           toggleColorMenu: this.toggleColorMenu,
           toggleNavMenu: this.toggleNavMenu,
-          handleFooterLeft: this.handleFooterLeft,
-          handleFooterCenter: this.handleFooterCenter,
-          handleFooterRight: this.handleFooterRight,
         }}
       >
         {this.props.children}

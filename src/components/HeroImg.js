@@ -8,9 +8,6 @@ class HeroImg extends PureComponent {
   render() {
     const { showHeroImg, isHome } = this.props;
     return (
-      // <VisualContextConsumer>
-      //   {({ showHeroImg, isHome }) => {
-      //     return (
       <FadeWrapper noFade={isHome} visible={showHeroImg}>
         <HeroTextWrapper isHome={isHome}>
           <FirstText>Welcome</FirstText>
@@ -23,9 +20,6 @@ class HeroImg extends PureComponent {
           </TitleText>
         </HeroTextWrapper>
       </FadeWrapper>
-      //     );
-      //   }}
-      // </VisualContextConsumer>
     );
   }
 }

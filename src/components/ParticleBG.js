@@ -3,10 +3,10 @@ import Particles from 'react-particles-js';
 import { withTheme } from 'styled-components';
 
 class ParticleBG extends Component {
-  shouldComponentUpdate(prevProps) {
-    const newWidth = prevProps.innerWidth !== this.props.innerWidth;
-    const newHeight = prevProps.innerHeight !== this.props.innerHeight;
-    const newTheme = prevProps.theme !== this.props.theme;
+  shouldComponentUpdate(nextProps) {
+    const newWidth = nextProps.innerWidth !== this.props.innerWidth;
+    const newHeight = nextProps.innerHeight !== this.props.innerHeight;
+    const newTheme = nextProps.theme !== this.props.theme;
 
     return newWidth || newHeight || newTheme;
   }
