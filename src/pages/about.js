@@ -118,7 +118,7 @@ const AboutInfoContainer = styled.div`
     font-weight: 600;
     color: ${({ theme }) => theme.colorPrimary};
     border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
-    padding-bottom: 0.6rem;
+    padding: 0 1.5rem 0.6rem 1.5rem;
   }
   p {
     font-size: 1.1rem;
@@ -163,7 +163,7 @@ const AboutSkillsContainer = styled.div`
 
 const SkillColumn = styled.div`
   text-align: center;
-  width: 100%;
+  width: 95%;
   margin: 0 1rem;
   padding: 1.2rem;
   border-bottom: 1px solid ${({ theme }) => theme.colorPrimary};
