@@ -9,12 +9,12 @@ export class VisualContextProvider extends React.Component {
   constructor(props) {
     super(props);
 
-    let isMobile;
-    if (typeof window !== `undefined`) {
-      isMobile = window.innerWidth <= sizes.tablet;
-    }
+    // let isMobile;
+    // if (typeof window !== `undefined`) {
+    //   isMobile = window.innerWidth <= sizes.tablet;
+    // }
 
-    const isHome = this.props.pathname === '/';
+    // const isHome = this.props.pathname === '/';
 
     // let theme = themeDefault;
     // if (typeof localStorage !== 'undefined') {
@@ -26,8 +26,8 @@ export class VisualContextProvider extends React.Component {
 
     this.state = {
       // theme,
-      isMobile,
-      isHome,
+      // isMobile,
+      // isHome,
       colorMenuOpen: false,
       navMenuOpen: true,
       showHeroImg: false,
@@ -43,25 +43,25 @@ export class VisualContextProvider extends React.Component {
   //   }
   // };
 
-  updateIsMobile = () => {
-    if (typeof window !== `undefined`) {
-      const isMobile = window.innerWidth <= sizes.tablet;
-      if (isMobile !== this.state.isMobile) {
-        this.setState({
-          isMobile,
-        });
-      }
-    }
-  };
+  // updateIsMobile = () => {
+  //   if (typeof window !== `undefined`) {
+  //     const isMobile = window.innerWidth <= sizes.tablet;
+  //     if (isMobile !== this.state.isMobile) {
+  //       this.setState({
+  //         isMobile,
+  //       });
+  //     }
+  //   }
+  // };
 
-  updateIsHome = () => {
-    const isHome = this.props.pathname === '/';
-    if (isHome !== this.state.isHome) {
-      this.setState({
-        isHome,
-      });
-    }
-  };
+  // updateIsHome = () => {
+  //   const isHome = this.props.pathname === '/';
+  //   if (isHome !== this.state.isHome) {
+  //     this.setState({
+  //       isHome,
+  //     });
+  //   }
+  // };
 
   toggleColorMenu = colorMenuOpen => {
     if (colorMenuOpen !== this.state.colorMenuOpen) {
@@ -103,11 +103,11 @@ export class VisualContextProvider extends React.Component {
 
   componentDidUpdate(nextProps) {
     // only run if path changes
-    console.log(this.state);
-    if (nextProps.pathname !== this.props.pathname) {
-      this.updateIsHome();
-    }
-    this.updateIsMobile();
+    // console.log(this.state);
+    // if (nextProps.pathname !== this.props.pathname) {
+    //   this.updateIsHome();
+    // }
+    // this.updateIsMobile();
   }
 
   render() {
@@ -125,7 +125,7 @@ export class VisualContextProvider extends React.Component {
           showFooterRight: this.state.showFooterRight,
           // updateTheme: this.updateTheme,
           updateIsMobile: this.updateIsMobile,
-          updateIsHome: this.updateIsHome,
+          // updateIsHome: this.updateIsHome,
           toggleColorMenu: this.toggleColorMenu,
           toggleNavMenu: this.toggleNavMenu,
           handleHeroImg: this.handleHeroImg,

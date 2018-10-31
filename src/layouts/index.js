@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
+import debounce from 'lodash.debounce';
 
 import {
   VisualContextProvider,
@@ -16,6 +17,7 @@ import HeroImg from '../components/HeroImg';
 import ParticleBG from '../components/ParticleBG';
 import ListenerLogic from '../components/ListenerLogic';
 import Main from '../components/Main';
+import { sizes } from '../config/media';
 
 import { themeDefault } from '../config/config';
 
@@ -24,17 +26,71 @@ class Layout extends PureComponent {
     super(props);
 
     let theme = themeDefault;
+    let innerWidth = 0;
+    let innerHeight = 0;
+    let isMobile;
+    const isHome = this.props.location.pathname === '/';
+
     if (typeof localStorage !== 'undefined') {
       let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
       if (localStorageObj) {
         theme = localStorageObj;
       }
     }
+    if (typeof window !== `undefined`) {
+      innerWidth = window.innerWidth;
+      innerHeight = window.innerHeight;
+      isMobile = window.innerWidth <= sizes.tablet;
+    }
 
     this.state = {
       theme,
+      innerWidth,
+      innerHeight,
+      isMobile,
+      isHome,
     };
   }
+
+  componentDidMount() {
+    window.addEventListener('resize', debounce(this.handleResize, 500));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  componentDidUpdate() {
+    const isHome = this.props.location.pathname === '/';
+    if (isHome !== this.state.isHome) {
+      this.setState({
+        isHome,
+      });
+    }
+    if (typeof window !== `undefined`) {
+      const isMobile = window.innerWidth <= sizes.tablet;
+      if (isMobile !== this.state.isMobile) {
+        this.setState({
+          isMobile,
+        });
+      }
+    }
+  }
+
+  handleResize = () => {
+    let innerWidth;
+    let innerHeight;
+
+    if (typeof window !== `undefined`) {
+      innerWidth = window.innerWidth;
+      innerHeight = window.innerHeight;
+    }
+
+    this.setState({
+      innerWidth,
+      innerHeight,
+    });
+  };
 
   updateTheme = themeObj => {
     if (themeObj !== this.state.theme) {
@@ -43,7 +99,7 @@ class Layout extends PureComponent {
   };
 
   render() {
-    const { theme } = this.state;
+    const { theme, innerWidth, innerHeight, isHome, isMobile } = this.state;
     const { location, children } = this.props;
     return (
       <StaticQuery
@@ -75,20 +131,22 @@ class Layout extends PureComponent {
                     <ListenerLogic value={value} pathname={location.pathname} />
                   )}
                 </VisualContextConsumer>
-                <ParticleBG />
+                <ParticleBG innerWidth={innerWidth} innerHeight={innerHeight} />
                 <Header
+                  isHome={isHome}
+                  isMobile={isMobile}
                   pathname={location.pathname}
                   updateTheme={this.updateTheme}
                 />
                 <VisualContextConsumer>
-                  {({ showHeroImg, isHome }) => {
+                  {({ showHeroImg }) => {
                     return (
                       <HeroImg showHeroImg={showHeroImg} isHome={isHome} />
                     );
                   }}
                 </VisualContextConsumer>
                 <VisualContextConsumer>
-                  {({ isHome, isMobile, navMenuOpen, updateMainElHeight }) => (
+                  {({ navMenuOpen, updateMainElHeight }) => (
                     <Main
                       isHome={isHome}
                       isMobile={isMobile}

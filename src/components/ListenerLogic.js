@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
-export class ListenerLogic extends PureComponent {
+export class ListenerLogic extends Component {
   componentDidMount() {
     window.addEventListener('scroll', throttle(this.handleScrollState, 200));
     window.addEventListener('resize', debounce(this.handleResize, 200));
@@ -135,7 +135,7 @@ export class ListenerLogic extends PureComponent {
   handleResize = () => {
     const obj = this.calcShowStates();
 
-    this.props.value.updateIsMobile();
+    // this.props.value.updateIsMobile();
     this.setHeroImg(obj.showHeroImg);
     this.setFooterLeft(obj.showFooterLeft);
     this.setFooterCenter(obj.showFooterCenter);
@@ -145,7 +145,7 @@ export class ListenerLogic extends PureComponent {
   componentDidUpdate() {
     const obj = this.calcShowStates();
 
-    this.props.value.updateIsMobile();
+    // this.props.value.updateIsMobile();
     this.setHeroImg(obj.showHeroImg);
     this.setFooterLeft(obj.showFooterLeft);
     this.setFooterCenter(obj.showFooterCenter);
