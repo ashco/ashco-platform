@@ -187,6 +187,8 @@ const FormInputWrapper = styled.p`
   textarea {
     height: 12rem;
     resize: none;
+    font-family: inherit;
+    font-size: inherit;
   }
   ${media.desktop`
     input, textarea {
