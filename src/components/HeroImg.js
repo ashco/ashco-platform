@@ -59,16 +59,16 @@ const HeroTextWrapper = styled.div`
   border-left: 8px solid;
   border-bottom: 8px solid;
   border-color: ${({ theme }) => theme.colorPrimary};
-  transition: 0.1s all ease-in-out;
+  /* transition: 0.1s all ease-in-out;
   transform: scale(1);
   &:hover {
     transition: 0.15s all ease-in-out;
     transform: scale(1.0375);
-  }
+  } */
+  pointer-events: none;
 
-  > * {
-    pointer-events: none;
-  }
+  /* > * {
+  } */
   ${media.tablet`
     margin-left: 11.5vw;
     margin-bottom: 16vh;

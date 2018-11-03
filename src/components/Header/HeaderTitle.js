@@ -125,6 +125,7 @@ const HeaderTitleWrapper = styled.div`
   font-weight: 600;
   svg {
     height: 8vh;
+    /* height: 18vh; */
     width: auto;
   }
   a {
