@@ -72,9 +72,13 @@ export class VisualContextProvider extends Component {
     if (typeof document !== 'undefined') {
       bodyLength = document.documentElement.scrollHeight;
     }
-
-    const bottomScreenPoint = bodyLength === innerHeight + scrollLength;
+    const bottomScreenPoint = bodyLength - 10 <= innerHeight + scrollLength;
     let showFooterLeft = false;
+    console.log(bodyLength);
+    console.log(innerHeight);
+    console.log(scrollLength);
+    console.log(bottomScreenPoint);
+    console.log('====================================');
 
     if (bottomScreenPoint) {
       showFooterLeft = true;
@@ -99,7 +103,7 @@ export class VisualContextProvider extends Component {
     if (typeof document !== 'undefined') {
       bodyLength = document.documentElement.scrollHeight;
     }
-    const bottomScreenPoint = bodyLength === innerHeight + scrollLength;
+    const bottomScreenPoint = bodyLength - 10 <= innerHeight + scrollLength;
     let showFooterRight = false;
 
     if (isMobile) {
