@@ -14,9 +14,9 @@ const AshCo = ({ theme }) => {
       <g
         id="Page-1"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <g id="Artboard" transform="translate(-19.000000, -11.000000)">
           <g id="ashco-logo" transform="translate(20.000000, 11.000000)">
@@ -33,7 +33,7 @@ const AshCo = ({ theme }) => {
             <circle
               id="Oval"
               stroke={colorText}
-              stroke-width="100"
+              strokeWidth="100"
               cx="983.5"
               cy="1162.5"
               r="404.5"

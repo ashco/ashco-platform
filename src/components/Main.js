@@ -21,47 +21,48 @@ class Main extends PureComponent {
     }
 
     return (
-      <MainWrapper isHome={isHome} marginTop={marginTop}>
-        {children}
-      </MainWrapper>
+      <Thing>
+        <MainWrapper isHome={isHome} marginTop={marginTop}>
+          {children}
+        </MainWrapper>
+        <FooterSpacer />
+      </Thing>
     );
   }
 }
+
+const Thing = styled.div`
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  pointer-events: none;
+`;
+
+const FooterSpacer = styled.div`
+  height: 220px;
+  @media (min-width: ${sizes.tablet}px) {
+    height: 7.8rem;
+  }
+  @media (min-width: 935px) {
+    height: 6rem;
+  }
+`;
 
 const MainWrapper = styled.main`
   border-top: ${({ isHome, theme }) =>
     isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
   border-bottom: ${({ isHome, theme }) =>
     isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
-  /* border-top: ${({ isHome }) => (isHome ? 'none' : '7px solid')};
-  border-bottom: ${({ isHome }) => (isHome ? 'none' : '7px solid')};
-  border-image: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colorDarker} 0%,
-    ${({ theme }) => theme.colorPrimary} 50%,
-    ${({ theme }) => theme.colorLighter} 100%
-  );
-  border-image-slice: 1; */
-  z-index: 10;
-  pointer-events: none;
-  position: absolute;
   overflow: auto;
   width: 100%;
   min-height: calc(100vh - 140px - 140px);
-  margin: 0 auto 220px auto;
+  margin: 0 auto;
   margin-top: ${({ marginTop }) => marginTop};
   background-color: ${({ theme, isHome }) =>
     isHome ? 'transparent' : theme.colorBackground};
   @media (min-width: ${sizes.tablet}px) {
     min-height: 77vh;
-    margin-bottom: 7.8rem;
     margin-top: ${({ marginTop }) => marginTop};
-  }
-  @media (min-width: 935px) {
-    margin-bottom: 6.8rem;
-  }
-  @media (min-width: 935px) {
-    margin-bottom: 6rem;
   }
   @media (min-width: ${sizes.laptop}px) {
     border-radius: 10px;
@@ -70,14 +71,6 @@ const MainWrapper = styled.main`
     width: 84vw;
     border: ${({ isHome, theme }) =>
       isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
-    /* border: 8px solid; */
-    /* border-image: linear-gradient(
-      135deg,
-      ${({ theme }) => theme.colorDarker}bb 0%,
-      ${({ theme }) => theme.colorPrimary}bb 50%,
-      ${({ theme }) => theme.colorLighter}bb 100%
-    );
-    border-image-slice: 1; */
   }
   ${media.hd`
     margin-left: 15vw;
