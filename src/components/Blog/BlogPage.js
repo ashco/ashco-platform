@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
 import { media } from '../../config/media';
 
 import { DefaultContainer } from '../helpers';
@@ -12,8 +13,8 @@ const BlogPage = ({ data }) => {
     <BlogPageWrapper>
       <h2>{data.contentfulBlogPost.title}</h2>
       {isHeroImage && (
-        <img
-          src={data.contentfulBlogPost.heroImage.resize.src}
+        <Img
+          fluid={data.contentfulBlogPost.heroImage.fluid}
           alt={data.contentfulBlogPost.heroImage.title}
         />
       )}
@@ -39,19 +40,12 @@ const BlogPageWrapper = styled(DefaultContainer)`
     line-height: 1em;
     font-weight: 600;
   }
-  img {
+  .gatsby-image-wrapper {
     width: 100%;
     margin: 0.5rem 0;
   }
   div.createdAt {
     border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
-    /* border-image: linear-gradient(
-      to right,
-      ${({ theme }) => theme.colorDarker}cc 0%,
-      ${({ theme }) => theme.colorPrimary}cc 50%,
-      ${({ theme }) => theme.colorLighter}cc 100%
-    );
-    border-image-slice: 1; */
     margin-bottom: 1rem;
     padding-right: 2rem;
     font-weight: 300;
@@ -111,11 +105,14 @@ export const query = graphql`
       heroImage {
         id
         title
-        resize(width: 720) {
-          src
-          width
-          height
-          aspectRatio
+        # resize(width: 720) {
+        #   src
+        #   width
+        #   height
+        #   aspectRatio
+        # }
+        fluid(maxWidth: 820) {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       body {
