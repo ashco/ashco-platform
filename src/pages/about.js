@@ -154,6 +154,7 @@ const AboutSkillsContainer = styled.div`
   align-items: center;
   border: 1px solid ${({ theme }) => theme.colorPrimary};
   border-radius: 15px;
+  margin-bottom: 2rem;
 
   ${media.laptop`
     flex-direction: row;

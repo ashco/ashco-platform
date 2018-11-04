@@ -53,7 +53,7 @@ export class VisualContextProvider extends Component {
 
     if (isMobile) {
       if (!isHome) {
-        showHeroImg = scrollLength < 50;
+        showHeroImg = scrollLength < 50 && this.state.navMenuOpen;
       } else {
         showHeroImg = scrollLength < midScreenPoint;
       }

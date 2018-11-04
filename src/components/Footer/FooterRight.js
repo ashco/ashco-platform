@@ -87,7 +87,8 @@ const FooterRightWrapper = styled.div`
   ul {
     display: flex;
     li {
-      margin: 0 0.75rem;
+      /* margin: 0 0.75rem; */
+      margin: 0;
       a {
         &:hover {
           border-bottom: 4px solid ${({ theme }) => theme.colorPrimary}cc;
@@ -97,6 +98,9 @@ const FooterRightWrapper = styled.div`
   }
   ${media.tablet`
     margin-right: 0;
+    svg {
+      height: 3rem;
+    }
   `};
 `;
 
