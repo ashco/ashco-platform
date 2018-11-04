@@ -8,7 +8,7 @@ const PortfolioContainer = styled(DefaultContainer)`
   flex-flow: row wrap;
   justify-content: center;
   max-width: 1040px;
-  margin-top: 0;
+  margin: 1rem auto;
   ${media.laptop`
     margin: 2rem auto;
   `};

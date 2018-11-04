@@ -9,7 +9,6 @@ import { DefaultContainer } from '../helpers';
 const BlogPage = ({ data }) => {
   if (!data) return null;
   const isHeroImage = data.contentfulBlogPost.heroImage;
-  console.log(data.contentfulBlogPost)
   return (
     <BlogPageWrapper>
       <Helmet title={data.contentfulBlogPost.title} meta={[{ name: 'description', content: (data.contentfulBlogPost.body.childMarkdownRemark.excerpt) }]} />

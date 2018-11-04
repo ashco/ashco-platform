@@ -55,6 +55,7 @@ const MainWrapper = styled.main`
     isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
   overflow: auto;
   width: 100%;
+  /* 140x2 to evenly frame main */
   min-height: calc(100vh - 140px - 140px);
   margin: 0 auto;
   margin-top: ${({ marginTop }) => marginTop};
