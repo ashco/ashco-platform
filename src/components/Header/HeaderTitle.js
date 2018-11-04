@@ -85,6 +85,7 @@ class HeaderTitle extends PureComponent {
                     <ColorMenuButton
                       onClick={this.handleButtonClick.bind(null, themeObj)}
                       themeObj={themeObj}
+                      title={themeObj.title}
                       key={i}
                     />
                   );

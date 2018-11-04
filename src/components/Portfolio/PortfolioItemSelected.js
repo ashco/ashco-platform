@@ -76,8 +76,8 @@ const PortfolioItemSelectedTextContainer = styled.div`
   align-items: center;
   opacity: 0.9;
   padding: 0.8rem 1.6rem;
-  border-top: 3px solid ${props => props.theme.colorPrimary}cc;
-  border-bottom: 5px solid ${props => props.theme.colorPrimary}cc;
+  border-top: 3px solid ${props => props.theme.colorPrimary}99;
+  border-bottom: 5px solid ${props => props.theme.colorPrimary}99;
   .container-left {
     margin: 1rem 1rem 1rem 0;
     h3 {
@@ -98,7 +98,7 @@ const PortfolioItemSelectedTextContainer = styled.div`
       border-bottom: 3px solid transparent;
       transition: border-bottom 0.2s ease-out;
       &:hover {
-        border-bottom: 3px solid ${props => props.theme.colorPrimary}cc;
+        border-bottom: 3px solid ${props => props.theme.colorPrimary}99;
       }
     }
   }
@@ -107,7 +107,7 @@ const PortfolioItemSelectedTextContainer = styled.div`
     position: absolute;
     bottom: 0;
     background: ${props => props.theme.colorBackground};
-    border: 3px solid ${props => props.theme.colorPrimary}cc;
+    border: 3px solid ${props => props.theme.colorPrimary}99;
     border-radius: 0 0 10px 10px;
   }
   ${media.desktop`
