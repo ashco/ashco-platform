@@ -2,7 +2,7 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../config/media';
-
+import Helmet from 'react-helmet';
 import BlogListing from '../components/Blog/BlogListing';
 import { DefaultContainer } from '../components/helpers';
 
@@ -29,6 +29,7 @@ const BlogPage = () => (
     `}
     render={data => (
       <BlogWrapper>
+        <Helmet title="Blog" meta={[{ name: 'description', content: 'Blog entries on life, tech, and the things in between by me, Ashton.' }]} />
         <h2>Musings on life, tech, and the things in between.</h2>
         {data.allContentfulBlogPost.edges.map(({ node }) => (
           <BlogListing post={node} key={node.id} />

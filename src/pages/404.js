@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import Error404 from '../components/Icons/Error404';
 import { DefaultContainer } from '../components/helpers';
 import { media } from '../config/media';
+import Helmet from 'react-helmet';
 
 const NotFoundPage = () => {
   return (
     <Error404Container>
+      <Helmet title="Error" meta={[{ name: 'description', content: 'Something just went horribly wrong. Please try again, but try a little harder.' }]} />
       <Error404 />
       <h2>404</h2>
       <p>Oh no, you just fell off the internet...</p>

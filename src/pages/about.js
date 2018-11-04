@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 
 import { media, sizes } from '../config/media';
 import { Link } from 'gatsby';
@@ -41,6 +42,10 @@ const About = props => {
       `}
       render={data => (
         <AboutContainer>
+          <Helmet
+            title="About"
+            meta={[{ name: 'description', content: 'All about Ashton. Yep, this pretty much sums it all up..' }]}
+          />
           <AboutInfoContainer>
             <h2>Hi, I'm Ash. I build things.</h2>
             <p>

@@ -146,8 +146,8 @@ class Layout extends Component {
             <ThemeProvider theme={themeObj}>
               <LayoutWrapper>
                 <Helmet
-                  title={data.site.siteMetadata.title}
-                  meta={[{ name: 'sup', content: 'bro' }]}
+                  // title="Welcome"
+                  titleTemplate={`%s | ${data.site.siteMetadata.title}`}
                 >
                   <html lang="en" />
                 </Helmet>

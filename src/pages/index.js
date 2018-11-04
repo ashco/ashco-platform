@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-
+import Helmet from 'react-helmet';
 import { DefaultContainer } from '../components/helpers';
 
 class IndexPage extends PureComponent {
   render() {
-    return <MainContainer />;
+    return <MainContainer>
+      <Helmet title="Welcome" meta={[{ name: 'description', content: "Welcome to AshCo.io, Ashton Christie's internet bungalo. I build things and have thoughts sometimes. Experience them for yourself here!" }]} />
+    </MainContainer>;
   }
 }
 

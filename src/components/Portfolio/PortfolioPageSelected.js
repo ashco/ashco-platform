@@ -6,12 +6,16 @@ import PortfolioContainer from './PortfolioContainer';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
+import Helmet from 'react-helmet';
+
 class PortfolioPageSelected extends PureComponent {
   render() {
     const { data } = this.props;
     if (!data) return null;
+    // console.log(data.contentfulPortfolioProject.title);
     return (
       <PortfolioContainer>
+        <Helmet title={data.contentfulPortfolioProject.title} meta={[{ name: 'description', content: (data.contentfulPortfolioProject.description.description) }]} />
         <PortfolioItemSelected project={data.contentfulPortfolioProject} />
         <PortfolioExtraItemsWrapper>
           {data.allContentfulPortfolioProject.edges.map(({ node }) => (

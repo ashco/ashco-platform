@@ -3,14 +3,16 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { media } from '../../config/media';
-
+import Helmet from 'react-helmet';
 import { DefaultContainer } from '../helpers';
 
 const BlogPage = ({ data }) => {
   if (!data) return null;
   const isHeroImage = data.contentfulBlogPost.heroImage;
+  console.log(data.contentfulBlogPost)
   return (
     <BlogPageWrapper>
+      <Helmet title={data.contentfulBlogPost.title} meta={[{ name: 'description', content: (data.contentfulBlogPost.body.childMarkdownRemark.excerpt) }]} />
       <h2>{data.contentfulBlogPost.title}</h2>
       {isHeroImage && (
         <Img

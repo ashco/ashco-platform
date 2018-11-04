@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { navigate } from 'gatsby';
-
+import Helmet from 'react-helmet';
 import { DefaultContainer } from '../components/helpers';
 import MailSent from '../components/Icons/MailSent';
 import { media } from '../config/media';
@@ -33,9 +33,11 @@ class Thanks extends PureComponent {
   render() {
     return (
       <ThanksContainer>
+        <Helmet title="Thanks" meta={[{ name: 'description', content: "Great job, mate! You're actions have just put into a motion a series of events that could alter the history of mankind forever. Or I may never get back to you. We will see."}]} />
         <MailSent />
         <h2>You da best!</h2>
-        <p>Redirecting in.. {this.state.countDown}</p>
+        <p>You're actions have just put into a motion a series of events that could alter the history of mankind forever. Or I may just never get back to you..</p>
+        <p style={{fontSize: '1rem'}}>Redirecting in.. {this.state.countDown}</p>
       </ThanksContainer>
     );
   }
