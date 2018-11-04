@@ -157,7 +157,7 @@ class HeroImg extends PureComponent {
           <LineBottom />
           <FirstText>Welcome</FirstText>
           <SecondText>To</SecondText>
-          <TitleLine />
+          <Spacer />
           <TitleText>
             AshCo
             <StrobeWrapper>.</StrobeWrapper>
@@ -169,6 +169,7 @@ class HeroImg extends PureComponent {
   }
 }
 
+const initialDelay = 1;
 const fadeInTime = 1;
 
 const strobeDelay = 4.6;
@@ -209,8 +210,9 @@ const LineLeft = styled.div`
   bottom: 0;
   left: 0;
   width: 8px;
-  height: 100%;
+  height: 0%;
   animation: ${animateLineLeft} ease-in-out ${lineAnimateTime}s;
+  animation-delay: ${initialDelay}s;
   animation-fill-mode: forwards;
 `;
 
@@ -222,7 +224,7 @@ const LineBottom = styled.div`
   height: 8px;
   width: 0%;
   animation: ${animateLineBottom} ease-in-out ${lineAnimateTime}s;
-  animation-delay: ${lineAnimateTime - 0.2}s;
+  animation-delay: ${initialDelay + lineAnimateTime - 0.2}s;
   animation-fill-mode: forwards;
 `;
 
@@ -244,7 +246,7 @@ const StrobeWrapper = styled.span`
   opacity: 0;
   animation-name: ${pulse};
   animation-duration: 5s;
-  animation-delay: ${strobeDelay}s;
+  animation-delay: ${initialDelay + strobeDelay}s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 `;
@@ -291,7 +293,7 @@ const FirstText = styled.p`
   visibility: 0;
   opacity: 0;
   animation: ${fadeInAnimation} ${fadeInTime}s linear;
-  animation-delay: 1.2s;
+  animation-delay: ${initialDelay + 1.2}s;
   animation-fill-mode: forwards;
   /* END OF ANIMATION */
   @media (min-width: 350px) {
@@ -314,7 +316,7 @@ const SecondText = styled.p`
   visibility: 0;
   opacity: 0;
   animation: ${fadeInAnimation} ${fadeInTime}s linear;
-  animation-delay: 2s;
+  animation-delay: ${initialDelay + 2}s;
   animation-fill-mode: forwards;
   /* END OF ANIMATION */
   @media (min-width: 350px) {
@@ -328,7 +330,7 @@ const SecondText = styled.p`
   `};
 `;
 
-const TitleLine = styled.div`
+const Spacer = styled.div`
   height: 125px;
   ${media.laptop`
     height: 180px;
@@ -349,7 +351,7 @@ const TitleText = styled.h1`
   visibility: 0;
   opacity: 0;
   animation: ${fadeInAnimation} ${fadeInTime}s linear;
-  animation-delay: 2.8s;
+  animation-delay: ${initialDelay + 2.8}s;
   animation-fill-mode: forwards;
   /* END OF ANIMATION */
   @media (min-width: 350px) {
