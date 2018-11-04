@@ -66,7 +66,7 @@ export class VisualContextProvider extends Component {
   }
 
   calcFooterLeft() {
-    const { innerHeight, scrollLength, isHome } = this.props;
+    const { isMobile, innerHeight, scrollLength, isHome } = this.props;
 
     let bodyLength;
     if (typeof document !== 'undefined') {
@@ -78,6 +78,8 @@ export class VisualContextProvider extends Component {
     let showFooterLeft = false;
 
     if (bottomScreenPoint && !isHome) {
+      showFooterLeft = true;
+    } else if (isMobile && bottomScreenPoint && isHome) {
       showFooterLeft = true;
     }
 

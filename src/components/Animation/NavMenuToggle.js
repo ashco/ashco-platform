@@ -5,7 +5,7 @@ const NavMenuToggleWrapper = styled.div`
     transform: ${({ closed }) =>
       closed ? 'translate3d(35vw, 0, 0)' : 'translate3d(0, 0, 0)'};
     opacity: ${({ closed }) => (closed ? 0 : 1)};
-    transition: ${({ closed }) => (closed ? '0.25s ease-out' : '0.3s ease-in')};
+    transition: ${({ closed }) => (closed ? '0.2s ease-out' : '0.25s ease-in')};
   }
   ul li:nth-child(2) {
     transition-delay: ${({ closed }) => (closed ? 0 : '0.05s')};

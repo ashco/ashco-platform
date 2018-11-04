@@ -65,7 +65,7 @@ const PortfolioItemSelectedWrapper = styled.div`
     }
   }
   ${media.hd`
-    width: 1300px;
+    width: 1340px;
     height: 880px;
   `};
 `;

@@ -221,7 +221,7 @@ const ColorMenuButton = styled(Button)`
   cursor: pointer;
   border: 0.25rem solid ${({ themeObj }) => themeObj.colorPrimary}dd;
   border-radius: 50%;
-  padding: 0.25rem;
+  padding: 0.45rem;
   margin: 0.35rem;
   background: transparent;
   height: 0;
