@@ -11,9 +11,9 @@ class FooterCenter extends PureComponent {
     const { showFooterCenter, toggleNavMenu } = this.props;
     return (
       <FooterCenterWrapper>
-        <FadeWrapper visible={showFooterCenter}>
+        {/* <FadeWrapper visible={showFooterCenter}>
           <NavArrow toggleNavMenu={toggleNavMenu} />
-        </FadeWrapper>
+        </FadeWrapper> */}
       </FooterCenterWrapper>
     );
   }

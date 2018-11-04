@@ -17,7 +17,8 @@ class Main extends PureComponent {
         }
       }
     } else {
-      marginTop = isHome ? '113vh' : '13vh';
+      // marginTop = isHome ? '113vh' : '13vh';
+      marginTop = '13vh';
     }
 
     return (

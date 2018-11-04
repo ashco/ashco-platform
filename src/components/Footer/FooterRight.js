@@ -55,8 +55,7 @@ class FooterRight extends PureComponent {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {/* <TwitterIcon /> */}
-                <ResumeIcon />
+                <TwitterIcon />
               </OutboundLink>
             </li>
             <li>

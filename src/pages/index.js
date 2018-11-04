@@ -13,64 +13,65 @@ import { DefaultContainer } from '../components/helpers';
 class IndexPage extends PureComponent {
   render() {
     return (
-      <StaticQuery
-        query={graphql`
-          query PortfolioMainList {
-            allContentfulPortfolioProject(
-              limit: 3
-              sort: { fields: [createdAt], order: DESC }
-            ) {
-              edges {
-                node {
-                  id
-                  title
-                  slug
-                  createdAt
-                  image {
-                    id
-                    resize(width: 300, height: 200, resizingBehavior: SCALE) {
-                      src
-                      width
-                      height
-                    }
-                  }
-                  githubLink
-                  liveSiteLink
-                }
-              }
-            }
-            allContentfulBlogPost(
-              limit: 3
-              sort: { fields: [createdAt], order: DESC }
-            ) {
-              edges {
-                node {
-                  id
-                  title
-                  slug
-                  createdAt(formatString: "MM-DD-YYYY")
-                  body {
-                    childMarkdownRemark {
-                      excerpt
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `}
-        render={data => (
-          <MainContainer>
-            {/* <AnchorPoint id="home" />
+      // <StaticQuery
+      //   query={graphql`
+      //     query PortfolioMainList {
+      //       allContentfulPortfolioProject(
+      //         limit: 3
+      //         sort: { fields: [createdAt], order: DESC }
+      //       ) {
+      //         edges {
+      //           node {
+      //             id
+      //             title
+      //             slug
+      //             createdAt
+      //             image {
+      //               id
+      //               resize(width: 300, height: 200, resizingBehavior: SCALE) {
+      //                 src
+      //                 width
+      //                 height
+      //               }
+      //             }
+      //             githubLink
+      //             liveSiteLink
+      //           }
+      //         }
+      //       }
+      //       allContentfulBlogPost(
+      //         limit: 3
+      //         sort: { fields: [createdAt], order: DESC }
+      //       ) {
+      //         edges {
+      //           node {
+      //             id
+      //             title
+      //             slug
+      //             createdAt(formatString: "MM-DD-YYYY")
+      //             body {
+      //               childMarkdownRemark {
+      //                 excerpt
+      //               }
+      //             }
+      //           }
+      //         }
+      //       }
+      //     }
+      //   `}
+      //   render={data => (
+      <MainContainer>
+        {/* <AnchorPoint id="home" />
             <About />
             <Portfolio projects={data.allContentfulPortfolioProject.edges} />
             <Blog posts={data.allContentfulBlogPost.edges} />
             <Contact /> */}
-          </MainContainer>
-        )}
-      />
+      </MainContainer>
     );
   }
+  //     />
+  //   );
+  // }
 }
 
 const MainContainer = styled(DefaultContainer)``;
