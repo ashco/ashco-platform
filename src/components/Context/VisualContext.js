@@ -99,7 +99,8 @@ export class VisualContextProvider extends Component {
 
     let bodyLength;
     if (typeof document !== 'undefined') {
-      bodyLength = document.documentElement.scrollHeight;
+      bodyLength =
+        document.documentElement.scrollHeight || document.body.scrollHeight;
     }
     const bottomScreenPoint = bodyLength - 10 <= innerHeight + scrollLength;
     let showFooterRight = false;
