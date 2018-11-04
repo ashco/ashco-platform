@@ -172,7 +172,7 @@ const HeaderTitleWrapper = styled.div`
   ${media.laptop`
     font-size: 3rem;
   `};
-  ${media.desktop`
+  ${media.hd`
     svg {
       height: 100px;
     }

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../config/media';
 
 const NavMenuToggleWrapper = styled.div`
   ul li {

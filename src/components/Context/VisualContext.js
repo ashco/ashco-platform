@@ -47,7 +47,7 @@ export class VisualContextProvider extends Component {
       if (!isHome) {
         showHeroImg = scrollLength < 50 && this.state.navMenuOpen;
       } else {
-        showHeroImg = scrollLength < midScreenPoint;
+        showHeroImg = true;
       }
     } else {
       if (isHome) {
@@ -126,11 +126,6 @@ export class VisualContextProvider extends Component {
   };
 
   componentDidMount() {
-    if (this.props.pathname === '/') {
-      this.toggleNavMenu(true);
-    } else {
-      this.toggleNavMenu(false);
-    }
     this.handleHeroImg(this.calcHeroImg());
     this.handleFooterLeft(this.calcFooterLeft());
     this.handleFooterRight(this.calcFooterRight());
