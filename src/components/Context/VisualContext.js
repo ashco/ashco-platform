@@ -17,7 +17,6 @@ export class VisualContextProvider extends Component {
       colorMenuOpen: false,
       showHeroImg: false,
       showFooterLeft: false,
-      showFooterCenter: false,
       showFooterRight: false,
     };
   }
@@ -77,16 +76,6 @@ export class VisualContextProvider extends Component {
     return showFooterLeft;
   }
 
-  calcFooterCenter() {
-    const { isHome, scrollLength } = this.props;
-
-    let showFooterCenter = false;
-    if (isHome) {
-      showFooterCenter = scrollLength <= 50;
-    }
-    return showFooterCenter;
-  }
-
   calcFooterRight() {
     const { isMobile, isHome, innerHeight, scrollLength } = this.props;
 
@@ -128,14 +117,6 @@ export class VisualContextProvider extends Component {
     }
   };
 
-  handleFooterCenter = showFooterCenter => {
-    if (showFooterCenter !== this.state.showFooterCenter) {
-      this.setState({
-        showFooterCenter,
-      });
-    }
-  };
-
   handleFooterRight = showFooterRight => {
     if (showFooterRight !== this.state.showFooterRight) {
       this.setState({
@@ -147,7 +128,6 @@ export class VisualContextProvider extends Component {
   componentDidMount() {
     this.handleHeroImg(this.calcHeroImg());
     this.handleFooterLeft(this.calcFooterLeft());
-    this.handleFooterCenter(this.calcFooterCenter());
     this.handleFooterRight(this.calcFooterRight());
   }
 
@@ -165,7 +145,6 @@ export class VisualContextProvider extends Component {
     }
     this.handleHeroImg(this.calcHeroImg());
     this.handleFooterLeft(this.calcFooterLeft());
-    this.handleFooterCenter(this.calcFooterCenter());
     this.handleFooterRight(this.calcFooterRight());
   }
 
@@ -177,7 +156,6 @@ export class VisualContextProvider extends Component {
           navMenuOpen: this.state.navMenuOpen,
           showHeroImg: this.state.showHeroImg,
           showFooterLeft: this.state.showFooterLeft,
-          showFooterCenter: this.state.showFooterCenter,
           showFooterRight: this.state.showFooterRight,
           toggleColorMenu: this.toggleColorMenu,
           toggleNavMenu: this.toggleNavMenu,

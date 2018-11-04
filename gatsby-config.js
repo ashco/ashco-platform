@@ -10,38 +10,10 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-slug',
     'gatsby-plugin-styled-components',
-
     {
       resolve: 'gatsby-plugin-favicon',
       options: {
         logo: './src/images/favicon.png',
-
-        // WebApp Manifest Configuration
-        // appName: null, // Inferred with your package.json
-        // appDescription: null,
-        // developerName: null,
-        // developerURL: null,
-        // dir: 'auto',
-        // lang: 'en-US',
-        // background: '#fff',
-        // theme_color: '#fff',
-        // display: 'standalone',
-        // orientation: 'any',
-        // start_url: '/?homescreen=1',
-        // version: '1.0',
-
-        // icons: {
-        //   android: true,
-        //   appleIcon: true,
-        //   appleStartup: true,
-        //   coast: false,
-        //   favicons: true,
-        //   firefox: true,
-        //   opengraph: false,
-        //   twitter: false,
-        //   yandex: false,
-        //   windows: false,
-        // },
       },
     },
     {
@@ -83,12 +55,6 @@ module.exports = {
       },
     },
     'gatsby-transformer-remark', // transforms md files into html? I think?
-    // {
-    //   resolve: 'gatsby-transformer-remark',
-    //   options: {
-    //     excerpt_separator: `<!-- end -->`, // provides way to manually set excerpt range
-    //   },
-    // },
     'gatsby-transformer-sharp', // allows images
     'gatsby-plugin-sharp',
     'gatsby-plugin-netlify',

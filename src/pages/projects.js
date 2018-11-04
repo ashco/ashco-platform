@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PortfolioItem from '../components/Portfolio/PortfolioItem';
-import { PortfolioContainer } from '../components/Portfolio/PortfolioHelpers';
+import PortfolioContainer from '../components/Portfolio/PortfolioContainer';
 import { StaticQuery, graphql } from 'gatsby';
 
 const PortfolioPage = () => (

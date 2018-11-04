@@ -3,7 +3,7 @@ import { media } from '../../config/media';
 
 import { DefaultContainer } from '../helpers';
 
-export const PortfolioContainer = styled(DefaultContainer)`
+const PortfolioContainer = styled(DefaultContainer)`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -16,3 +16,5 @@ export const PortfolioContainer = styled(DefaultContainer)`
     max-width: 1380px;
   `};
 `;
+
+export default PortfolioContainer;

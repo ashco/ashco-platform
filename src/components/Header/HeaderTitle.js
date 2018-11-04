@@ -124,8 +124,7 @@ const HeaderTitleWrapper = styled.div`
   font-size: 2rem;
   font-weight: 600;
   svg {
-    /* height: 8vh; */
-    height: 80px;
+    height: 70px;
     width: auto;
   }
   a {
@@ -165,12 +164,15 @@ const HeaderTitleWrapper = styled.div`
   ${media.tablet`
     padding-top: 10px;
     font-size: 2.5rem;
+    svg {
+      height: 80px;
+    }
   `};
   ${media.laptop`
     font-size: 3rem;
   `};
   ${media.desktop`
-  svg {
+    svg {
       height: 100px;
     }
   `};

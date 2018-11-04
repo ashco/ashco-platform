@@ -3,26 +3,15 @@ import styled from 'styled-components';
 import { media } from '../../config/media';
 
 import FooterLeft from './FooterLeft';
-import FooterCenter from './FooterCenter';
 import FooterRight from './FooterRight';
 
 import { VisualContextConsumer } from '../Context/VisualContext';
 
 const Footer = () => (
   <VisualContextConsumer>
-    {({
-      showFooterLeft,
-      showFooterCenter,
-      showFooterRight,
-      handleFooterRight,
-      toggleNavMenu,
-    }) => (
+    {({ showFooterLeft, showFooterRight, handleFooterRight }) => (
       <FooterWrapper>
         <FooterLeft showFooterLeft={showFooterLeft} />
-        <FooterCenter
-          showFooterCenter={showFooterCenter}
-          toggleNavMenu={toggleNavMenu}
-        />
         <FooterRight
           showFooterRight={showFooterRight}
           handleFooterRight={handleFooterRight}
