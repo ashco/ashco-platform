@@ -64,7 +64,7 @@ const HeroTextWrapper = styled.div`
   pointer-events: none;
 
   @media (min-width: 350px) {
-    margin-left: 6.5vh;
+    margin-left: 10vw;
   }
   ${media.tablet`
     margin-left: 11.5vw;

@@ -47,7 +47,7 @@ class FooterRight extends PureComponent {
                 <LinkedInIcon />
               </OutboundLink>
             </li>
-            {/* <li>
+            <li>
               <OutboundLink
                 href="https://twitter.com/AshCo_Io"
                 title="Twitter"
@@ -57,7 +57,7 @@ class FooterRight extends PureComponent {
               >
                 <TwitterIcon />
               </OutboundLink>
-            </li> */}
+            </li>
             <li>
               <OutboundLink
                 href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view"
@@ -67,17 +67,6 @@ class FooterRight extends PureComponent {
                 rel="noopener noreferrer"
               >
                 <ResumeIcon />
-              </OutboundLink>
-            </li>
-            <li>
-              <OutboundLink
-                href="https://twitter.com/AshCo_Io"
-                title="Twitter"
-                aria-label="Twitter"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TwitterIcon />
               </OutboundLink>
             </li>
           </ul>
