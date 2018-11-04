@@ -54,21 +54,18 @@ const HeroTextWrapper = styled.div`
   top: ${({ isHome }) => (isHome ? 'auto' : '240px')};
   left: 0;
   font-weight: 600;
-  margin: 0 10vw 8.5vh 10vw;
+  margin: 0 5% 8.5vh 5%;
+
   padding: 30px 35px 0px 10px;
   border-left: 8px solid;
   border-bottom: 8px solid;
   border-color: ${({ theme }) => theme.colorPrimary};
-  /* transition: 0.1s all ease-in-out;
-  transform: scale(1);
-  &:hover {
-    transition: 0.15s all ease-in-out;
-    transform: scale(1.0375);
-  } */
+  max-width: 90%;
   pointer-events: none;
 
-  /* > * {
-  } */
+  @media (min-width: 350px) {
+    margin-left: 6.5vh;
+  }
   ${media.tablet`
     margin-left: 11.5vw;
     margin-bottom: 16vh;
@@ -78,13 +75,18 @@ const HeroTextWrapper = styled.div`
   `};
   ${media.hd`
     margin-left: 21vw;
+    border-left-width: 10px;
+    border-bottom-width: 10px;
   `};
 `;
 
 const FirstText = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   line-height: 0.6;
   color: ${({ theme }) => theme.colorText};
+  @media (min-width: 350px) {
+    font-size: 1.8rem;
+  }
   ${media.laptop`
     font-size: 2.2rem;
   `};
@@ -98,6 +100,9 @@ const SecondText = styled.p`
   line-height: 1.7;
   margin-bottom: 0.6rem;
   color: ${({ theme }) => theme.colorText};
+  @media (min-width: 350px) {
+    font-size: 1.2rem;
+  }
   ${media.laptop`
     font-size: 1.6rem;
   `};
@@ -120,9 +125,12 @@ const TitleLine = styled.div`
 `;
 
 const TitleText = styled.h1`
-  font-size: 3.8rem;
+  font-size: 3.6rem;
   line-height: 1.2;
   color: ${({ theme }) => theme.colorText};
+  @media (min-width: 350px) {
+    font-size: 3.8rem;
+  }
   ${media.laptop`
     line-height: 1.1;
     font-size: 5.5rem;

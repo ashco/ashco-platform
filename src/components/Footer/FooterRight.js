@@ -87,8 +87,7 @@ const FooterRightWrapper = styled.div`
   ul {
     display: flex;
     li {
-      /* margin: 0 0.75rem; */
-      margin: 0;
+      margin: 0 0.75rem;
       a {
         &:hover {
           border-bottom: 4px solid ${({ theme }) => theme.colorPrimary}cc;

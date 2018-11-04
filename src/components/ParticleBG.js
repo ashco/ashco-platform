@@ -5,7 +5,11 @@ import { withTheme } from 'styled-components';
 class ParticleBG extends Component {
   shouldComponentUpdate(nextProps) {
     const newWidth = nextProps.innerWidth !== this.props.innerWidth;
-    const newHeight = nextProps.innerHeight !== this.props.innerHeight;
+    // const newHeight = nextProps.innerHeight !== this.props.innerHeight;
+    // Don't trigger on safari mobile scroll screen resize
+    const newHeight =
+      nextProps.innerHeight > this.props.innerHeight + 100 ||
+      nextProps.innerHeight < this.props.innerHeight - 100;
     const newTheme = nextProps.theme !== this.props.theme;
 
     return newWidth || newHeight || newTheme;
