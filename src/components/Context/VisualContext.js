@@ -1,6 +1,5 @@
 // HeroContext.js
 import React, { Component } from 'react';
-// import { themeDefault } from '../../config/config';
 
 const VisualContext = React.createContext();
 
@@ -22,12 +21,6 @@ export class VisualContextProvider extends Component {
       showFooterRight: false,
     };
   }
-
-  // updateTheme = themeObj => {
-  //   if (themeObj !== this.state.theme) {
-  //     this.setState({ theme: themeObj });
-  //   }
-  // };
 
   toggleColorMenu = colorMenuOpen => {
     if (colorMenuOpen !== this.state.colorMenuOpen) {
@@ -79,8 +72,6 @@ export class VisualContextProvider extends Component {
 
     if (bottomScreenPoint && !isHome) {
       showFooterLeft = true;
-      // } else if (isMobile && bottomScreenPoint && isHome) {
-      //   showFooterLeft = true;
     }
 
     return showFooterLeft;

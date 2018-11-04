@@ -15,10 +15,10 @@ class NavLinks extends PureComponent {
         <NavMenuToggleWrapper closed={!navMenuOpen && isMobile}>
           <ul>
             <NavLinkItem to="/#home" title="Home" />
-            <NavLinkItem to="/about/" title="About" />
-            <NavLinkItem to="/projects/" title="Projects" />
-            <NavLinkItem to="/blog/" title="Blog" />
-            <NavLinkItem to="/contact/" title="Contact" />
+            <NavLinkItem to="/about/" title="About" closeMenu />
+            <NavLinkItem to="/projects/" title="Projects" closeMenu />
+            <NavLinkItem to="/blog/" title="Blog" closeMenu />
+            <NavLinkItem to="/contact/" title="Contact" closeMenu />
           </ul>
         </NavMenuToggleWrapper>
       </NavLinksWrapper>
@@ -28,12 +28,15 @@ class NavLinks extends PureComponent {
 
 class NavLinkItem extends PureComponent {
   render() {
-    const { to, title } = this.props;
+    const { to, title, closeMenu } = this.props;
     return (
       <VisualContextConsumer>
         {({ toggleNavMenu }) => (
           <NavLinkItemWrapper>
-            <Link to={to} onClick={toggleNavMenu.bind(null, false)}>
+            <Link
+              to={to}
+              onClick={closeMenu && toggleNavMenu.bind(null, false)}
+            >
               {title}
             </Link>
           </NavLinkItemWrapper>

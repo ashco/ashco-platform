@@ -48,7 +48,8 @@ const StrobeWrapper = styled.span`
 
 const HeroTextWrapper = styled.div`
   user-select: none;
-  position: ${({ isHome }) => (isHome ? 'absolute' : 'fixed')};
+  /* position: ${({ isHome }) => (isHome ? 'absolute' : 'fixed')}; */
+  position: fixed;
   bottom: ${({ isHome }) => (isHome ? 0 : 'auto')};
   top: ${({ isHome }) => (isHome ? 'auto' : '240px')};
   left: 0;
