@@ -79,8 +79,8 @@ export class VisualContextProvider extends Component {
 
     if (bottomScreenPoint && !isHome) {
       showFooterLeft = true;
-    } else if (isMobile && bottomScreenPoint && isHome) {
-      showFooterLeft = true;
+      // } else if (isMobile && bottomScreenPoint && isHome) {
+      //   showFooterLeft = true;
     }
 
     return showFooterLeft;
@@ -108,7 +108,7 @@ export class VisualContextProvider extends Component {
     let showFooterRight = false;
 
     if (isMobile) {
-      if (bottomScreenPoint) {
+      if (!isHome && bottomScreenPoint) {
         showFooterRight = true;
       }
     } else {

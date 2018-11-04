@@ -36,7 +36,7 @@ class Header extends PureComponent {
                 toggleColorMenu={toggleColorMenu}
               />
               <NavLinks navMenuOpen={navMenuOpen} isMobile={isMobile} />
-              {isMobile && <MenuIcon />}
+              {isMobile && !isHome && <MenuIcon />}
             </HeaderContainer>
           </HeaderWrapper>
         )}
