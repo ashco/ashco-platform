@@ -17,10 +17,7 @@ const PortfolioPage = () => (
               image {
                 id
                 fluid(maxWidth: 600) {
-                  aspectRatio
-                  sizes
-                  src
-                  srcSet
+                  ...GatsbyContentfulFluid_withWebp
                 }
               }
             }

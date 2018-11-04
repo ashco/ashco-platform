@@ -49,10 +49,7 @@ export const query = graphql`
         id
         title
         fluid(maxWidth: 1200) {
-          aspectRatio
-          sizes
-          src
-          srcSet
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }
@@ -68,10 +65,7 @@ export const query = graphql`
           image {
             id
             fluid(maxWidth: 600) {
-              aspectRatio
-              sizes
-              src
-              srcSet
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           githubLink

@@ -82,15 +82,6 @@ class Layout extends Component {
     }
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   let shouldUpdate = false;
-  //   if (this.state.themeObj !== nextState.themeObj) {
-  //     console.log('layout component is updating');
-  //     shouldUpdate = true;
-  //   }
-  //   return shouldUpdate;
-  // }
-
   handleScroll = () => {
     let scrollLength;
     if (typeof window !== `undefined`) {
@@ -150,6 +141,7 @@ class Layout extends Component {
             scrollLength={scrollLength}
             isHome={isHome}
             isMobile={isMobile}
+            pathname={location.pathname}
           >
             <ThemeProvider theme={themeObj}>
               <LayoutWrapper>

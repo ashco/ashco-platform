@@ -11,15 +11,12 @@ class Main extends PureComponent {
 
     if (isMobile) {
       if (typeof window !== `undefined`) {
-        // marginTop = isHome ? `${window.innerHeight + 140}px` : `140px`;
         marginTop = isHome ? `0` : `140px`;
-        // marginTop = `140px`;
         if (navMenuOpen && !isHome) {
           marginTop = '605px';
         }
       }
     } else {
-      // marginTop = isHome ? '113vh' : '13vh';
       marginTop = '13vh';
     }
 

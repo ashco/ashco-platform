@@ -3,15 +3,15 @@ import Particles from 'react-particles-js';
 import { withTheme } from 'styled-components';
 
 class ParticleBG extends Component {
-  shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(prevProps) {
     // Don't trigger on safari mobile scroll screen resize
     const safariScreenShift = 120;
 
     const newHeight =
-      nextProps.innerHeight > this.props.innerHeight + safariScreenShift ||
-      nextProps.innerHeight < this.props.innerHeight - safariScreenShift;
-    const newWidth = nextProps.innerWidth !== this.props.innerWidth;
-    const newTheme = nextProps.theme !== this.props.theme;
+      prevProps.innerHeight > this.props.innerHeight + safariScreenShift ||
+      prevProps.innerHeight < this.props.innerHeight - safariScreenShift;
+    const newWidth = prevProps.innerWidth !== this.props.innerWidth;
+    const newTheme = prevProps.theme !== this.props.theme;
 
     return newWidth || newHeight || newTheme;
   }

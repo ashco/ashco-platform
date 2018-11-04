@@ -24,7 +24,7 @@ const PortfolioItemWrapper = styled.article`
   display: flex;
   justify-content: center;
   position: relative;
-  margin: 0.75rem auto;
+  margin: 0.85rem auto;
   border-radius: 5px;
   box-shadow: none;
   border-bottom: none;
@@ -69,7 +69,7 @@ const PortfolioItemWrapper = styled.article`
     }
   }
   ${media.tablet`
-    margin: 20px;
+    margin: 15px 20px;
     .overlay h3 {
       font-size: 2.5rem;
     }

@@ -59,7 +59,7 @@ export class VisualContextProvider extends Component {
   }
 
   calcFooterLeft() {
-    const { isMobile, innerHeight, scrollLength, isHome } = this.props;
+    const { innerHeight, scrollLength, isHome } = this.props;
 
     let bodyLength;
     if (typeof document !== 'undefined') {
@@ -151,9 +151,17 @@ export class VisualContextProvider extends Component {
     this.handleFooterRight(this.calcFooterRight());
   }
 
-  componentDidUpdate(nextProps) {
-    if (this.props.scrollLength !== nextProps.scrollLength) {
+  componentDidUpdate(prevProps) {
+    if (this.props.scrollLength !== prevProps.scrollLength) {
       this.toggleColorMenu(false);
+    }
+    // Handle navMenu toggle on route change
+    if (this.props.pathname !== prevProps.pathname) {
+      if (this.props.pathname === '/') {
+        this.toggleNavMenu(true);
+      } else {
+        this.toggleNavMenu(false);
+      }
     }
     this.handleHeroImg(this.calcHeroImg());
     this.handleFooterLeft(this.calcFooterLeft());
