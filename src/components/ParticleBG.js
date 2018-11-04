@@ -8,8 +8,8 @@ class ParticleBG extends Component {
     // const newHeight = nextProps.innerHeight !== this.props.innerHeight;
     // Don't trigger on safari mobile scroll screen resize
     const newHeight =
-      nextProps.innerHeight > this.props.innerHeight + 100 ||
-      nextProps.innerHeight < this.props.innerHeight - 100;
+      nextProps.innerHeight > this.props.innerHeight + 150 ||
+      nextProps.innerHeight < this.props.innerHeight - 150;
     const newTheme = nextProps.theme !== this.props.theme;
 
     return newWidth || newHeight || newTheme;
