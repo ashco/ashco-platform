@@ -20,6 +20,7 @@ class FooterRight extends PureComponent {
 
   render() {
     const { showFooterRight } = this.props;
+
     return (
       <FooterRightWrapper>
         <FadeWrapper visible={showFooterRight}>

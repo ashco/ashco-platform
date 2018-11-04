@@ -7,7 +7,6 @@ class FooterLeft extends PureComponent {
   render() {
     const { showFooterLeft } = this.props;
     const year = new Date().getFullYear();
-
     return (
       <FooterLeftWrapper>
         <FadeWrapper visible={showFooterLeft}>
