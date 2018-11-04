@@ -82,7 +82,7 @@ const PortfolioItemWrapper = styled.article`
       margin: 0;
       width: 47vw;
       height: 31vw;
-      max-width: 480px;
+      max-width: 460px;
       max-height: 320px;
     }
   `};
