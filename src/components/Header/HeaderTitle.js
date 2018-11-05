@@ -125,7 +125,7 @@ const HeaderTitleWrapper = styled.div`
   font-size: 2rem;
   font-weight: 600;
   svg {
-    height: 70px;
+    height: 65px;
     width: auto;
   }
   a {
@@ -165,16 +165,21 @@ const HeaderTitleWrapper = styled.div`
   ${media.tablet`
     padding-top: 10px;
     font-size: 2.5rem;
-    svg {
-      height: 80px;
-    }
   `};
   ${media.laptop`
+    svg {
+      height: 75px;
+    }
     font-size: 3rem;
+  `};
+  ${media.desktop`
+    svg {
+      height: 85px;
+    }
   `};
   ${media.hd`
     svg {
-      height: 100px;
+      height: 95px;
     }
   `};
 `;
