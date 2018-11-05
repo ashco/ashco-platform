@@ -1,146 +1,3 @@
-// import React, { PureComponent } from 'react';
-// import styled, { keyframes } from 'styled-components';
-// import { media } from '../config/media';
-
-// import FadeWrapper from './Animation/Fade';
-
-// class HeroImg extends PureComponent {
-//   render() {
-//     const { showHeroImg, isHome } = this.props;
-//     return (
-//       <FadeWrapper noFade={isHome} visible={showHeroImg}>
-//         <HeroTextWrapper isHome={isHome}>
-//           <FirstText>Welcome</FirstText>
-//           <SecondText>To</SecondText>
-//           <TitleLine />
-//           <TitleText>
-//             AshCo
-//             <StrobeWrapper>.</StrobeWrapper>
-//             io
-//           </TitleText>
-//         </HeroTextWrapper>
-//       </FadeWrapper>
-//     );
-//   }
-// }
-
-// // Create the keyframes
-// const pulse = keyframes`
-//   0%, 35% {
-//     opacity: 1
-//   }
-//   50% {
-//     opacity: 0
-//   }
-//   65%, 100% {
-//     opacity: 1
-//   }
-// `;
-
-// const StrobeWrapper = styled.span`
-//   color: ${({ theme }) => theme.colorPrimary};
-//   animation-name: ${pulse};
-//   animation-duration: 5s;
-//   animation-delay: 3s;
-//   animation-timing-function: linear;
-//   animation-iteration-count: infinite;
-// `;
-
-// const HeroTextWrapper = styled.div`
-//   user-select: none;
-//   /* position: ${({ isHome }) => (isHome ? 'absolute' : 'fixed')}; */
-//   position: fixed;
-//   bottom: ${({ isHome }) => (isHome ? 0 : 'auto')};
-//   top: ${({ isHome }) => (isHome ? 'auto' : '240px')};
-//   left: 0;
-//   font-weight: 600;
-//   margin: 0 5% 8.5vh 5%;
-
-//   padding: 30px 35px 0px 10px;
-//   border-left: 8px solid;
-//   border-bottom: 8px solid;
-//   border-color: ${({ theme }) => theme.colorPrimary};
-//   max-width: 90%;
-//   pointer-events: none;
-
-//   @media (min-width: 350px) {
-//     margin-left: 10vw;
-//   }
-//   ${media.tablet`
-//     margin-left: 11.5vw;
-//     margin-bottom: 16vh;
-//   `};
-//   ${media.desktop`
-//     margin-left: 15.5vw;
-//   `};
-//   ${media.hd`
-//     margin-left: 21vw;
-//     border-left-width: 10px;
-//     border-bottom-width: 10px;
-//   `};
-// `;
-
-// const FirstText = styled.p`
-//   font-size: 1.6rem;
-//   line-height: 0.6;
-//   color: ${({ theme }) => theme.colorText};
-//   @media (min-width: 350px) {
-//     font-size: 1.8rem;
-//   }
-//   ${media.laptop`
-//     font-size: 2.2rem;
-//   `};
-//   ${media.hd`
-//     font-size: 2.5rem;
-//   `};
-// `;
-
-// const SecondText = styled.p`
-//   font-size: 1.4rem;
-//   line-height: 1.7;
-//   margin-bottom: 0.6rem;
-//   color: ${({ theme }) => theme.colorText};
-//   @media (min-width: 350px) {
-//     font-size: 1.2rem;
-//   }
-//   ${media.laptop`
-//     font-size: 1.6rem;
-//   `};
-//   ${media.hd`
-//     font-size: 1.9rem;
-//   `};
-// `;
-
-// const TitleLine = styled.div`
-//   height: 125px;
-//   ${media.laptop`
-//     height: 180px;
-//   `}
-//   ${media.desktop`
-//     height: 200px;
-//   `}
-//   ${media.hd`
-//     height: 280px;
-//   `}
-// `;
-
-// const TitleText = styled.h1`
-//   font-size: 3.6rem;
-//   line-height: 1.2;
-//   color: ${({ theme }) => theme.colorText};
-//   @media (min-width: 350px) {
-//     font-size: 3.8rem;
-//   }
-//   ${media.laptop`
-//     line-height: 1.1;
-//     font-size: 5.5rem;
-//   `};
-//   ${media.hd`
-//     font-size: 7.5rem;
-//   `};
-// `;
-
-// export default HeroImg;
 import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { media } from '../config/media';
@@ -177,11 +34,9 @@ const lineAnimateTime = 0.65;
 
 const fadeInAnimation = keyframes`
   0% {
-    visibility: 0;
     opacity: 0;
   }
   100% {
-    visibility: 1;
     opacity: 1;
   }
 `;
@@ -253,18 +108,13 @@ const StrobeWrapper = styled.span`
 
 const HeroTextWrapper = styled.div`
   user-select: none;
-  /* position: ${({ isHome }) => (isHome ? 'absolute' : 'fixed')}; */
   position: fixed;
   bottom: ${({ isHome }) => (isHome ? 0 : 'auto')};
   top: ${({ isHome }) => (isHome ? 'auto' : '240px')};
   left: 0;
   font-weight: 600;
   margin: 0 5% 8.5vh 5%;
-  /* height: 300px; */
   padding: 30px 35px 10px 20px;
-  /* border-left: 8px solid;
-  border-bottom: 8px solid;
-  border-color: ${({ theme }) => theme.colorPrimary}; */
   max-width: 90%;
   pointer-events: none;
 

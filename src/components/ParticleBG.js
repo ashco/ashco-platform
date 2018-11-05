@@ -30,7 +30,8 @@ class ParticleBG extends Component {
         params={{
           particles: {
             number: {
-              value: 150,
+              // value: 150,
+              value: 120,
               density: {
                 enable: true,
                 value_area: 4000,
@@ -43,7 +44,7 @@ class ParticleBG extends Component {
               type: 'circle',
               stroke: {
                 width: 0,
-                color: '#000000',
+                color: colorPrimary,
               },
               polygon: {
                 nb_sides: 5,
