@@ -44,12 +44,18 @@ const About = props => {
         <AboutContainer>
           <Helmet
             title="About"
-            meta={[{ name: 'description', content: 'All about Ashton. Yep, this pretty much sums it all up..' }]}
+            meta={[
+              {
+                name: 'description',
+                content:
+                  'All about Ashton. Yep, this pretty much sums it all up..',
+              },
+            ]}
           />
           <AboutInfoContainer>
-            <h2>Hi, I'm Ash. I build things.</h2>
+            <h2>Hi, I'm Ash. I build stuff.</h2>
             <p>
-              I'm a Full-Stack Web-Dev that specializes in{' '}
+              I'm an ambitious Full-Stack Web Developer who specializes in{' '}
               <a
                 href="https://reactjs.org/"
                 title="Reactjs"
@@ -59,11 +65,11 @@ const About = props => {
               >
                 React
               </a>
-              . I'm a lifelong learner, and complex thing interest me. I love
-              the challenges of coding and push myself past my limits with each
-              project. My goal is to make a positive impact in the world and am
-              excited to apply my skills wherever I go. Always happy to share my
-              experiences and what I've learned so far, so{' '}
+              . It was easy to fall in love with Coding; I’m a lifelong learner,
+              have an eye for design, and complex things interest me. My goal is
+              to make a positive impact in the world and am excited to apply my
+              skills wherever I go. Always happy to share my experiences and
+              what I've learned so far, so{' '}
               <Link to="/contact/">hit me up!</Link>
             </p>
           </AboutInfoContainer>

@@ -14,7 +14,6 @@ class NavLinks extends PureComponent {
       <NavLinksWrapper>
         <NavMenuToggleWrapper closed={!navMenuOpen && isMobile}>
           <ul>
-            {/* <NavLinkItem to="/#home" title="Home" /> */}
             <NavLinkItem to="/about/" title="About" closeMenu />
             <NavLinkItem to="/projects/" title="Projects" closeMenu />
             <NavLinkItem to="/blog/" title="Blog" closeMenu />
