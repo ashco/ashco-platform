@@ -13,12 +13,12 @@ class Main extends PureComponent {
     console.log('isMobile:', this.props.isMobile);
 
     if (isMobile) {
-      if (typeof window !== `undefined`) {
-        marginTop = isHome ? `0` : `140px`;
-        if (navMenuOpen && !isHome) {
-          marginTop = '605px';
-        }
+      // if (typeof window !== `undefined`) {
+      marginTop = isHome ? `0` : `140px`;
+      if (navMenuOpen && !isHome) {
+        marginTop = '605px';
       }
+      // }
     } else {
       marginTop = '13vh';
     }
