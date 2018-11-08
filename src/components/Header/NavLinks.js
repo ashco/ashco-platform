@@ -12,7 +12,6 @@ class NavLinks extends Component {
     const { navMenuOpen, isMobile } = this.props;
     const isClosed = !navMenuOpen && isMobile;
 
-    console.log(isClosed);
     return (
       <NavLinksWrapper>
         <NavMenuToggleWrapper closed={isClosed}>
