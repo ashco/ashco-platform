@@ -9,13 +9,17 @@ class Main extends PureComponent {
     let marginTop;
 
     if (!isMobile) {
+      console.log('Is Not Mobile');
       marginTop = '13vh';
     } else {
+      console.log('Is Very Mobile');
       marginTop = isHome ? `0` : `140px`;
       if (!isHome && navMenuOpen) {
         marginTop = '605px';
       }
     }
+
+    console.log('Margin Top:', marginTop);
     // if (isMobile) {
     //   marginTop = isHome ? `0` : `140px`;
     //   if (navMenuOpen && !isHome) {
