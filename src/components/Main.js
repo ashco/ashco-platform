@@ -1,14 +1,27 @@
 import React, { PureComponent } from 'react';
 
-import styled, { css } from 'styled-components';
+import styled, { css, withTheme } from 'styled-components';
 import { sizes, media } from '../config/media';
 
 class Main extends PureComponent {
+  constructor(props) {
+    super(props);
+    const colorPrimary = this.props.theme.colorPrimary;
+
+    this.state = {
+      colorPrimary,
+    };
+  }
   render() {
+    const { colorPrimary } = this.state;
     const { children, isHome, navMenuOpen } = this.props;
     return (
       <MainContainer>
-        <MainWrapper isHome={isHome} navMenuOpen={navMenuOpen}>
+        <MainWrapper
+          isHome={isHome}
+          navMenuOpen={navMenuOpen}
+          colorPrimary={colorPrimary}
+        >
           {children}
         </MainWrapper>
         <FooterSpacer isHome={isHome} />
@@ -34,13 +47,43 @@ const FooterSpacer = styled.div`
   }
 `;
 
+// const MainWrapper = styled.main`
+//   /* border-top: ${({ theme }) => `7px solid ${theme.colorPrimary}`}; */
+//   border-top: ${({ theme }) => {
+//     console.log('theme: ', theme);
+//     return `7px solid ${theme.colorPrimary}`;
+//   }};
+//   border-bottom: ${({ theme }) => `7px solid ${theme.colorPrimary}`};
+//   overflow: auto;
+//   width: 100%;
+//   /* 140x2 to evenly frame main */
+//   min-height: calc(100vh - 130px - 130px);
+//   margin: 0 auto;
+//   margin-top: ${({ navMenuOpen }) => (navMenuOpen ? '605px' : '130px')};
+//   background-color: ${({ theme }) => theme.colorBackground};
+//   transition: 0.3s cubic-bezier(0.43, 0.26, 0, 1.01);
+//   @media (min-width: ${sizes.tablet}px) {
+//     min-height: 77vh;
+//     margin-top: 13vh;
+//   }
+//   @media (min-width: ${sizes.laptop}px) {
+//     border-radius: 10px;
+//     margin-left: 8vw;
+//     margin-right: 8vw;
+//     width: 84vw;
+//     border: ${({ theme }) => `7px solid ${theme.colorPrimary}`};
+//   }
+//   ${media.hd`
+//     margin-left: 15vw;
+//     margin-right: 15vw;
+//     width: 70vw;
+//   `};
+//   ${({ isHome }) => isHome && MainWrapper_isHome}
+// `;
 const MainWrapper = styled.main`
   /* border-top: ${({ theme }) => `7px solid ${theme.colorPrimary}`}; */
-  border-top: ${({ theme }) => {
-    console.log('theme: ', theme);
-    return `7px solid ${theme.colorPrimary}`;
-  }};
-  border-bottom: ${({ theme }) => `7px solid ${theme.colorPrimary}`};
+  border-top: ${({ colorPrimary }) => `7px solid ${colorPrimary}`};
+  border-bottom: ${({ colorPrimary }) => `7px solid ${colorPrimary}`};
   overflow: auto;
   width: 100%;
   /* 140x2 to evenly frame main */
@@ -58,7 +101,7 @@ const MainWrapper = styled.main`
     margin-left: 8vw;
     margin-right: 8vw;
     width: 84vw;
-    border: ${({ theme }) => `7px solid ${theme.colorPrimary}`};
+    border: ${({ colorPrimary }) => `7px solid ${colorPrimary}`};
   }
   ${media.hd`
     margin-left: 15vw;
@@ -85,4 +128,4 @@ const MainWrapper_isHome = css`
   }
 `;
 
-export default Main;
+export default withTheme(Main);
