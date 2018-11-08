@@ -27,10 +27,10 @@ const MainContainer = styled.div`
 const FooterSpacer = styled.div`
   height: ${({ isHome }) => (isHome ? 0 : '220px')};
   @media (min-width: ${sizes.tablet}px) {
-    height: 7.8rem;
+    height: ${({ isHome }) => (isHome ? 0 : '7.8rem')};
   }
   @media (min-width: 935px) {
-    height: 6rem;
+    height: ${({ isHome }) => (isHome ? 0 : '6rem')};
   }
 `;
 
@@ -40,9 +40,9 @@ const MainWrapper = styled.main`
   overflow: auto;
   width: 100%;
   /* 140x2 to evenly frame main */
-  min-height: calc(100vh - 140px - 140px);
+  min-height: calc(100vh - 130px - 130px);
   margin: 0 auto;
-  margin-top: ${({ navMenuOpen }) => (navMenuOpen ? '605px' : '140px')};
+  margin-top: ${({ navMenuOpen }) => (navMenuOpen ? '605px' : '130px')};
   background-color: ${({ theme }) => theme.colorBackground};
   transition: 0.3s cubic-bezier(0.43, 0.26, 0, 1.01);
   @media (min-width: ${sizes.tablet}px) {
