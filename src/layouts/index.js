@@ -25,7 +25,6 @@ class Layout extends Component {
   constructor(props) {
     super(props);
 
-    // let themeObj;
     let themeObj = themeDefault;
     let innerWidth = 0;
     let innerHeight = 0;
@@ -33,12 +32,12 @@ class Layout extends Component {
     let isMobile;
     const isHome = this.props.location.pathname === '/';
 
-    if (typeof localStorage !== 'undefined') {
-      let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
-      if (localStorageObj) {
-        themeObj = localStorageObj;
-      }
-    }
+    // if (typeof localStorage !== 'undefined') {
+    //   let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
+    //   if (localStorageObj) {
+    //     themeObj = localStorageObj;
+    //   }
+    // }
     if (typeof window !== `undefined`) {
       innerWidth = window.innerWidth;
       innerHeight = window.innerHeight;
