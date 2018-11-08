@@ -1,10 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { media } from '../../config/media';
+
+const transformMenuOpen = css`
+  transform: translate3d(-35vw, 0, 0);
+`;
 
 const NavMenuToggleWrapper = styled.div`
   ul li {
-    transform: ${({ isOpen }) =>
-      isOpen ? 'translate3d(-35vw, 0, 0)' : 'translate3d(0, 0, 0)'};
+    transform: translate3d(0, 0, 0);
+    ${({ isOpen }) => isOpen && transformMenuOpen};
     opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
     transition: ${({ isOpen }) => (isOpen ? '0.25s ease-in' : '0.2s ease-out')};
   }

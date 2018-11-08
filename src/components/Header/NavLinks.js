@@ -13,6 +13,9 @@ class NavLinks extends PureComponent {
     const isOpen = navMenuOpen || !isMobile;
     // const isClosed = !navMenuOpen && isMobile;
 
+    console.log({ navMenuOpen });
+    console.log({ isMobile });
+    console.log({ isOpen });
     return (
       <NavLinksWrapper>
         <NavMenuToggleWrapper isOpen={isOpen}>
