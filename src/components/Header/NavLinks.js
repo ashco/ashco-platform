@@ -27,7 +27,7 @@ class NavLinks extends Component {
   }
 }
 
-class NavLinkItem extends PureComponent {
+class NavLinkItem extends Component {
   render() {
     const { to, title, closeMenu } = this.props;
     return (
