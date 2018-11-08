@@ -18,6 +18,8 @@ class Main extends PureComponent {
       if (navMenuOpen && !isHome) {
         marginTop = '605px';
       }
+      console.log('its mobile');
+      console.log('marginTop:', marginTop);
       // }
     } else {
       marginTop = '13vh';
