@@ -18,8 +18,8 @@ class NavLinks extends PureComponent {
     console.log({ isOpen });
     return (
       <NavLinksWrapper>
-        {/* <NavMenuToggleWrapper isOpen={isOpen}> */}
-        <NavMenuToggleWrapper>
+        <NavMenuToggleWrapper isOpen={isOpen}>
+          {/* <NavMenuToggleWrapper> */}
           <ul>
             <NavLinkItem to="/about/" title="About" closeMenu />
             <NavLinkItem to="/projects/" title="Projects" closeMenu />
