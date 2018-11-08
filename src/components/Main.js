@@ -9,6 +9,9 @@ class Main extends PureComponent {
     const { children, isMobile, isHome, navMenuOpen } = this.props;
     let marginTop = 100;
 
+    console.log(this.props);
+    console.log('isMobile:', this.props.isMobile);
+
     if (isMobile) {
       if (typeof window !== `undefined`) {
         marginTop = isHome ? `0` : `140px`;
