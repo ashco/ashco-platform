@@ -10,7 +10,6 @@ import NavMenuToggleWrapper from '../Animation/NavMenuToggle';
 class NavLinks extends PureComponent {
   render() {
     const { navMenuOpen, isMobile } = this.props;
-    console.log(this.props.navMenuOpen);
     return (
       <NavLinksWrapper>
         <NavMenuToggleWrapper closed={!navMenuOpen && isMobile}>
@@ -50,7 +49,8 @@ const NavLinksWrapper = styled.div`
   font-size: 1.25rem;
   margin: 1.45rem 0.6rem;
   position: absolute;
-  right: 0;
+  /* right: 0; */
+  right: -35vw;
   top: 90px;
 
   ul {

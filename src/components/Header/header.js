@@ -15,13 +15,7 @@ class Header extends PureComponent {
     const { isHome, isMobile, pathname, updateTheme } = this.props;
     return (
       <VisualContextConsumer>
-        {({
-          navMenuOpen,
-          toggleNavMenu,
-          colorMenuOpen,
-          toggleColorMenu,
-          // updateTheme,
-        }) => (
+        {({ navMenuOpen, toggleNavMenu, colorMenuOpen, toggleColorMenu }) => (
           <HeaderWrapper
             ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
           >

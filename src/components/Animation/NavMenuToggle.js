@@ -4,7 +4,7 @@ import { media } from '../../config/media';
 const NavMenuToggleWrapper = styled.div`
   ul li {
     transform: ${({ closed }) =>
-      closed ? 'translate3d(35vw, 0, 0)' : 'translate3d(0, 0, 0)'};
+      closed ? 'translate3d(0, 0, 0)' : 'translate3d(-35vw, 0, 0)'};
     opacity: ${({ closed }) => (closed ? 0 : 1)};
     transition: ${({ closed }) => (closed ? '0.2s ease-out' : '0.25s ease-in')};
   }
@@ -20,6 +20,9 @@ const NavMenuToggleWrapper = styled.div`
   ul li:nth-child(5) {
     transition-delay: ${({ closed }) => (closed ? 0 : '0.2s')};
   }
+  ${media.tablet`
+    transform: translate3d(35vw, 0, 0);
+  `};
 `;
 
 export default NavMenuToggleWrapper;
