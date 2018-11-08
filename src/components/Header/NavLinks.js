@@ -10,11 +10,13 @@ import NavMenuToggleWrapper from '../Animation/NavMenuToggle';
 class NavLinks extends PureComponent {
   render() {
     const { navMenuOpen, isMobile } = this.props;
-    const isClosed = !navMenuOpen && isMobile;
+    const isOpen = navMenuOpen || !isMobile;
+    // const isClosed = !navMenuOpen && isMobile;
 
     return (
       <NavLinksWrapper>
-        <NavMenuToggleWrapper closed={isClosed}>
+        <NavMenuToggleWrapper isOpen={isOpen}>
+          {/* <NavMenuToggleWrapper closed={isClosed}> */}
           <ul>
             <NavLinkItem to="/about/" title="About" closeMenu />
             <NavLinkItem to="/projects/" title="Projects" closeMenu />
