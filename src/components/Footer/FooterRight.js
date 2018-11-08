@@ -39,8 +39,8 @@ class FooterRight extends PureComponent {
             <li>
               <OutboundLink
                 href="https://www.linkedin.com/in/ashtonchristie/"
-                title="LinkedIn"
-                aria-label="LinkedIn"
+                title="Linkedinn"
+                aria-label="Linkedinn"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -50,8 +50,8 @@ class FooterRight extends PureComponent {
             <li>
               <OutboundLink
                 href="https://twitter.com/AshCo_Io"
-                title="Twitter"
-                aria-label="Twitter"
+                title="Twitta"
+                aria-label="Twitta"
                 target="_blank"
                 rel="noopener noreferrer"
               >
