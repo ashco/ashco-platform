@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { VisualContextConsumer } from '../Context/VisualContext';
 
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
 
 import NavMenuToggleWrapper from '../Animation/NavMenuToggle';
 
-class NavLinks extends PureComponent {
+class NavLinks extends Component {
   render() {
     const { navMenuOpen, isMobile } = this.props;
     const isClosed = !navMenuOpen && isMobile;
