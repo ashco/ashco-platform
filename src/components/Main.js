@@ -4,30 +4,83 @@ import styled from 'styled-components';
 import { sizes, media } from '../config/media';
 
 class Main extends PureComponent {
-  render() {
-    // Calculate top margin
-    const { children, isMobile, isHome, navMenuOpen } = this.props;
-    let marginTop = 100;
-
-    console.log(this.props);
-    console.log('isMobile:', this.props.isMobile);
+  constructor(props) {
+    super(props);
+    const { isMobile, isHome, navMenuOpen } = this.props;
+    let marginTop = '140px';
 
     if (isMobile) {
-      // if (typeof window !== `undefined`) {
       marginTop = isHome ? `0` : `140px`;
       if (navMenuOpen && !isHome) {
         marginTop = '605px';
       }
-      console.log('its mobile');
-      console.log('marginTop:', marginTop);
-      // }
     } else {
       marginTop = '13vh';
     }
 
+    this.state = {
+      marginTop,
+    };
+  }
+
+  componentDidUpdate() {
+    const { isMobile, isHome, navMenuOpen } = this.props;
+    let marginTop = '140px';
+
+    if (isMobile) {
+      marginTop = isHome ? `0` : `140px`;
+      if (navMenuOpen && !isHome) {
+        marginTop = '605px';
+      }
+    } else {
+      marginTop = '13vh';
+    }
+
+    this.setState = {
+      marginTop,
+    };
+  }
+
+  getMarginTop() {
+    const { isMobile, isHome, navMenuOpen } = this.props;
+    let marginTop = '140px';
+
+    if (isMobile) {
+      marginTop = isHome ? `0` : `140px`;
+      if (navMenuOpen && !isHome) {
+        marginTop = '605px';
+      }
+    } else {
+      marginTop = '13vh';
+    }
+
+    return marginTop;
+  }
+
+  render() {
+    // Calculate top margin
+    // const { marginTop } = this.state;
+    const { children, isHome } = this.props;
+    // let marginTop = 140;
+    // console.log(this.props);
+    // console.log('isMobile:', this.props.isMobile);
+
+    // if (isMobile) {
+    //   // if (typeof window !== `undefined`) {
+    //   marginTop = isHome ? `0` : `140px`;
+    //   if (navMenuOpen && !isHome) {
+    //     marginTop = '605px';
+    //   }
+    //   console.log('its mobile');
+    //   console.log('marginTop:', marginTop);
+    //   // }
+    // } else {
+    //   marginTop = '13vh';
+    // }
     return (
       <Thing>
-        <MainWrapper isHome={isHome} marginTop={marginTop}>
+        {/* <MainWrapper isHome={isHome} marginTop={marginTop}> */}
+        <MainWrapper isHome={isHome} marginTop={this.getMarginTop()}>
           {children}
         </MainWrapper>
         <FooterSpacer />
