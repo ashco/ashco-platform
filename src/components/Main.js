@@ -35,7 +35,7 @@ const FooterSpacer = styled.div`
 `;
 
 const notHomeMinHeight = css`
-  min-height: calc(100vh - 130px - 130px);
+  min-height: calc(100vh - 140px - 140px);
 `;
 
 const MainWrapper = styled.main`
@@ -47,10 +47,10 @@ const MainWrapper = styled.main`
   width: 100%;
   /* 140x2 to evenly frame main */
   ${({ isHome }) =>
-    isHome ? 'min-height: 0; height: 0' : notHomeMinHeight}
+    isHome ? 'min-height: 0; height: 0;' : notHomeMinHeight}
   margin: 0 auto;
   margin-top: ${({ isHome, navMenuOpen }) =>
-    isHome ? '100vh' : navMenuOpen ? '605px' : '130px'};
+    isHome ? '100vh' : navMenuOpen ? '605px' : '140px'};
   background-color: ${({ theme, isHome }) =>
     isHome ? 'transparent' : theme.colorBackground};
   transition: 0.3s cubic-bezier(0.43, 0.26, 0, 1.01);
