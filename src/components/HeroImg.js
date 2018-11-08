@@ -8,7 +8,7 @@ class HeroImg extends PureComponent {
   render() {
     const { showHeroImg, isHome } = this.props;
     return (
-      <FadeWrapper noFade={isHome} visible={showHeroImg}>
+      <FadeWrapper isHome={isHome} visible={showHeroImg}>
         <HeroTextWrapper isHome={isHome}>
           <LineLeft />
           <LineBottom />

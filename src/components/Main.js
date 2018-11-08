@@ -7,17 +7,17 @@ class Main extends PureComponent {
   render() {
     const { children, isHome, navMenuOpen } = this.props;
     return (
-      <Thing>
+      <MainContainer>
         <MainWrapper isHome={isHome} navMenuOpen={navMenuOpen}>
           {children}
         </MainWrapper>
         <FooterSpacer isHome={isHome} />
-      </Thing>
+      </MainContainer>
     );
   }
 }
 
-const Thing = styled.div`
+const MainContainer = styled.div`
   position: absolute;
   z-index: 10;
   width: 100%;
@@ -34,25 +34,16 @@ const FooterSpacer = styled.div`
   }
 `;
 
-const notHomeMinHeight = css`
-  min-height: calc(100vh - 140px - 140px);
-`;
-
 const MainWrapper = styled.main`
-  border-top: ${({ isHome, theme }) =>
-    isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
-  border-bottom: ${({ isHome, theme }) =>
-    isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
+  border-top: ${({ theme }) => `7px solid ${theme.colorPrimary}`};
+  border-bottom: ${({ theme }) => `7px solid ${theme.colorPrimary}`};
   overflow: auto;
   width: 100%;
   /* 140x2 to evenly frame main */
-  ${({ isHome }) =>
-    isHome ? 'min-height: 0; height: 0;' : notHomeMinHeight}
+  min-height: calc(100vh - 140px - 140px);
   margin: 0 auto;
-  margin-top: ${({ isHome, navMenuOpen }) =>
-    isHome ? '100vh' : navMenuOpen ? '605px' : '140px'};
-  background-color: ${({ theme, isHome }) =>
-    isHome ? 'transparent' : theme.colorBackground};
+  margin-top: ${({ navMenuOpen }) => (navMenuOpen ? '605px' : '140px')};
+  background-color: ${({ theme }) => theme.colorBackground};
   transition: 0.3s cubic-bezier(0.43, 0.26, 0, 1.01);
   @media (min-width: ${sizes.tablet}px) {
     min-height: 77vh;
@@ -63,14 +54,31 @@ const MainWrapper = styled.main`
     margin-left: 8vw;
     margin-right: 8vw;
     width: 84vw;
-    border: ${({ isHome, theme }) =>
-      isHome ? 'none' : `7px solid ${theme.colorPrimary}`};
+    border: ${({ theme }) => `7px solid ${theme.colorPrimary}`};
   }
   ${media.hd`
     margin-left: 15vw;
     margin-right: 15vw;
     width: 70vw;
   `};
+  ${({ isHome }) => isHome && MainWrapper_isHome}
+`;
+
+const MainWrapper_isHome = css`
+  border-top: none;
+  border-bottom: none;
+  margin-top: 100vh;
+  background-color: transparent;
+  min-height: 0;
+  height: 0;
+  @media (min-width: ${sizes.tablet}px) {
+    min-height: 0;
+    height: 0;
+    margin-top: 100vh;
+  }
+  @media (min-width: ${sizes.laptop}px) {
+    border: none;
+  }
 `;
 
 export default Main;
