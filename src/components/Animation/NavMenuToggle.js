@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { media } from '../../config/media';
+// import { media } from '../../config/media';
 
 const NavMenuToggleWrapper_Open = css`
   ul li {
@@ -41,10 +41,7 @@ const NavMenuToggleWrapper = styled.div`
   ul li:nth-child(5) {
     transition-delay: 0;
   }
-  /* ${({ isOpen }) => isOpen && NavMenuToggleWrapper_Open}; */
-  ${media.tablet`
-    transform: translate3d(35vw, 0, 0);
-  `};
+  ${({ isOpen }) => isOpen && NavMenuToggleWrapper_Open};
 `;
 
 export default NavMenuToggleWrapper;
