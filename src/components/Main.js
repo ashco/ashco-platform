@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { sizes, media } from '../config/media';
 
 class Main extends PureComponent {
@@ -11,7 +11,7 @@ class Main extends PureComponent {
         <MainWrapper isHome={isHome} navMenuOpen={navMenuOpen}>
           {children}
         </MainWrapper>
-        <FooterSpacer />
+        <FooterSpacer isHome={isHome} />
       </Thing>
     );
   }
@@ -25,13 +25,17 @@ const Thing = styled.div`
 `;
 
 const FooterSpacer = styled.div`
-  height: 220px;
+  height: ${({ isHome }) => (isHome ? 0 : '220px')};
   @media (min-width: ${sizes.tablet}px) {
     height: 7.8rem;
   }
   @media (min-width: 935px) {
     height: 6rem;
   }
+`;
+
+const notHomeMinHeight = css`
+  min-height: calc(100vh - 140px - 140px);
 `;
 
 const MainWrapper = styled.main`
@@ -42,13 +46,12 @@ const MainWrapper = styled.main`
   overflow: auto;
   width: 100%;
   /* 140x2 to evenly frame main */
-  min-height: calc(100vh - 140px - 140px);
+  ${({ isHome }) => (isHome ? 'min-height: 0; height: 0' : notHomeMinHeight)};
   margin: 0 auto;
   margin-top: ${({ isHome, navMenuOpen }) =>
     isHome ? '100vh' : navMenuOpen ? '605px' : '140px'};
   background-color: ${({ theme, isHome }) =>
     isHome ? 'transparent' : theme.colorBackground};
-
   transition: 0.3s cubic-bezier(0.43, 0.26, 0, 1.01);
   @media (min-width: ${sizes.tablet}px) {
     min-height: 77vh;

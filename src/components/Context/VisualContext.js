@@ -38,9 +38,7 @@ export class VisualContextProvider extends Component {
   };
 
   calcHeroImg() {
-    const { isMobile, isHome, innerHeight, scrollLength } = this.props;
-    const mobileMarginTop = 140;
-    const midScreenPoint = (innerHeight + mobileMarginTop) * 0.7;
+    const { isMobile, isHome, scrollLength } = this.props;
     let showHeroImg = false;
 
     if (isMobile) {
