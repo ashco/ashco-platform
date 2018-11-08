@@ -41,10 +41,7 @@ const NavMenuToggleWrapper = styled.div`
   ul li:nth-child(5) {
     transition-delay: 0;
   }
-  ${({ isOpen }) => {
-    console.log(isOpen);
-    return isOpen && NavMenuToggleWrapper_Open;
-  }};
+  /* ${({ isOpen }) => isOpen && NavMenuToggleWrapper_Open}; */
   ${media.tablet`
     transform: translate3d(35vw, 0, 0);
   `};
