@@ -25,8 +25,8 @@ class Layout extends Component {
   constructor(props) {
     super(props);
 
-    let themeObj;
-    // let themeObj = themeDefault;
+    // let themeObj;
+    let themeObj = themeDefault;
     let innerWidth = 0;
     let innerHeight = 0;
     let scrollLength = 0;
