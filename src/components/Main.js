@@ -6,9 +6,11 @@ import { sizes, media } from '../config/media';
 class Main extends PureComponent {
   getMarginTop() {
     const { isMobile, isHome, navMenuOpen } = this.props;
-    let marginTop = '13vh';
+    let marginTop;
 
-    if (isMobile) {
+    if (!isMobile) {
+      marginTop = '13vh';
+    } else {
       marginTop = isHome ? `0` : `140px`;
       if (!isHome && navMenuOpen) {
         marginTop = '605px';
