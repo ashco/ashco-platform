@@ -4,39 +4,37 @@ import styled from 'styled-components';
 import { sizes, media } from '../config/media';
 
 class Main extends PureComponent {
-  getMarginTop() {
-    const { isMobile, isHome, navMenuOpen } = this.props;
-    let marginTop;
+  // getMarginTop() {
+  //   const { isMobile, isHome, navMenuOpen } = this.props;
+  //   let marginTop;
 
-    if (!isMobile) {
-      console.log('Is Not Mobile');
-      marginTop = '13vh';
-    } else {
-      console.log('Is Very Mobile');
-      marginTop = isHome ? `0` : `140px`;
-      if (!isHome && navMenuOpen) {
-        marginTop = '605px';
-      }
-    }
+  //   if (isMobile) {
+  //     console.log('Is Very Mobile');
+  //     // marginTop = isHome ? `0` : `140px`;
+  //     if (!isHome && navMenuOpen) {
+  //       marginTop = '605px';
+  //     }
+  //   }
 
-    console.log('Margin Top:', marginTop);
-    // if (isMobile) {
-    //   marginTop = isHome ? `0` : `140px`;
-    //   if (navMenuOpen && !isHome) {
-    //     marginTop = '605px';
-    //   }
-    // } else {
-    //   marginTop = '13vh';
-    // }
+  //   console.log('Margin Top:', marginTop);
+  //   // if (isMobile) {
+  //   //   marginTop = isHome ? `0` : `140px`;
+  //   //   if (navMenuOpen && !isHome) {
+  //   //     marginTop = '605px';
+  //   //   }
+  //   // } else {
+  //   //   marginTop = '13vh';
+  //   // }
 
-    return marginTop;
-  }
+  //   return marginTop;
+  // }
 
   render() {
-    const { children, isHome } = this.props;
+    const { children, isHome, navMenuOpen } = this.props;
     return (
       <Thing>
-        <MainWrapper isHome={isHome} marginTop={this.getMarginTop()}>
+        <MainWrapper isHome={isHome} navMenuOpen={navMenuOpen}>
+          {/* <MainWrapper isHome={isHome} marginTop={this.getMarginTop()}> */}
           {children}
         </MainWrapper>
         <FooterSpacer />
@@ -72,12 +70,14 @@ const MainWrapper = styled.main`
   /* 140x2 to evenly frame main */
   min-height: calc(100vh - 140px - 140px);
   margin: 0 auto;
-  margin-top: ${({ marginTop }) => marginTop};
+  /* margin-top: ${({ marginTop }) => marginTop}; */
+  margin-top: ${({ isHome, navMenuOpen }) =>
+    isHome ? '0' : navMenuOpen ? '605px' : '140px'};
   background-color: ${({ theme, isHome }) =>
     isHome ? 'transparent' : theme.colorBackground};
   @media (min-width: ${sizes.tablet}px) {
     min-height: 77vh;
-    margin-top: ${({ marginTop }) => marginTop};
+    margin-top: '13vh';
   }
   @media (min-width: ${sizes.laptop}px) {
     border-radius: 10px;
