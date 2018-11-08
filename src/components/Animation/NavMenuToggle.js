@@ -22,6 +22,8 @@ const NavMenuToggleWrapper_Open = css`
 `;
 
 const NavMenuToggleWrapper = styled.div`
+  position: relative;
+  right: -35vw;
   ul li {
     transform: translate3d(0, 0, 0);
     opacity: 0;

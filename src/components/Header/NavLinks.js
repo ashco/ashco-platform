@@ -56,8 +56,7 @@ const NavLinksWrapper = styled.div`
   font-size: 1.25rem;
   margin: 1.45rem 0.6rem;
   position: absolute;
-  /* right: 0; */
-  right: -35vw;
+  right: 0;
   top: 90px;
 
   ul {
