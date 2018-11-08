@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { VisualContextConsumer } from '../Context/VisualContext';
 
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
 
 import NavMenuToggleWrapper from '../Animation/NavMenuToggle';
 
-class NavLinks extends Component {
+class NavLinks extends PureComponent {
   render() {
     const { navMenuOpen, isMobile } = this.props;
     const isClosed = !navMenuOpen && isMobile;
@@ -27,7 +27,7 @@ class NavLinks extends Component {
   }
 }
 
-class NavLinkItem extends Component {
+class NavLinkItem extends PureComponent {
   render() {
     const { to, title, closeMenu } = this.props;
     return (

@@ -46,7 +46,8 @@ const MainWrapper = styled.main`
   overflow: auto;
   width: 100%;
   /* 140x2 to evenly frame main */
-  ${({ isHome }) => (isHome ? 'min-height: 0; height: 0' : notHomeMinHeight)};
+  ${({ isHome }) =>
+    isHome ? 'min-height: 0; height: 0' : notHomeMinHeight}
   margin: 0 auto;
   margin-top: ${({ isHome, navMenuOpen }) =>
     isHome ? '100vh' : navMenuOpen ? '605px' : '130px'};
@@ -55,7 +56,7 @@ const MainWrapper = styled.main`
   transition: 0.3s cubic-bezier(0.43, 0.26, 0, 1.01);
   @media (min-width: ${sizes.tablet}px) {
     min-height: 77vh;
-    margin-top: '13vh';
+    margin-top: 13vh;
   }
   @media (min-width: ${sizes.laptop}px) {
     border-radius: 10px;
