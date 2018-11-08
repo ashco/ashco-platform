@@ -35,7 +35,11 @@ const FooterSpacer = styled.div`
 `;
 
 const MainWrapper = styled.main`
-  border-top: ${({ theme }) => `7px solid ${theme.colorPrimary}`};
+  /* border-top: ${({ theme }) => `7px solid ${theme.colorPrimary}`}; */
+  border-top: ${({ theme }) => {
+    console.log('theme: ', theme);
+    return `7px solid ${theme.colorPrimary}`;
+  }};
   border-bottom: ${({ theme }) => `7px solid ${theme.colorPrimary}`};
   overflow: auto;
   width: 100%;

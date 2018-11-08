@@ -68,7 +68,7 @@ const PortfolioItemWrapper = styled.article`
       transform: scale(1.03);
     }
   }
-  ${media.tablet`
+  ${media.laptop`
     margin: 15px 20px;
     .overlay h3 {
       font-size: 2.5rem;
