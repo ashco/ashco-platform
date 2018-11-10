@@ -159,7 +159,11 @@ class Layout extends Component {
                 <VisualContextConsumer>
                   {({ showHeroImg }) => {
                     return (
-                      <FadeWrapper heroImg={true} visible={showHeroImg}>
+                      <FadeWrapper
+                        heroImg={true}
+                        isHome={isHome}
+                        visible={showHeroImg}
+                      >
                         <HeroImg isHome={isHome} />
                       </FadeWrapper>
                     );

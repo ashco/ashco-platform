@@ -76,36 +76,6 @@ const MainWrapper = styled.main`
   `};
   ${({ isHome }) => isHome && MainWrapper_isHome}
 `;
-// const MainWrapper = styled.main`
-//   /* border-top: ${({ theme }) => `7px solid ${theme.colorPrimary}`}; */
-//   border-top: ${({ colorPrimary }) => `7px solid ${colorPrimary}`};
-//   border-bottom: ${({ colorPrimary }) => `7px solid ${colorPrimary}`};
-//   overflow: auto;
-//   width: 100%;
-//   /* 140x2 to evenly frame main */
-//   min-height: calc(100vh - 130px - 130px);
-//   margin: 0 auto;
-//   margin-top: ${({ navMenuOpen }) => (navMenuOpen ? '605px' : '130px')};
-//   background-color: ${({ theme }) => theme.colorBackground};
-//   transition: 0.3s cubic-bezier(0.43, 0.26, 0, 1.01);
-//   @media (min-width: ${sizes.tablet}px) {
-//     min-height: 77vh;
-//     margin-top: 13vh;
-//   }
-//   @media (min-width: ${sizes.laptop}px) {
-//     border-radius: 10px;
-//     margin-left: 8vw;
-//     margin-right: 8vw;
-//     width: 84vw;
-//     border: ${({ colorPrimary }) => `7px solid ${colorPrimary}`};
-//   }
-//   ${media.hd`
-//     margin-left: 15vw;
-//     margin-right: 15vw;
-//     width: 70vw;
-//   `};
-//   ${({ isHome }) => isHome && MainWrapper_isHome}
-// `;
 
 const MainWrapper_isHome = css`
   border-top: none;
