@@ -43,7 +43,16 @@ class ContactPage extends PureComponent {
   render() {
     return (
       <ContactContainer>
-        <Helmet title="Contact" meta={[{ name: 'description', content: "Contact for to get in touch with me. It's almost the same as knocking on my door and giving me a high-five." }]} />
+        <Helmet
+          title="Contact"
+          meta={[
+            {
+              name: 'description',
+              content:
+                "Contact for to get in touch with me. It's almost the same as knocking on my door and giving me a high-five.",
+            },
+          ]}
+        />
         <HeaderTextContainer>
           <h2>Wanna chat?</h2>
           <p>
@@ -169,7 +178,7 @@ const FormInputWrapper = styled.p`
   flex-direction: column;
   input,
   textarea {
-    border: 3px solid ${({ theme }) => theme.colorPrimary};
+    border: 3px solid ${({ theme }) => theme.colorPrimary}99;
     background-color: ${({ theme }) => theme.colorBackground};
     padding-top: 8px;
     padding-bottom: 8px;
@@ -211,7 +220,7 @@ export const Button = styled.button`
 
 const ButtonActive = styled(Button)`
   cursor: pointer;
-  border-color: ${({ theme }) => theme.colorPrimary};
+  border-color: ${({ theme }) => theme.colorPrimary}99;
   color: ${({ theme }) => theme.colorText};
 `;
 
