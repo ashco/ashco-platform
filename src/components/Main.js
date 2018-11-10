@@ -43,7 +43,7 @@ const FooterSpacer = styled.div`
     height: ${({ isHome }) => (isHome ? 0 : '7.8rem')};
   }
   @media (min-width: 935px) {
-    height: ${({ isHome }) => (isHome ? 0 : '6rem')};
+    height: ${({ isHome }) => (isHome ? 0 : '10vh')};
   }
 `;
 
