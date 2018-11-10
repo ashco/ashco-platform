@@ -11,11 +11,7 @@ class NavLinks extends PureComponent {
   render() {
     const { navMenuOpen, isMobile } = this.props;
     const isOpen = navMenuOpen || !isMobile;
-    // const isClosed = !navMenuOpen && isMobile;
 
-    console.log({ navMenuOpen });
-    console.log({ isMobile });
-    console.log({ isOpen });
     return (
       <NavLinksWrapper>
         <NavMenuToggleWrapper isOpen={isOpen}>
@@ -52,7 +48,7 @@ class NavLinkItem extends PureComponent {
 }
 
 const NavLinksWrapper = styled.div`
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   margin: 1.45rem 0.6rem;
   position: absolute;
   right: 0;

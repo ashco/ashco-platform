@@ -14,6 +14,7 @@ import Header from '../components/Header/header';
 import Footer from '../components/Footer/Footer';
 import '../style/index.css';
 
+import FadeWrapper from '../components/Animation/Fade';
 import HeroImg from '../components/HeroImg';
 import ParticleBG from '../components/ParticleBG';
 import Main from '../components/Main';
@@ -145,10 +146,7 @@ class Layout extends Component {
           >
             <ThemeProvider theme={themeObj}>
               <LayoutWrapper>
-                <Helmet
-                  // title="Welcome"
-                  titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-                >
+                <Helmet titleTemplate={`%s | ${data.site.siteMetadata.title}`}>
                   <html lang="en" />
                 </Helmet>
                 <ParticleBG innerWidth={innerWidth} innerHeight={innerHeight} />
@@ -161,7 +159,9 @@ class Layout extends Component {
                 <VisualContextConsumer>
                   {({ showHeroImg }) => {
                     return (
-                      <HeroImg showHeroImg={showHeroImg} isHome={isHome} />
+                      <FadeWrapper isHome={isHome} visible={showHeroImg}>
+                        <HeroImg isHome={isHome} />
+                      </FadeWrapper>
                     );
                   }}
                 </VisualContextConsumer>

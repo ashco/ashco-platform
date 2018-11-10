@@ -2,26 +2,22 @@ import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { media } from '../config/media';
 
-import FadeWrapper from './Animation/Fade';
-
 class HeroImg extends PureComponent {
   render() {
-    const { showHeroImg, isHome } = this.props;
+    const { isHome } = this.props;
     return (
-      <FadeWrapper isHome={isHome} visible={showHeroImg}>
-        <HeroTextWrapper isHome={isHome}>
-          <LineLeft />
-          <LineBottom />
-          <FirstText>Welcome</FirstText>
-          <SecondText>To</SecondText>
-          <Spacer />
-          <TitleText>
-            AshCo
-            <StrobeWrapper>.</StrobeWrapper>
-            io
-          </TitleText>
-        </HeroTextWrapper>
-      </FadeWrapper>
+      <HeroTextWrapper isHome={isHome}>
+        <LineLeft />
+        <LineBottom />
+        <FirstText>Welcome</FirstText>
+        <SecondText>To</SecondText>
+        <Spacer />
+        <TitleText>
+          AshCo
+          <StrobeWrapper>.</StrobeWrapper>
+          io
+        </TitleText>
+      </HeroTextWrapper>
     );
   }
 }
