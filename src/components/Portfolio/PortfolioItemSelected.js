@@ -76,7 +76,7 @@ const PortfolioItemSelectedTextContainer = styled.div`
   align-items: center;
   opacity: 0.9;
   padding: 0.8rem 1.6rem;
-  border-top: 3px solid ${props => props.theme.colorPrimary}99;
+  border-top: 5px solid ${props => props.theme.colorPrimary}99;
   border-bottom: 5px solid ${props => props.theme.colorPrimary}99;
   .container-left {
     margin: 1rem 1rem 1rem 0;
