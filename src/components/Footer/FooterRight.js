@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { media } from '../../config/media';
 
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
@@ -16,60 +16,70 @@ class FooterRight extends PureComponent {
     if (this.props.isMobile) {
       this.props.handleFooterRight(false);
     }
+    this.state = {
+      isHovered: true,
+      hoverText: 'Github',
+    };
   }
 
   render() {
+    const { isHovered, hoverText } = this.state;
     const { showFooterRight } = this.props;
 
     return (
       <FooterRightWrapper>
         <FadeWrapper visible={showFooterRight}>
-          <ul>
-            <li>
-              <OutboundLink
-                href="https://github.com/ashco"
-                title="Github"
-                aria-label="Github"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GithubIcon />
-              </OutboundLink>
-            </li>
-            <li>
-              <OutboundLink
-                href="https://www.linkedin.com/in/ashtonchristie/"
-                title="Linkedinn"
-                aria-label="Linkedinn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <LinkedInIcon />
-              </OutboundLink>
-            </li>
-            <li>
-              <OutboundLink
-                href="https://twitter.com/AshCo_Io"
-                title="Twitta"
-                aria-label="Twitta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TwitterIcon />
-              </OutboundLink>
-            </li>
-            <li>
-              <OutboundLink
-                href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view"
-                title="Resume"
-                aria-label="Resume"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ResumeIcon />
-              </OutboundLink>
-            </li>
-          </ul>
+          <FooterRightContainer>
+            <LinkMenuTitle className={isHovered && 'active'}>
+              {hoverText}
+            </LinkMenuTitle>
+            <ul>
+              <li>
+                <OutboundLink
+                  href="https://github.com/ashco"
+                  title="Github"
+                  aria-label="Github"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GithubIcon />
+                </OutboundLink>
+              </li>
+              <li>
+                <OutboundLink
+                  href="https://www.linkedin.com/in/ashtonchristie/"
+                  title="Linkedinn"
+                  aria-label="Linkedinn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LinkedInIcon />
+                </OutboundLink>
+              </li>
+              <li>
+                <OutboundLink
+                  href="https://twitter.com/AshCo_Io"
+                  title="Twitterr"
+                  aria-label="Twitterr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <TwitterIcon />
+                </OutboundLink>
+              </li>
+              <li>
+                <OutboundLink
+                  href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view"
+                  title="Resume"
+                  aria-label="Resume"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ResumeIcon />
+                </OutboundLink>
+              </li>
+            </ul>
+          </FooterRightContainer>
         </FadeWrapper>
       </FooterRightWrapper>
     );
@@ -102,6 +112,26 @@ const FooterRightWrapper = styled.div`
       height: 3rem;
     }
   `};
+`;
+
+const FooterRightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const LinkMenuTitle = styled.span`
+  font-size: 1.6rem;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.25;
+  padding-bottom: 0.5rem;
+  opacity: 1;
+  transform: scale(0.8, 0);
+  transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  .active {
+    opacity: 1;
+  }
 `;
 
 export default FooterRight;
