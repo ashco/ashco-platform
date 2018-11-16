@@ -11,7 +11,14 @@ class PortfolioItemSelected extends PureComponent {
     const { project } = this.props;
     return (
       <PortfolioItemSelectedWrapper>
-        <Img fluid={project.image.fluid} alt={project.image.title} />
+        <a
+          href={project.liveSiteLink}
+          title="Live Link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Img fluid={project.image.fluid} alt={project.image.title} />
+        </a>
         <PortfolioItemSelectedTextContainer>
           <div className="container-left">
             <h3>{project.title}</h3>

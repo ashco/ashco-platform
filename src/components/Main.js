@@ -57,7 +57,7 @@ const MainWrapper = styled.main`
   margin: 0 auto;
   margin-top: ${({ navMenuOpen }) => (navMenuOpen ? '605px' : '130px')};
   background-color: ${({ theme }) => theme.colorBackground};
-  transition: 0.3s cubic-bezier(0.43, 0.26, 0, 1.01);
+  /* transition: 0.3s cubic-bezier(0.43, 0.26, 0, 1.01); */
   @media (min-width: ${sizes.tablet}px) {
     min-height: 77vh;
     margin-top: 13vh;

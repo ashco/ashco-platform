@@ -90,9 +90,7 @@ export class VisualContextProvider extends Component {
         showFooterRight = true;
       }
     } else {
-      if (isHome) {
-        showFooterRight = true;
-      } else if (bottomScreenPoint) {
+      if (isHome || bottomScreenPoint) {
         showFooterRight = true;
       }
     }
