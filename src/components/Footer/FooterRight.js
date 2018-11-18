@@ -69,7 +69,7 @@ class FooterRight extends PureComponent {
               </li>
               <li>
                 <OutboundLink
-                  href="https://drive.google.com/file/d/14z2YxB2hESDel8_Ek3oySUdyQRvpTNF5/view"
+                  href="https://drive.google.com/file/d/1Y3FDNQc74ntktJ7i8aA3IFn0D2rAti1y/view"
                   title="Resume"
                   aria-label="Resume"
                   target="_blank"
