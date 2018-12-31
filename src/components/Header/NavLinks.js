@@ -18,7 +18,7 @@ class NavLinks extends PureComponent {
           <ul>
             <NavLinkItem to="/about/" title="About" closeMenu />
             <NavLinkItem to="/projects/" title="Projects" closeMenu />
-            <NavLinkItem to="/blog/" title="Blog" closeMenu />
+            {/* <NavLinkItem to="/blog/" title="Blog" closeMenu /> */}
             <NavLinkItem to="/contact/" title="Contact" closeMenu />
           </ul>
         </NavMenuToggleWrapper>
