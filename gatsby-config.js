@@ -13,7 +13,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-favicon',
       options: {
-        logo: './src/images/favicon.png',
+        logo: './src/images/favicon-white.png',
         // WebApp Manifest Configuration
         appName: null, // Inferred with your package.json
         appDescription: null,
@@ -22,7 +22,7 @@ module.exports = {
         dir: 'auto',
         lang: 'en-US',
         background: '#1F1F1F',
-        theme_color: '##DF7313',
+        theme_color: '#DF7313',
         display: 'standalone',
         orientation: 'any',
         start_url: '/?homescreen=1',
