@@ -5,7 +5,8 @@ import { media } from '../../config/media';
 import { themeArr } from '../../config/config';
 
 import SelectedIconWrapper from '../Animation/SelectedIcon';
-import AshCoIcon from '../Icons/AshCo';
+// import AshCoIcon from '../Icons/AshCo';
+import AshCoIcon from '../Icons/ashco-v2';
 import { Button } from '../../pages/contact';
 
 class HeaderTitle extends PureComponent {

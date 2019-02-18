@@ -62,12 +62,13 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `AshCo.io`,
-        short_name: `AshCo`,
+        short_name: `AshCo.io`,
         start_url: `/`,
-        background_color: `#1f1f1f`,
-        theme_color: `#1f1f1f`,
+        background_color: `#1F1F1F`,
+        theme_color: `#DF7313`,
         display: `minimal-ui`,
         icon: `src/images/favicon-white.png`, // This path is relative to the root of the site.
+        include_favicon: true, // Includes favicon
       },
     },
     'gatsby-plugin-offline',
