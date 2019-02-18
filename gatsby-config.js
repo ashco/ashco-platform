@@ -90,6 +90,7 @@ module.exports = {
         name: `AshCo.io`,
         short_name: `AshCo.io`,
         start_url: `/`,
+        // This code doesn't do anything!
         background_color: `#1F1F1F`,
         theme_color: `#DF7313`,
         display: `minimal-ui`,
