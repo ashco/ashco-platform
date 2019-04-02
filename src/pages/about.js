@@ -54,7 +54,7 @@ const About = props => {
           />
           <AboutInfoContainer>
             <h2>Hi, I'm Ash. I build stuff.</h2>
-            <p>
+            {/* <p>
               I'm an ambitious Full-Stack Web Developer who specializes in{' '}
               <a
                 href="https://reactjs.org/"
@@ -71,6 +71,17 @@ const About = props => {
               skills wherever I go. Always happy to share my experiences and
               what I've learned so far, so{' '}
               <Link to="/contact/">hit me up!</Link>
+            </p> */}
+            <p>
+            I'm a Full-Stack Web Developer who specializes in <a
+                href="https://reactjs.org/"
+                title="Reactjs"
+                aria-label="React"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                React
+              </a>. I'm a lifelong learner, have an eye for design, and love to build static sites and web apps. Also, I'm an independent consultant currently looking for new projects to work on. If you need a website built, technical problem solved, or just someone to grab coffee with,  don't wait.. <Link to="/contact/">say hello!</Link>
             </p>
           </AboutInfoContainer>
           <AboutSkillsContainer>

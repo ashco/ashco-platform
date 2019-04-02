@@ -36,7 +36,7 @@ class Thanks extends PureComponent {
         <Helmet title="Thanks" meta={[{ name: 'description', content: "Great job, mate! You're actions have just put into a motion a series of events that could alter the history of mankind forever. Or I may never get back to you. We will see."}]} />
         <MailSent />
         <h2>You da best!</h2>
-        <p>You're actions have just put into a motion a series of events that could alter the history of mankind forever. Or I may just never get back to you..</p>
+        <p>Your actions have just put into a motion a series of events that could alter the history of mankind forever. Or I may just never get back to you..</p>
         <p style={{fontSize: '1rem'}}>Redirecting in.. {this.state.countDown}</p>
       </ThanksContainer>
     );

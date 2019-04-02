@@ -54,9 +54,9 @@ class ContactPage extends PureComponent {
           ]}
         />
         <HeaderTextContainer>
-          <h2>Wanna chat?</h2>
+          <h2>Want to talk?</h2>
           <p>
-            Fill out this form and I'll get back to you soon as life lets me.
+            Fill out this form and I'll get back to you soon as I can.
           </p>
         </HeaderTextContainer>
         <FormWrapper
