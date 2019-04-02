@@ -81,7 +81,7 @@ const About = props => {
                 rel="noopener noreferrer"
               >
                 React
-              </a>. I'm a lifelong learner, have an eye for design, and love to build static sites and web apps. Also, I'm an independent consultant currently looking for new projects to work on. If you need a website built, technical problem solved, or just someone to grab coffee with,  don't wait.. <Link to="/contact/">say hello!</Link>
+              </a>. I'm a lifelong learner, have an eye for design, and love to build static sites and web apps as an independent consultant. I'm currently looking for new projects to work on, so if you need a website built, technical problem solved, or just someone to grab coffee with, don't wait.. <Link to="/contact/">say hello!</Link>
             </p>
           </AboutInfoContainer>
           <AboutSkillsContainer>
