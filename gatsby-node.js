@@ -8,7 +8,7 @@ exports.createPages = ({ graphql, actions }) => {
   // SITE REDIRECTS
   createRedirect({
     fromPath: 'https://ashco-io.netlify.com',
-    toPath: 'https://www.ashco.io',
+    toPath: 'https://www.ashchristie.dev',
     isPermanent: true,
   });
 
