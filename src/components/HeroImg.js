@@ -13,9 +13,9 @@ class HeroImg extends PureComponent {
         <SecondText>To</SecondText>
         <Spacer />
         <TitleText>
-          AshCo
+          AshChristie
           <StrobeWrapper>.</StrobeWrapper>
-          io
+          dev
         </TitleText>
       </HeroTextWrapper>
     );

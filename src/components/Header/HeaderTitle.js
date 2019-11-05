@@ -78,7 +78,7 @@ class HeaderTitle extends PureComponent {
           <>
             <ColorMenuWrapper className={colorMenuOpen && 'color-menu-open'}>
               <ColorMenuMessage className={this.state.menuActive && 'active'}>
-                AshCo has options!
+                We got options!
               </ColorMenuMessage>
               <ColorMenuButtonsWrapper>
                 {themeArr.map((themeObj, i) => {

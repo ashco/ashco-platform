@@ -53,7 +53,7 @@ const About = props => {
             ]}
           />
           <AboutInfoContainer>
-            <h2>Hi, I'm Ashton. I build stuff.</h2>
+            <h2>Hi, I'm Ash. I build stuff.</h2>
             <p>
             I'm a Full-Stack Web Developer who specializes in <a
                 href="https://reactjs.org/"
