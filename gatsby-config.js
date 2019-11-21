@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'AshChristie.dev',
-    siteUrl: 'https://www.ashchristie.dev',
+    title: 'akc.dev',
+    siteUrl: 'https://www.akc.dev',
     description: 'Welcome to Ashland',
   },
   plugins: [
@@ -87,8 +87,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `AshChristie.dev`,
-        short_name: `AshChristie.dev`,
+        name: `akc.dev`,
+        short_name: `akc.dev`,
         start_url: `/`,
         // This code doesn't do anything!
         background_color: `#1F1F1F`,

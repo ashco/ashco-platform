@@ -28,7 +28,7 @@ const PortfolioPage = () => (
     `}
     render={data => (
       <PortfolioContainer>
-        <Helmet title="Projects" meta={[{ name: 'description', content: "A list of digital creations by Ashton Christie. I'm always looking for something new to build, so sell me on your awesome idea an I'll make it a reality." }]} />
+        <Helmet title="Projects" meta={[{ name: 'description', content: "A list of digital creations by Ashton K. Christie. I'm always looking for something new to build, so sell me on your awesome idea an I'll make it a reality." }]} />
         {data.allContentfulPortfolioProject.edges.map(({ node }) => (
           <PortfolioItem project={node} key={node.id} />
         ))}

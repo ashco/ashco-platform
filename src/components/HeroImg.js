@@ -13,7 +13,7 @@ class HeroImg extends PureComponent {
         <SecondText>To</SecondText>
         <Spacer />
         <TitleText>
-          AshChristie
+          akc
           <StrobeWrapper>.</StrobeWrapper>
           dev
         </TitleText>
@@ -201,14 +201,14 @@ const TitleText = styled.h1`
   animation-fill-mode: forwards;
   /* END OF ANIMATION */
   @media (min-width: 350px) {
-    font-size: 3.8rem;
+    font-size: 4.4rem;
   }
   ${media.laptop`
     line-height: 1.1;
-    font-size: 5.5rem;
+    font-size: 5.8rem;
   `};
   ${media.hd`
-    font-size: 7.5rem;
+    font-size: 7.8rem;
   `};
 `;
 

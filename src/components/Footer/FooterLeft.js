@@ -10,7 +10,7 @@ class FooterLeft extends PureComponent {
     return (
       <FooterLeftWrapper>
         <FadeWrapper visible={showFooterLeft}>
-          <p>© {year} Copyright Ashton Christie. All rights reserved.</p>
+          <p>© {year} Copyright Ashton K. Christie. All rights reserved.</p>
           <p>
             This site is built with{' '}
             <a
