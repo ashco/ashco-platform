@@ -13,9 +13,9 @@ class HeroImg extends PureComponent {
         <SecondText>To</SecondText>
         <Spacer />
         <TitleText>
-          akc
+          AKC
           <StrobeWrapper>.</StrobeWrapper>
-          dev
+          DEV
         </TitleText>
       </HeroTextWrapper>
     );
