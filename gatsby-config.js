@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'akc.dev',
+    title: 'AKC.DEV',
     siteUrl: 'https://www.akc.dev',
     description: 'Welcome to Ashland',
   },
@@ -87,8 +87,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `akc.dev`,
-        short_name: `akc.dev`,
+        name: `AKC.DEV`,
+        short_name: `AKC.DEV`,
         start_url: `/`,
         // This code doesn't do anything!
         background_color: `#1F1F1F`,
