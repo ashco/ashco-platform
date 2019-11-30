@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { media } from '../config/media';
 
-class HeroImg2 extends PureComponent {
+class HeroText extends PureComponent {
   render() {
     const { isHome } = this.props;
     return (
@@ -109,20 +109,24 @@ const HeroTextWrapper = styled.div`
   /* bottom: 10vh; */
 
   /* left: 8vw; */
-  margin: auto auto 20px 20px;
-  padding: 20px 30px 15px 22px;
+  margin: 5%;
+  padding: 15px 15px 15px 20px;
+  width: 90%;
+  left: 0vw;
+  bottom: 5vh;
   h4 {
-    font-size: 1.6rem;
+    font-size: 5.3vw;
     padding-bottom: 2px;
     font-weight: 400;
   }
   h2 {
     font-weight: 600;
-    font-size: 7rem;
+    font-size: 14.2vw;
   }
   ${media.tablet`
     left: 8.5vw;
     bottom: 11vh;
+    width: auto;
     h4 {
       font-size: 1.5rem;
     }
@@ -239,4 +243,4 @@ const HeroTextWrapper = styled.div`
 //   `};
 // `;
 
-export default HeroImg2;
+export default HeroText;

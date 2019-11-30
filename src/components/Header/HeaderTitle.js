@@ -124,10 +124,10 @@ const HeaderTitleWrapper = styled.div`
   align-items: center;
   font-size: 2rem;
   font-weight: 600;
-  padding-top: ${({ isHome }) => isHome ? '160px' : '10px'};
+  padding-top: ${({ isHome }) => isHome ? '40px' : '10px'};
   svg {
-    /* height: ${({ isHome }) => isHome ? '220px' : '65px'}; */
-    height: 65px;
+    height: ${({ isHome }) => isHome ? '120px' : '75px'};
+    /* height: 65px; */
     width: auto;
   }
   a {
