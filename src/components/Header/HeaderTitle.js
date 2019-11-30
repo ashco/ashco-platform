@@ -232,9 +232,10 @@ const ColorMenuButtonsWrapper = styled.div`
   }
 `;
 
-const ColorMenuButton = styled(Button)`
+const ColorMenuButton = styled.button`
   cursor: pointer;
   border: 0.25rem solid ${({ themeObj }) => themeObj.colorPrimary};
+  color: ${({ theme }) => theme.colorPrimary};
   border-radius: 50%;
   padding: 0.45rem;
   margin: 0.35rem;

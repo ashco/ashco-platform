@@ -22,11 +22,11 @@ export const Button = styled.button`
 
 export const ButtonDisabled = styled(Button)`
   cursor: auto;
-  border-color: #88888890;
-  color: #88888870;
+  border-color: #888888cc;
+  color: #888888cc;
   &:hover {
-    border-color: #88888890;
-    color: #88888870;
+    border-color: #888888cc;
+    color: #888888cc;
     background-color: ${({ theme }) => theme.colorBackground};
   }
 `;

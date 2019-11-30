@@ -16,6 +16,7 @@ import '../style/index.css';
 
 import FadeWrapper from '../components/Animation/Fade';
 import HeroImg from '../components/HeroImg';
+import HeroImg2 from '../components/HeroImg2';
 import ParticleBG from '../components/ParticleBG';
 import Main from '../components/Main';
 import { sizes } from '../config/media';
@@ -149,7 +150,7 @@ class Layout extends Component {
                 <Helmet titleTemplate={`%s | ${data.site.siteMetadata.title}`}>
                   <html lang="en" />
                 </Helmet>
-                <ParticleBG innerWidth={innerWidth} innerHeight={innerHeight} />
+
                 <Header
                   isHome={isHome}
                   isMobile={isMobile}
@@ -159,13 +160,14 @@ class Layout extends Component {
                 <VisualContextConsumer>
                   {({ showHeroImg }) => {
                     return (
-                      <FadeWrapper
-                        heroImg={true}
-                        isHome={isHome}
-                        visible={showHeroImg}
-                      >
-                        <HeroImg isHome={isHome} />
-                      </FadeWrapper>
+                      <HeroImg2 isHome={isHome}></HeroImg2>
+                      // <FadeWrapper
+                      //   heroImg={true}
+                      //   isHome={isHome}
+                      //   visible={showHeroImg}
+                      // >
+                      //   <HeroImg isHome={isHome} />
+                      // </FadeWrapper>
                     );
                   }}
                 </VisualContextConsumer>
@@ -182,6 +184,7 @@ class Layout extends Component {
                   )}
                 </VisualContextConsumer>
                 <Footer />
+                <ParticleBG innerWidth={innerWidth} innerHeight={innerHeight} />
               </LayoutWrapper>
             </ThemeProvider>
           </VisualContextProvider>
