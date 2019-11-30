@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
-import { media } from '../../config/media';
+import { media, sizes } from '../../config/media';
 import { themeArr } from '../../config/config';
 
 import SelectedIconWrapper from '../Animation/SelectedIcon';
-// import AshCoIcon from '../Icons/AshCo';
 import AshCoIcon from '../Icons/ashco-v2';
 import { Button } from '../Buttons';
 
@@ -68,7 +67,7 @@ class HeaderTitle extends PureComponent {
     const pageTitle = this.getPageTitle();
 
     return (
-      <HeaderTitleWrapper>
+      <HeaderTitleWrapper isHome={isHome}>
         <Link to="/" aria-label="hero-screen" onClick={this.handleIconClick}>
           <SelectedIconWrapper open={colorMenuOpen}>
             <AshCoIcon />
@@ -125,7 +124,9 @@ const HeaderTitleWrapper = styled.div`
   align-items: center;
   font-size: 2rem;
   font-weight: 600;
+  padding-top: ${({ isHome }) => isHome ? '160px' : '10px'};
   svg {
+    /* height: ${({ isHome }) => isHome ? '220px' : '65px'}; */
     height: 65px;
     width: auto;
   }
@@ -164,24 +165,35 @@ const HeaderTitleWrapper = styled.div`
   }
 
   ${media.tablet`
-    padding-top: 10px;
-    font-size: 2.5rem;
+    /* padding-top: 160px; */
   `};
-  ${media.laptop`
+  @media (min-width: ${sizes.tablet}px) {
+    padding-top: ${({ isHome }) => isHome ? '85px' : '10px'};
+    font-size: 2.5rem;
     svg {
-      height: 75px;
+      height: ${({ isHome }) => isHome ? '140px' : '75px'};
+    }
+  }
+  @media (min-width: ${sizes.laptop}px) {
+    svg {
+      height: ${({ isHome }) => isHome ? '160px' : '85px'};
     }
     font-size: 3rem;
-  `};
-  ${media.desktop`
+  }
+  @media (min-width: ${sizes.desktop}px) {
     svg {
-      height: 85px;
+      height: ${({ isHome }) => isHome ? '180px' : '95px'};
     }
-  `};
+  };
+  @media (min-width: ${sizes.hd}px) {
+    svg {
+      height: ${({ isHome }) => isHome ? '200px' : '105px'};
+    }
+  }
   ${media.hd`
-    svg {
+    /* svg {
       height: 95px;
-    }
+    } */
   `};
 `;
 

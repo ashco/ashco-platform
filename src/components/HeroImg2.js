@@ -106,34 +106,55 @@ const HeroTextWrapper = styled.div`
   /* padding: 30px 35px 10px 20px; */
   /* max-width: 90%; */
   pointer-events: none;
-  bottom: 160px;
-  left: 140px;
+  /* bottom: 10vh; */
+
+  /* left: 8vw; */
+  margin: auto auto 20px 20px;
   padding: 20px 30px 15px 22px;
   h4 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     padding-bottom: 2px;
     font-weight: 400;
   }
   h2 {
     font-weight: 600;
-    font-size: 5.2rem;
+    font-size: 7rem;
   }
-  /* ${media.desktop`
-    margin-left: 15.5vw;
-  `}; */
-  /* ${media.hd`
-    margin-left: 21vw;
-    border-left-width: 10px;
-    border-bottom-width: 10px;
-  `}; */
+  ${media.tablet`
+    left: 8.5vw;
+    bottom: 11vh;
+    h4 {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 5.6rem;
+    }
+  `};
+  ${media.laptop`
+    left: 11vw;
+    bottom: 13vh;
+    h4 {
+      font-size: 1.6rem;
+    }
+    h2 {
+      font-size: 6.4rem;
+    }
+  `};
+  ${media.desktop`
+    left: 15vw;
+    h2 {
+      font-size: 7rem;
+    }
+  `};
+  ${media.hd`
+    left: 18vw;
+    /* border-left-width: 10px;
+    border-bottom-width: 10px; */
+  `};
 
   /* @media (min-width: 350px) {
     margin-left: 10vw;
   }
-  ${media.tablet`
-    margin-left: 11.5vw;
-    margin-bottom: 16vh;
-  `};
    */
 `;
 

@@ -126,7 +126,7 @@ const AboutInfoContainer = styled.div`
   @media (min-width: ${sizes.laptop}px) {
     max-width: 900px;
     h2 {
-      border-bottom: 3px solid ${({ theme }) => theme.colorPrimary};
+      border-bottom: 5px solid ${({ theme }) => theme.colorPrimary};
       width: 60%;
       font-size: 2.8rem;
     }
