@@ -7,7 +7,7 @@ import { themeArr } from '../../config/config';
 import SelectedIconWrapper from '../Animation/SelectedIcon';
 // import AshCoIcon from '../Icons/AshCo';
 import AshCoIcon from '../Icons/ashco-v2';
-import { Button } from '../../pages/contact';
+import { Button } from '../Buttons';
 
 class HeaderTitle extends PureComponent {
   state = {
@@ -95,8 +95,8 @@ class HeaderTitle extends PureComponent {
             </ColorMenuWrapper>
           </>
         ) : (
-          <h1>{pageTitle}</h1>
-        )}
+            <h1>{pageTitle}</h1>
+          )}
       </HeaderTitleWrapper>
     );
   }
@@ -234,16 +234,13 @@ const ColorMenuButtonsWrapper = styled.div`
 
 const ColorMenuButton = styled(Button)`
   cursor: pointer;
-  border: 0.25rem solid ${({ themeObj }) => themeObj.colorPrimary}dd;
+  border: 0.25rem solid ${({ themeObj }) => themeObj.colorPrimary};
   border-radius: 50%;
   padding: 0.45rem;
   margin: 0.35rem;
-  background: transparent;
+  background: ${({ themeObj }) => themeObj.colorBackground};
   height: 0;
   width: 0;
-  &:hover {
-    border-color: ${({ themeObj }) => themeObj.colorPrimary};
-  }
 `;
 
 export default HeaderTitle;

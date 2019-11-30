@@ -9,6 +9,7 @@ import { DefaultContainer } from '../components/helpers';
 import FrontEnd from '../components/Icons/FrontEnd';
 import BackEnd from '../components/Icons/BackEnd';
 import EverythingElse from '../components/Icons/EverythingElse';
+import { Button } from '../components/Buttons'
 
 import { withTheme } from 'styled-components';
 
@@ -48,23 +49,16 @@ const About = props => {
               {
                 name: 'description',
                 content:
-                  'All about Ashton. Yep, this pretty much sums it all up..',
+                  'All about Ash. Yep, this pretty much sums it all up..',
               },
             ]}
           />
           <AboutInfoContainer>
-            <h2>Hi, I'm Ashton. I build stuff.</h2>
+            <h2>Hi, I'm Ash. I build stuff.</h2>
             <p>
-            I'm a Full-Stack Web Developer who specializes in <a
-                href="https://reactjs.org/"
-                title="Reactjs"
-                aria-label="React"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                React
-              </a>. I'm a lifelong learner, have an eye for design, and love to build static sites and web apps as an independent consultant. I'm currently looking for new projects to work on, so if you need a website built, technical problem solved, or just someone to grab coffee with, don't wait.. <Link to="/contact/">say hello!</Link>
+              I am a Web Developer + Designer and always looking for my next project. I'm currently looking for new projects to work on, so if you need a website built, technical problem solved, or just someone to grab coffee with, don't wait..
             </p>
+            <Link to="/contact/"><Button>Say Hello!</Button></Link>
           </AboutInfoContainer>
           <AboutSkillsContainer>
             {data.allContentfulAboutDataColumn.edges.map((skill, i) => {
@@ -127,27 +121,27 @@ const AboutInfoContainer = styled.div`
   p {
     font-size: 1.1rem;
     line-height: 1.1;
-    margin-top: 1rem;
+    margin: 1rem auto;
   }
   @media (min-width: ${sizes.laptop}px) {
     max-width: 900px;
     h2 {
       border-bottom: 3px solid ${({ theme }) => theme.colorPrimary};
       width: 60%;
-      font-size: 2.2rem;
-    }
-    p {
-      font-size: 1.2rem;
-    }
-  }
-  ${media.hd`
-    max-width: 1000px;
-    h2 {
       font-size: 2.8rem;
     }
     p {
       font-size: 1.35rem;
     }
+  }
+  ${media.hd`
+    max-width: 1000px;
+    /* h2 {
+      font-size: 2.8rem;
+    }
+    p {
+      font-size: 1.35rem;
+    } */
   `};
 `;
 
@@ -210,13 +204,14 @@ const SkillColumn = styled.div`
     line-height: 1.15;
   }
   @media (min-width: ${sizes.laptop}px) {
-    border: 2px solid ${({ theme }) => theme.colorPrimary}dd;
+    border: 3px solid ${({ theme }) => theme.colorPrimary}dd;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     border-radius: 15px;
     :last-child {
       border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
     }
     svg {
+      height: 6.5rem;
       path,
       rect,
       polygon {
@@ -228,16 +223,16 @@ const SkillColumn = styled.div`
       }
     }
     h4 {
-      font-size: 1.4rem;
-      border-bottom: 3px solid ${({ theme }) => theme.colorPrimary}dd;
+      border-bottom: 4px solid ${({ theme }) => theme.colorPrimary}dd;
+      font-size: 1.6rem;
     }
     h5,
     p,
     li {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
     &:hover {
-      border: 2px solid ${({ theme }) => theme.colorPrimary};
+      border: 3px solid ${({ theme }) => theme.colorPrimary};
       box-shadow: ${({ theme }) => theme.colorPrimary}40 0px 8px 20px;
       transform: translateY(-3px);
       svg {
@@ -252,7 +247,7 @@ const SkillColumn = styled.div`
         }
       }
       h4 {
-        border-bottom: 3px solid ${({ theme }) => theme.colorPrimary};
+        border-bottom: 4px solid ${({ theme }) => theme.colorPrimary};
       }
       h4,
       h5 {
@@ -261,7 +256,7 @@ const SkillColumn = styled.div`
       }
     }
   }
-  @media (min-width: ${sizes.hd}px) {
+  /* @media (min-width: ${sizes.hd}px) {
     border: 3px solid ${({ theme }) => theme.colorPrimary}dd;
     svg {
       height: 6.5rem;
@@ -281,7 +276,7 @@ const SkillColumn = styled.div`
         border-bottom: 4px solid ${({ theme }) => theme.colorPrimary};
       }
     }
-  }
+  } */
 `;
 
 export default withTheme(About);

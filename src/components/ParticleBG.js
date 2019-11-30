@@ -65,7 +65,7 @@ class ParticleBG extends Component {
               },
             },
             size: {
-              value: 3,
+              value: 4,
               random: true,
               anim: {
                 enable: false,

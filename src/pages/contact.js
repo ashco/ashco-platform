@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import { media } from '../config/media';
 import Helmet from 'react-helmet';
 import { DefaultContainer } from '../components/helpers';
+
+import { media } from '../config/media';
+import { Button, ButtonDisabled } from '../components/Buttons';
 
 class ContactPage extends PureComponent {
   state = {
@@ -104,8 +106,8 @@ class ContactPage extends PureComponent {
                 Send
               </ButtonDisabled>
             ) : (
-              <ButtonActive type="submit">Send</ButtonActive>
-            )}
+                <Button type="submit">Send</Button>
+              )}
           </div>
         </FormWrapper>
       </ContactContainer>
@@ -178,7 +180,7 @@ const FormInputWrapper = styled.p`
   flex-direction: column;
   input,
   textarea {
-    border: 3px solid ${({ theme }) => theme.colorPrimary}99;
+    border: 3px solid ${({ theme }) => theme.colorPrimary};
     background-color: ${({ theme }) => theme.colorBackground};
     padding-top: 8px;
     padding-bottom: 8px;
@@ -205,28 +207,5 @@ const FormInputWrapper = styled.p`
   `};
 `;
 
-export const Button = styled.button`
-  padding: 0.5rem 1.2rem 0.5rem 1.2rem;
-  font-size: 1.1rem;
-  background-color: ${({ theme }) => theme.colorBackground};
-  border: 4px solid;
-  ${media.desktop`
-    font-size: 1.2rem;
-  `};
-  ${media.hd`
-    font-size: 1.4rem;
-  `};
-`;
-
-const ButtonActive = styled(Button)`
-  cursor: pointer;
-  border-color: ${({ theme }) => theme.colorPrimary}99;
-  color: ${({ theme }) => theme.colorText};
-`;
-
-const ButtonDisabled = styled(Button)`
-  border-color: #88888890;
-  color: #88888870;
-`;
 
 export default ContactPage;

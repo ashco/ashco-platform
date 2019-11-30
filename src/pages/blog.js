@@ -35,7 +35,7 @@ const BlogPage = () => (
             {
               name: 'description',
               content:
-                'Blog entries on life, tech, and the things in between by me, Ashton.',
+                'Blog entries on life, tech, and the things in between by me, Ash.',
             },
           ]}
         />
