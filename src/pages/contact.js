@@ -116,41 +116,8 @@ class ContactPage extends PureComponent {
 }
 
 const ContactContainer = styled(DefaultContainer)`
-  /* max-width: 660px; */
-  /* width: 90%; */
-  @media (min-width: 750px) {
-    /* margin: 3rem auto; */
-  }
 `;
 
-// const HeaderTextContainer = styled.div`
-//   margin-bottom: 0.75rem;
-//   h2 {
-//     margin-bottom: 0.35em;
-//     font-size: 2.2rem;
-//     line-height: 1em;
-//     font-weight: 600;
-//   }
-//   p {
-//     font-size: 1.1rem;
-//   }
-//   ${media.desktop`
-//     h2 {
-//       font-size: 2.5rem;
-//     }
-//     p {
-//       font-size: 1.2rem;
-//     }
-//   `};
-//   ${media.desktop`
-//     h2 {
-//       font-size: 2.7rem;
-//     }
-//     p {
-//       font-size: 1.4rem;
-//     }
-//   `};
-// `;
 
 const FormWrapper = styled.form`
   width: 90%;

@@ -12,13 +12,11 @@ export const DefaultContainer = styled.div`
   height: 100%;
   max-width: 990px;
   margin: auto;
-  /* margin: 1.5rem auto; */
   >*:last-child {
     margin-bottom: 1.5rem;
   }
   ${media.tablet`
     box-shadow: 0px 0px 60px -25px inset ${({ theme }) => theme.colorPrimary};
-    /* margin: 3rem auto; */
   `};
   ${media.laptop`
     >*:last-child {
@@ -75,18 +73,6 @@ export const HeaderTextContainer = styled.div`
   `};
 `;
 
-// export const HeaderText = styled.h2`
-//     font-size: 1.9rem;
-//     font-weight: 600;
-//     color: ${({ theme }) => theme.colorPrimary};
-//     border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
-//     padding: 0 1.5rem 0.6rem 1.5rem;
-//     @media (min-width: ${sizes.laptop}px) {
-//       border-bottom: 5px solid ${({ theme }) => theme.colorPrimary};
-//       width: 60%;
-//       font-size: 2.8rem;
-//     }
-// `;
 
 export const PageLink = ({ to, text }) => (
   <PageLinkWrapper>

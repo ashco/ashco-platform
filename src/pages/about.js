@@ -87,7 +87,6 @@ const About = props => {
 };
 
 const AboutContainer = styled(DefaultContainer)`
-  /* width: 90%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,46 +104,6 @@ const AboutContainer = styled(DefaultContainer)`
   `};
 `;
 
-// const AboutInfoContainer = styled.div`
-//   max-width: 700px;
-//   text-align: center;
-//   margin: 1rem 0 2rem 0;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   /* h2 {
-//     font-size: 1.9rem;
-//     font-weight: 600;
-//     color: ${({ theme }) => theme.colorPrimary};
-//     border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
-//     padding: 0 1.5rem 0.6rem 1.5rem;
-//   } */
-//   p {
-//     font-size: 1.1rem;
-//     line-height: 1.1;
-//     margin: 1rem auto;
-//   }
-//   @media (min-width: ${sizes.laptop}px) {
-//     max-width: 900px;
-//     /* h2 {
-//       border-bottom: 5px solid ${({ theme }) => theme.colorPrimary};
-//       width: 60%;
-//       font-size: 2.8rem;
-//     } */
-//     p {
-//       font-size: 1.35rem;
-//     }
-//   }
-//   ${media.hd`
-//     max-width: 1000px;
-//     /* h2 {
-//       font-size: 2.8rem;
-//     }
-//     p {
-//       font-size: 1.35rem;
-//     } */
-//   `};
-// `;
 
 const AboutSkillsContainer = styled.div`
   max-width: 90%;
