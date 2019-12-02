@@ -116,7 +116,7 @@ const HeroTextWrapper = styled.div`
   bottom: 5vh;
   h4 {
     font-size: 5.3vw;
-    padding-bottom: 2px;
+    padding-bottom: 0.5rem;
     font-weight: 400;
   }
   h2 {

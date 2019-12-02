@@ -7,15 +7,76 @@ export const DefaultContainer = styled.div`
   pointer-events: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   max-width: 990px;
-  margin: 1.5rem auto;
+  margin: auto;
+  /* margin: 1.5rem auto; */
   ${media.tablet`
     box-shadow: 0px 0px 60px -25px inset ${({ theme }) => theme.colorPrimary};
+    /* margin: 3rem auto; */
   `};
 `;
+
+export const HeaderTextContainer = styled.div`
+  margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  >* {
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: 12px;
+    line-height: 1em;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: ${({ theme }) => theme.colorPrimary};
+    border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
+    padding: 0 1.5rem 0.6rem 1.5rem;
+  }
+  p {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    line-height: 1.1em;
+  }
+  ${media.tablet`
+    h2 {
+      font-size: 2rem;
+    }
+  `};
+  ${media.laptop`
+    width: 80%;
+    margin: 3rem auto;
+    h2 {
+      border-bottom-width: 5px;
+      font-size: 2.5rem;
+    }
+  `};
+  ${media.desktop`
+    p {
+      font-size: 1.4rem;
+    }
+    h2 {
+      font-size: 2.8rem;
+    }
+  `};
+`;
+
+// export const HeaderText = styled.h2`
+//     font-size: 1.9rem;
+//     font-weight: 600;
+//     color: ${({ theme }) => theme.colorPrimary};
+//     border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
+//     padding: 0 1.5rem 0.6rem 1.5rem;
+//     @media (min-width: ${sizes.laptop}px) {
+//       border-bottom: 5px solid ${({ theme }) => theme.colorPrimary};
+//       width: 60%;
+//       font-size: 2.8rem;
+//     }
+// `;
 
 export const PageLink = ({ to, text }) => (
   <PageLinkWrapper>

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 import PortfolioItemSelected from './PortfolioItemSelected';
 import PortfolioItem from './PortfolioItem';
-import PortfolioContainer from './PortfolioContainer';
+import { ProjectsContainer as PortfolioContainer } from '../../pages/projects';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 

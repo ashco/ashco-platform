@@ -1,7 +1,7 @@
 export const themeDefault = {
   colorPrimary: '#DD702B',
-  colorBackground: '#ffffff',
-  colorText: '#222222',
+  colorBackground: '#1f1f1f',
+  colorText: '#dfdfdf',
 };
 
 export const themeArr = [

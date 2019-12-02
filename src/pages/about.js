@@ -5,11 +5,12 @@ import Helmet from 'react-helmet';
 
 import { media, sizes } from '../config/media';
 import { Link } from 'gatsby';
-import { DefaultContainer } from '../components/helpers';
+import { DefaultContainer, HeaderTextContainer } from '../components/helpers';
 import FrontEnd from '../components/Icons/FrontEnd';
 import BackEnd from '../components/Icons/BackEnd';
 import EverythingElse from '../components/Icons/EverythingElse';
 import { Button } from '../components/Buttons'
+
 
 import { withTheme } from 'styled-components';
 
@@ -53,13 +54,13 @@ const About = props => {
               },
             ]}
           />
-          <AboutInfoContainer>
+          <HeaderTextContainer>
             <h2>Hi, I'm Ash. I build stuff.</h2>
             <p>
               I am a Web Developer + Designer and always looking for my next project. I'm currently looking for new projects to work on, so if you need a website built, technical problem solved, or just someone to grab coffee with, don't wait..
             </p>
             <Link to="/contact/"><Button>Say Hello!</Button></Link>
-          </AboutInfoContainer>
+          </HeaderTextContainer>
           <AboutSkillsContainer>
             {data.allContentfulAboutDataColumn.edges.map((skill, i) => {
               return (
@@ -86,7 +87,7 @@ const About = props => {
 };
 
 const AboutContainer = styled(DefaultContainer)`
-  width: 90%;
+  /* width: 90%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,46 +105,46 @@ const AboutContainer = styled(DefaultContainer)`
   `};
 `;
 
-const AboutInfoContainer = styled.div`
-  max-width: 700px;
-  text-align: center;
-  margin: 1rem 0 2rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h2 {
-    font-size: 1.9rem;
-    font-weight: 600;
-    color: ${({ theme }) => theme.colorPrimary};
-    border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
-    padding: 0 1.5rem 0.6rem 1.5rem;
-  }
-  p {
-    font-size: 1.1rem;
-    line-height: 1.1;
-    margin: 1rem auto;
-  }
-  @media (min-width: ${sizes.laptop}px) {
-    max-width: 900px;
-    h2 {
-      border-bottom: 5px solid ${({ theme }) => theme.colorPrimary};
-      width: 60%;
-      font-size: 2.8rem;
-    }
-    p {
-      font-size: 1.35rem;
-    }
-  }
-  ${media.hd`
-    max-width: 1000px;
-    /* h2 {
-      font-size: 2.8rem;
-    }
-    p {
-      font-size: 1.35rem;
-    } */
-  `};
-`;
+// const AboutInfoContainer = styled.div`
+//   max-width: 700px;
+//   text-align: center;
+//   margin: 1rem 0 2rem 0;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   /* h2 {
+//     font-size: 1.9rem;
+//     font-weight: 600;
+//     color: ${({ theme }) => theme.colorPrimary};
+//     border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
+//     padding: 0 1.5rem 0.6rem 1.5rem;
+//   } */
+//   p {
+//     font-size: 1.1rem;
+//     line-height: 1.1;
+//     margin: 1rem auto;
+//   }
+//   @media (min-width: ${sizes.laptop}px) {
+//     max-width: 900px;
+//     /* h2 {
+//       border-bottom: 5px solid ${({ theme }) => theme.colorPrimary};
+//       width: 60%;
+//       font-size: 2.8rem;
+//     } */
+//     p {
+//       font-size: 1.35rem;
+//     }
+//   }
+//   ${media.hd`
+//     max-width: 1000px;
+//     /* h2 {
+//       font-size: 2.8rem;
+//     }
+//     p {
+//       font-size: 1.35rem;
+//     } */
+//   `};
+// `;
 
 const AboutSkillsContainer = styled.div`
   display: flex;

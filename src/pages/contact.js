@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
-import { DefaultContainer } from '../components/helpers';
+import { DefaultContainer, HeaderTextContainer } from '../components/helpers';
 
 import { media } from '../config/media';
 import { Button, ButtonDisabled } from '../components/Buttons';
@@ -116,44 +116,45 @@ class ContactPage extends PureComponent {
 }
 
 const ContactContainer = styled(DefaultContainer)`
-  max-width: 660px;
-  width: 90%;
+  /* max-width: 660px; */
+  /* width: 90%; */
   @media (min-width: 750px) {
-    margin: 3rem auto;
+    /* margin: 3rem auto; */
   }
 `;
 
-const HeaderTextContainer = styled.div`
-  margin-bottom: 0.75rem;
-  h2 {
-    margin-bottom: 0.35em;
-    font-size: 2.2rem;
-    line-height: 1em;
-    font-weight: 600;
-  }
-  p {
-    font-size: 1.1rem;
-  }
-  ${media.desktop`
-    h2 {
-      font-size: 2.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-    }
-  `};
-  ${media.desktop`
-    h2 {
-      font-size: 2.7rem;
-    }
-    p {
-      font-size: 1.4rem;
-    }
-  `};
-`;
+// const HeaderTextContainer = styled.div`
+//   margin-bottom: 0.75rem;
+//   h2 {
+//     margin-bottom: 0.35em;
+//     font-size: 2.2rem;
+//     line-height: 1em;
+//     font-weight: 600;
+//   }
+//   p {
+//     font-size: 1.1rem;
+//   }
+//   ${media.desktop`
+//     h2 {
+//       font-size: 2.5rem;
+//     }
+//     p {
+//       font-size: 1.2rem;
+//     }
+//   `};
+//   ${media.desktop`
+//     h2 {
+//       font-size: 2.7rem;
+//     }
+//     p {
+//       font-size: 1.4rem;
+//     }
+//   `};
+// `;
 
 const FormWrapper = styled.form`
-  width: 100%;
+  width: 90%;
+  max-width: 660px;
   display: flex;
   flex-direction: column;
   > p {
