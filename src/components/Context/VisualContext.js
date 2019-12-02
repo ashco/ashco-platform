@@ -38,20 +38,10 @@ export class VisualContextProvider extends Component {
   };
 
   calcHeroImg() {
-    const { isMobile, isHome, scrollLength } = this.props;
-    let showHeroImg = false;
+    const { isHome } = this.props;
 
-    if (isMobile) {
-      if (!isHome) {
-        showHeroImg = scrollLength < 50 && this.state.navMenuOpen;
-      } else {
-        showHeroImg = true;
-      }
-    } else {
-      if (isHome) {
-        showHeroImg = true;
-      }
-    }
+    let showHeroImg = isHome;
+
     return showHeroImg;
   }
 
@@ -97,7 +87,7 @@ export class VisualContextProvider extends Component {
     return showFooterRight;
   }
 
-  handleHeroImg = showHeroImg => {
+  handleHeroImg = (showHeroImg) => {
     if (showHeroImg !== this.state.showHeroImg) {
       this.setState({
         showHeroImg,

@@ -161,8 +161,7 @@ class Layout extends Component {
                   {({ showHeroImg }) => {
                     return (
                       <>
-                        <HeroText isHome={isHome}></HeroText>
-                        {/* <HeroImg3 isHome={isHome}></HeroImg3> */}
+                        {showHeroImg && <HeroText isHome={isHome}></HeroText>}
                       </>
                     );
                   }}

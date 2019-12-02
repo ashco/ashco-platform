@@ -13,10 +13,18 @@ export const DefaultContainer = styled.div`
   max-width: 990px;
   margin: auto;
   /* margin: 1.5rem auto; */
+  >*:last-child {
+    margin-bottom: 1.5rem;
+  }
   ${media.tablet`
     box-shadow: 0px 0px 60px -25px inset ${({ theme }) => theme.colorPrimary};
     /* margin: 3rem auto; */
   `};
+  ${media.laptop`
+    >*:last-child {
+      margin-bottom: 3rem;
+    }
+  `}
 `;
 
 export const HeaderTextContainer = styled.div`
@@ -27,9 +35,12 @@ export const HeaderTextContainer = styled.div`
   max-width: 90%;
   >* {
     text-align: center;
+    margin-bottom: 12px;
+    :last-child {
+      margin-bottom: 0;
+    }
   }
   h2 {
-    margin-bottom: 12px;
     line-height: 1em;
     font-weight: 600;
     font-size: 1.6rem;
@@ -38,7 +49,6 @@ export const HeaderTextContainer = styled.div`
     padding: 0 1.5rem 0.6rem 1.5rem;
   }
   p {
-    margin-bottom: 12px;
     font-size: 1.1rem;
     line-height: 1.1em;
   }

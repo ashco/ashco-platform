@@ -147,13 +147,13 @@ const AboutContainer = styled(DefaultContainer)`
 // `;
 
 const AboutSkillsContainer = styled.div`
+  max-width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   border: 1px solid ${({ theme }) => theme.colorPrimary};
   border-radius: 15px;
-  margin-bottom: 2rem;
 
   ${media.laptop`
     flex-direction: row;
