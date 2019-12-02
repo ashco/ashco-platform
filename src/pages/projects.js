@@ -36,9 +36,11 @@ const PortfolioPage = () => (
             I work hard for the moula.
           </p>
         </HeaderTextContainer>
-        {data.allContentfulPortfolioProject.edges.map(({ node }) => (
-          <PortfolioItem project={node} key={node.id} />
-        ))}
+        <div>
+          {data.allContentfulPortfolioProject.edges.map(({ node }) => (
+            <PortfolioItem project={node} key={node.id} />
+          ))}
+        </div>
       </ProjectsContainer>
     )}
   />

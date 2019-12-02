@@ -50,13 +50,14 @@ const FooterSpacer = styled.div`
 const MainWrapper = styled.main`
   overflow: auto;
   width: 100%;
+  pointer-events: all;
   /* 140x2 to evenly frame main */
   min-height: calc(100vh - 130px - 130px);
   margin: 0 auto;
   margin-top: ${({ navMenuOpen }) => (navMenuOpen ? '300px' : '140px')};
   backdrop-filter: blur(5px);
   background-color: ${({ theme }) => theme.colorBackground + '70'};
-  box-shadow: ${({ theme }) => theme.colorPrimary}40 0px 5px 15px;
+  box-shadow: ${({ theme }) => theme.colorPrimary}80 0px 5px 15px;
   border-radius: 10px;
   @media (min-width: ${sizes.tablet}px) {
     min-height: 77vh;

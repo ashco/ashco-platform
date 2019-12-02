@@ -48,7 +48,7 @@ export const HeaderTextContainer = styled.div`
   }
   p {
     font-size: 1.1rem;
-    line-height: 1.1em;
+    line-height: 1.15em;
   }
   ${media.tablet`
     h2 {

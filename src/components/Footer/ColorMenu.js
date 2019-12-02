@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
 import { themeArr_invert, themeArr_color } from '../../config/config';
+import { media } from '../../config/media';
 
 class ColorMenu extends React.Component {
   handleUpdateColor = themeObj => {
@@ -63,12 +64,18 @@ class ColorMenu extends React.Component {
 // `;
 
 const ColorMenuButtonsWrapper = styled.div`
+  position: absolute;
+  bottom: 2.5vh;
+  left: 6vw;
   display: flex;
   align-items: center;
   button:hover {
-    transform: scale(1.45);
+    transform: scale(1.35);
     transition: 0.1s all ease-out;
   }
+  ${media.tablet`
+    position: initial;
+  `}
 `;
 
 const MenuButton = styled.button`

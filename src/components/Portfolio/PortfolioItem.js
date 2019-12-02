@@ -31,6 +31,7 @@ const PortfolioItemWrapper = styled.article`
   overflow: hidden;
   transform: scale(1);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  border: 3px solid ${({ theme }) => theme.colorPrimary};
   .overlay {
     position: absolute;
     height: 100%;
