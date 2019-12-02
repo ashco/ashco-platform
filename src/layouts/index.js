@@ -108,10 +108,13 @@ class Layout extends Component {
     });
   };
 
-  updateTheme = themeObj => {
-    if (themeObj !== this.state.themeObj) {
-      this.setState({ themeObj });
+  updateTheme = (themeObj) => {
+    const newState = {
+      ...this.state,
+      themeObj: { ...this.state.themeObj, ...themeObj }
     }
+
+    this.setState(newState);
   };
 
   render() {
@@ -155,7 +158,7 @@ class Layout extends Component {
                   isHome={isHome}
                   isMobile={isMobile}
                   pathname={location.pathname}
-                  updateTheme={this.updateTheme}
+                  themeObj={themeObj}
                 />
                 <VisualContextConsumer>
                   {({ showHeroImg }) => {
@@ -178,7 +181,7 @@ class Layout extends Component {
                     </Main>
                   )}
                 </VisualContextConsumer>
-                <Footer />
+                <Footer themeObj={themeObj} isHome={isHome} updateTheme={this.updateTheme} />
                 <ParticleBG innerWidth={innerWidth} innerHeight={innerHeight} />
               </LayoutWrapper>
             </ThemeProvider>

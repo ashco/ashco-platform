@@ -12,7 +12,7 @@ import MenuIcon from '../Icons/MenuIcon';
 
 class Header extends PureComponent {
   render() {
-    const { isHome, isMobile, pathname, updateTheme } = this.props;
+    const { isHome, isMobile, pathname, updateTheme, themeObj } = this.props;
     return (
       <VisualContextConsumer>
         {({ navMenuOpen, toggleNavMenu, colorMenuOpen, toggleColorMenu }) => (
@@ -27,6 +27,7 @@ class Header extends PureComponent {
                 updateTheme={updateTheme}
                 colorMenuOpen={colorMenuOpen}
                 toggleColorMenu={toggleColorMenu}
+                themeObj={themeObj}
               />
               <NavLinks navMenuOpen={navMenuOpen} isMobile={isMobile} />
               {isMobile && !isHome && <MenuIcon />}
