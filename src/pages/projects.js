@@ -36,11 +36,11 @@ const PortfolioPage = () => (
             I work hard for the moula.
           </p>
         </HeaderTextContainer>
-        <div>
+        <ProjectsItemContainer>
           {data.allContentfulPortfolioProject.edges.map(({ node }) => (
             <PortfolioItem project={node} key={node.id} />
           ))}
-        </div>
+        </ProjectsItemContainer>
       </ProjectsContainer>
     )}
   />
@@ -54,13 +54,13 @@ export const ProjectsContainer = styled(DefaultContainer)`
   flex-flow: row wrap;
   justify-content: center;
   max-width: 1040px;
-  /* margin: 0 auto 1rem auto; */
-  ${media.laptop`
-    /* margin: 2rem auto; */
-  `};
   ${media.hd`
     max-width: 1380px;
   `};
+`;
+
+const ProjectsItemContainer = styled.div`
+  width: 90%;
 `;
 
 export default PortfolioPage;

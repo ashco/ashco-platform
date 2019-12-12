@@ -32,6 +32,9 @@ const PortfolioItemWrapper = styled.article`
   transform: scale(1);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   border: 3px solid ${({ theme }) => theme.colorPrimary};
+  a {
+    width: 100%;
+  }
   .overlay {
     position: absolute;
     height: 100%;
@@ -49,11 +52,10 @@ const PortfolioItemWrapper = styled.article`
   }
 
   .gatsby-image-wrapper {
-    opacity: 0.25;
+    opacity: 0.4;
     border-radius: 5px;
     width: 90vw;
     height: 60vw;
-    max-width: 600px;
     max-height: 400px;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   }
@@ -65,7 +67,6 @@ const PortfolioItemWrapper = styled.article`
       font-size: 2.5rem;
     }
     .gatsby-image-wrapper {
-      opacity: 0.25;
       transform: scale(1.03);
     }
   }
