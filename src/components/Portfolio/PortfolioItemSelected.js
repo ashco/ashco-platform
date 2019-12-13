@@ -55,7 +55,7 @@ const PortfolioItemSelectedWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   .gatsby-image-wrapper {
     height: 60vw;
   }
@@ -83,8 +83,8 @@ const PortfolioItemSelectedTextContainer = styled.div`
   align-items: center;
   opacity: 0.9;
   padding: 0.8rem 1.6rem;
-  border-top: 5px solid ${props => props.theme.colorPrimary}99;
-  border-bottom: 5px solid ${props => props.theme.colorPrimary}99;
+  border-top: 5px solid ${props => props.theme.colorPrimary};
+  border-bottom: 5px solid ${props => props.theme.colorPrimary};
   .container-left {
     margin: 1rem 1rem 1rem 0;
     h3 {
@@ -105,7 +105,7 @@ const PortfolioItemSelectedTextContainer = styled.div`
       border-bottom: 3px solid transparent;
       transition: border-bottom 0.2s ease-out;
       &:hover {
-        border-bottom: 3px solid ${props => props.theme.colorPrimary}99;
+        border-bottom: 3px solid ${props => props.theme.colorPrimary};
       }
     }
   }
@@ -114,7 +114,7 @@ const PortfolioItemSelectedTextContainer = styled.div`
     position: absolute;
     bottom: 0;
     background: ${props => props.theme.colorBackground};
-    border: 3px solid ${props => props.theme.colorPrimary}99;
+    border: 3px solid ${props => props.theme.colorPrimary};
     border-radius: 0 0 10px 10px;
   }
   ${media.desktop`

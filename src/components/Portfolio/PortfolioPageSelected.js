@@ -5,8 +5,9 @@ import PortfolioItem from './PortfolioItem';
 import { ProjectsContainer as PortfolioContainer } from '../../pages/projects';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-
 import Helmet from 'react-helmet';
+
+import { media } from '../../config/media'
 
 class PortfolioPageSelected extends PureComponent {
   render() {
@@ -19,7 +20,7 @@ class PortfolioPageSelected extends PureComponent {
         <PortfolioItemSelected project={data.contentfulPortfolioProject} />
         <PortfolioExtraItemsWrapper>
           {data.allContentfulPortfolioProject.edges.map(({ node }) => (
-            <PortfolioItem project={node} key={node.id} />
+            <PortfolioItem project={node} selected={true} key={node.id} />
           ))}
         </PortfolioExtraItemsWrapper>
       </PortfolioContainer>
@@ -31,6 +32,22 @@ const PortfolioExtraItemsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  .gatsby-image-wrapper {
+    width: 90vw;
+  }
+  ${media.laptop`
+    .gatsby-image-wrapper {
+      margin: 0;
+      /* max-width: ${props => props.selected ? '460px' : '90%'}; */
+      /* max-width: 90%; */
+      /* width: 47vw;
+      height: 31vw; */
+      width: 47vw;
+      height: 31vw;
+      max-width: 460px;
+      max-height: 320px;
+    }
+  `};
 `;
 
 export default PortfolioPageSelected;
