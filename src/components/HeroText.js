@@ -59,6 +59,7 @@ const LineLeft = styled.div`
   animation: ${animateLineLeft} ease-in-out ${lineAnimateTime}s;
   animation-delay: ${initialDelay}s;
   animation-fill-mode: forwards;
+  box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 10px;
 `;
 
 const LineBottom = styled.div`
@@ -71,6 +72,7 @@ const LineBottom = styled.div`
   animation: ${animateLineBottom} ease-in-out ${lineAnimateTime}s;
   animation-delay: ${initialDelay + lineAnimateTime - 0.2}s;
   animation-fill-mode: forwards;
+  box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 10px;
 `;
 
 // // Create the keyframes

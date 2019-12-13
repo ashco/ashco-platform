@@ -31,9 +31,9 @@ const PortfolioPage = () => (
       <ProjectsContainer>
         <Helmet title="Projects" meta={[{ name: 'description', content: "A list of digital creations by Ash Christie. I'm always looking for something new to build, so sell me on your awesome idea an I'll make it a reality." }]} />
         <HeaderTextContainer>
-          <h2>Check out my work!</h2>
+          <h2>Check out this amazingness!</h2>
           <p>
-            Here are a few of the projects that I have worked on. More coming soon!
+            Here are a few of the projects that I have worked on. More are on the way!
           </p>
         </HeaderTextContainer>
         <ProjectsItemContainer>

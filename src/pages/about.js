@@ -106,7 +106,6 @@ const AboutContainer = styled(DefaultContainer)`
 
 
 const AboutSkillsContainer = styled.div`
-  max-width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
