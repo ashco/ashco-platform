@@ -60,7 +60,7 @@ const PortfolioItemWrapper = styled.article`
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   }
   &:hover {
-    box-shadow: ${({ theme }) => theme.colorPrimary}40 0 0 50px 2px;
+    box-shadow: ${({ theme }) => theme.colorPrimary}40 0 0 15px 5px;
     transform: scale(1.03);
     .overlay h3 {
       font-size: 2.5rem;

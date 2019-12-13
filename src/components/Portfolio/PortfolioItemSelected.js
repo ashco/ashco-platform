@@ -58,6 +58,9 @@ const PortfolioItemSelectedWrapper = styled.div`
   /* margin-bottom: 1rem; */
   .gatsby-image-wrapper {
     height: 60vw;
+    picture > img {
+      box-shadow: ${props => props.theme.colorPrimary}80 0px 0px 10px 3px;
+    }
   }
   @media (min-width: 1000px) {
     margin-top: 0.8rem;
@@ -85,6 +88,7 @@ const PortfolioItemSelectedTextContainer = styled.div`
   padding: 0.8rem 1.6rem;
   border-top: 5px solid ${props => props.theme.colorPrimary};
   border-bottom: 5px solid ${props => props.theme.colorPrimary};
+  box-shadow: ${props => props.theme.colorPrimary}80 0px 0px 5px 0px;
   .container-left {
     margin: 1rem 1rem 1rem 0;
     h3 {

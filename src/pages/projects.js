@@ -33,7 +33,7 @@ const PortfolioPage = () => (
         <HeaderTextContainer>
           <h2>Check out my work!</h2>
           <p>
-            Here are some projects that I have worked on. Take a look!
+            Here are a few of the projects that I have worked on. More coming soon!
           </p>
         </HeaderTextContainer>
         <ProjectsItemContainer>

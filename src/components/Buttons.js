@@ -16,6 +16,7 @@ export const Button = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colorPrimary};
     color: ${({ theme }) => theme.colorBackground};
+    box-shadow: ${({ theme }) => theme.colorPrimary}40 0 0 15px 5px;
   }
 `;
 
