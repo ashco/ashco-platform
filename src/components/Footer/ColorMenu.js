@@ -25,13 +25,13 @@ class ColorMenu extends React.Component {
 
     return (
       <ColorMenuButtonsWrapper>
-        <MenuButton_Invert
+        <MenuButtonInvert
           themeObj={invertThemeObj}
           title={invertThemeObj.title}
           onClick={this.handleUpdateColorClick.bind(null, invertThemeObj)} />
         {themeArr_color.map((themeObj, i) => {
           return (
-            <MenuButton_Color
+            <MenuButtonColor
               onClick={this.handleUpdateColorClick.bind(null, themeObj)}
               themeObj={themeObj}
               title={themeObj.title}
@@ -88,13 +88,13 @@ const MenuButton = styled.button`
   pointer-events: auto;
 `;
 
-const MenuButton_Invert = styled(MenuButton)`
+const MenuButtonInvert = styled(MenuButton)`
   border: 0.65rem solid ${({ themeObj }) => themeObj.colorBackground};
   color: ${({ themeObj }) => themeObj.colorBackground};
   padding: 0.2rem;
 `;
 
-const MenuButton_Color = styled(MenuButton)`
+const MenuButtonColor = styled(MenuButton)`
   border: 0.25rem solid ${({ themeObj }) => themeObj.colorPrimary};
   color: ${({ theme }) => theme.colorPrimary};
   padding: 0.35rem;

@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'gatsby';
-import styled, { keyframes } from 'styled-components';
-import { media, sizes } from '../../config/media';
+import styled from 'styled-components';
+import { sizes } from '../../config/media';
 // import { themeArr_invert, themeArr_color } from '../../config/config';
 
 import SelectedIconWrapper from '../Animation/SelectedIcon';
 import AshCoIcon from '../Icons/ashco-v2';
-import { Button } from '../Buttons';
 
 class HeaderTitle extends PureComponent {
   state = {
@@ -107,16 +106,16 @@ const HeaderTitleWrapper = styled.div`
     }
     font-size: 3rem;
   }
-  @media (min-width: ${sizes.desktop}px) {
+  @media (min-width: ${sizes.hd}px) {
     svg {
       height: ${({ isHome }) => isHome ? '180px' : '95px'};
     }
   };
-  @media (min-width: ${sizes.hd}px) {
+  /* @media (min-width: ${sizes.hd}px) {
     svg {
       height: ${({ isHome }) => isHome ? '200px' : '105px'};
-    }
-  }
+    } */
+  /* } */
 `;
 
 

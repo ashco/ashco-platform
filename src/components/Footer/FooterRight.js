@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { media } from '../../config/media';
 
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
@@ -7,7 +7,7 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import FadeWrapper from '../Animation/Fade';
 import GithubIcon from '../Icons/Github';
 import LinkedInIcon from '../Icons/LinkedIn';
-import TwitterIcon from '../Icons/Twitter';
+// import TwitterIcon from '../Icons/Twitter';
 import ResumeIcon from '../Icons/Resume';
 
 class FooterRight extends PureComponent {

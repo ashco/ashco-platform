@@ -1,7 +1,7 @@
 export const themeDefault = {
   colorPrimary: '#DD702B',
-  colorBackground: '#1f1f1f',
-  colorText: '#dfdfdf',
+  colorBackground: '#ffffff',
+  colorText: '#222222',
 };
 
 export const themeArr_invert = [

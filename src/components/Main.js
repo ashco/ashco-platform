@@ -56,13 +56,15 @@ const MainWrapper = styled.main`
   margin: 0 auto;
   margin-top: ${({ navMenuOpen }) => (navMenuOpen ? '300px' : '140px')};
   background-color: ${({ theme }) => theme.colorBackground};
-  border: 3px solid ${props => props.theme.colorPrimary};
+  border-top: 3px solid ${props => props.theme.colorPrimary};
+  border-bottom: 3px solid ${props => props.theme.colorPrimary};
   box-shadow: ${({ theme }) => theme.colorPrimary}80 0px 5px 15px;
   @media (min-width: ${sizes.tablet}px) {
     min-height: 77vh;
     margin-top: 13vh;
   }
   @media (min-width: ${sizes.laptop}px) {
+    border: 3px solid ${props => props.theme.colorPrimary};
     border-radius: 30px;
     margin-left: 8vw;
     margin-right: 8vw;

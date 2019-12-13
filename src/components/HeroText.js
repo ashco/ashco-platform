@@ -17,19 +17,19 @@ class HeroText extends PureComponent {
 }
 
 const initialDelay = 1;
-const fadeInTime = 1;
+// const fadeInTime = 1;
 
-const strobeDelay = 4.6;
+// const strobeDelay = 4.6;
 const lineAnimateTime = 0.65;
 
-const fadeInAnimation = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
+// const fadeInAnimation = keyframes`
+//   0% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// `;
 
 const animateLineLeft = keyframes`
   0% {
@@ -59,7 +59,6 @@ const LineLeft = styled.div`
   animation: ${animateLineLeft} ease-in-out ${lineAnimateTime}s;
   animation-delay: ${initialDelay}s;
   animation-fill-mode: forwards;
-  box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 10px;
 `;
 
 const LineBottom = styled.div`
@@ -72,7 +71,6 @@ const LineBottom = styled.div`
   animation: ${animateLineBottom} ease-in-out ${lineAnimateTime}s;
   animation-delay: ${initialDelay + lineAnimateTime - 0.2}s;
   animation-fill-mode: forwards;
-  box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 10px;
 `;
 
 // // Create the keyframes
