@@ -8,36 +8,36 @@ import SelectedIconWrapper from '../Animation/SelectedIcon';
 import AshCoIcon from '../Icons/ashco-v2';
 
 class HeaderTitle extends PureComponent {
-  state = {
-    menuActive: true,
-  };
+  // state = {
+  //   menuActive: true,
+  // };
 
 
-  handleIconClick = () => {
-    const {
-      isHome,
-      toggleColorMenu,
-      toggleNavMenu,
-      colorMenuOpen,
-    } = this.props;
+  // handleIconClick = () => {
+  //   const {
+  //     isHome,
+  //     toggleColorMenu,
+  //     toggleNavMenu,
+  //     colorMenuOpen,
+  //   } = this.props;
 
-    let noScroll;
-    if (typeof window !== `undefined`) {
-      noScroll = window.pageYOffset === 0;
-    }
-    // Only show menu text on first click, only open menu if at top of home screen
-    if (!colorMenuOpen && noScroll && isHome) {
-      toggleColorMenu(true);
-      setTimeout(() => {
-        this.setState({
-          menuActive: false,
-        });
-      }, 3000);
-    } else {
-      toggleColorMenu(false);
-    }
-    toggleNavMenu(true);
-  };
+  //   let noScroll;
+  //   if (typeof window !== `undefined`) {
+  //     noScroll = window.pageYOffset === 0;
+  //   }
+  //   // Only show menu text on first click, only open menu if at top of home screen
+  //   if (!colorMenuOpen && noScroll && isHome) {
+  //     toggleColorMenu(true);
+  //     setTimeout(() => {
+  //       this.setState({
+  //         menuActive: false,
+  //       });
+  //     }, 3000);
+  //   } else {
+  //     toggleColorMenu(false);
+  //   }
+  //   toggleNavMenu(true);
+  // };
 
 
   getPageTitle() {
@@ -58,7 +58,7 @@ class HeaderTitle extends PureComponent {
 
     return (
       <HeaderTitleWrapper isHome={isHome}>
-        <Link to="/" aria-label="hero-screen" onClick={this.handleIconClick}>
+        <Link to="/" aria-label="hero-screen">
           <SelectedIconWrapper open={colorMenuOpen}>
             <AshCoIcon />
           </SelectedIconWrapper>
