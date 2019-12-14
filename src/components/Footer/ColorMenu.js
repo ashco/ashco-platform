@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { themeArr_invert, themeArr_color } from '../../config/config';
 import { media } from '../../config/media';
 
@@ -63,22 +63,22 @@ class ColorMenu extends React.Component {
 //   transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
 // `;
 
-const menuFadeInOut = keyframes`
-  0%,
-  15% {
-    opacity: 0;
-    transform: scale(0.8, 0);
-  }
-  25%,
-  92% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.8, 0);
-  }
-`;
+// const menuFadeInOut = keyframes`
+//   0%,
+//   15% {
+//     opacity: 0;
+//     transform: scale(0.8, 0);
+//   }
+//   25%,
+//   92% {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+//   100% {
+//     opacity: 0;
+//     transform: scale(0.8, 0);
+//   }
+// `;
 
 const ColorMenuButtonsWrapper = styled.div`
   position: absolute;
@@ -87,8 +87,6 @@ const ColorMenuButtonsWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  /* animation */
-  animation: ${menuFadeInOut} 3s;
 
 
   button:hover {
