@@ -1,4 +1,4 @@
-// Determine Dark Mode
+// Determine if Dark Mode
 let darkMode = false;
 if (typeof window !== `undefined`) {
   darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
