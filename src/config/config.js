@@ -1,7 +1,9 @@
+const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
 export const themeDefault = {
   colorPrimary: '#DD702B',
-  colorBackground: '#ffffff',
-  colorText: '#222222',
+  colorBackground: darkMode ? '#1f1f1f' : '#ffffff',
+  colorText: darkMode ? '#dfdfdf' : '#222222',
 };
 
 export const themeArr_invert = [

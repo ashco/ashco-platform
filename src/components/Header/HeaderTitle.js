@@ -2,7 +2,7 @@ import React, { PureComponent, useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { sizes } from '../../config/media';
-import { useSpring, animated } from 'react-spring';
+
 
 // import SelectedIconWrapper from '../Animation/SelectedIcon';
 import AshCoIcon from '../Icons/AshCo';
@@ -28,7 +28,7 @@ const HeaderTitle = ({ isHome, pathname }) => {
       <Link to="/" aria-label="hero-screen">
         {/* <div onClick={() => toggle(!state)}> */}
         {/* <AnimatedAshCoIcon style={props} /> */}
-        <AshCoIcon />
+        <AshCoIcon pathname={pathname} />
         {/* </div> */}
       </Link>
       {
@@ -39,7 +39,6 @@ const HeaderTitle = ({ isHome, pathname }) => {
   );
 }
 
-const AnimatedAshCoIcon = animated(AshCoIcon);
 
 const HeaderTitleWrapper = styled.div`
   margin-left: 1.4rem;
