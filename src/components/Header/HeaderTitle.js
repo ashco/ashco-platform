@@ -1,48 +1,19 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { sizes } from '../../config/media';
-// import { themeArr_invert, themeArr_color } from '../../config/config';
+import { useSpring, animated } from 'react-spring';
 
-import SelectedIconWrapper from '../Animation/SelectedIcon';
-import AshCoIcon from '../Icons/ashco-v2';
+// import SelectedIconWrapper from '../Animation/SelectedIcon';
+import AshCoIcon from '../Icons/AshCo';
 
-class HeaderTitle extends PureComponent {
-  // state = {
-  //   menuActive: true,
-  // };
+const HeaderTitle = ({ isHome, pathname }) => {
+  // const [state, toggle] = useState(true)
+  // const props = useSpring({ opacity: 1, from: { opacity: 0 } })
 
-
-  // handleIconClick = () => {
-  //   const {
-  //     isHome,
-  //     toggleColorMenu,
-  //     toggleNavMenu,
-  //     colorMenuOpen,
-  //   } = this.props;
-
-  //   let noScroll;
-  //   if (typeof window !== `undefined`) {
-  //     noScroll = window.pageYOffset === 0;
-  //   }
-  //   // Only show menu text on first click, only open menu if at top of home screen
-  //   if (!colorMenuOpen && noScroll && isHome) {
-  //     toggleColorMenu(true);
-  //     setTimeout(() => {
-  //       this.setState({
-  //         menuActive: false,
-  //       });
-  //     }, 3000);
-  //   } else {
-  //     toggleColorMenu(false);
-  //   }
-  //   toggleNavMenu(true);
-  // };
-
-
-  getPageTitle() {
+  function getPageTitle() {
     const siteTitles = ['About', 'Projects', 'Blog', 'Contact'];
-    let pageTitle = this.props.pathname.split('/')[1];
+    let pageTitle = pathname.split('/')[1];
     pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
 
     if (siteTitles.some(title => title === pageTitle)) {
@@ -50,27 +21,25 @@ class HeaderTitle extends PureComponent {
     }
   }
 
-  render() {
-    const { isHome, colorMenuOpen } = this.props;
+  const pageTitle = getPageTitle();
 
-    const pageTitle = this.getPageTitle();
-
-
-    return (
-      <HeaderTitleWrapper isHome={isHome}>
-        <Link to="/" aria-label="hero-screen">
-          <SelectedIconWrapper open={colorMenuOpen}>
-            <AshCoIcon />
-          </SelectedIconWrapper>
-        </Link>
-        {!isHome &&
-          <h1>{pageTitle}</h1>
-        }
-      </HeaderTitleWrapper>
-    );
-  }
+  return (
+    <HeaderTitleWrapper isHome={isHome}>
+      <Link to="/" aria-label="hero-screen">
+        {/* <div onClick={() => toggle(!state)}> */}
+        {/* <AnimatedAshCoIcon style={props} /> */}
+        <AshCoIcon />
+        {/* </div> */}
+      </Link>
+      {
+        !isHome &&
+        <h1>{pageTitle}</h1>
+      }
+    </HeaderTitleWrapper >
+  );
 }
 
+const AnimatedAshCoIcon = animated(AshCoIcon);
 
 const HeaderTitleWrapper = styled.div`
   margin-left: 1.4rem;

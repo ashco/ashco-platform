@@ -1,47 +1,45 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
+import { useTrail, animated, interpolate } from 'react-spring';
+
 import { themeArr_invert, themeArr_color } from '../../config/config';
 import { media } from '../../config/media';
 
-class ColorMenu extends React.Component {
-  handleUpdateColor = themeObj => {
+const ColorMenu = ({ themeObj, updateTheme }) => {
+  const trail = useTrail(6, { opacity: 1, from: { opacity: 0 }, delay: 3000 });
+
+  const invertThemeObj = themeObj.colorBackground === '#1f1f1f'
+    ? themeArr_invert[1]
+    : themeArr_invert[0];
+
+  function handleUpdateColorClick(themeObj) {
     if (typeof window !== `undefined`) {
       window.localStorage.setItem('themeObj', JSON.stringify(themeObj));
     }
-    this.props.updateTheme(themeObj);
+    updateTheme(themeObj);
   };
 
-  handleUpdateColorClick = themeObj => {
-    this.handleUpdateColor(themeObj);
-    // setTimeout(() => this.props.toggleColorMenu(false), 500);
-  };
 
-  render() {
-    const { themeObj } = this.props;
-
-    const invertThemeObj = themeObj.colorBackground === '#1f1f1f'
-      ? themeArr_invert[1]
-      : themeArr_invert[0];
-
-    return (
-      <ColorMenuButtonsWrapper>
-        <MenuButtonInvert
-          themeObj={invertThemeObj}
-          title={invertThemeObj.title}
-          onClick={this.handleUpdateColorClick.bind(null, invertThemeObj)} />
-        {themeArr_color.map((themeObj, i) => {
-          return (
-            <MenuButtonColor
-              onClick={this.handleUpdateColorClick.bind(null, themeObj)}
-              themeObj={themeObj}
-              title={themeObj.title}
-              key={i}
-            />
-          );
-        })}
-      </ColorMenuButtonsWrapper>
-    )
-  }
+  return (
+    <ColorMenuButtonsWrapper>
+      <MenuButtonInvert
+        style={trail[0]}
+        themeObj={invertThemeObj}
+        title={invertThemeObj.title}
+        onClick={handleUpdateColorClick.bind(null, invertThemeObj)} />
+      {themeArr_color.map((themeObj, i) => {
+        return (
+          <MenuButtonColor
+            style={trail[i]}
+            onClick={handleUpdateColorClick.bind(null, themeObj)}
+            themeObj={themeObj}
+            title={themeObj.title}
+            key={i}
+          />
+        );
+      })}
+    </ColorMenuButtonsWrapper>
+  )
 }
 
 
@@ -87,8 +85,6 @@ const ColorMenuButtonsWrapper = styled.div`
   display: flex;
   align-items: center;
 
-
-
   button:hover {
     transform: scale(1.35);
     transition: 0.1s all ease-out;
@@ -98,7 +94,7 @@ const ColorMenuButtonsWrapper = styled.div`
   `}
 `;
 
-const MenuButton = styled.button`
+const MenuButton = styled(animated.button)`
   cursor: pointer;
   border-radius: 50%;
   margin: 0.35rem;

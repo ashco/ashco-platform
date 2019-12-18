@@ -2,25 +2,26 @@ import React, { PureComponent } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import { useSpring, animated } from 'react-spring';
+
 import { media } from '../../config/media';
 
-class PortfolioItem extends PureComponent {
-  render() {
-    const { project, selected } = this.props;
-    return (
-      <PortfolioItemWrapper selected={selected}>
-        <Link to={`/projects/${project.slug}/`}>
-          <div className="overlay">
-            <h3>{project.title}</h3>
-          </div>
-          <Img fluid={project.image.fluid} alt={project.title} />
-        </Link>
-      </PortfolioItemWrapper>
-    );
-  }
+const PortfolioItem = ({ project, selected }) => {
+  return (
+    <PortfolioItemWrapper
+      selected={selected}
+    >
+      <Link to={`/projects/${project.slug}/`}>
+        <div className="overlay">
+          <h3>{project.title}</h3>
+        </div>
+        <Img fluid={project.image.fluid} alt={project.title} />
+      </Link>
+    </PortfolioItemWrapper>
+  );
 }
 
-const PortfolioItemWrapper = styled.article`
+const PortfolioItemWrapper = styled(animated.article)`
   display: flex;
   justify-content: center;
   position: relative;
@@ -61,7 +62,7 @@ const PortfolioItemWrapper = styled.article`
   }
   &:hover {
     box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 15px 5px;
-    transform: scale(1.03);
+    transform: scale(1.015);
     .overlay h3 {
       font-size: 2.5rem;
     }
