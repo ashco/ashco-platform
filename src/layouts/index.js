@@ -16,7 +16,7 @@ import Header from '../components/Header/header';
 import Footer from '../components/Footer/Footer';
 import '../style/index.css';
 
-// import FadeWrapper from '../components/Animation/Fade';
+import FadeWrapper from '../components/Animation/Fade';
 import HeroText from '../components/HeroText';
 import ParticleBG from '../components/ParticleBG';
 import Main from '../components/Main';
@@ -166,9 +166,11 @@ class Layout extends Component {
                     <VisualContextConsumer>
                       {({ showHeroImg }) => {
                         return (
-                          <>
-                            {showHeroImg && <HeroText isHome={isHome}></HeroText>}
-                          </>
+                          <FadeWrapper
+                            visible={showHeroImg}
+                          >
+                            {<HeroText isHome={isHome}></HeroText>}
+                          </FadeWrapper>
                         );
                       }}
                     </VisualContextConsumer>
