@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
-import { themeDefault } from '../config/config';
+import { themeDefaultLight, themeDefaultDark, themeArr_invert } from '../config/config';
 
 // import ParallaxWrapper from '../components/ParallaxWrapper';
 import {
@@ -28,7 +28,7 @@ class Layout extends Component {
   constructor(props) {
     super(props);
 
-    let themeObj = themeDefault;
+    let themeObj = themeDefaultLight;
     let innerWidth = 0;
     let innerHeight = 0;
     let scrollLength = 0;
@@ -36,6 +36,11 @@ class Layout extends Component {
     const isHome = this.props.location.pathname === '/';
 
     if (typeof window !== `undefined`) {
+      // Check for system Dark Mode
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        themeObj = themeDefaultDark;
+      }
+
       innerWidth = window.innerWidth;
       innerHeight = window.innerHeight;
       scrollLength = window.pageYOffset;
@@ -55,8 +60,6 @@ class Layout extends Component {
   componentDidMount() {
     window.addEventListener('scroll', throttle(this.handleScroll, 150));
     window.addEventListener('resize', debounce(this.handleResize, 500));
-
-    // this.updateTheme(this.state.themeObj);
   }
 
   componentWillUnmount() {
