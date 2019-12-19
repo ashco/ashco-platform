@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
-import { useTrail, animated, interpolate } from 'react-spring';
+import { useTrail, animated } from 'react-spring';
 
 import { themeArr_invert, themeArr_color } from '../../config/config';
 import { media } from '../../config/media';
@@ -18,7 +18,6 @@ const ColorMenu = ({ themeObj, updateTheme }) => {
     }
     updateTheme(themeObj);
   };
-
 
   return (
     <ColorMenuButtonsWrapper>

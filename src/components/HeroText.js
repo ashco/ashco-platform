@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { media } from '../config/media';
 import { useSpring, animated } from 'react-spring'
 
@@ -88,10 +88,6 @@ const HeroTextWrapper = styled.div`
     left: 18vw;
   `};
 
-  /* @media (min-width: 350px) {
-    margin-left: 10vw;
-  }
-   */
 `;
 
 

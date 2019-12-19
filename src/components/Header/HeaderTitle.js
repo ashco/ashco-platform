@@ -1,15 +1,12 @@
-import React, { PureComponent, useState } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { sizes } from '../../config/media';
 
 
-// import SelectedIconWrapper from '../Animation/SelectedIcon';
 import AshCoIcon from '../Icons/AshCo';
 
 const HeaderTitle = ({ isHome, pathname }) => {
-  // const [state, toggle] = useState(true)
-  // const props = useSpring({ opacity: 1, from: { opacity: 0 } })
 
   function getPageTitle() {
     const siteTitles = ['About', 'Projects', 'Blog', 'Contact'];
@@ -26,10 +23,7 @@ const HeaderTitle = ({ isHome, pathname }) => {
   return (
     <HeaderTitleWrapper isHome={isHome}>
       <Link to="/" aria-label="hero-screen">
-        {/* <div onClick={() => toggle(!state)}> */}
-        {/* <AnimatedAshCoIcon style={props} /> */}
         <AshCoIcon pathname={pathname} />
-        {/* </div> */}
       </Link>
       {
         !isHome &&

@@ -1,33 +1,22 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 import styled, { css, withTheme } from 'styled-components';
 import { sizes, media } from '../config/media';
 
-class Main extends PureComponent {
-  constructor(props) {
-    super(props);
-    const colorPrimary = this.props.theme.colorPrimary;
+const Main = ({ children, isHome, navMenuOpen, theme: { colorPrimary } }) => {
 
-    this.state = {
-      colorPrimary,
-    };
-  }
-  render() {
-    const { colorPrimary } = this.state;
-    const { children, isHome, navMenuOpen } = this.props;
-    return (
-      <MainContainer>
-        <MainWrapper
-          isHome={isHome}
-          navMenuOpen={navMenuOpen}
-          colorPrimary={colorPrimary}
-        >
-          {children}
-        </MainWrapper>
-        <FooterSpacer isHome={isHome} />
-      </MainContainer>
-    );
-  }
+  return (
+    <MainContainer>
+      <MainWrapper
+        isHome={isHome}
+        navMenuOpen={navMenuOpen}
+        colorPrimary={colorPrimary}
+      >
+        {children}
+      </MainWrapper>
+      <FooterSpacer isHome={isHome} />
+    </MainContainer>
+  );
 }
 
 const MainContainer = styled.div`

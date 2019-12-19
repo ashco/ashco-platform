@@ -1,8 +1,7 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
 
 import { media } from '../../config/media';
 
@@ -21,7 +20,7 @@ const PortfolioItem = ({ project, selected }) => {
   );
 }
 
-const PortfolioItemWrapper = styled(animated.article)`
+const PortfolioItemWrapper = styled.article`
   display: flex;
   justify-content: center;
   position: relative;

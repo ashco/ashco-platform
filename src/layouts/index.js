@@ -6,7 +6,7 @@ import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
 
-import ParallaxWrapper from '../components/ParallaxWrapper';
+// import ParallaxWrapper from '../components/ParallaxWrapper';
 import {
   VisualContextProvider,
   VisualContextConsumer,
@@ -151,45 +151,45 @@ class Layout extends Component {
           >
             <ThemeProvider theme={themeObj}>
               <LayoutWrapper>
-                <ParallaxWrapper render={mouse => (
-                  <>
-                    <Helmet titleTemplate={`%s | ${data.site.siteMetadata.title}`}>
-                      <html lang="en" />
-                    </Helmet>
+                {/* <ParallaxWrapper render={mouse => (
+                  <> */}
+                <Helmet titleTemplate={`%s | ${data.site.siteMetadata.title}`}>
+                  <html lang="en" />
+                </Helmet>
 
-                    <Header
+                <Header
+                  isHome={isHome}
+                  isMobile={isMobile}
+                  pathname={location.pathname}
+                  themeObj={themeObj}
+                />
+                <VisualContextConsumer>
+                  {({ showHeroImg }) => {
+                    return (
+                      <FadeWrapper
+                        visible={showHeroImg}
+                      >
+                        <HeroText isHome={isHome} />
+                      </FadeWrapper>
+                    );
+                  }}
+                </VisualContextConsumer>
+                <VisualContextConsumer>
+                  {({ navMenuOpen, updateMainElHeight }) => (
+                    <Main
                       isHome={isHome}
                       isMobile={isMobile}
-                      pathname={location.pathname}
-                      themeObj={themeObj}
-                    />
-                    <VisualContextConsumer>
-                      {({ showHeroImg }) => {
-                        return (
-                          <FadeWrapper
-                            visible={showHeroImg}
-                          >
-                            {<HeroText isHome={isHome}></HeroText>}
-                          </FadeWrapper>
-                        );
-                      }}
-                    </VisualContextConsumer>
-                    <VisualContextConsumer>
-                      {({ navMenuOpen, updateMainElHeight }) => (
-                        <Main
-                          isHome={isHome}
-                          isMobile={isMobile}
-                          navMenuOpen={navMenuOpen}
-                          updateMainElHeight={updateMainElHeight}
-                        >
-                          {children}
-                        </Main>
-                      )}
-                    </VisualContextConsumer>
-                    <Footer themeObj={themeObj} isHome={isHome} updateTheme={this.updateTheme} />
-                    <ParticleBG innerWidth={innerWidth} innerHeight={innerHeight} />
-                  </>
-                )} />
+                      navMenuOpen={navMenuOpen}
+                      updateMainElHeight={updateMainElHeight}
+                    >
+                      {children}
+                    </Main>
+                  )}
+                </VisualContextConsumer>
+                <Footer themeObj={themeObj} isHome={isHome} updateTheme={this.updateTheme} />
+                <ParticleBG innerWidth={innerWidth} innerHeight={innerHeight} />
+                {/* </>
+                )} /> */}
               </LayoutWrapper>
             </ThemeProvider>
           </VisualContextProvider>

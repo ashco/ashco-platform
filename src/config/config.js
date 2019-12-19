@@ -4,6 +4,8 @@ if (typeof window !== `undefined`) {
   darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
+console.log(darkMode);
+
 export const themeDefault = {
   colorPrimary: '#DD702B',
   colorBackground: darkMode ? '#1f1f1f' : '#ffffff',

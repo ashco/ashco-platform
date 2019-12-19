@@ -1,11 +1,11 @@
 ﻿import React, { useState } from 'react';
 
 const ParallaxWrapper = ({ render }) => {
-  const [state, setState] = useState(false);
+  const [state] = useState(false);
 
   console.log('Parallax in the house!');
   return (
-    <div>
+    <div >
       {render(state)}
     </div>
   )
