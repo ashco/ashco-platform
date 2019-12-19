@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
+import { themeDefault } from '../config/config';
 
 // import ParallaxWrapper from '../components/ParallaxWrapper';
 import {
@@ -12,7 +13,7 @@ import {
   VisualContextConsumer,
 } from '../components/Context/VisualContext';
 
-import Header from '../components/Header/header';
+import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import '../style/index.css';
 
@@ -22,7 +23,6 @@ import ParticleBG from '../components/ParticleBG';
 import Main from '../components/Main';
 import { sizes } from '../config/media';
 
-import { themeDefault } from '../config/config';
 
 class Layout extends Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class Layout extends Component {
     window.addEventListener('scroll', throttle(this.handleScroll, 150));
     window.addEventListener('resize', debounce(this.handleResize, 500));
 
-    this.updateTheme(this.state.themeObj);
+    // this.updateTheme(this.state.themeObj);
   }
 
   componentWillUnmount() {
@@ -157,7 +157,6 @@ class Layout extends Component {
                   isHome={isHome}
                   isMobile={isMobile}
                   pathname={location.pathname}
-                  themeObj={themeObj}
                 />
                 <VisualContextConsumer>
                   {({ showHeroImg }) => {
