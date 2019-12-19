@@ -23,7 +23,7 @@ const ColorMenu = ({ themeObj, updateTheme }) => {
     <ColorMenuButtonsWrapper>
       <MenuButtonInvert
         style={trail[0]}
-        themeObj={invertThemeObj}
+        themeobj={invertThemeObj}
         title={invertThemeObj.title}
         onClick={handleUpdateColorClick.bind(null, invertThemeObj)} />
       {themeArr_color.map((themeObj, i) => {
@@ -31,7 +31,7 @@ const ColorMenu = ({ themeObj, updateTheme }) => {
           <MenuButtonColor
             style={trail[i]}
             onClick={handleUpdateColorClick.bind(null, themeObj)}
-            themeObj={themeObj}
+            themeobj={themeObj}
             title={themeObj.title}
             key={i}
           />
@@ -104,14 +104,16 @@ const MenuButton = styled(animated.button)`
 `;
 
 const MenuButtonInvert = styled(MenuButton)`
-  border: 0.65rem solid ${({ themeObj }) => themeObj.colorBackground};
-  color: ${({ themeObj }) => themeObj.colorBackground};
+  border: 0.65rem solid ${({ themeobj }) => themeobj.colorBackground};
+  color: ${({ themeobj }) => themeobj.colorBackground};
+  /* border: 0.65rem solid ${props => props.themeObj.colorBackground};
+  color: ${props => props.themeObj.colorBackground}; */
   padding: 0.2rem;
 `;
 
 const MenuButtonColor = styled(MenuButton)`
-  border: 0.25rem solid ${({ themeObj }) => themeObj.colorPrimary};
-  color: ${({ theme }) => theme.colorPrimary};
+  border: 0.25rem solid ${({ themeobj }) => themeobj.colorPrimary};
+  color: ${({ themeobj }) => themeobj.colorPrimary};
   padding: 0.35rem;
 `;
 

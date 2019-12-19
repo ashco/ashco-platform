@@ -112,6 +112,7 @@ const AboutSkillsContainer = styled.div`
   align-items: center;
   border: 3px solid ${({ theme }) => theme.colorPrimary};
   border-radius: 15px;
+  margin: auto 1rem;
 
   ${media.laptop`
     flex-direction: row;
@@ -122,10 +123,6 @@ const AboutSkillsContainer = styled.div`
 const SkillColumn = styled.div`
   text-align: center;
   width: 95%;
-  margin-left: 1rem;
-  :last-child {
-    margin-right: 1rem;
-  }
   padding: 1.2rem;
   border-bottom: 1px solid ${({ theme }) => theme.colorPrimary};
   :last-child {
@@ -169,7 +166,9 @@ const SkillColumn = styled.div`
     border: 3px solid ${({ theme }) => theme.colorPrimary}dd;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     border-radius: 15px;
+    margin-left: 1rem;
     :last-child {
+      margin-right: 1rem;
       border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
     }
     svg {
