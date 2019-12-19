@@ -41,42 +41,6 @@ const ColorMenu = ({ themeObj, updateTheme }) => {
   )
 }
 
-
-// const ColorMenuWrapper = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   margin-bottom: 1.1rem;
-
-// `;
-
-// const ColorMenuMessage = styled.span`
-//   font-size: 0.9rem;
-//   font-weight: 300;
-//   text-align: center;
-//   line-height: 1.25;
-//   padding-bottom: 0.5rem;
-//   transform: scale(0.8, 0);
-//   transition: 0.15s all cubic-bezier(0.895, 0.03, 0.685, 0.22);
-// `;
-
-// const menuFadeInOut = keyframes`
-//   0%,
-//   15% {
-//     opacity: 0;
-//     transform: scale(0.8, 0);
-//   }
-//   25%,
-//   92% {
-//     opacity: 1;
-//     transform: scale(1);
-//   }
-//   100% {
-//     opacity: 0;
-//     transform: scale(0.8, 0);
-//   }
-// `;
-
 const ColorMenuButtonsWrapper = styled.div`
   position: absolute;
   bottom: 2.5vh;
@@ -106,8 +70,6 @@ const MenuButton = styled(animated.button)`
 const MenuButtonInvert = styled(MenuButton)`
   border: 0.65rem solid ${({ themeobj }) => themeobj.colorBackground};
   color: ${({ themeobj }) => themeobj.colorBackground};
-  /* border: 0.65rem solid ${props => props.themeObj.colorBackground};
-  color: ${props => props.themeObj.colorBackground}; */
   padding: 0.2rem;
 `;
 

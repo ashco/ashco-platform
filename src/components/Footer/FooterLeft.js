@@ -10,30 +10,6 @@ class FooterLeft extends PureComponent {
     const year = new Date().getFullYear();
     return (
       <FooterLeftWrapper>
-        {/* {isHome
-          ? <ColorMenu themeObj={themeObj} updateTheme={updateTheme}></ColorMenu>
-          : <FadeWrapper visible={showFooterLeft}>
-            <p>© {year} Copyright Ash Christie. All rights reserved.</p>
-            <p>
-              This site is built with{' '}
-              <a
-                href="https://www.gatsbyjs.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Gatsbyjs
-            </a>{' '}
-              and{' '}
-              <a
-                href="https://www.contentful.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Contentful
-            </a>
-              .
-          </p>
-          </FadeWrapper>} */}
         <FadeWrapper
           visible={isHome}
         >

@@ -35,12 +35,6 @@ class Layout extends Component {
     let isMobile;
     const isHome = this.props.location.pathname === '/';
 
-    // if (typeof localStorage !== 'undefined') {
-    //   let localStorageObj = JSON.parse(localStorage.getItem('themeObj'));
-    //   if (localStorageObj) {
-    //     themeObj = localStorageObj;
-    //   }
-    // }
     if (typeof window !== `undefined`) {
       innerWidth = window.innerWidth;
       innerHeight = window.innerHeight;
@@ -61,6 +55,8 @@ class Layout extends Component {
   componentDidMount() {
     window.addEventListener('scroll', throttle(this.handleScroll, 150));
     window.addEventListener('resize', debounce(this.handleResize, 500));
+
+    this.updateTheme(this.state.themeObj);
   }
 
   componentWillUnmount() {
