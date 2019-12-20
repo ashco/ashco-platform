@@ -178,7 +178,7 @@ class Layout extends Component {
                     );
                   }}
                 </VisualContextConsumer>
-                <VisualContextConsumer>
+                {isHome && <VisualContextConsumer>
                   {({ navMenuOpen, updateMainElHeight }) => (
                     <Main
                       isHome={isHome}
@@ -190,6 +190,7 @@ class Layout extends Component {
                     </Main>
                   )}
                 </VisualContextConsumer>
+                }
                 <Footer themeObj={themeObj} isHome={isHome} updateTheme={this.updateTheme} />
                 <ParticleBG innerWidth={innerWidth} innerHeight={innerHeight} />
                 {/* </>
