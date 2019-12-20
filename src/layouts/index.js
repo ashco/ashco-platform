@@ -28,7 +28,7 @@ class Layout extends Component {
   constructor(props) {
     super(props);
 
-    let themeObj = themeDefaultLight;
+    let themeObj = {};
     let innerWidth = 0;
     let innerHeight = 0;
     let scrollLength = 0;
@@ -37,10 +37,10 @@ class Layout extends Component {
 
     if (typeof window !== `undefined`) {
       // Check for system Dark Mode
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        console.log('Darkness spreads', window)
-        themeObj = themeDefaultDark;
-      }
+      // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      //   console.log('Darkness spreads', window)
+      //   themeObj = themeDefaultDark;
+      // }
 
       innerWidth = window.innerWidth;
       innerHeight = window.innerHeight;
@@ -56,11 +56,24 @@ class Layout extends Component {
       isMobile,
       isHome,
     };
+
+    console.log(this.state)
   }
 
   componentDidMount() {
     window.addEventListener('scroll', throttle(this.handleScroll, 150));
     window.addEventListener('resize', debounce(this.handleResize, 500));
+
+    if (typeof window !== `undefined`) {
+      // Check for system Dark Mode
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        this.updateTheme(themeDefaultDark);
+      } else {
+        this.updateTheme(themeDefaultLight);
+      }
+    } else {
+      this.updateTheme(themeDefaultLight);
+    }
   }
 
   componentWillUnmount() {

@@ -12,7 +12,7 @@ const ColorMenu = ({ themeObj, updateTheme }) => {
     ? themeArr_invert[1]
     : themeArr_invert[0];
 
-  function handleUpdateColorClick(themeObj) {
+  function handleClick(themeObj) {
     if (typeof window !== `undefined`) {
       window.localStorage.setItem('themeObj', JSON.stringify(themeObj));
     }
@@ -25,12 +25,12 @@ const ColorMenu = ({ themeObj, updateTheme }) => {
         style={trail[0]}
         themeobj={invertThemeObj}
         title={invertThemeObj.title}
-        onClick={handleUpdateColorClick.bind(null, invertThemeObj)} />
+        onClick={() => handleClick(invertThemeObj)} />
       {themeArr_color.map((themeObj, i) => {
         return (
           <MenuButtonColor
             style={trail[i]}
-            onClick={handleUpdateColorClick.bind(null, themeObj)}
+            onClick={() => handleClick(themeObj)}
             themeobj={themeObj}
             title={themeObj.title}
             key={i}
