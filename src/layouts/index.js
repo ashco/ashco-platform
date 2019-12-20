@@ -38,6 +38,7 @@ class Layout extends Component {
     if (typeof window !== `undefined`) {
       // Check for system Dark Mode
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        console.log('Darkness spreads', window)
         themeObj = themeDefaultDark;
       }
 
