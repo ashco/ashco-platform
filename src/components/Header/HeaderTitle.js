@@ -43,7 +43,6 @@ const HeaderTitleWrapper = styled.div`
   padding-top: ${({ isHome }) => isHome ? '40px' : '10px'};
   svg {
     height: ${({ isHome }) => isHome ? '120px' : '75px'};
-    /* height: 65px; */
     width: auto;
   }
   a {
@@ -73,11 +72,6 @@ const HeaderTitleWrapper = styled.div`
       height: ${({ isHome }) => isHome ? '180px' : '95px'};
     }
   };
-  /* @media (min-width: ${sizes.hd}px) {
-    svg {
-      height: ${({ isHome }) => isHome ? '200px' : '105px'};
-    } */
-  /* } */
 `;
 
 

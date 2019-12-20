@@ -10,7 +10,7 @@ import HeaderTitle from './HeaderTitle';
 import NavLinks from './NavLinks';
 import MenuIcon from '../Icons/MenuIcon';
 
-class Header extends PureComponent {
+class Header extends Component {
   render() {
     const { isHome, isMobile, pathname } = this.props;
     return (
