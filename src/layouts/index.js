@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
-import { themeDefaultLight, themeDefaultDark, themeArr_invert } from '../config/config';
+import { themeDefaultLight, themeDefaultDark } from '../config/config';
 
 // import ParallaxWrapper from '../components/ParallaxWrapper';
 import {

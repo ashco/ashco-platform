@@ -1,9 +1,9 @@
 # These rules will change if you change your site’s custom domains or HTTPS settings
 
 # Redirect domain aliases to primary domain
-https://ashchristie.dev/* https://ashchristie.dev/:splat 301!
+https://ashco.io/* https://ashco.io/:splat 301!
 
 # Optional: Redirect default Netlify subdomain to primary domain
-https://ashchristie.netlify.com/* https://ashchristie.dev/:splat 301!
+https://ashchristie.netlify.com/* https://ashco.io/:splat 301!
 
 /* /index.html 200

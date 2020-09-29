@@ -8,7 +8,7 @@ exports.createPages = async function ({ graphql, actions }) {
   // SITE REDIRECTS
   createRedirect({
     fromPath: 'https://ashchristie.netlify.com',
-    toPath: 'https://www.ashchristie.dev',
+    toPath: 'https://www.ashco.io',
     isPermanent: true,
   });
 
@@ -47,7 +47,7 @@ exports.createPages = async function ({ graphql, actions }) {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     // PORTFOLIO
     result.data.allContentfulPortfolioProject.edges.forEach(({ node }) => {
       createPage({
