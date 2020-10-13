@@ -143,6 +143,16 @@ class Layout extends Component {
                 description
               }
             }
+            allContentfulContactInfo {
+              edges {
+                node {
+                  # id
+                  githubUrl
+                  linkedInUrl
+                  resumeUrl
+                }
+              }
+            }
           }
         `}
         render={data => (
@@ -190,7 +200,7 @@ class Layout extends Component {
                     </Main>
                   )}
                 </VisualContextConsumer>
-                <Footer themeObj={themeObj} isHome={isHome} updateTheme={this.updateTheme} />
+                <Footer themeObj={themeObj} isHome={isHome} updateTheme={this.updateTheme} contactInfo={data.allContentfulContactInfo.edges[0].node} />
                 <ParticleBG innerWidth={innerWidth} innerHeight={innerHeight} />
                 {/* </>
                 )} /> */}

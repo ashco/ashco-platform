@@ -7,12 +7,13 @@ import FooterRight from './FooterRight';
 
 import { VisualContextConsumer } from '../Context/VisualContext';
 
-const Footer = ({ themeObj, isHome, updateTheme }) => (
+const Footer = ({ themeObj, isHome, updateTheme, contactInfo }) => (
   <VisualContextConsumer>
     {({ showFooterLeft, showFooterRight, handleFooterRight }) => (
       <FooterWrapper>
         <FooterLeft showFooterLeft={showFooterLeft} themeObj={themeObj} isHome={isHome} updateTheme={updateTheme} />
         <FooterRight
+          contactInfo={contactInfo}
           showFooterRight={showFooterRight}
           handleFooterRight={handleFooterRight}
         />

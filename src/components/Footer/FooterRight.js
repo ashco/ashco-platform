@@ -24,7 +24,7 @@ class FooterRight extends PureComponent {
 
   render() {
     const { isHovered, hoverText } = this.state;
-    const { showFooterRight } = this.props;
+    const { showFooterRight, contactInfo } = this.props;
 
     return (
       <FooterRightWrapper>
@@ -36,7 +36,7 @@ class FooterRight extends PureComponent {
             <ul>
               <li>
                 <OutboundLink
-                  href="https://github.com/ashco"
+                  href={contactInfo.githubUrl}
                   title="Github"
                   aria-label="Github"
                   target="_blank"
@@ -47,7 +47,7 @@ class FooterRight extends PureComponent {
               </li>
               <li>
                 <OutboundLink
-                  href="https://www.linkedin.com/in/ashtonchristie/"
+                  href={contactInfo.linkedInUrl}
                   title="Linkedinn"
                   aria-label="Linkedinn"
                   target="_blank"
@@ -69,7 +69,7 @@ class FooterRight extends PureComponent {
               </li> */}
               <li>
                 <OutboundLink
-                  href="https://drive.google.com/file/d/1Y3FDNQc74ntktJ7i8aA3IFn0D2rAti1y/view"
+                  href={contactInfo.resumeUrl}
                   title="Resume"
                   aria-label="Resume"
                   target="_blank"
