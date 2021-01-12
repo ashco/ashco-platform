@@ -13,7 +13,7 @@ class IndexPage extends PureComponent {
             {
               name: 'description',
               content:
-                "Welcome to AshCo.io, Ash Christie's internet bungalo. I build things and sometimes have thoughts. Experience them for yourself here!",
+                "Welcome to AshCo's internet bungalow. Sometimes I build things, sometimes I think things. Experience it all here!",
             },
           ]}
         />
