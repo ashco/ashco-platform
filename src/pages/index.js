@@ -12,8 +12,7 @@ class IndexPage extends PureComponent {
           meta={[
             {
               name: 'description',
-              content:
-                "Welcome to AshCo's internet bungalow. Sometimes I build things, sometimes I think things. Experience it all here!",
+              content: "Welcome to AshCo's internet bungalow.",
             },
           ]}
         />
