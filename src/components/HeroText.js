@@ -1,27 +1,33 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { media } from '../config/media';
-import { useSpring, animated } from 'react-spring'
-
+import { useSpring, animated } from 'react-spring';
 
 const HeroText = ({ isHome }) => {
   const [animateBottom, setAnimateBottom] = useState(false);
 
   const initialDelay = 1000;
 
-  const leftSpring = useSpring({ height: '100%', from: { height: '0%' }, delay: initialDelay, onRest: () => setAnimateBottom(true) });
-  const bottomSpring = useSpring({ width: animateBottom ? '100%' : '0%', from: { width: '0%' } });
+  const leftSpring = useSpring({
+    height: '100%',
+    from: { height: '0%' },
+    delay: initialDelay,
+    onRest: () => setAnimateBottom(true),
+  });
+  const bottomSpring = useSpring({
+    width: animateBottom ? '100%' : '0%',
+    from: { width: '0%' },
+  });
 
   return (
     <HeroTextWrapper isHome={isHome}>
       <LineLeft style={leftSpring} />
       <LineBottom style={bottomSpring} />
-      <animated.h4>Web Developer + Designer</animated.h4>
+      <animated.h4>Full-Stack Software Engineer</animated.h4>
       <animated.h2>Ash Christie</animated.h2>
     </HeroTextWrapper>
   );
-}
-
+};
 
 const LineLeft = styled(animated.div)`
   position: absolute;
@@ -87,8 +93,6 @@ const HeroTextWrapper = styled.div`
   ${media.hd`
     left: 18vw;
   `};
-
 `;
-
 
 export default HeroText;
