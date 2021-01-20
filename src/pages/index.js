@@ -5,6 +5,8 @@ import { DefaultContainer } from '../components/helpers';
 
 class IndexPage extends PureComponent {
   render() {
+    console.log(this.props);
+
     return (
       <MainContainer>
         <Helmet

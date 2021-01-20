@@ -24,11 +24,14 @@ class FooterRight extends PureComponent {
 
   render() {
     const { isHovered, hoverText } = this.state;
-    const { showFooterRight, contactInfo } = this.props;
+    const { showFooterRight, contactInfo, isHome, isIntroDone } = this.props;
 
     return (
       <FooterRightWrapper>
-        <FadeWrapper visible={showFooterRight}>
+        <FadeWrapper
+          visible={showFooterRight}
+          homeTimeout={isHome && !isIntroDone}
+        >
           <FooterRightContainer>
             <LinkMenuTitle className={isHovered && 'active'}>
               {hoverText}

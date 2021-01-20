@@ -9,13 +9,20 @@ import { VisualContextConsumer } from '../Context/VisualContext';
 
 const Footer = ({ themeObj, isHome, updateTheme, contactInfo }) => (
   <VisualContextConsumer>
-    {({ showFooterLeft, showFooterRight, handleFooterRight }) => (
+    {({ showFooterLeft, showFooterRight, handleFooterRight, isIntroDone }) => (
       <FooterWrapper>
-        <FooterLeft showFooterLeft={showFooterLeft} themeObj={themeObj} isHome={isHome} updateTheme={updateTheme} />
+        <FooterLeft
+          showFooterLeft={showFooterLeft}
+          themeObj={themeObj}
+          isHome={isHome}
+          updateTheme={updateTheme}
+        />
         <FooterRight
           contactInfo={contactInfo}
           showFooterRight={showFooterRight}
           handleFooterRight={handleFooterRight}
+          isHome={isHome}
+          isIntroDone={isIntroDone}
         />
       </FooterWrapper>
     )}

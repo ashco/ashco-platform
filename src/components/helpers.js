@@ -12,7 +12,7 @@ export const DefaultContainer = styled.div`
   height: 100%;
   max-width: 990px;
   margin: auto;
-  >*:last-child {
+  > *:last-child {
     margin-bottom: 1.5rem;
   }
   ${media.tablet`
@@ -31,9 +31,9 @@ export const HeaderTextContainer = styled.div`
   flex-direction: column;
   align-items: center;
   max-width: 90%;
-  >* {
+  > * {
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     :last-child {
       margin-bottom: 0;
     }
@@ -72,7 +72,6 @@ export const HeaderTextContainer = styled.div`
     }
   `};
 `;
-
 
 export const PageLink = ({ to, text }) => (
   <PageLinkWrapper>

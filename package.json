@@ -1,8 +1,11 @@
 {
   "name": "AshCo.io",
-  "description": "AshCo.io",
+  "description": "Ashton Christie's Portfolio",
   "version": "1.0.0",
   "author": "AshCo",
+  "engines": {
+    "node": "10.23.1"
+  },
   "dependencies": {
     "gatsby": "^2.0.0",
     "gatsby-image": "^2.0.15",

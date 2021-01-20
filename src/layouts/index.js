@@ -7,7 +7,6 @@ import throttle from 'lodash.throttle';
 
 import { themeDefaultLight, themeDefaultDark } from '../config/config';
 
-// import ParallaxWrapper from '../components/ParallaxWrapper';
 import {
   VisualContextProvider,
   VisualContextConsumer,
@@ -22,7 +21,6 @@ import HeroText from '../components/HeroText';
 import ParticleBG from '../components/ParticleBG';
 import Main from '../components/Main';
 import { sizes } from '../config/media';
-
 
 class Layout extends Component {
   constructor(props) {
@@ -52,13 +50,17 @@ class Layout extends Component {
     };
   }
 
+  // All logic to handle bg and theme updates
   componentDidMount() {
     window.addEventListener('scroll', throttle(this.handleScroll, 150));
     window.addEventListener('resize', debounce(this.handleResize, 500));
 
     if (typeof window !== `undefined`) {
       // Check for system Dark Mode
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      if (
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      ) {
         this.updateTheme(themeDefaultDark);
       } else {
         this.updateTheme(themeDefaultLight);
@@ -117,8 +119,8 @@ class Layout extends Component {
   updateTheme = (themeObj) => {
     const newState = {
       ...this.state,
-      themeObj: { ...this.state.themeObj, ...themeObj }
-    }
+      themeObj: { ...this.state.themeObj, ...themeObj },
+    };
 
     this.setState(newState);
   };
@@ -155,7 +157,7 @@ class Layout extends Component {
             }
           }
         `}
-        render={data => (
+        render={(data) => (
           <VisualContextProvider
             innerWidth={innerWidth}
             innerHeight={innerHeight}
@@ -166,8 +168,6 @@ class Layout extends Component {
           >
             <ThemeProvider theme={themeObj}>
               <LayoutWrapper>
-                {/* <ParallaxWrapper render={mouse => (
-                  <> */}
                 <Helmet titleTemplate={`%s | ${data.site.siteMetadata.title}`}>
                   <html lang="en" />
                 </Helmet>
@@ -180,9 +180,7 @@ class Layout extends Component {
                 <VisualContextConsumer>
                   {({ showHeroImg }) => {
                     return (
-                      <FadeWrapper
-                        visible={showHeroImg}
-                      >
+                      <FadeWrapper visible={showHeroImg}>
                         <HeroText isHome={isHome} />
                       </FadeWrapper>
                     );
@@ -200,10 +198,13 @@ class Layout extends Component {
                     </Main>
                   )}
                 </VisualContextConsumer>
-                <Footer themeObj={themeObj} isHome={isHome} updateTheme={this.updateTheme} contactInfo={data.allContentfulContactInfo.edges[0].node} />
+                <Footer
+                  themeObj={themeObj}
+                  isHome={isHome}
+                  updateTheme={this.updateTheme}
+                  contactInfo={data.allContentfulContactInfo.edges[0].node}
+                />
                 <ParticleBG innerWidth={innerWidth} innerHeight={innerHeight} />
-                {/* </>
-                )} /> */}
               </LayoutWrapper>
             </ThemeProvider>
           </VisualContextProvider>

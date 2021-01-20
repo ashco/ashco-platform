@@ -9,12 +9,11 @@ import { DefaultContainer, HeaderTextContainer } from '../components/helpers';
 import FrontEnd from '../components/Icons/FrontEnd';
 import BackEnd from '../components/Icons/BackEnd';
 import EverythingElse from '../components/Icons/EverythingElse';
-import { Button } from '../components/Buttons'
-
+import { Button } from '../components/Buttons';
 
 import { withTheme } from 'styled-components';
 
-const About = props => {
+const About = (props) => {
   const imgArr = [<FrontEnd />, <BackEnd />, <EverythingElse />];
 
   return (
@@ -42,7 +41,7 @@ const About = props => {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <AboutContainer>
           <Helmet
             title="About"
@@ -55,11 +54,18 @@ const About = props => {
             ]}
           />
           <HeaderTextContainer>
-            <h2>Hi, I'm Ash. I build stuff.</h2>
+            <h2>Hi, I'm Ashton. I build stuff.</h2>
             <p>
-              I am a Seattle based web developer who believes that there's always something new worth learning, success comes from seeking out what makes you uncomfortable, and that there's always time for laughs. I'm always looking for new projects, so if you need a website built, a technical problem solved, or just someone to grab a coffee with, don't wait...
+              I am a Seattle based web developer who believes that there's
+              always something new worth learning, success comes from seeking
+              out what makes you uncomfortable, and that there's always time for
+              laughs. I'm always looking for new projects, so if you need a
+              website built, a technical problem solved, or just someone to grab
+              a coffee with, don't wait...
             </p>
-            <Link to="/contact/"><Button>Say Hello!</Button></Link>
+            <Link to="/contact/">
+              <Button>Say Hello!</Button>
+            </Link>
           </HeaderTextContainer>
           <AboutSkillsContainer>
             {data.allContentfulAboutDataColumn.edges.map((skill, i) => {
@@ -72,7 +78,7 @@ const About = props => {
                   <p>{skill.node.listItems1.join(', ')}</p>
                   <h5>{skill.node.listHeader2}</h5>
                   <ul>
-                    {skill.node.listItems2.map(item => (
+                    {skill.node.listItems2.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
@@ -104,7 +110,6 @@ const AboutContainer = styled(DefaultContainer)`
   `};
 `;
 
-
 const AboutSkillsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -114,7 +119,12 @@ const AboutSkillsContainer = styled.div`
   border-radius: 15px;
   margin: auto 1rem;
 
+  box-shadow: ${({ theme }) => theme.colorPrimary}40 0px 8px 20px;
+  transform: translateY(-3px);
+
   ${media.laptop`
+    box-shadow: none;
+    transform: translateY(0px);
     flex-direction: row;
     border: none;
   `};

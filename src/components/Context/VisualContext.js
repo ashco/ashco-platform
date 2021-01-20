@@ -18,10 +18,11 @@ export class VisualContextProvider extends Component {
       showHeroImg: false,
       showFooterLeft: false,
       showFooterRight: false,
+      isIntroDone: false,
     };
   }
 
-  toggleColorMenu = colorMenuOpen => {
+  toggleColorMenu = (colorMenuOpen) => {
     if (colorMenuOpen !== this.state.colorMenuOpen) {
       this.setState({
         colorMenuOpen,
@@ -29,7 +30,7 @@ export class VisualContextProvider extends Component {
     }
   };
 
-  toggleNavMenu = navMenuOpen => {
+  toggleNavMenu = (navMenuOpen) => {
     if (navMenuOpen !== this.state.navMenuOpen) {
       this.setState({
         navMenuOpen,
@@ -75,14 +76,8 @@ export class VisualContextProvider extends Component {
     const bottomScreenPoint = bodyLength - 10 <= innerHeight + scrollLength;
     let showFooterRight = false;
 
-    if (isMobile) {
-      if (!isHome && bottomScreenPoint) {
-        showFooterRight = true;
-      }
-    } else {
-      if (isHome || bottomScreenPoint) {
-        showFooterRight = true;
-      }
+    if (isHome || bottomScreenPoint) {
+      showFooterRight = true;
     }
     return showFooterRight;
   }
@@ -95,7 +90,7 @@ export class VisualContextProvider extends Component {
     }
   };
 
-  handleFooterLeft = showFooterLeft => {
+  handleFooterLeft = (showFooterLeft) => {
     if (showFooterLeft !== this.state.showFooterLeft) {
       this.setState({
         showFooterLeft,
@@ -103,7 +98,7 @@ export class VisualContextProvider extends Component {
     }
   };
 
-  handleFooterRight = showFooterRight => {
+  handleFooterRight = (showFooterRight) => {
     if (showFooterRight !== this.state.showFooterRight) {
       this.setState({
         showFooterRight,
@@ -127,6 +122,7 @@ export class VisualContextProvider extends Component {
         this.toggleNavMenu(true);
       } else {
         this.toggleNavMenu(false);
+        this.setState({ isIntroDone: true });
       }
     }
     this.handleHeroImg(this.calcHeroImg());
@@ -143,6 +139,7 @@ export class VisualContextProvider extends Component {
           showHeroImg: this.state.showHeroImg,
           showFooterLeft: this.state.showFooterLeft,
           showFooterRight: this.state.showFooterRight,
+          isIntroDone: this.state.isIntroDone,
           toggleColorMenu: this.toggleColorMenu,
           toggleNavMenu: this.toggleNavMenu,
         }}

@@ -24,7 +24,7 @@ const HeroText = ({ isHome }) => {
       <LineLeft style={leftSpring} />
       <LineBottom style={bottomSpring} />
       <animated.h4>Full-Stack Software Engineer</animated.h4>
-      <animated.h2>Ash Christie</animated.h2>
+      <animated.h2>Ashton Christie</animated.h2>
     </HeroTextWrapper>
   );
 };
@@ -53,25 +53,26 @@ const HeroTextWrapper = styled.div`
   padding: 15px 15px 15px 20px;
   width: 90%;
   left: 0vw;
-  bottom: 7vh;
+  bottom: 155px;
   h4 {
-    font-size: 5.3vw;
+    font-size: 4.2vw;
     padding-bottom: 0.5rem;
     font-weight: 400;
   }
   h2 {
     font-weight: 600;
-    font-size: 14.2vw;
+    font-size: 11.4vw;
   }
   ${media.tablet`
     left: 8.5vw;
     bottom: 11vh;
     width: auto;
+    bottom: 7vh;
     h4 {
       font-size: 1.5rem;
     }
     h2 {
-      font-size: 5.6rem;
+      font-size: 4.4rem;
     }
   `};
   ${media.laptop`
@@ -81,13 +82,13 @@ const HeroTextWrapper = styled.div`
       font-size: 1.6rem;
     }
     h2 {
-      font-size: 6.4rem;
+      font-size: 5.4rem;
     }
   `};
   ${media.desktop`
     left: 15vw;
     h2 {
-      font-size: 7rem;
+      font-size: 6.4rem;
     }
   `};
   ${media.hd`
