@@ -6,9 +6,17 @@ import { media } from '../../config/media';
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
+const Tag = styled.li`
+  /* border: 2px solid red; */
+  padding: 0.25rem 0.5rem;
+  color: #222222;
+  background-color: ${(props) => props.theme.colorPrimary};
+`;
+
 class PortfolioItemSelected extends PureComponent {
   render() {
     const { project } = this.props;
+
     return (
       <PortfolioItemSelectedWrapper>
         <a
@@ -20,29 +28,36 @@ class PortfolioItemSelected extends PureComponent {
           <Img fluid={project.image.fluid} alt={project.image.title} />
         </a>
         <PortfolioItemSelectedTextContainer>
-          <div className="container-left">
-            <h3>{project.title}</h3>
-            <p>{project.description.description}</p>
-          </div>
-          <div className="container-right">
-            {project.liveSiteLink && (
+          <ul className="tags-row">
+            {project.tags.map((tag) => (
+              <Tag>{tag}</Tag>
+            ))}
+          </ul>
+          <div className="container">
+            <div className="container-left">
+              <h3>{project.title}</h3>
+              <p>{project.description.description}</p>
+            </div>
+            <div className="container-right">
+              {project.liveSiteLink && (
+                <a
+                  href={project.liveSiteLink}
+                  title="Live Link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <DesktopIcon />
+                </a>
+              )}
               <a
-                href={project.liveSiteLink}
-                title="Live Link"
+                href={project.githubLink}
+                title="Github Link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <DesktopIcon />
+                <GithubIcon />
               </a>
-            )}
-            <a
-              href={project.githubLink}
-              title="Github Link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GithubIcon />
-            </a>
+            </div>
           </div>
         </PortfolioItemSelectedTextContainer>
       </PortfolioItemSelectedWrapper>
@@ -59,7 +74,7 @@ const PortfolioItemSelectedWrapper = styled.div`
   .gatsby-image-wrapper {
     height: 60vw;
     picture > img {
-      box-shadow: ${props => props.theme.colorPrimary}80 0px 0px 10px 3px;
+      box-shadow: ${(props) => props.theme.colorPrimary}80 0px 0px 10px 3px;
     }
   }
   @media (min-width: 1000px) {
@@ -81,14 +96,20 @@ const PortfolioItemSelectedWrapper = styled.div`
 `;
 
 const PortfolioItemSelectedTextContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   opacity: 0.9;
   padding: 0.8rem 1.6rem;
-  border-top: 5px solid ${props => props.theme.colorPrimary};
-  border-bottom: 5px solid ${props => props.theme.colorPrimary};
-  box-shadow: ${props => props.theme.colorPrimary}80 0px 0px 5px 0px;
+  border-top: 5px solid ${(props) => props.theme.colorPrimary};
+  border-bottom: 5px solid ${(props) => props.theme.colorPrimary};
+  box-shadow: ${(props) => props.theme.colorPrimary}80 0px 0px 5px 0px;
+  .tags-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .container-left {
     margin: 1rem 1rem 1rem 0;
     h3 {
@@ -109,7 +130,7 @@ const PortfolioItemSelectedTextContainer = styled.div`
       border-bottom: 3px solid transparent;
       transition: border-bottom 0.2s ease-out;
       &:hover {
-        border-bottom: 3px solid ${props => props.theme.colorPrimary};
+        border-bottom: 3px solid ${(props) => props.theme.colorPrimary};
       }
     }
   }
@@ -117,8 +138,8 @@ const PortfolioItemSelectedTextContainer = styled.div`
   @media (min-width: 1000px) {
     position: absolute;
     bottom: 0;
-    background: ${props => props.theme.colorBackground};
-    border: 3px solid ${props => props.theme.colorPrimary};
+    background: ${(props) => props.theme.colorBackground};
+    border: 3px solid ${(props) => props.theme.colorPrimary};
     border-radius: 0 0 10px 10px;
   }
   ${media.desktop`

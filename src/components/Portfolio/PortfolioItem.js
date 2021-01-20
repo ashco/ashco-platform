@@ -7,9 +7,7 @@ import { media } from '../../config/media';
 
 const PortfolioItem = ({ project, selected }) => {
   return (
-    <PortfolioItemWrapper
-      selected={selected}
-    >
+    <PortfolioItemWrapper selected={selected}>
       <Link to={`/projects/${project.slug}/`}>
         <div className="overlay">
           <h3>{project.title}</h3>
@@ -18,7 +16,7 @@ const PortfolioItem = ({ project, selected }) => {
       </Link>
     </PortfolioItemWrapper>
   );
-}
+};
 
 const PortfolioItemWrapper = styled.article`
   display: flex;
