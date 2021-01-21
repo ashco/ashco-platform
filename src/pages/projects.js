@@ -10,7 +10,7 @@ import { TagListAll } from '../components/Project/TagList';
 
 const ProjectPage = ({ location }) => {
   const [activeTags, setActiveTags] = React.useState(
-    new Set(location.state.activeTag ? [location.state.activeTag] : [])
+    new Set(location?.state?.activeTag ? [location.state.activeTag] : [])
   );
 
   function parseTags(data) {
