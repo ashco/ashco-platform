@@ -31,7 +31,7 @@ class ParticleBG extends Component {
           particles: {
             number: {
               // value: 150,
-              value: 125,
+              value: 80,
               density: {
                 enable: true,
                 value_area: 4000,

@@ -32,7 +32,7 @@ const calc = (x, y) => [
   1.0,
 ];
 const trans = (x, y, s) =>
-  `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+  `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
 const Main = ({ children, isHome, navMenuOpen, theme: { colorPrimary } }) => {
   const [props, set] = useSpring(() => ({
@@ -90,17 +90,20 @@ const MainWrapper = styled.main`
   pointer-events: all;
   /* 140x2 to evenly frame main */
   min-height: calc(100vh - 130px - 130px);
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  padding: 1.5rem 0;
   margin-top: ${({ navMenuOpen }) => (navMenuOpen ? '300px' : '140px')};
   background-color: ${({ theme }) => theme.colorBackground};
   border-top: 3px solid ${(props) => props.theme.colorPrimary};
   border-bottom: 3px solid ${(props) => props.theme.colorPrimary};
   box-shadow: ${({ theme }) => theme.colorPrimary}80 0px 5px 15px;
   @media (min-width: ${sizes.tablet}px) {
+    /* padding: 1.5rem; */
     min-height: 77vh;
     margin-top: 13vh;
   }
   @media (min-width: ${sizes.laptop}px) {
+    padding: 3rem;
     border: 3px solid ${(props) => props.theme.colorPrimary};
     border-radius: 30px;
     margin-left: 8vw;

@@ -14,7 +14,7 @@ class ContactPage extends PureComponent {
     disabled: true,
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
 
@@ -57,9 +57,7 @@ class ContactPage extends PureComponent {
         />
         <HeaderTextContainer>
           <h2>Want to chat?</h2>
-          <p>
-            Fill out this form and I'll get back to you soon as I can.
-          </p>
+          <p>Fill out this form and I'll get back to you soon as I can.</p>
         </HeaderTextContainer>
         <FormWrapper
           onSubmit={this.validateForm}
@@ -106,8 +104,8 @@ class ContactPage extends PureComponent {
                 Send
               </ButtonDisabled>
             ) : (
-                <Button type="submit">Send</Button>
-              )}
+              <Button type="submit">Send</Button>
+            )}
           </div>
         </FormWrapper>
       </ContactContainer>
@@ -116,12 +114,11 @@ class ContactPage extends PureComponent {
 }
 
 const ContactContainer = styled(DefaultContainer)`
+  max-width: 660px;
 `;
 
-
 const FormWrapper = styled.form`
-  width: 90%;
-  max-width: 660px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   > p {
@@ -174,6 +171,5 @@ const FormInputWrapper = styled.p`
     }
   `};
 `;
-
 
 export default ContactPage;

@@ -38,6 +38,8 @@ class ProjectPageSelected extends PureComponent {
 
 const ProjectExtraItemsWrapper = styled.div`
   display: flex;
+  gap: 1rem;
+  /* margin: 1rem auto; */
   flex-wrap: wrap;
   justify-content: center;
   .gatsby-image-wrapper {
@@ -46,10 +48,6 @@ const ProjectExtraItemsWrapper = styled.div`
   ${media.laptop`
     .gatsby-image-wrapper {
       margin: 0;
-      /* max-width: ${(props) => (props.selected ? '460px' : '90%')}; */
-      /* max-width: 90%; */
-      /* width: 47vw;
-      height: 31vw; */
       width: 47vw;
       height: 31vw;
       max-width: 460px;

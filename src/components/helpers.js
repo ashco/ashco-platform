@@ -10,27 +10,19 @@ export const DefaultContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  max-width: 990px;
   margin: auto;
-  > *:last-child {
-    margin-bottom: 1.5rem;
-  }
+  gap: 1rem;
   ${media.tablet`
     box-shadow: 0px 0px 60px -25px inset ${({ theme }) => theme.colorPrimary};
   `};
-  ${media.laptop`
-    >*:last-child {
-      margin-bottom: 3rem;
-    }
-  `}
 `;
 
 export const HeaderTextContainer = styled.div`
-  margin: 1.5rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 90%;
+  padding-bottom: 1.5rem;
   > * {
     text-align: center;
     margin-bottom: 16px;
@@ -57,7 +49,7 @@ export const HeaderTextContainer = styled.div`
   `};
   ${media.laptop`
     width: 80%;
-    margin: 3rem auto;
+    padding-bottom: 2rem;
     h2 {
       border-bottom-width: 5px;
       font-size: 2.5rem;

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import { media } from '../../config/media';
+import { media, sizes } from '../../config/media';
 
 import { TagListSelected } from './TagList';
 import GithubIcon from '../Icons/Github';
@@ -61,20 +61,24 @@ class ProjectItemSelected extends PureComponent {
 }
 
 const ProjectItemSelectedWrapper = styled.div`
+  transform: scale(1);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* margin-bottom: 1rem; */
   .gatsby-image-wrapper {
-    height: 60vw;
+    /* height: 60vw; */
     picture > img {
       box-shadow: ${(props) => props.theme.colorPrimary}80 0px 0px 10px 3px;
     }
   }
-  @media (min-width: 1000px) {
-    margin-top: 0.8rem;
-    width: 990px;
+  @media (min-width: ${sizes.laptop}px) {
+    /* margin-top: 0.8rem; */
+    /* width: 990px; */
+    width: 100%;
     height: 660px;
     .gatsby-image-wrapper {
       position: static !important;
@@ -82,6 +86,11 @@ const ProjectItemSelectedWrapper = styled.div`
       img {
         border-radius: 10px;
       }
+    }
+    &:hover {
+      box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 15px 5px;
+      transform: scale(1.015);
+    }
     }
   }
   ${media.hd`
@@ -96,6 +105,7 @@ const ProjectItemSelectedTextContainer = styled.div`
   border-top: 5px solid ${(props) => props.theme.colorPrimary};
   border-bottom: 5px solid ${(props) => props.theme.colorPrimary};
   box-shadow: ${(props) => props.theme.colorPrimary}80 0px 0px 5px 0px;
+  background-color: ${(props) => props.theme.colorBackground};
   /* .tags-row {
     display: flex;
     gap: 0.5rem;
@@ -131,13 +141,13 @@ const ProjectItemSelectedTextContainer = styled.div`
     }
   }
 
-  @media (min-width: 1000px) {
+  ${media.laptop`
     position: absolute;
     bottom: 0;
     background: ${(props) => props.theme.colorBackground};
     border: 3px solid ${(props) => props.theme.colorPrimary};
     border-radius: 0 0 10px 10px;
-  }
+  `}
   ${media.desktop`
     .container-left {
       h3 {

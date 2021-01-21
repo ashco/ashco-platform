@@ -121,8 +121,10 @@ const AboutSkillsContainer = styled.div`
 
   box-shadow: ${({ theme }) => theme.colorPrimary}40 0px 8px 20px;
   transform: translateY(-3px);
+  background-color: ${({ theme }) => theme.colorBackground};
 
   ${media.laptop`
+    background-color: transparent;
     box-shadow: none;
     transform: translateY(0px);
     flex-direction: row;
@@ -228,27 +230,6 @@ const SkillColumn = styled.div`
       }
     }
   }
-  /* @media (min-width: ${sizes.hd}px) {
-    border: 3px solid ${({ theme }) => theme.colorPrimary}dd;
-    svg {
-      height: 6.5rem;
-    }
-    h4 {
-      border-bottom: 4px solid ${({ theme }) => theme.colorPrimary}dd;
-      font-size: 1.6rem;
-    }
-    h5,
-    p,
-    li {
-      font-size: 1.2rem;
-    }
-    &:hover {
-      border: 3px solid ${({ theme }) => theme.colorPrimary};
-      h4 {
-        border-bottom: 4px solid ${({ theme }) => theme.colorPrimary};
-      }
-    }
-  } */
 `;
 
 export default withTheme(About);

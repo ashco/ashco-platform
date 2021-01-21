@@ -122,6 +122,9 @@ export const ProjectsContainer = styled(DefaultContainer)`
 
 const ProjectsItemContainer = styled.div`
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 export default ProjectPage;
