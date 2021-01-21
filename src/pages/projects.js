@@ -2,43 +2,43 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
-import Select from 'react-select';
 
 import { media } from '../config/media';
 import PortfolioItem from '../components/Portfolio/PortfolioItem';
 import { DefaultContainer, HeaderTextContainer } from '../components/helpers';
-
-const selectStyles = {
-  option: (provided, state) => ({
-    ...provided,
-    color: '#222',
-    // borderBottom: '1px dotted pink',
-    // color: state.isSelected ? 'red' : 'blue',
-    // padding: 20,
-    // border: '2px solid red',
-  }),
-  control: (provided, theme) => ({
-    // none of react-select's styles are passed to <Control />
-    // width: 200,
-    ...provided,
-    // border: `2px solid ${theme}`,
-  }),
-  singleValue: (provided, state) => {
-    // const opacity = state.isDisabled ? 0.5 : 1;
-    // const transition = 'opacity 300ms';
-    // return { ...provided, opacity, transition };
-    return { ...provided };
-  },
-};
-
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-];
+import { TagListAll } from '../components/Portfolio/TagList';
 
 const PortfolioPage = () => {
-  // const [tags, setTags] = React.useState(new Set());
+  const [activeTags, setActiveTags] = React.useState(new Set());
+
+  function parseTags(data) {
+    const tags = new Set();
+
+    data.allContentfulPortfolioProject.edges.forEach((project) => {
+      project.node.tags.forEach((tag) => {
+        tags.add(tag);
+      });
+    });
+
+    return Array.from(tags);
+  }
+
+  function addTag(tag) {
+    setActiveTags((prev) => new Set(prev).add(tag));
+  }
+
+  function removeTag(tag) {
+    const arr = [...activeTags].filter((x) => x !== tag);
+    setActiveTags(new Set(arr));
+  }
+
+  function handleToggle(tag) {
+    if (activeTags.has(tag)) {
+      removeTag(tag);
+    } else {
+      addTag(tag);
+    }
+  }
 
   return (
     <StaticQuery
@@ -82,19 +82,22 @@ const PortfolioPage = () => {
               Here are a few of the projects that I have worked on. More are on
               the way!
             </p>
-            {/* <Select
-              isMulti
-              className="multi-select"
-              options={options}
-              styles={selectStyles}
-              // theme={this.props.theme}
-            /> */}
-            {console.log(data)}
+            <TagListAll
+              handleToggle={handleToggle}
+              activeTags={activeTags}
+              tags={parseTags(data)}
+            />
           </HeaderTextContainer>
           <ProjectsItemContainer>
-            {data.allContentfulPortfolioProject.edges.map(({ node }) => (
-              <PortfolioItem project={node} key={node.id} />
-            ))}
+            {data.allContentfulPortfolioProject.edges
+              .filter(({ node }) => {
+                return [...activeTags].every((activeTag) =>
+                  node.tags.includes(activeTag)
+                );
+              })
+              .map(({ node }) => (
+                <PortfolioItem project={node} key={node.id} />
+              ))}
           </ProjectsItemContainer>
         </ProjectsContainer>
       )}

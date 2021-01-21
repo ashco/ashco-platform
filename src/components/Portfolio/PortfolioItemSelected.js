@@ -3,22 +3,9 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { media } from '../../config/media';
 
+import { TagListSelected } from './TagList';
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
-
-const Tag = styled.li`
-  padding: 0.25rem 0.5rem;
-  color: #222222;
-  background-color: ${(props) => props.theme.colorPrimary}dd;
-  cursor: pointer;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  &:hover {
-    background-color: ${(props) => props.theme.colorPrimary};
-    /* border: 3px solid ${({ theme }) => theme.colorPrimary}; */
-    box-shadow: ${({ theme }) => theme.colorPrimary}40 2px 4px 8px;
-    transform: translateY(-2px);
-  }
-`;
 
 class PortfolioItemSelected extends PureComponent {
   render() {
@@ -35,11 +22,12 @@ class PortfolioItemSelected extends PureComponent {
           <Img fluid={project.image.fluid} alt={project.image.title} />
         </a>
         <PortfolioItemSelectedTextContainer>
-          <ul className="tags-row">
+          <TagListSelected tags={project.tags} />
+          {/* <ul className="tags-row">
             {project.tags.map((tag) => (
               <Tag>{tag}</Tag>
             ))}
-          </ul>
+          </ul> */}
           <div className="container">
             <div className="container-left">
               <h3>{project.title}</h3>
@@ -108,11 +96,11 @@ const PortfolioItemSelectedTextContainer = styled.div`
   border-top: 5px solid ${(props) => props.theme.colorPrimary};
   border-bottom: 5px solid ${(props) => props.theme.colorPrimary};
   box-shadow: ${(props) => props.theme.colorPrimary}80 0px 0px 5px 0px;
-  .tags-row {
+  /* .tags-row {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
-  }
+  } */
   .container {
     display: flex;
     justify-content: space-between;

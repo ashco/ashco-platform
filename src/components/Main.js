@@ -48,16 +48,19 @@ const Main = ({ children, isHome, navMenuOpen, theme: { colorPrimary } }) => {
 
   return (
     <MainContainer>
-      <MainWrapper
-        isHome={isHome}
-        navMenuOpen={navMenuOpen}
-        colorPrimary={colorPrimary}
+      <animated.div
         onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
         onMouseLeave={() => set({ xys: [0, 0, 1] })}
         style={{ transform: isAnimating && props.xys.interpolate(trans) }}
       >
-        {children}
-      </MainWrapper>
+        <MainWrapper
+          isHome={isHome}
+          navMenuOpen={navMenuOpen}
+          colorPrimary={colorPrimary}
+        >
+          {children}
+        </MainWrapper>
+      </animated.div>
       <FooterSpacer isHome={isHome} />
     </MainContainer>
   );
@@ -81,7 +84,7 @@ const FooterSpacer = styled.div`
 `;
 
 // const MainWrapper = styled.main`
-const MainWrapper = styled(animated.main)`
+const MainWrapper = styled.main`
   overflow: auto;
   width: 100%;
   pointer-events: all;
@@ -115,7 +118,6 @@ const MainWrapper = styled(animated.main)`
   background-color: ${({ theme }) => theme.colorBackground};
   background-image: ${({ theme }) =>
     genBackgroundImage(theme.color, theme.isDarkMode)};
-  transform: ${(props) => props.trans};
 `;
 
 const MainWrapper_isHome = css`
