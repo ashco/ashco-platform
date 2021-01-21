@@ -111,17 +111,20 @@ export const ProjectsContainer = styled(DefaultContainer)`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  max-width: 1040px;
+  width: 100%;
   .multi-select {
     width: 100%;
   }
+  ${media.laptop`
+    max-width: 1040px;
+  `}
   ${media.hd`
     max-width: 1380px;
   `};
 `;
 
 const ProjectsItemContainer = styled.div`
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1rem;

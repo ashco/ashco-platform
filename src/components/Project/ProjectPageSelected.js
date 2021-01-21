@@ -13,7 +13,7 @@ class ProjectPageSelected extends PureComponent {
   render() {
     const { data } = this.props;
     if (!data) return null;
-    // console.log(data.contentfulProjectProject.title);
+
     return (
       <ProjectContainer>
         <Helmet
@@ -39,21 +39,9 @@ class ProjectPageSelected extends PureComponent {
 const ProjectExtraItemsWrapper = styled.div`
   display: flex;
   gap: 1rem;
-  /* margin: 1rem auto; */
   flex-wrap: wrap;
   justify-content: center;
-  .gatsby-image-wrapper {
-    width: 90vw;
-  }
-  ${media.laptop`
-    .gatsby-image-wrapper {
-      margin: 0;
-      width: 47vw;
-      height: 31vw;
-      max-width: 460px;
-      max-height: 320px;
-    }
-  `};
+  width: 100%;
 `;
 
 export default ProjectPageSelected;
