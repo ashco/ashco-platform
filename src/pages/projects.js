@@ -8,8 +8,10 @@ import PortfolioItem from '../components/Portfolio/PortfolioItem';
 import { DefaultContainer, HeaderTextContainer } from '../components/helpers';
 import { TagListAll } from '../components/Portfolio/TagList';
 
-const PortfolioPage = () => {
-  const [activeTags, setActiveTags] = React.useState(new Set());
+const PortfolioPage = ({ location }) => {
+  const [activeTags, setActiveTags] = React.useState(
+    new Set(location.state.activeTag ? [location.state.activeTag] : [])
+  );
 
   function parseTags(data) {
     const tags = new Set();

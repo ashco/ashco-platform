@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const TagListWrapper = styled.ul`
@@ -45,9 +46,9 @@ export function TagListSelected({ tags }) {
   return (
     <TagListWrapper>
       {tags.map((tag, i) => (
-        <Tag key={i} active={true}>
-          {tag}
-        </Tag>
+        <Link key={i} to="/projects" state={{ activeTag: tag }}>
+          <Tag active={true}>{tag}</Tag>
+        </Link>
       ))}
     </TagListWrapper>
   );
