@@ -1,34 +1,42 @@
 import React, { PureComponent } from 'react';
 
-import PortfolioItemSelected from './PortfolioItemSelected';
-import PortfolioItem from './PortfolioItem';
-import { ProjectsContainer as PortfolioContainer } from '../../pages/projects';
+import ProjectItemSelected from './ProjectItemSelected';
+import ProjectItem from './ProjectItem';
+import { ProjectsContainer as ProjectContainer } from '../../pages/projects';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 
-import { media } from '../../config/media'
+import { media } from '../../config/media';
 
-class PortfolioPageSelected extends PureComponent {
+class ProjectPageSelected extends PureComponent {
   render() {
     const { data } = this.props;
     if (!data) return null;
-    // console.log(data.contentfulPortfolioProject.title);
+    // console.log(data.contentfulProjectProject.title);
     return (
-      <PortfolioContainer>
-        <Helmet title={data.contentfulPortfolioProject.title} meta={[{ name: 'description', content: (data.contentfulPortfolioProject.description.description) }]} />
-        <PortfolioItemSelected project={data.contentfulPortfolioProject} />
-        <PortfolioExtraItemsWrapper>
+      <ProjectContainer>
+        <Helmet
+          title={data.contentfulPortfolioProject.title}
+          meta={[
+            {
+              name: 'description',
+              content: data.contentfulPortfolioProject.description.description,
+            },
+          ]}
+        />
+        <ProjectItemSelected project={data.contentfulPortfolioProject} />
+        <ProjectExtraItemsWrapper>
           {data.allContentfulPortfolioProject.edges.map(({ node }) => (
-            <PortfolioItem project={node} selected={true} key={node.id} />
+            <ProjectItem project={node} selected={true} key={node.id} />
           ))}
-        </PortfolioExtraItemsWrapper>
-      </PortfolioContainer>
+        </ProjectExtraItemsWrapper>
+      </ProjectContainer>
     );
   }
 }
 
-const PortfolioExtraItemsWrapper = styled.div`
+const ProjectExtraItemsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -38,7 +46,7 @@ const PortfolioExtraItemsWrapper = styled.div`
   ${media.laptop`
     .gatsby-image-wrapper {
       margin: 0;
-      /* max-width: ${props => props.selected ? '460px' : '90%'}; */
+      /* max-width: ${(props) => (props.selected ? '460px' : '90%')}; */
       /* max-width: 90%; */
       /* width: 47vw;
       height: 31vw; */
@@ -50,7 +58,7 @@ const PortfolioExtraItemsWrapper = styled.div`
   `};
 `;
 
-export default PortfolioPageSelected;
+export default ProjectPageSelected;
 
 export const query = graphql`
   query PortfolioQuery($slug: String!) {

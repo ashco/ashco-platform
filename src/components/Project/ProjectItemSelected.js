@@ -7,12 +7,12 @@ import { TagListSelected } from './TagList';
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
-class PortfolioItemSelected extends PureComponent {
+class ProjectItemSelected extends PureComponent {
   render() {
     const { project } = this.props;
 
     return (
-      <PortfolioItemSelectedWrapper>
+      <ProjectItemSelectedWrapper>
         <a
           href={project.liveSiteLink}
           title="Live Link"
@@ -21,7 +21,7 @@ class PortfolioItemSelected extends PureComponent {
         >
           <Img fluid={project.image.fluid} alt={project.image.title} />
         </a>
-        <PortfolioItemSelectedTextContainer>
+        <ProjectItemSelectedTextContainer>
           <TagListSelected tags={project.tags} />
           {/* <ul className="tags-row">
             {project.tags.map((tag) => (
@@ -54,13 +54,13 @@ class PortfolioItemSelected extends PureComponent {
               </a>
             </div>
           </div>
-        </PortfolioItemSelectedTextContainer>
-      </PortfolioItemSelectedWrapper>
+        </ProjectItemSelectedTextContainer>
+      </ProjectItemSelectedWrapper>
     );
   }
 }
 
-const PortfolioItemSelectedWrapper = styled.div`
+const ProjectItemSelectedWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -90,7 +90,7 @@ const PortfolioItemSelectedWrapper = styled.div`
   `};
 `;
 
-const PortfolioItemSelectedTextContainer = styled.div`
+const ProjectItemSelectedTextContainer = styled.div`
   opacity: 0.9;
   padding: 0.8rem 1.6rem;
   border-top: 5px solid ${(props) => props.theme.colorPrimary};
@@ -160,4 +160,4 @@ const PortfolioItemSelectedTextContainer = styled.div`
   `};
 `;
 
-export default PortfolioItemSelected;
+export default ProjectItemSelected;

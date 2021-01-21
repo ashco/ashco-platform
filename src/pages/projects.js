@@ -4,11 +4,11 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
 import { media } from '../config/media';
-import PortfolioItem from '../components/Portfolio/PortfolioItem';
+import ProjectItem from '../components/Project/ProjectItem';
 import { DefaultContainer, HeaderTextContainer } from '../components/helpers';
-import { TagListAll } from '../components/Portfolio/TagList';
+import { TagListAll } from '../components/Project/TagList';
 
-const PortfolioPage = ({ location }) => {
+const ProjectPage = ({ location }) => {
   const [activeTags, setActiveTags] = React.useState(
     new Set(location.state.activeTag ? [location.state.activeTag] : [])
   );
@@ -98,7 +98,7 @@ const PortfolioPage = ({ location }) => {
                 );
               })
               .map(({ node }) => (
-                <PortfolioItem project={node} key={node.id} />
+                <ProjectItem project={node} key={node.id} />
               ))}
           </ProjectsItemContainer>
         </ProjectsContainer>
@@ -124,4 +124,4 @@ const ProjectsItemContainer = styled.div`
   width: 90%;
 `;
 
-export default PortfolioPage;
+export default ProjectPage;

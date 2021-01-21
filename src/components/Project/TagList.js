@@ -6,7 +6,7 @@ const TagListWrapper = styled.ul`
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: ${(props) => (props.selected ? 'flex-start' : 'center')};
 `;
 
 export const Tag = styled.li`
@@ -44,7 +44,7 @@ export function TagListAll({ tags, activeTags, handleToggle }) {
 
 export function TagListSelected({ tags }) {
   return (
-    <TagListWrapper>
+    <TagListWrapper selected={true}>
       {tags.map((tag, i) => (
         <Link key={i} to="/projects" state={{ activeTag: tag }}>
           <Tag active={true}>{tag}</Tag>

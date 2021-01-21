@@ -5,20 +5,20 @@ import styled from 'styled-components';
 
 import { media } from '../../config/media';
 
-const PortfolioItem = ({ project, selected }) => {
+const ProjectItem = ({ project, selected }) => {
   return (
-    <PortfolioItemWrapper selected={selected}>
+    <ProjectItemWrapper selected={selected}>
       <Link to={`/projects/${project.slug}/`}>
         <div className="overlay">
           <h3>{project.title}</h3>
         </div>
         <Img fluid={project.image.fluid} alt={project.title} />
       </Link>
-    </PortfolioItemWrapper>
+    </ProjectItemWrapper>
   );
 };
 
-const PortfolioItemWrapper = styled.article`
+const ProjectItemWrapper = styled.article`
   display: flex;
   justify-content: center;
   position: relative;
@@ -97,4 +97,4 @@ const PortfolioItemWrapper = styled.article`
   `};
 `;
 
-export default PortfolioItem;
+export default ProjectItem;

@@ -12,24 +12,6 @@ exports.createPages = async function ({ graphql, actions }) {
     isPermanent: true,
   });
 
-  // return new Promise((resolve, reject) => {
-  //   graphql(`
-  //     {
-  //       allContentfulPortfolioProject {
-  //         edges {
-  //           node {
-  //             slug
-  //           }
-  //         }
-  //       }
-  //       allContentfulBlogPost {
-  //         edges {
-  //           node {
-  //             slug
-  //           }
-  //         }
-  //       }
-  //     }
   await graphql(`
     {
       allContentfulPortfolioProject {
@@ -54,7 +36,7 @@ exports.createPages = async function ({ graphql, actions }) {
         // can use this fnc to create pages outside of promises
         path: `projects/${node.slug}`,
         component: path.resolve(
-          './src/components/Portfolio/PortfolioPageSelected.js'
+          './src/components/Project/ProjectPageSelected.js'
         ),
         context: {
           slug: node.slug,
