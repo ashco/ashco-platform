@@ -138,6 +138,7 @@ const SkillColumn = styled.div`
   :last-child {
     border-bottom: none;
   }
+  background: ${({ theme }) => theme.colorBackground};
   svg {
     path,
     rect,

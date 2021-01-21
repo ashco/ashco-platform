@@ -68,7 +68,8 @@ const PortfolioItemWrapper = styled.article`
     }
   }
   ${media.laptop`
-    margin: 15px 20px;
+    /* margin: 15px 20px; */
+    margin: 20px 10px;
     .overlay h3 {
       font-size: 2.5rem;
     }

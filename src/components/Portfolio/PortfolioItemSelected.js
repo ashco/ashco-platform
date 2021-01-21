@@ -7,10 +7,17 @@ import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
 const Tag = styled.li`
-  /* border: 2px solid red; */
   padding: 0.25rem 0.5rem;
   color: #222222;
-  background-color: ${(props) => props.theme.colorPrimary};
+  background-color: ${(props) => props.theme.colorPrimary}dd;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  &:hover {
+    background-color: ${(props) => props.theme.colorPrimary};
+    /* border: 3px solid ${({ theme }) => theme.colorPrimary}; */
+    box-shadow: ${({ theme }) => theme.colorPrimary}40 2px 4px 8px;
+    transform: translateY(-2px);
+  }
 `;
 
 class PortfolioItemSelected extends PureComponent {
@@ -104,6 +111,7 @@ const PortfolioItemSelectedTextContainer = styled.div`
   .tags-row {
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
   }
   .container {
     display: flex;
