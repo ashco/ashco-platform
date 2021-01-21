@@ -3,6 +3,14 @@ import styled from 'styled-components';
 import { media } from '../config/media';
 import { useSpring, animated } from 'react-spring';
 
+const calc = (x, y) => [
+  -(y - window.innerHeight / 2) / 200,
+  (x - window.innerWidth / 2) / 200,
+  1.0,
+];
+const trans = (x, y, s) =>
+  `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+
 const HeroText = ({ isHome }) => {
   const [animateBottom, setAnimateBottom] = useState(false);
 
@@ -19,13 +27,37 @@ const HeroText = ({ isHome }) => {
     from: { width: '0%' },
   });
 
+  const [props, set] = useSpring(() => ({
+    xys: [0, 0, 1],
+    config: { mass: 5, tension: 350, friction: 40 },
+  }));
+
   return (
-    <HeroTextWrapper isHome={isHome}>
+    <HeroTextWrapper
+      isHome={isHome}
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+      onMouseLeave={() => set({ xys: [0, 0, 1] })}
+      style={{ transform: props.xys.interpolate(trans) }}
+    >
       <LineLeft style={leftSpring} />
       <LineBottom style={bottomSpring} />
       <animated.h4>Full-Stack Software Engineer</animated.h4>
       <animated.h2>Ashton Christie</animated.h2>
     </HeroTextWrapper>
+    // <HeroTextWrapper isHome={isHome}>
+    //   <animated.div
+    //     onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+    //     onMouseLeave={() => set({ xys: [0, 0, 1] })}
+    //     style={{ transform: props.xys.interpolate(trans) }}
+    //   >
+    //     <div className="container">
+    //       <LineLeft style={leftSpring} />
+    //       <LineBottom style={bottomSpring} />
+    //       <animated.h4>Full-Stack Software Engineer</animated.h4>
+    //       <animated.h2>Ashton Christie</animated.h2>
+    //     </div>
+    //   </animated.div>
+    // </HeroTextWrapper>
   );
 };
 
@@ -45,15 +77,18 @@ const LineBottom = styled(animated.div)`
   height: 8px;
 `;
 
-const HeroTextWrapper = styled.div`
+// const HeroTextWrapper = styled.div`
+const HeroTextWrapper = styled(animated.div)`
   user-select: none;
   position: fixed;
-  pointer-events: none;
+  /* pointer-events: none; */
   margin: 5%;
   padding: 15px 15px 15px 20px;
   width: 90%;
   left: 0vw;
   bottom: 155px;
+  .container {
+  }
   h4 {
     font-size: 4.2vw;
     padding-bottom: 0.5rem;
