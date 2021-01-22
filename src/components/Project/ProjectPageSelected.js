@@ -2,7 +2,10 @@ import React, { PureComponent } from 'react';
 
 import ProjectItemSelected from './ProjectItemSelected';
 import ProjectItem from './ProjectItem';
-import { ProjectsContainer as ProjectContainer } from '../../pages/projects';
+import {
+  ProjectsContainer as ProjectContainer,
+  ProjectsItemContainer,
+} from '../../pages/projects';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
@@ -26,23 +29,15 @@ class ProjectPageSelected extends PureComponent {
           ]}
         />
         <ProjectItemSelected project={data.contentfulPortfolioProject} />
-        <ProjectExtraItemsWrapper>
+        <ProjectsItemContainer>
           {data.allContentfulPortfolioProject.edges.map(({ node }) => (
             <ProjectItem project={node} selected={true} key={node.id} />
           ))}
-        </ProjectExtraItemsWrapper>
+        </ProjectsItemContainer>
       </ProjectContainer>
     );
   }
 }
-
-const ProjectExtraItemsWrapper = styled.div`
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-`;
 
 export default ProjectPageSelected;
 

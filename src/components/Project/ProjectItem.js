@@ -52,7 +52,7 @@ const ProjectItemWrapper = styled.article`
   .gatsby-image-wrapper {
     opacity: 0.5;
     border-radius: 5px;
-    width: 90vw;
+    /* width: 90vw; */
     height: 60vw;
     max-height: 400px;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
