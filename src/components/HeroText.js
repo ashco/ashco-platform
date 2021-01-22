@@ -4,8 +4,8 @@ import { media } from '../config/media';
 import { useSpring, animated } from 'react-spring';
 
 const calc = (x, y) => [
-  -(y - window.innerHeight / 2) / 200,
-  (x - window.innerWidth / 2) / 200,
+  -(y - window.innerHeight / 2) / 100,
+  (x - window.innerWidth / 2) / 100,
   1.0,
 ];
 const trans = (x, y, s) =>

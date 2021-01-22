@@ -55,10 +55,10 @@ class ContactPage extends PureComponent {
             },
           ]}
         />
-        <HeaderTextContainer>
+        <ContactHeaderTextContainer>
           <h2>Want to chat?</h2>
           <p>Fill out this form and I'll get back to you soon as I can.</p>
-        </HeaderTextContainer>
+        </ContactHeaderTextContainer>
         <FormWrapper
           onSubmit={this.validateForm}
           name="contact"
@@ -98,7 +98,7 @@ class ContactPage extends PureComponent {
               onChange={this.handleChange}
             />
           </FormInputWrapper>
-          <div>
+          <div className="btn-row">
             {this.state.disabled ? (
               <ButtonDisabled disabled type="submit">
                 Send
@@ -118,6 +118,13 @@ const ContactContainer = styled(DefaultContainer)`
   width: 90%;
 `;
 
+const ContactHeaderTextContainer = styled(HeaderTextContainer)`
+  padding-bottom: 1rem;
+  ${media.laptop`
+    padding-bottom: 1rem;
+  `};
+`;
+
 const FormWrapper = styled.form`
   width: 100%;
   display: flex;
@@ -128,6 +135,13 @@ const FormWrapper = styled.form`
   label {
     color: ${({ theme }) => theme.colorText};
     padding-bottom: 0.5rem;
+  }
+  .btn-row {
+    display: flex;
+    justify-content: center;
+    button {
+      width: 100%;
+    }
   }
   ${media.desktop`
     > p {

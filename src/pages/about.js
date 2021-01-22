@@ -99,7 +99,12 @@ const AboutContainer = styled(DefaultContainer)`
   a {
     font-weight: 500;
     color: ${({ theme }) => theme.colorPrimary};
-    transition: all 0.2s linear;
+    /* transition: all 0.2s linear; */
+    /* transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    &:hover {
+      box-shadow: ${({ theme }) => theme.colorPrimary}40 0px 8px 20px;
+      transform: translateY(-2px);
+    } */
   }
 
   ${media.laptop`

@@ -112,7 +112,6 @@ export const ProjectsContainer = styled(DefaultContainer)`
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
-  /* width: 90%; */
   .multi-select {
     width: 100%;
   }
@@ -128,7 +127,7 @@ export const ProjectsItemContainer = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 `;
 
 export default ProjectPage;

@@ -13,21 +13,23 @@ export const Button = styled.button`
   ${media.desktop`
     font-size: 1.4rem;
   `};
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   &:hover {
+    box-shadow: ${({ theme }) => theme.colorPrimary}40 0px 8px 20px;
+    transform: translateY(-2px);
     background-color: ${({ theme }) => theme.colorPrimary};
     color: ${({ theme }) => theme.colorBackground};
-    box-shadow: ${({ theme }) => theme.colorPrimary}40 0 0 15px 5px;
   }
 `;
-
 
 export const ButtonDisabled = styled(Button)`
   cursor: auto;
   border-color: #888888cc;
   color: #888888cc;
   &:hover {
-    border-color: #888888cc;
-    color: #888888cc;
+    box-shadow: none;
+    transform: none;
     background-color: ${({ theme }) => theme.colorBackground};
+    color: #888888cc;
   }
 `;

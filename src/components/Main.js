@@ -25,41 +25,41 @@ function genBackgroundImage(color, isDarkMode) {
   }
 }
 
-const calc = (x, y) => [
-  -(y - window.innerHeight / 2) / 2000,
-  (x - window.innerWidth / 2) / 2000,
-  1.0,
-];
-const trans = (x, y, s) =>
-  `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+// const calc = (x, y) => [
+//   -(y - window.innerHeight / 2) / 2000,
+//   (x - window.innerWidth / 2) / 2000,
+//   1.0,
+// ];
+// const trans = (x, y, s) =>
+//   `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
 const Main = ({ children, isHome, navMenuOpen, theme: { colorPrimary } }) => {
-  const [props, set] = useSpring(() => ({
-    xys: [0, 0, 1],
-    config: { mass: 5, tension: 350, friction: 40 },
-  }));
+  // const [props, set] = useSpring(() => ({
+  //   xys: [0, 0, 1],
+  //   config: { mass: 5, tension: 350, friction: 40 },
+  // }));
 
-  let isAnimating = false;
+  // let isAnimating = false;
 
-  if (typeof window !== `undefined`) {
-    isAnimating = window.innerWidth >= sizes.laptop;
-  }
+  // if (typeof window !== `undefined`) {
+  //   isAnimating = window.innerWidth >= sizes.laptop;
+  // }
 
   return (
     <MainContainer>
-      <animated.div
+      {/* <animated.div
         onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
         onMouseLeave={() => set({ xys: [0, 0, 1] })}
         style={{ transform: isAnimating && props.xys.interpolate(trans) }}
+      > */}
+      <MainWrapper
+        isHome={isHome}
+        navMenuOpen={navMenuOpen}
+        colorPrimary={colorPrimary}
       >
-        <MainWrapper
-          isHome={isHome}
-          navMenuOpen={navMenuOpen}
-          colorPrimary={colorPrimary}
-        >
-          {children}
-        </MainWrapper>
-      </animated.div>
+        {children}
+      </MainWrapper>
+      {/* </animated.div> */}
       <FooterSpacer isHome={isHome} />
     </MainContainer>
   );
@@ -79,12 +79,9 @@ const FooterSpacer = styled.div`
   `}
   ${media.laptop`
     height: ${({ isHome }) => (isHome ? 0 : '10vh')};
-  `} /* @media (min-width: 935px) {
-    height: ${({ isHome }) => (isHome ? 0 : '10vh')};
-  } */
+  `}
 `;
 
-// const MainWrapper = styled.main`
 const MainWrapper = styled.main`
   overflow: auto;
   width: 100%;
@@ -97,19 +94,19 @@ const MainWrapper = styled.main`
   border-top: 3px solid ${(props) => props.theme.colorPrimary};
   border-bottom: 3px solid ${(props) => props.theme.colorPrimary};
   box-shadow: ${({ theme }) => theme.colorPrimary}80 0px 5px 15px;
+  border-radius: 5px;
   ${media.tablet`
-    /* padding: 1.5rem; */
     min-height: 77vh;
     margin-top: 13vh;
   `}
-  ${media.laptop`
+  @media (min-width: ${sizes.laptop}px) {
     padding: ${(props) => (props.isHome ? '0' : '3rem')};
     border: 3px solid ${(props) => props.theme.colorPrimary};
     border-radius: 30px;
     margin-left: 8vw;
     margin-right: 8vw;
     width: 84vw;
-  `}
+  }
   ${media.hd`
     margin-left: 15vw;
     margin-right: 15vw;
