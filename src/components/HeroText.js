@@ -33,16 +33,19 @@ export const HeroText = ({ isHome }) => {
   }));
 
   return (
-    <HeroTextWrapper
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-      onMouseLeave={() => set({ xys: [0, 0, 1] })}
-      style={{ transform: props.xys.interpolate(trans) }}
-      isHome={isHome}
-    >
-      <LineLeft style={leftSpring} />
-      <LineBottom style={bottomSpring} />
-      <animated.h4>Full-Stack Software Engineer</animated.h4>
-      <animated.h2>Ashton Christie</animated.h2>
+    <HeroTextWrapper isHome={isHome}>
+      <animated.div
+        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+        onMouseLeave={() => set({ xys: [0, 0, 1] })}
+        style={{ transform: props.xys.interpolate(trans) }}
+      >
+        <div className="hero-container">
+          <LineLeft style={leftSpring} />
+          <LineBottom style={bottomSpring} />
+          <animated.h4>Full-Stack Software Engineer</animated.h4>
+          <animated.h2>Ashton Christie</animated.h2>
+        </div>
+      </animated.div>
     </HeroTextWrapper>
   );
 };
@@ -63,12 +66,14 @@ const LineBottom = styled(animated.div)`
   height: 8px;
 `;
 
-const HeroTextWrapper = styled(animated.div)`
+const HeroTextWrapper = styled.div`
   pointer-events: auto;
   display: ${({ isHome }) => !isHome && 'none'};
   user-select: none;
-  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
-  width: 90%;
+  .hero-container {
+    padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+    width: 90%;
+  }
   h4 {
     font-size: 4.5vw;
     padding-bottom: 0.5rem;
@@ -81,8 +86,10 @@ const HeroTextWrapper = styled(animated.div)`
   ${media.tablet`
     position: fixed;
     left: 10vw;
-    width: auto;
     bottom: 15vh;
+    .hero-container {
+      width: auto;
+    }
     h4 {
       font-size: 1.5rem;
     }

@@ -5,7 +5,7 @@ import { useSpring, animated } from 'react-spring';
 import { sizes, media } from '../config/media';
 
 function genBackgroundImage(color, isDarkMode) {
-  const opacity = isDarkMode ? '0.06' : '0.07';
+  const opacity = isDarkMode ? '0.06' : '0.09';
 
   switch (color) {
     case 'ORANGE':

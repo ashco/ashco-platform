@@ -56,12 +56,12 @@ const About = (props) => {
           <HeaderTextContainer>
             <h2>Hi, I'm Ashton. I build stuff.</h2>
             <p>
-              I am a Seattle based web developer who believes that there's
-              always something new worth learning, success comes from seeking
-              out what makes you uncomfortable, and that there's always time for
-              laughs. I'm always looking for new projects, so if you need a
-              website built, a technical problem solved, or just someone to grab
-              a coffee with, don't wait...
+              I am a Seattle based Full-Stack developer who believes that
+              there's always something new worth learning, success comes from
+              seeking out what makes you uncomfortable, and that there's always
+              time for laughs. I'm always looking for new projects, so if you
+              need a website built, a technical problem solved, or just someone
+              to grab a coffee with, don't wait...
             </p>
             <Link to="/contact/">
               <Button>Say Hello!</Button>

@@ -18,7 +18,7 @@ const Footer = ({ themeObj, isHome, updateTheme, contactInfo }) => (
           <div className="footer-container">
             <HeroText isHome={isHome} />
             <ColorMenu themeObj={themeObj} updateTheme={updateTheme} />
-            <ContactLinks contactInfo={contactInfo} />
+            <ContactLinks contactInfo={contactInfo} isIntroDone={isIntroDone} />
             {!isHome && <CopyrightText />}
           </div>
         </FooterWrapper>

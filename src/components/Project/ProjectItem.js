@@ -24,7 +24,7 @@ const ProjectItemWrapper = styled.article`
   justify-content: center;
   position: relative;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 25px;
   box-shadow: none;
   border-bottom: none;
   overflow: hidden;
@@ -52,7 +52,7 @@ const ProjectItemWrapper = styled.article`
 
   .gatsby-image-wrapper {
     opacity: 0.5;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     /* width: 90vw; */
     height: 60vw;
     max-height: 400px;
