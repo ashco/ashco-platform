@@ -9,6 +9,7 @@ import { VisualContextConsumer } from '../Context/VisualContext';
 import HeaderTitle from './HeaderTitle';
 import NavLinks from './NavLinks';
 import MenuIcon from '../Icons/MenuIcon';
+import { HeroIcon } from './HeroIcon';
 
 class Header extends Component {
   render() {
@@ -20,7 +21,7 @@ class Header extends Component {
             ref={(wrapper) => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
           >
             <HeaderContainer>
-              <HeaderTitle isHome={isHome} pathname={pathname} />
+              {isHome ? <HeroIcon /> : <HeaderTitle pathname={pathname} />}
               <NavLinks navMenuOpen={navMenuOpen} isMobile={isMobile} />
               {isMobile && !isHome && <MenuIcon />}
             </HeaderContainer>
@@ -44,15 +45,15 @@ const HeaderWrapper = styled.header`
 `;
 
 const HeaderContainer = styled.nav`
+  height: 140px;
   margin: 0 auto;
-  margin-left: 1.5rem;
+  padding: 0 1.5rem;
   max-width: 1200px;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
-  height: 140px;
   ${media.tablet`
     height: 13vh;
   `};

@@ -18,7 +18,6 @@ class NavLinks extends PureComponent {
           <ul>
             <NavLinkItem to="/about/" title="About" closeMenu />
             <NavLinkItem to="/projects/" title="Projects" closeMenu />
-            {/* <NavLinkItem to="/blog/" title="Blog" closeMenu /> */}
             <NavLinkItem to="/contact/" title="Contact" closeMenu />
           </ul>
         </NavMenuToggleWrapper>
@@ -48,23 +47,20 @@ class NavLinkItem extends PureComponent {
 }
 
 const NavLinksWrapper = styled.div`
-  font-size: 1.4rem;
-  margin: 1.45rem 0.6rem;
+  font-size: 1.5rem;
+  margin: 1.5rem 2rem;
   position: absolute;
   right: 0;
   top: 90px;
-
   ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-  }
-  @media (min-width: 700px) {
-    font-size: 1.6rem;
+    gap: 2rem;
   }
   ${media.tablet`
-    margin: -1rem 1.45rem 1.1rem 1.45rem;
+    margin: 0 1rem;
     position: static;
     font-size: 1.5rem;
     ul {
@@ -78,7 +74,6 @@ const NavLinksWrapper = styled.div`
 
 const NavLinkItemWrapper = styled.li`
   user-select: none;
-  margin: 0.9rem;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   a {
@@ -91,9 +86,6 @@ const NavLinkItemWrapper = styled.li`
       border-bottom: 3px solid ${({ theme }) => theme.colorPrimary}cc;
     }
   }
-  ${media.tablet`
-    margin: 0 0.9rem;
-  `};
 `;
 
 export default NavLinks;

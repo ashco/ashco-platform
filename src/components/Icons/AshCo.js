@@ -1,5 +1,5 @@
-﻿import React, { useState, useEffect } from "react";
-import { animated, useSpring } from "react-spring";
+﻿import React, { useState, useEffect } from 'react';
+import { animated, useSpring } from 'react-spring';
 import { withTheme } from 'styled-components';
 
 const AshCo = ({ theme, pathname }) => {
@@ -11,18 +11,18 @@ const AshCo = ({ theme, pathname }) => {
     oDeg: 0,
     oX: 0,
     oY: 0,
-    oZ: 0
+    oZ: 0,
   });
 
   const [cAnimation, cSet] = useSpring(() => ({
-    transform: `rotate(0deg)`
+    transform: `rotate(0deg)`,
   }));
   const [oAnimation, oSet] = useSpring(() => ({
-    transform: "rotate3d(0, 0, 0, 0deg)"
+    transform: 'rotate3d(0, 0, 0, 0deg)',
   }));
   const [ioAnimation, ioSet] = useSpring(() => ({
-    transform: "scale(1)",
-    config: { mass: 1, tension: 1070, friction: 26 }
+    transform: 'scale(1)',
+    config: { mass: 1, tension: 1070, friction: 26 },
   }));
 
   function handleClick() {
@@ -32,7 +32,7 @@ const AshCo = ({ theme, pathname }) => {
       oDeg: state.oDeg + 360,
       oX: Math.floor(Math.random() * 720) - 360,
       oY: Math.floor(Math.random() * 720) - 360,
-      oZ: Math.floor(Math.random() * 720) - 360
+      oZ: Math.floor(Math.random() * 720) - 360,
     });
   }
 
@@ -40,13 +40,11 @@ const AshCo = ({ theme, pathname }) => {
     if (pathname === '/') {
       cSet({ transform: `rotate(${state.cDeg}deg)` });
       oSet({
-        transform: `rotate3d(${state.oX}, ${state.oY}, ${state.oZ}, ${
-          state.oDeg
-          }deg)`
+        transform: `rotate3d(${state.oX}, ${state.oY}, ${state.oZ}, ${state.oDeg}deg)`,
       });
     }
     ioSet({
-      to: [{ transform: "scale(0.8)" }, { transform: "scale(1)" }]
+      to: [{ transform: 'scale(0.8)' }, { transform: 'scale(1)' }],
     });
   });
 
@@ -70,12 +68,14 @@ const AshCo = ({ theme, pathname }) => {
           id="ashco-logo-white"
           transform="translate(-487.000000, -374.000000)"
         >
-          <g transform="translate(487.000000, 374.000000)" className="ashco-logo">
+          <g
+            transform="translate(487.000000, 374.000000)"
+            className="ashco-logo"
+          >
             <animated.path
               d="M959.188422,102.30876 L1013.60662,205.503306 L1811.39116,1718.36454 C1780.04071,1769.36524 1744.50158,1817.51514 1705.25307,1862.33487 L905.678089,346.09162 L106.346674,1861.87754 C67.1107711,1817.02073 31.5882752,1768.83325 0.258819463,1717.79472 L797.749554,205.503306 L852.150452,102.341573 C869.987935,101.450737 887.94133,101 906,101 C923.83558,101 941.568469,101.439669 959.188422,102.30876 Z"
               id="Combined-Shape"
               fill={colorText}
-
             />
             <animated.path
               d="M1369.8792,1617.22625 C1251.98727,1737.7197 1087.56634,1812.49845 905.678089,1812.49845 C547.033608,1812.49845 256.293631,1521.75847 256.293631,1163.11399 C256.293631,804.46951 547.033608,513.729533 905.678089,513.729533 C1087.57107,513.729533 1251.99911,588.513019 1369.88867,709.011202 L1491.62252,587.457263 C1342.58816,435.778779 1135.11795,341.70763 905.678089,341.70763 C452.027428,341.70763 84.2717283,709.46333 84.2717283,1163.11399 C84.2717283,1616.76465 452.027428,1984.52035 905.678089,1984.52035 C1135.18187,1984.52035 1342.69941,1890.40186 1491.74087,1738.64289 L1369.8792,1617.22625 Z"

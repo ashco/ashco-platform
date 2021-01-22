@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { sizes } from '../../config/media';
+import { sizes, media } from '../../config/media';
 
 import AshCoIcon from '../Icons/AshCo';
 
-const HeaderTitle = ({ isHome, pathname }) => {
+const HeaderTitle = ({ pathname }) => {
   function getPageTitle() {
     const siteTitles = ['About', 'Projects', 'Blog', 'Contact'];
     let pageTitle = pathname.split('/')[1];
@@ -19,52 +19,41 @@ const HeaderTitle = ({ isHome, pathname }) => {
   const pageTitle = getPageTitle();
 
   return (
-    <HeaderTitleWrapper isHome={isHome}>
+    <HeaderTitleWrapper>
       <Link to="/" aria-label="hero-screen">
         <AshCoIcon pathname={pathname} />
       </Link>
-      {!isHome && <h1 className="title">{pageTitle}</h1>}
+      {<h1 className="title">{pageTitle}</h1>}
     </HeaderTitleWrapper>
   );
 };
 
+// This is where the title logo sizing issue occurs
 const HeaderTitleWrapper = styled.div`
-  /* margin-left: 1.4rem; */
   display: flex;
   align-items: center;
-  font-size: 2rem;
-  font-weight: 600;
-  padding-top: ${({ isHome }) => (isHome ? '40px' : '10px')};
-  svg {
-    height: ${({ isHome }) => (isHome ? '120px' : '75px')};
-    width: auto;
-  }
+  gap: 1rem;
   a {
-    text-decoration: none;
     pointer-events: auto;
   }
+  svg {
+    height: 9vh;
+    width: auto;
+  }
   .title {
-    margin-left: 0.8rem;
+    font-size: 2rem;
+    font-weight: 600;
   }
-
-  @media (min-width: ${sizes.tablet}px) {
-    padding-top: ${({ isHome }) => (isHome ? '85px' : '10px')};
-    font-size: 2.5rem;
-    svg {
-      height: ${({ isHome }) => (isHome ? '140px' : '75px')};
+  ${media.tablet`
+    .title {
+      font-size: 2.5rem;
     }
-  }
-  @media (min-width: ${sizes.laptop}px) {
-    svg {
-      height: ${({ isHome }) => (isHome ? '160px' : '85px')};
+  `}
+  ${media.laptop`
+    .title {
+      font-size: 3rem;
     }
-    font-size: 3rem;
-  }
-  @media (min-width: ${sizes.hd}px) {
-    svg {
-      height: ${({ isHome }) => (isHome ? '180px' : '95px')};
-    }
-  } ;
+  `}
 `;
 
 export default HeaderTitle;

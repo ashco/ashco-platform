@@ -20,10 +20,9 @@ const MenuIcon = () => (
 
 const MenuIconWrapper = styled.div`
   pointer-events: auto;
-  margin-right: 1.4rem;
   min-width: 34px;
   span {
-    background: ${props => props.theme.colorText};
+    background: ${(props) => props.theme.colorText};
   }
 `;
 
