@@ -11,7 +11,7 @@ const calc = (x, y) => [
 const trans = (x, y, s) =>
   `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
-export const HeroText = () => {
+export const HeroText = ({ isHome }) => {
   const [animateBottom, setAnimateBottom] = useState(false);
 
   const initialDelay = 1000;
@@ -37,6 +37,7 @@ export const HeroText = () => {
       onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
       onMouseLeave={() => set({ xys: [0, 0, 1] })}
       style={{ transform: props.xys.interpolate(trans) }}
+      isHome={isHome}
     >
       <LineLeft style={leftSpring} />
       <LineBottom style={bottomSpring} />
@@ -63,55 +64,46 @@ const LineBottom = styled(animated.div)`
 `;
 
 const HeroTextWrapper = styled(animated.div)`
+  pointer-events: auto;
+  display: ${({ isHome }) => !isHome && 'none'};
   user-select: none;
-  /* position: fixed; */
-  /* margin: 5%; */
-  /* padding: 15px 15px 15px 20px; */
-  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
   width: 90%;
-  /* left: 0vw; */
-  /* bottom: 155px; */
-  /* .container {
-  } */
   h4 {
-    font-size: 4.2vw;
+    font-size: 4.5vw;
     padding-bottom: 0.5rem;
     font-weight: 400;
   }
   h2 {
     font-weight: 600;
-    font-size: 11.4vw;
+    font-size: 11vw;
   }
   ${media.tablet`
     position: fixed;
     left: 10vw;
-    /* bottom: 11vh; */
     width: auto;
     bottom: 15vh;
     h4 {
       font-size: 1.5rem;
     }
     h2 {
-      font-size: 4.4rem;
+      font-size: 4.5rem;
     }
   `};
   ${media.laptop`
-    left: 11vw;
-    bottom: 13vh;
+    left: 12.5vw;
+    bottom: 15vh;
     h4 {
-      font-size: 1.6rem;
+      font-size: 1.75rem;
     }
     h2 {
-      font-size: 5.4rem;
-    }
-  `};
-  ${media.desktop`
-    left: 15vw;
-    h2 {
-      font-size: 6.4rem;
+      font-size: 5.5rem;
     }
   `};
   ${media.hd`
-    left: 18vw;
+    left: 17.5vw;
+    h2 {
+      font-size: 6.5rem;
+    }
   `};
 `;

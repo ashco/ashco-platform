@@ -16,8 +16,6 @@ import Header from '../components/Header/header';
 import Footer from '../components/Footer/Footer';
 import '../style/index.css';
 
-import FadeWrapper from '../components/Animation/Fade';
-// import HeroText from '../components/HeroText';
 import ParticleBG from '../components/ParticleBG';
 import Main from '../components/Main';
 import { sizes } from '../config/media';
@@ -26,7 +24,7 @@ class Layout extends Component {
   constructor(props) {
     super(props);
 
-    let themeObj = themeDefaultLight;
+    let themeObj = themeDefaultDark;
     let innerWidth = 0;
     let innerHeight = 0;
     let scrollLength = 0;
@@ -55,19 +53,19 @@ class Layout extends Component {
     window.addEventListener('scroll', throttle(this.handleScroll, 150));
     window.addEventListener('resize', debounce(this.handleResize, 500));
 
-    if (typeof window !== `undefined`) {
-      // Check for system Dark Mode
-      if (
-        window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-      ) {
-        this.updateTheme(themeDefaultDark);
-      } else {
-        this.updateTheme(themeDefaultLight);
-      }
-    } else {
-      this.updateTheme(themeDefaultLight);
-    }
+    // if (typeof window !== `undefined`) {
+    //   // Check for system Dark Mode
+    //   if (
+    //     window.matchMedia &&
+    //     window.matchMedia('(prefers-color-scheme: dark)').matches
+    //   ) {
+    //     this.updateTheme(themeDefaultDark);
+    //   } else {
+    //     this.updateTheme(themeDefaultLight);
+    //   }
+    // } else {
+    //   this.updateTheme(themeDefaultLight);
+    // }
   }
 
   componentWillUnmount() {
@@ -177,11 +175,6 @@ class Layout extends Component {
                   isMobile={isMobile}
                   pathname={location.pathname}
                 />
-                {/* <VisualContextConsumer>
-                  {({ showHeroImg }) => {
-                    return <HeroText isHome={isHome} />;
-                  }}
-                </VisualContextConsumer> */}
                 <VisualContextConsumer>
                   {({ navMenuOpen, updateMainElHeight }) => (
                     <Main

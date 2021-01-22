@@ -1,4 +1,3 @@
-// HeroContext.js
 import React, { Component } from 'react';
 
 const VisualContext = React.createContext();
@@ -16,8 +15,6 @@ export class VisualContextProvider extends Component {
       navMenuOpen,
       colorMenuOpen: false,
       showHeroImg: false,
-      // showFooterLeft: false,
-      // showFooterRight: false,
       showFooter: false,
       isIntroDone: false,
     };
@@ -47,42 +44,6 @@ export class VisualContextProvider extends Component {
     return showHeroImg;
   }
 
-  // calcFooterLeft() {
-  //   const { innerHeight, scrollLength, isHome } = this.props;
-
-  //   let bodyLength;
-  //   if (typeof document !== 'undefined') {
-  //     bodyLength =
-  //       document.documentElement.scrollHeight || document.body.scrollHeight;
-  //   }
-
-  //   const bottomScreenPoint = bodyLength - 10 <= innerHeight + scrollLength;
-  //   let showFooterLeft = false;
-
-  //   if (bottomScreenPoint && !isHome) {
-  //     showFooterLeft = true;
-  //   }
-
-  //   return showFooterLeft;
-  // }
-
-  // calcFooterRight() {
-  //   const { isMobile, isHome, innerHeight, scrollLength } = this.props;
-
-  //   let bodyLength;
-  //   if (typeof document !== 'undefined') {
-  //     bodyLength =
-  //       document.documentElement.scrollHeight || document.body.scrollHeight;
-  //   }
-  //   const bottomScreenPoint = bodyLength - 10 <= innerHeight + scrollLength;
-  //   let showFooterRight = false;
-
-  //   if (isHome || bottomScreenPoint) {
-  //     showFooterRight = true;
-  //   }
-  //   return showFooterRight;
-  // }
-
   calcFooter() {
     const { isMobile, isHome, innerHeight, scrollLength } = this.props;
 
@@ -108,22 +69,6 @@ export class VisualContextProvider extends Component {
     }
   };
 
-  // handleFooterLeft = (showFooterLeft) => {
-  //   if (showFooterLeft !== this.state.showFooterLeft) {
-  //     this.setState({
-  //       showFooterLeft,
-  //     });
-  //   }
-  // };
-
-  // handleFooterRight = (showFooterRight) => {
-  //   if (showFooterRight !== this.state.showFooterRight) {
-  //     this.setState({
-  //       showFooterRight,
-  //     });
-  //   }
-  // };
-
   handleFooter = (showFooter) => {
     if (showFooter !== this.state.showFooter) {
       this.setState({
@@ -134,8 +79,6 @@ export class VisualContextProvider extends Component {
 
   componentDidMount() {
     this.handleHeroImg(this.calcHeroImg());
-    // this.handleFooterLeft(this.calcFooterLeft());
-    // this.handleFooterRight(this.calcFooterRight());
     this.handleFooter(this.calcFooter());
   }
 
@@ -153,8 +96,6 @@ export class VisualContextProvider extends Component {
       }
     }
     this.handleHeroImg(this.calcHeroImg());
-    // this.handleFooterLeft(this.calcFooterLeft());
-    // this.handleFooterRight(this.calcFooterRight());
     this.handleFooter(this.calcFooter());
   }
 
@@ -165,8 +106,6 @@ export class VisualContextProvider extends Component {
           colorMenuOpen: this.state.colorMenuOpen,
           navMenuOpen: this.state.navMenuOpen,
           showHeroImg: this.state.showHeroImg,
-          // showFooterLeft: this.state.showFooterLeft,
-          // showFooterRight: this.state.showFooterRight,
           showFooter: this.state.showFooter,
           isIntroDone: this.state.isIntroDone,
           toggleColorMenu: this.toggleColorMenu,

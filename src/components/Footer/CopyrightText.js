@@ -35,6 +35,7 @@ const CopyrightTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  font-size: 0.75rem;
   p {
     margin-bottom: 0;
   }
@@ -45,5 +46,8 @@ const CopyrightTextContainer = styled.div`
   }
   ${media.tablet`
     order: 2;
+  `}
+  ${media.laptop`
+    font-size: 1rem;
   `}
 `;

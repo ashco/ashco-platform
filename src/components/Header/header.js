@@ -61,6 +61,4 @@ const HeaderWrapper = styled.header`
   }
 `;
 
-// const HeaderContainer = styled.nav``;
-
 export default Header;

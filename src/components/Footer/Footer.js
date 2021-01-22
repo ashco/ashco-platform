@@ -16,9 +16,8 @@ const Footer = ({ themeObj, isHome, updateTheme, contactInfo }) => (
       <FadeWrapper visible={showFooter}>
         <FooterWrapper>
           <div className="footer-container">
-            {isHome && <HeroText />}
+            <HeroText isHome={isHome} />
             <ColorMenu themeObj={themeObj} updateTheme={updateTheme} />
-            {/* <FadeWrapper visible={showFooter} homeTimeout={isHome && !isIntroDone}> */}
             <ContactLinks contactInfo={contactInfo} />
             {!isHome && <CopyrightText />}
           </div>
@@ -34,8 +33,8 @@ const FooterWrapper = styled.footer`
   bottom: 0;
   position: fixed;
   width: 100%;
-  /* ${media.tablet`
-  `} */
+  display: flex;
+  justify-content: center;
   a {
     pointer-events: auto;
     color: ${({ theme }) => theme.colorPrimary};
@@ -48,30 +47,20 @@ const FooterWrapper = styled.footer`
     justify-content: center;
     padding-bottom: 2rem;
     gap: 2rem;
+    width: 100%;
     ${media.tablet`
       padding: 0 2rem 2rem;
       flex-direction: row;
       justify-content: space-between;
       max-width: 1200px;
     `}
+    ${media.laptop`
+      max-width: 84vw;
+    `};
+    ${media.hd`
+      width: 70vw;
+    `};
   }
-  /* ${media.tablet`
-    flex-direction: row;
-    align-items: flex-end;
-    margin-left: 2vw;
-    margin-right: 2vw;
-    width: 96vw;
-  `};
-  ${media.laptop`
-    margin-left: 8vw;
-    margin-right: 8vw;
-    width: 84vw;
-  `};
-  ${media.hd`
-    margin-left: 15vw;
-    margin-right: 15vw;
-    width: 70vw;
-  `}; */
 `;
 
 export default Footer;

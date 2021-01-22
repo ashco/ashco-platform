@@ -37,9 +37,6 @@ const ColorMenu = ({ themeObj, updateTheme }) => {
 };
 
 const ColorMenuButtonsWrapper = styled.div`
-  /* position: absolute;
-  bottom: 2.5vh;
-  left: 6vw; */
   display: flex;
   align-items: center;
   justify-content: center;

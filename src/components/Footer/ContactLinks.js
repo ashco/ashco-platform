@@ -4,7 +4,6 @@ import { media } from '../../config/media';
 
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-import FadeWrapper from '../Animation/Fade';
 import GithubIcon from '../Icons/Github';
 import LinkedInIcon from '../Icons/LinkedIn';
 import ResumeIcon from '../Icons/Resume';
@@ -14,8 +13,6 @@ class ContactLinks extends PureComponent {
     const { showFooter, contactInfo, isHome, isIntroDone } = this.props;
 
     return (
-      // <ContactLinksWrapper>
-      //   <FadeWrapper visible={showFooter} homeTimeout={isHome && !isIntroDone}>
       <ContactLinksContainer>
         <li>
           <OutboundLink
