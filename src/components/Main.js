@@ -5,7 +5,7 @@ import { useSpring, animated } from 'react-spring';
 import { sizes, media } from '../config/media';
 
 function genBackgroundImage(color, isDarkMode) {
-  const opacity = isDarkMode ? '0.06' : '0.06';
+  const opacity = isDarkMode ? '0.06' : '0.07';
 
   switch (color) {
     case 'ORANGE':
@@ -90,7 +90,7 @@ const MainWrapper = styled.main`
   /* 140x2 to evenly frame main */
   min-height: calc(100vh - 130px - 130px);
   /* margin: 0 auto; */
-  padding: 1.5rem 0;
+  padding: ${(props) => (props.isHome ? '0' : '1.5rem 0')};
   margin-top: ${({ navMenuOpen }) => (navMenuOpen ? '300px' : '140px')};
   background-color: ${({ theme }) => theme.colorBackground};
   border-top: 3px solid ${(props) => props.theme.colorPrimary};
@@ -102,7 +102,7 @@ const MainWrapper = styled.main`
     margin-top: 13vh;
   }
   @media (min-width: ${sizes.laptop}px) {
-    padding: 3rem;
+    padding: ${(props) => (props.isHome ? '0' : '3rem')};
     border: 3px solid ${(props) => props.theme.colorPrimary};
     border-radius: 30px;
     margin-left: 8vw;

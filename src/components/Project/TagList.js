@@ -13,7 +13,9 @@ export const Tag = styled.li`
   padding: 0.25rem 0.5rem;
   color: ${(props) => (props.active ? '#222222' : props.theme.textColor)};
   background-color: ${(props) =>
-    props.active ? props.theme.colorPrimary + 'dd' : 'none'};
+    props.active
+      ? props.theme.colorPrimary + 'dd'
+      : props.theme.colorBackground};
 
   border: 2px solid ${(props) => props.theme.colorPrimary}dd;
   cursor: pointer;

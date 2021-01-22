@@ -44,20 +44,6 @@ const HeroText = ({ isHome }) => {
       <animated.h4>Full-Stack Software Engineer</animated.h4>
       <animated.h2>Ashton Christie</animated.h2>
     </HeroTextWrapper>
-    // <HeroTextWrapper isHome={isHome}>
-    //   <animated.div
-    //     onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-    //     onMouseLeave={() => set({ xys: [0, 0, 1] })}
-    //     style={{ transform: props.xys.interpolate(trans) }}
-    //   >
-    //     <div className="container">
-    //       <LineLeft style={leftSpring} />
-    //       <LineBottom style={bottomSpring} />
-    //       <animated.h4>Full-Stack Software Engineer</animated.h4>
-    //       <animated.h2>Ashton Christie</animated.h2>
-    //     </div>
-    //   </animated.div>
-    // </HeroTextWrapper>
   );
 };
 
@@ -77,11 +63,9 @@ const LineBottom = styled(animated.div)`
   height: 8px;
 `;
 
-// const HeroTextWrapper = styled.div`
 const HeroTextWrapper = styled(animated.div)`
   user-select: none;
   position: fixed;
-  /* pointer-events: none; */
   margin: 5%;
   padding: 15px 15px 15px 20px;
   width: 90%;

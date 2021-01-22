@@ -17,13 +17,10 @@ class Header extends Component {
       <VisualContextConsumer>
         {({ navMenuOpen }) => (
           <HeaderWrapper
-            ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
+            ref={(wrapper) => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
           >
             <HeaderContainer>
-              <HeaderTitle
-                isHome={isHome}
-                pathname={pathname}
-              />
+              <HeaderTitle isHome={isHome} pathname={pathname} />
               <NavLinks navMenuOpen={navMenuOpen} isMobile={isMobile} />
               {isMobile && !isHome && <MenuIcon />}
             </HeaderContainer>
@@ -48,6 +45,7 @@ const HeaderWrapper = styled.header`
 
 const HeaderContainer = styled.nav`
   margin: 0 auto;
+  margin-left: 1.5rem;
   max-width: 1200px;
   position: relative;
   display: flex;

@@ -19,6 +19,7 @@ const ProjectItem = ({ project, selected }) => {
 };
 
 const ProjectItemWrapper = styled.article`
+  background-color: ${({ theme }) => theme.colorBackground};
   display: flex;
   justify-content: center;
   position: relative;
