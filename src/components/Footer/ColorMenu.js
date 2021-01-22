@@ -8,9 +8,10 @@ import { media } from '../../config/media';
 const ColorMenu = ({ themeObj, updateTheme }) => {
   const trail = useTrail(6, { opacity: 1, from: { opacity: 0 }, delay: 3000 });
 
-  const invertThemeObj = themeObj.colorBackground === '#1f1f1f'
-    ? themeArr_invert[1]
-    : themeArr_invert[0];
+  const invertThemeObj =
+    themeObj.colorBackground === '#1f1f1f'
+      ? themeArr_invert[1]
+      : themeArr_invert[0];
 
   return (
     <ColorMenuButtonsWrapper>
@@ -18,7 +19,8 @@ const ColorMenu = ({ themeObj, updateTheme }) => {
         style={trail[0]}
         themeobj={invertThemeObj}
         title={invertThemeObj.title}
-        onClick={() => updateTheme(invertThemeObj)} />
+        onClick={() => updateTheme(invertThemeObj)}
+      />
       {themeArr_color.map((themeObj, i) => {
         return (
           <MenuButtonColor
@@ -31,15 +33,16 @@ const ColorMenu = ({ themeObj, updateTheme }) => {
         );
       })}
     </ColorMenuButtonsWrapper>
-  )
-}
+  );
+};
 
 const ColorMenuButtonsWrapper = styled.div`
-  position: absolute;
+  /* position: absolute;
   bottom: 2.5vh;
-  left: 6vw;
+  left: 6vw; */
   display: flex;
   align-items: center;
+  justify-content: center;
 
   button:hover {
     transform: scale(1.35);
@@ -47,6 +50,7 @@ const ColorMenuButtonsWrapper = styled.div`
   }
   ${media.tablet`
     position: initial;
+    order: 1;
   `}
 `;
 

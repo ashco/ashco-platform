@@ -20,11 +20,11 @@ class Header extends Component {
           <HeaderWrapper
             ref={(wrapper) => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
           >
-            <HeaderContainer>
+            <div className="header-container">
               {isHome ? <HeroIcon /> : <HeaderTitle pathname={pathname} />}
               <NavLinks navMenuOpen={navMenuOpen} isMobile={isMobile} />
               {isMobile && !isHome && <MenuIcon />}
-            </HeaderContainer>
+            </div>
           </HeaderWrapper>
         )}
       </VisualContextConsumer>
@@ -42,24 +42,25 @@ const HeaderWrapper = styled.header`
     margin-left: 8vw;
     margin-right: 8vw;
   `};
+  .header-container {
+    height: 140px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    max-width: 1200px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    ${media.tablet`
+      height: 13vh;
+    `};
+    ${media.hd`
+      max-width: 1600px;
+    `};
+  }
 `;
 
-const HeaderContainer = styled.nav`
-  height: 140px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  max-width: 1200px;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  pointer-events: none;
-  ${media.tablet`
-    height: 13vh;
-  `};
-  ${media.hd`
-    max-width: 1600px;
-  `};
-`;
+// const HeaderContainer = styled.nav``;
 
 export default Header;

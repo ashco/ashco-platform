@@ -17,7 +17,7 @@ import Footer from '../components/Footer/Footer';
 import '../style/index.css';
 
 import FadeWrapper from '../components/Animation/Fade';
-import HeroText from '../components/HeroText';
+// import HeroText from '../components/HeroText';
 import ParticleBG from '../components/ParticleBG';
 import Main from '../components/Main';
 import { sizes } from '../config/media';
@@ -177,11 +177,11 @@ class Layout extends Component {
                   isMobile={isMobile}
                   pathname={location.pathname}
                 />
-                <VisualContextConsumer>
+                {/* <VisualContextConsumer>
                   {({ showHeroImg }) => {
                     return <HeroText isHome={isHome} />;
                   }}
-                </VisualContextConsumer>
+                </VisualContextConsumer> */}
                 <VisualContextConsumer>
                   {({ navMenuOpen, updateMainElHeight }) => (
                     <Main

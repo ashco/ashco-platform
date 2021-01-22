@@ -11,7 +11,7 @@ const calc = (x, y) => [
 const trans = (x, y, s) =>
   `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
-const HeroText = ({ isHome }) => {
+export const HeroText = () => {
   const [animateBottom, setAnimateBottom] = useState(false);
 
   const initialDelay = 1000;
@@ -34,7 +34,6 @@ const HeroText = ({ isHome }) => {
 
   return (
     <HeroTextWrapper
-      isHome={isHome}
       onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
       onMouseLeave={() => set({ xys: [0, 0, 1] })}
       style={{ transform: props.xys.interpolate(trans) }}
@@ -65,14 +64,15 @@ const LineBottom = styled(animated.div)`
 
 const HeroTextWrapper = styled(animated.div)`
   user-select: none;
-  position: fixed;
-  margin: 5%;
-  padding: 15px 15px 15px 20px;
+  /* position: fixed; */
+  /* margin: 5%; */
+  /* padding: 15px 15px 15px 20px; */
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
   width: 90%;
-  left: 0vw;
-  bottom: 155px;
-  .container {
-  }
+  /* left: 0vw; */
+  /* bottom: 155px; */
+  /* .container {
+  } */
   h4 {
     font-size: 4.2vw;
     padding-bottom: 0.5rem;
@@ -83,10 +83,11 @@ const HeroTextWrapper = styled(animated.div)`
     font-size: 11.4vw;
   }
   ${media.tablet`
-    left: 8.5vw;
-    bottom: 11vh;
+    position: fixed;
+    left: 10vw;
+    /* bottom: 11vh; */
     width: auto;
-    bottom: 7vh;
+    bottom: 15vh;
     h4 {
       font-size: 1.5rem;
     }
@@ -114,5 +115,3 @@ const HeroTextWrapper = styled(animated.div)`
     left: 18vw;
   `};
 `;
-
-export default HeroText;
