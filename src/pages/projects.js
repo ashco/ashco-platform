@@ -4,9 +4,9 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
 import { media } from '../config/media';
-import { ProjectItem } from '../components/Project/ProjectItem';
+import { ProjectItem } from '../components/Projects/ProjectItem';
 import { DefaultContainer, HeaderTextContainer } from '../components/helpers';
-import { TagListAll } from '../components/Project/TagList';
+import { TagListAll } from '../components/Projects/TagList';
 
 const ProjectItemsContainer = ({ data, activeTags }) => {
   const [projects, setProjects] = React.useState([]);
