@@ -1,33 +1,15 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import { useSpring, animated } from 'react-spring';
 
 import { TagListSelected } from './TagList';
 import { media, sizes } from '../../config/media';
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
-// const calc = (x, y) => [
-//   -(y - window.innerHeight / 2) / 500,
-//   (x - window.innerWidth / 2) / 500,
-//   1.025,
-// ];
-// const trans = (x, y, s) =>
-//   `perspective(800px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
-
 const ProjectItemSelected = ({ project }) => {
-  // const [props, set] = useSpring(() => ({
-  //   xys: [0, 0, 1],
-  //   config: { mass: 5, tension: 350, friction: 40 },
-  // }));
-
   return (
-    <ProjectItemSelectedWrapper
-    // onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-    // onMouseLeave={() => set({ xys: [0, 0, 1] })}
-    // style={{ transform: props.xys.interpolate(trans) }}
-    >
+    <ProjectItemSelectedWrapper>
       <a
         href={project.liveSiteLink}
         title="Live Link"
@@ -38,11 +20,6 @@ const ProjectItemSelected = ({ project }) => {
       </a>
       <ProjectItemSelectedTextContainer>
         <TagListSelected tags={project.tags} />
-        {/* <ul className="tags-row">
-            {project.tags.map((tag) => (
-              <Tag>{tag}</Tag>
-            ))}
-          </ul> */}
         <div className="container">
           <div className="container-left">
             <h3>{project.title}</h3>
@@ -73,7 +50,6 @@ const ProjectItemSelected = ({ project }) => {
     </ProjectItemSelectedWrapper>
   );
 };
-// }
 
 const ProjectItemSelectedWrapper = styled.div`
   overflow: auto;
@@ -85,19 +61,8 @@ const ProjectItemSelectedWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   border-radius: 5px;
-  /* border-top: 3px solid ${(props) => props.theme.colorPrimary}; */
   border-bottom: 3px solid ${(props) => props.theme.colorPrimary};
-  /* margin-bottom: 1rem; */
-  .gatsby-image-wrapper {
-    /* height: 60vw; */
-    picture > img {
-      /* box-shadow: ${(props) =>
-        props.theme.colorPrimary}80 0px 0px 10px 3px; */
-    }
-  }
   @media (min-width: ${sizes.laptop}px) {
-    /* margin-top: 0.8rem; */
-    /* width: 990px; */
     border: 3px solid ${(props) => props.theme.colorPrimary};
     border-radius: 25px;
     box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 15px 5px;
@@ -107,16 +72,7 @@ const ProjectItemSelectedWrapper = styled.div`
     .gatsby-image-wrapper {
       position: static !important;
       border-bottom: none;
-      /* border-radius: 25px; */
-      img {
-        /* border-radius: 2px; */
-        /* border-radius: 10px; */
-      }
     }
-    /* &:hover {
-      box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 20px 8px;
-      transform: scale(1.015);
-    } */
   }
   ${media.hd`
     width: 1340px;
@@ -155,8 +111,6 @@ const ProjectItemSelectedTextContainer = styled.div`
     display: grid;
     gap: 1rem;
     a {
-      /* margin: 0.5rem; */
-      /* padding-bottom: 3px; */
       border-bottom: 3px solid transparent;
       transition: border-bottom 0.2s ease-out;
       &:hover {
@@ -168,9 +122,6 @@ const ProjectItemSelectedTextContainer = styled.div`
   ${media.laptop`
     position: absolute;
     bottom: 0;
-    /* background: ${(props) => props.theme.colorBackground}; */
-    /* border: 3px solid ${(props) => props.theme.colorPrimary}; */
-    /* border-radius: 0 0 10px 10px; */
   }
   `}
   ${media.desktop`

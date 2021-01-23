@@ -14,7 +14,6 @@ export class VisualContextProvider extends Component {
     this.state = {
       navMenuOpen,
       showFooter: false,
-      // isAnimating: false,
       isAnimating: true,
     };
   }
@@ -28,7 +27,7 @@ export class VisualContextProvider extends Component {
   };
 
   calcFooter() {
-    const { isMobile, isHome, innerHeight, scrollLength } = this.props;
+    const { isHome, innerHeight, scrollLength } = this.props;
 
     let bodyLength;
     if (typeof document !== 'undefined') {

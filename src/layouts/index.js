@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 
-import { themeDefaultLight, themeDefaultDark } from '../config/config';
+import { themeDefaultDark } from '../config/config';
 
 import {
   VisualContextProvider,

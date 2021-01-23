@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css, withTheme } from 'styled-components';
-import { useSpring, animated } from 'react-spring';
 
 import { sizes, media } from '../config/media';
 

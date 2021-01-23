@@ -1,5 +1,3 @@
-import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { media } from '../config/media';
 
@@ -9,7 +7,6 @@ export const DefaultContainer = styled.div`
   justify-items: center;
   height: 100%;
   margin: auto;
-  /* gap: 2rem; */
   gap: 1.5rem;
   ${media.tablet`
     box-shadow: 0px 0px 60px -25px inset ${({ theme }) => theme.colorPrimary};
@@ -17,16 +14,11 @@ export const DefaultContainer = styled.div`
 `;
 
 export const HeaderTextContainer = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
   display: grid;
   gap: 1rem;
   max-width: 90%;
-  /* padding-bottom: 1.5rem; */
   > * {
     text-align: center;
-    /* margin-bottom: 16px; */
     :last-child {
       margin-bottom: 0;
     }
@@ -37,7 +29,6 @@ export const HeaderTextContainer = styled.div`
     font-size: 5.9vw;
     color: ${({ theme }) => theme.colorPrimary};
     border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
-    /* padding: 0 1.5rem 0.6rem 1.5rem; */
     padding: 0 1.5rem 0.75rem;
   }
   p {
@@ -51,7 +42,6 @@ export const HeaderTextContainer = styled.div`
   `};
   ${media.laptop`
     width: 80%;
-    /* padding-bottom: 2rem; */
     h2 {
       border-bottom-width: 5px;
       font-size: 2.5rem;

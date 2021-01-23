@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { media } from '../../config/media';
 
@@ -15,10 +15,6 @@ const ContactLinks = ({ contactInfo, isAnimating }) => {
     from: { opacity: 0 },
     delay: 4000,
   });
-  // const fadeIn = useSpring({
-  // opacity: 1,
-  // from: { opacity: 0 },
-  // });
 
   return (
     <ContactLinksContainer style={isAnimating ? introSpring : {}}>
@@ -63,7 +59,6 @@ const ContactLinksContainer = styled(animated.ul)`
   display: grid;
   grid-auto-flow: column;
   gap: 1rem;
-  /* align-items: center; */
   justify-content: center;
   a {
     display: inline;
@@ -71,9 +66,6 @@ const ContactLinksContainer = styled(animated.ul)`
       border-bottom: 4px solid ${({ theme }) => theme.colorPrimary}cc;
     }
   }
-  /* svg {
-    width: 75%;
-  } */
   ${media.tablet`
     order: 3;
   `}

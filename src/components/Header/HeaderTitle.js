@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { sizes, media } from '../../config/media';
+import { media } from '../../config/media';
 
 import AshCoIcon from '../Icons/AshCo';
 
@@ -31,7 +31,6 @@ const HeaderTitle = ({ pathname }) => {
 // This is where the title logo sizing issue occurs
 const HeaderTitleWrapper = styled.div`
   display: grid;
-  /* align-items: center; */
   grid-auto-flow: column;
   align-items: center;
   gap: 1rem;
