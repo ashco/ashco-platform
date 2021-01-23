@@ -56,9 +56,11 @@ const ContactLinks = ({ contactInfo, isIntroDone }) => {
 };
 
 const ContactLinksContainer = styled(animated.ul)`
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-auto-flow: column;
   gap: 1rem;
+  /* align-items: center; */
+  justify-content: center;
   a {
     display: inline;
     &:hover {

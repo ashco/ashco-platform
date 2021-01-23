@@ -31,11 +31,10 @@ export const CopyrightText = () => {
 };
 
 const CopyrightTextContainer = styled.div`
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 0.5rem;
-  font-size: 0.75rem;
+  text-align: center;
+  font-size: 1rem;
   p {
     margin-bottom: 0;
   }

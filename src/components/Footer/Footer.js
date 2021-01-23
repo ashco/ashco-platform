@@ -41,16 +41,16 @@ const FooterWrapper = styled.footer`
     transition: border-bottom 0.2s ease-out;
   }
   .footer-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
     justify-content: center;
+    /* align-items: center; */
     padding-bottom: 2rem;
     gap: 2rem;
     width: 100%;
     ${media.tablet`
       padding: 0 2rem 2rem;
-      flex-direction: row;
+      grid-auto-flow: column;
+      /* flex-direction: row; */
       justify-content: space-between;
       max-width: 1200px;
     `}

@@ -5,7 +5,8 @@ import { media } from '../config/media';
 
 export const DefaultContainer = styled.div`
   pointer-events: auto;
-  display: flex;
+  /* display: flex; */
+  display: grid;
   flex-direction: column;
   justify-content: center;
   align-items: center;
