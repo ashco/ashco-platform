@@ -53,7 +53,6 @@ const FooterWrapper = styled.footer`
     width: 100%;
     ${media.tablet`
       grid-auto-flow: column;
-      /* flex-direction: row; */
       justify-content: space-between;
       max-width: 1200px;
     `}
