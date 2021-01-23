@@ -9,7 +9,8 @@ export const DefaultContainer = styled.div`
   justify-items: center;
   height: 100%;
   margin: auto;
-  gap: 2rem;
+  /* gap: 2rem; */
+  gap: 1.5rem;
   ${media.tablet`
     box-shadow: 0px 0px 60px -25px inset ${({ theme }) => theme.colorPrimary};
   `};
@@ -50,7 +51,7 @@ export const HeaderTextContainer = styled.div`
   `};
   ${media.laptop`
     width: 80%;
-    padding-bottom: 2rem;
+    /* padding-bottom: 2rem; */
     h2 {
       border-bottom-width: 5px;
       font-size: 2.5rem;
@@ -58,38 +59,10 @@ export const HeaderTextContainer = styled.div`
   `};
   ${media.desktop`
     p {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
     }
     h2 {
       font-size: 2.8rem;
     }
   `};
-`;
-
-export const PageLink = ({ to, text }) => (
-  <PageLinkWrapper>
-    <Link to={to}>{text}</Link>
-  </PageLinkWrapper>
-);
-
-const PageLinkWrapper = styled.div`
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  a {
-    color: ${({ theme }) => theme.colorText};
-    font-size: 1.5rem;
-  }
-`;
-
-export const Tag = styled.div`
-  background: #2c768e;
-  height: 30px;
-  width: 60px;
-  margin: 10px;
-`;
-
-export const TagContainer = styled.div`
-  display: flex;
 `;

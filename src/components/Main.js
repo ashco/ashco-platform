@@ -86,7 +86,7 @@ const MainContainer = styled.div`
 `;
 
 const FooterSpacer = styled.div`
-  height: ${({ isHome }) => (isHome ? 0 : '20rem')};
+  height: ${({ isHome }) => (isHome ? 0 : '17.5rem')};
   @media (min-width: ${sizes.tablet}px) {
     height: ${({ isHome }) => (isHome ? 0 : '10rem')};
   }

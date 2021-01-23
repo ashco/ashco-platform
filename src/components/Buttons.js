@@ -6,7 +6,7 @@ export const Button = styled.button`
   padding: 0.5rem 1.2rem 0.5rem 1.2rem;
   font-size: 1.25rem;
   background-color: ${({ theme }) => theme.colorBackground};
-  border: 4px solid ${({ theme }) => theme.colorPrimary};
+  border: 3px solid ${({ theme }) => theme.colorPrimary};
   border-radius: 3px;
   color: ${({ theme }) => theme.colorPrimary};
   font-weight: 500;

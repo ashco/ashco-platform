@@ -93,9 +93,9 @@ const About = (props) => {
 };
 
 const AboutContainer = styled(DefaultContainer)`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   a {
     font-weight: 500;
     color: ${({ theme }) => theme.colorPrimary};
