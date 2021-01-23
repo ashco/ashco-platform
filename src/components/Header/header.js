@@ -1,3 +1,4 @@
+// for whatever reason, this needs to be lowercase header or netlify will run into issue deploying
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 

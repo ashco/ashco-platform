@@ -12,7 +12,7 @@ import {
   VisualContextConsumer,
 } from '../components/Context/VisualContext';
 
-import Header from '../components/Header/Header';
+import Header from '../components/Header/header'; // for whatever reason, this needs to be lowercase header or netlify will run into issue deploying
 import Footer from '../components/Footer/Footer';
 import '../style/index.css';
 
