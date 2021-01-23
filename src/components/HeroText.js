@@ -72,7 +72,6 @@ const HeroTextWrapper = styled.div`
   user-select: none;
   .hero-container {
     padding: 1.25rem 1.25rem 1.25rem 1.5rem;
-    width: 90%;
   }
   h4 {
     font-size: 4.5vw;

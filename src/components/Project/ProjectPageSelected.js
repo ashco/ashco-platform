@@ -1,24 +1,21 @@
 import React, { PureComponent } from 'react';
 
 import ProjectItemSelected from './ProjectItemSelected';
-import ProjectItem from './ProjectItem';
+import { ProjectItem } from './ProjectItem';
 import {
-  ProjectsContainer as ProjectContainer,
-  ProjectsItemContainer,
+  ProjectsContainer,
+  StyledProjectItemsContainer,
 } from '../../pages/projects';
 import { graphql } from 'gatsby';
-import styled from 'styled-components';
 import Helmet from 'react-helmet';
 
-import { media } from '../../config/media';
-
-class ProjectPageSelected extends PureComponent {
+class ProjectsPageSelected extends PureComponent {
   render() {
     const { data } = this.props;
     if (!data) return null;
 
     return (
-      <ProjectContainer>
+      <ProjectsContainer>
         <Helmet
           title={data.contentfulPortfolioProject.title}
           meta={[
@@ -29,17 +26,17 @@ class ProjectPageSelected extends PureComponent {
           ]}
         />
         <ProjectItemSelected project={data.contentfulPortfolioProject} />
-        <ProjectsItemContainer>
+        <StyledProjectItemsContainer>
           {data.allContentfulPortfolioProject.edges.map(({ node }) => (
             <ProjectItem project={node} selected={true} key={node.id} />
           ))}
-        </ProjectsItemContainer>
-      </ProjectContainer>
+        </StyledProjectItemsContainer>
+      </ProjectsContainer>
     );
   }
 }
 
-export default ProjectPageSelected;
+export default ProjectsPageSelected;
 
 export const query = graphql`
   query PortfolioQuery($slug: String!) {

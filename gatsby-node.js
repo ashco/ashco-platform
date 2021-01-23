@@ -36,7 +36,7 @@ exports.createPages = async function ({ graphql, actions }) {
         // can use this fnc to create pages outside of promises
         path: `projects/${node.slug}`,
         component: path.resolve(
-          './src/components/Project/ProjectPageSelected.js'
+          './src/components/Project/ProjectsPageSelected.js'
         ),
         context: {
           slug: node.slug,

@@ -4,11 +4,35 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
 import { media } from '../config/media';
-import ProjectItem from '../components/Project/ProjectItem';
+import { ProjectItem } from '../components/Project/ProjectItem';
 import { DefaultContainer, HeaderTextContainer } from '../components/helpers';
 import { TagListAll } from '../components/Project/TagList';
 
-const ProjectPage = ({ location }) => {
+const ProjectItemsContainer = ({ data, activeTags }) => {
+  const [projects, setProjects] = React.useState([]);
+
+  React.useEffect(() => {
+    console.log(activeTags);
+    const filteredProjects = data.allContentfulPortfolioProject.edges.filter(
+      ({ node }) => {
+        // return true;
+        return [...activeTags].every((activeTag) =>
+          node.tags.includes(activeTag)
+        );
+      }
+    );
+
+    setProjects(filteredProjects);
+  }, [data, activeTags]);
+
+  return projects.length ? (
+    projects.map(({ node }) => <ProjectItem project={node} key={node.id} />)
+  ) : (
+    <p className="not-found-message">You expect too much from me..</p>
+  );
+};
+
+const ProjectsPage = ({ location }) => {
   const [activeTags, setActiveTags] = React.useState(
     new Set(location?.state?.activeTag ? [location.state.activeTag] : [])
   );
@@ -90,17 +114,7 @@ const ProjectPage = ({ location }) => {
               tags={parseTags(data)}
             />
           </HeaderTextContainer>
-          <ProjectsItemContainer>
-            {data.allContentfulPortfolioProject.edges
-              .filter(({ node }) => {
-                return [...activeTags].every((activeTag) =>
-                  node.tags.includes(activeTag)
-                );
-              })
-              .map(({ node }) => (
-                <ProjectItem project={node} key={node.id} />
-              ))}
-          </ProjectsItemContainer>
+          <ProjectItemsContainer data={data} activeTags={activeTags} />
         </ProjectsContainer>
       )}
     />
@@ -112,8 +126,12 @@ export const ProjectsContainer = styled(DefaultContainer)`
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
+  /* width: 90%; */
   .multi-select {
     width: 100%;
+  }
+  .not-found-message {
+    font-size: 1.25rem;
   }
   ${media.laptop`
     max-width: 1040px;
@@ -123,11 +141,11 @@ export const ProjectsContainer = styled(DefaultContainer)`
   `};
 `;
 
-export const ProjectsItemContainer = styled.div`
+export const StyledProjectItemsContainer = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 `;
 
-export default ProjectPage;
+export default ProjectsPage;

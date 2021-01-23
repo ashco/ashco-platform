@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { media } from '../../config/media';
 
-const ProjectItem = ({ project, selected }) => {
+export const ProjectItem = ({ project, selected }) => {
   return (
     <ProjectItemWrapper selected={selected}>
       <Link to={`/projects/${project.slug}/`}>
@@ -95,5 +95,3 @@ const ProjectItemWrapper = styled.article`
     max-width: 1400px;
   `};
 `;
-
-export default ProjectItem;

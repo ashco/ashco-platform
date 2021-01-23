@@ -12,7 +12,7 @@ import {
   VisualContextConsumer,
 } from '../components/Context/VisualContext';
 
-import Header from '../components/Header/header';
+import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import '../style/index.css';
 
