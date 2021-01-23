@@ -9,15 +9,19 @@ import GithubIcon from '../Icons/Github';
 import LinkedInIcon from '../Icons/LinkedIn';
 import ResumeIcon from '../Icons/Resume';
 
-const ContactLinks = ({ contactInfo, isIntroDone }) => {
-  const props = useSpring({
+const ContactLinks = ({ contactInfo, isAnimating }) => {
+  const introSpring = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     delay: 4000,
   });
+  // const fadeIn = useSpring({
+  // opacity: 1,
+  // from: { opacity: 0 },
+  // });
 
   return (
-    <ContactLinksContainer style={props}>
+    <ContactLinksContainer style={isAnimating ? introSpring : {}}>
       <li>
         <OutboundLink
           href={contactInfo.githubUrl}

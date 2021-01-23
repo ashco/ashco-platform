@@ -14,7 +14,8 @@ export class VisualContextProvider extends Component {
     this.state = {
       navMenuOpen,
       showFooter: false,
-      isIntroDone: false,
+      // isAnimating: false,
+      isAnimating: true,
     };
   }
 
@@ -52,19 +53,27 @@ export class VisualContextProvider extends Component {
   };
 
   componentDidMount() {
+    if (this.props.pathname !== '/') {
+      this.setState({ isAnimating: false });
+    }
+
     this.handleFooter(this.calcFooter());
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.pathname !== prevProps.pathname) {
+      // nav menu logic
       if (this.props.pathname === '/') {
         this.toggleNavMenu(true);
       } else {
         this.toggleNavMenu(false);
-        // User has navigated at least once. Intro animation should not run.
-        this.setState({ isIntroDone: true });
+      }
+      // isAnimating logic
+      if (this.props.pathname !== '/') {
+        this.setState({ isAnimating: false });
       }
     }
+
     // TODO - Fix this to not trigger so much
     this.handleFooter(this.calcFooter());
   }
@@ -75,7 +84,7 @@ export class VisualContextProvider extends Component {
         value={{
           navMenuOpen: this.state.navMenuOpen,
           showFooter: this.state.showFooter,
-          isIntroDone: this.state.isIntroDone,
+          isAnimating: this.state.isAnimating,
           toggleNavMenu: this.toggleNavMenu,
         }}
       >

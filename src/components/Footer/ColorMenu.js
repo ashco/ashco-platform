@@ -5,8 +5,13 @@ import { useTrail, animated } from 'react-spring';
 import { themeArr_invert, themeArr_color } from '../../config/config';
 import { media } from '../../config/media';
 
-const ColorMenu = ({ themeObj, updateTheme }) => {
+const ColorMenu = ({ themeObj, updateTheme, isAnimating }) => {
   const trail = useTrail(6, { opacity: 1, from: { opacity: 0 }, delay: 3000 });
+
+  // const fadeIn = useSpring({
+  //   opacity: 1,
+  //   from: { opacity: 0 },
+  // });
 
   const invertThemeObj =
     themeObj.colorBackground === '#1f1f1f'
@@ -16,7 +21,7 @@ const ColorMenu = ({ themeObj, updateTheme }) => {
   return (
     <ColorMenuButtonsWrapper>
       <MenuButtonInvert
-        style={trail[0]}
+        style={isAnimating ? trail[0] : {}}
         themeobj={invertThemeObj}
         title={invertThemeObj.title}
         onClick={() => updateTheme(invertThemeObj)}
@@ -24,7 +29,7 @@ const ColorMenu = ({ themeObj, updateTheme }) => {
       {themeArr_color.map((themeObj, i) => {
         return (
           <MenuButtonColor
-            style={trail[i]}
+            style={isAnimating ? trail[i] : {}}
             onClick={() => updateTheme(themeObj)}
             themeobj={themeObj}
             title={themeObj.title}

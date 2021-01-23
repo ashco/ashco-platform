@@ -12,13 +12,17 @@ import { VisualContextConsumer } from '../Context/VisualContext';
 
 const Footer = ({ themeObj, isHome, updateTheme, contactInfo }) => (
   <VisualContextConsumer>
-    {({ isIntroDone, showFooter }) => (
+    {({ isAnimating, showFooter }) => (
       <FadeWrapper visible={showFooter}>
         <FooterWrapper>
           <div className="footer-container">
-            <HeroText isHome={isHome} />
-            <ColorMenu themeObj={themeObj} updateTheme={updateTheme} />
-            <ContactLinks contactInfo={contactInfo} isIntroDone={isIntroDone} />
+            <HeroText isHome={isHome} isAnimating={isAnimating} />
+            <ColorMenu
+              themeObj={themeObj}
+              updateTheme={updateTheme}
+              isAnimating={isAnimating}
+            />
+            <ContactLinks contactInfo={contactInfo} isAnimating={isAnimating} />
             {!isHome && <CopyrightText />}
           </div>
         </FooterWrapper>

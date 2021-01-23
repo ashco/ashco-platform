@@ -12,7 +12,6 @@ const ProjectItemsContainer = ({ data, activeTags }) => {
   const [projects, setProjects] = React.useState([]);
 
   React.useEffect(() => {
-    console.log(activeTags);
     const filteredProjects = data.allContentfulPortfolioProject.edges.filter(
       ({ node }) => {
         return [...activeTags].every((activeTag) =>

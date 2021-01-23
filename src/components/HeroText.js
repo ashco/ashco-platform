@@ -11,7 +11,7 @@ const calc = (x, y) => [
 const trans = (x, y, s) =>
   `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
-export const HeroText = ({ isHome }) => {
+export const HeroText = ({ isHome, isAnimating }) => {
   const [animateBottom, setAnimateBottom] = useState(false);
 
   const initialDelay = 1000;
@@ -40,8 +40,8 @@ export const HeroText = ({ isHome }) => {
         style={{ transform: props.xys.interpolate(trans) }}
       >
         <div className="hero-container">
-          <LineLeft style={leftSpring} />
-          <LineBottom style={bottomSpring} />
+          <LineLeft style={isAnimating ? leftSpring : {}} />
+          <LineBottom style={isAnimating ? bottomSpring : {}} />
           <animated.h4>Full-Stack Software Engineer</animated.h4>
           <animated.h2>Ashton Christie</animated.h2>
         </div>
@@ -56,6 +56,7 @@ const LineLeft = styled(animated.div)`
   bottom: 0;
   left: 0;
   width: 8px;
+  height: 100%;
 `;
 
 const LineBottom = styled(animated.div)`
@@ -64,6 +65,7 @@ const LineBottom = styled(animated.div)`
   bottom: 0;
   left: 0;
   height: 8px;
+  width: 100%;
 `;
 
 const HeroTextWrapper = styled.div`
