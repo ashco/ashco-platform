@@ -182,6 +182,7 @@ class Layout extends Component {
                       isMobile={isMobile}
                       navMenuOpen={navMenuOpen}
                       updateMainElHeight={updateMainElHeight}
+                      pathname={location.pathname}
                     >
                       {children}
                     </Main>

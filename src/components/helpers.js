@@ -11,7 +11,7 @@ export const DefaultContainer = styled.div`
   align-items: center;
   height: 100%;
   margin: auto;
-  gap: 1rem;
+  gap: 2rem;
   ${media.tablet`
     box-shadow: 0px 0px 60px -25px inset ${({ theme }) => theme.colorPrimary};
   `};

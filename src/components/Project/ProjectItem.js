@@ -3,18 +3,38 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
+import { useSpring, animated } from 'react-spring';
+
 import { media } from '../../config/media';
+const calc = (x, y) => [
+  -(y - window.innerHeight / 2) / 300,
+  (x - window.innerWidth / 2) / 300,
+  1.025,
+];
+const trans = (x, y, s) =>
+  `perspective(800px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
 export const ProjectItem = ({ project, selected }) => {
+  const [props, set] = useSpring(() => ({
+    xys: [0, 0, 1],
+    config: { mass: 5, tension: 350, friction: 40 },
+  }));
+
   return (
-    <ProjectItemWrapper selected={selected}>
-      <Link to={`/projects/${project.slug}/`}>
-        <div className="overlay">
-          <h3>{project.title}</h3>
-        </div>
-        <Img fluid={project.image.fluid} alt={project.title} />
-      </Link>
-    </ProjectItemWrapper>
+    <animated.div
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+      onMouseLeave={() => set({ xys: [0, 0, 1] })}
+      style={{ transform: props.xys.interpolate(trans) }}
+    >
+      <ProjectItemWrapper selected={selected}>
+        <Link to={`/projects/${project.slug}/`}>
+          <div className="overlay">
+            <h3>{project.title}</h3>
+          </div>
+          <Img fluid={project.image.fluid} alt={project.title} />
+        </Link>
+      </ProjectItemWrapper>
+    </animated.div>
   );
 };
 
@@ -28,9 +48,10 @@ const ProjectItemWrapper = styled.article`
   box-shadow: none;
   border-bottom: none;
   overflow: hidden;
-  transform: scale(1);
+  /* transform: scale(1); */
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  /* border: 3px solid ${({ theme }) => theme.colorPrimary}; */
+  border: 3px solid ${({ theme }) => theme.colorPrimary};
+  box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 7px 1px;
   a {
     width: 100%;
   }
@@ -46,7 +67,7 @@ const ProjectItemWrapper = styled.article`
       margin-left: 0.6rem;
       font-size: 2.2rem;
       font-weight: 600;
-      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+      /* transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s; */
     }
   }
 
@@ -56,40 +77,40 @@ const ProjectItemWrapper = styled.article`
     /* width: 90vw; */
     height: 60vw;
     max-height: 400px;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    /* transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s; */
   }
   &:hover {
     box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 15px 5px;
-    transform: scale(1.015);
-    .overlay h3 {
+    /* transform: scale(1.015); */
+    /* .overlay h3 {
       font-size: 2.5rem;
-    }
-    .gatsby-image-wrapper {
+    } */
+    /* .gatsby-image-wrapper {
       transform: scale(1.03);
-    }
+    } */
   }
   ${media.laptop`
     .overlay h3 {
       font-size: 2.5rem;
     }
-    &:hover {
+    /* &:hover {
       .overlay h3 {
         font-size: 2.8rem;
       }
     }
     .gatsby-image-wrapper {
       width: 100%;
-    }
+    } */
   `};
   ${media.desktop`
     .overlay h3 {
       font-size: 2.7rem;
     }
-    &:hover {
+    /* &:hover {
       .overlay h3 {
         font-size: 3rem;
       }
-    }
+    } */
   `};
   ${media.hd`
     max-width: 1400px;

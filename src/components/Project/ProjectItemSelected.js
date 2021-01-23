@@ -1,95 +1,121 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import { media, sizes } from '../../config/media';
+import { useSpring, animated } from 'react-spring';
 
 import { TagListSelected } from './TagList';
+import { media, sizes } from '../../config/media';
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
-class ProjectItemSelected extends PureComponent {
-  render() {
-    const { project } = this.props;
+const calc = (x, y) => [
+  -(y - window.innerHeight / 2) / 500,
+  (x - window.innerWidth / 2) / 500,
+  1.025,
+];
+const trans = (x, y, s) =>
+  `perspective(800px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
-    return (
-      <ProjectItemSelectedWrapper>
-        <a
-          href={project.liveSiteLink}
-          title="Live Link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Img fluid={project.image.fluid} alt={project.image.title} />
-        </a>
-        <ProjectItemSelectedTextContainer>
-          <TagListSelected tags={project.tags} />
-          {/* <ul className="tags-row">
+const ProjectItemSelected = ({ project }) => {
+  const [props, set] = useSpring(() => ({
+    xys: [0, 0, 1],
+    config: { mass: 5, tension: 350, friction: 40 },
+  }));
+
+  return (
+    <ProjectItemSelectedWrapper
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+      onMouseLeave={() => set({ xys: [0, 0, 1] })}
+      style={{ transform: props.xys.interpolate(trans) }}
+    >
+      <a
+        href={project.liveSiteLink}
+        title="Live Link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Img fluid={project.image.fluid} alt={project.image.title} />
+      </a>
+      <ProjectItemSelectedTextContainer>
+        <TagListSelected tags={project.tags} />
+        {/* <ul className="tags-row">
             {project.tags.map((tag) => (
               <Tag>{tag}</Tag>
             ))}
           </ul> */}
-          <div className="container">
-            <div className="container-left">
-              <h3>{project.title}</h3>
-              <p>{project.description.description}</p>
-            </div>
-            <div className="container-right">
-              {project.liveSiteLink && (
-                <a
-                  href={project.liveSiteLink}
-                  title="Live Link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <DesktopIcon />
-                </a>
-              )}
+        <div className="container">
+          <div className="container-left">
+            <h3>{project.title}</h3>
+            <p>{project.description.description}</p>
+          </div>
+          <div className="container-right">
+            {project.liveSiteLink && (
               <a
-                href={project.githubLink}
-                title="Github Link"
+                href={project.liveSiteLink}
+                title="Live Link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <GithubIcon />
+                <DesktopIcon />
               </a>
-            </div>
+            )}
+            <a
+              href={project.githubLink}
+              title="Github Link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon />
+            </a>
           </div>
-        </ProjectItemSelectedTextContainer>
-      </ProjectItemSelectedWrapper>
-    );
-  }
-}
+        </div>
+      </ProjectItemSelectedTextContainer>
+    </ProjectItemSelectedWrapper>
+  );
+};
+// }
 
-const ProjectItemSelectedWrapper = styled.div`
+const ProjectItemSelectedWrapper = styled(animated.div)`
+  overflow: auto;
   transform: scale(1);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-
+  box-shadow: ${(props) => props.theme.colorPrimary}80 0px 0px 7px 1px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-radius: 5px;
+  /* border-top: 3px solid ${(props) => props.theme.colorPrimary}; */
+  border-bottom: 3px solid ${(props) => props.theme.colorPrimary};
   /* margin-bottom: 1rem; */
   .gatsby-image-wrapper {
     /* height: 60vw; */
     picture > img {
-      box-shadow: ${(props) => props.theme.colorPrimary}80 0px 0px 10px 3px;
+      /* box-shadow: ${(props) =>
+        props.theme.colorPrimary}80 0px 0px 10px 3px; */
     }
   }
   @media (min-width: ${sizes.laptop}px) {
     /* margin-top: 0.8rem; */
     /* width: 990px; */
+    border: 3px solid ${(props) => props.theme.colorPrimary};
+    border-radius: 25px;
+    box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 15px 5px;
     width: 100%;
     height: 660px;
+
     .gatsby-image-wrapper {
       position: static !important;
       border-bottom: none;
+      /* border-radius: 25px; */
       img {
-        border-radius: 10px;
+        /* border-radius: 2px; */
+        /* border-radius: 10px; */
       }
     }
     &:hover {
-      box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 15px 5px;
-      transform: scale(1.015);
+      box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 20px 8px;
+      /* transform: scale(1.015); */
     }
     }
   }
@@ -101,38 +127,49 @@ const ProjectItemSelectedWrapper = styled.div`
 
 const ProjectItemSelectedTextContainer = styled.div`
   opacity: 0.9;
-  padding: 0.8rem 1.6rem;
-  border-top: 5px solid ${(props) => props.theme.colorPrimary};
-  border-bottom: 5px solid ${(props) => props.theme.colorPrimary};
-  box-shadow: ${(props) => props.theme.colorPrimary}80 0px 0px 5px 0px;
+  /* padding: 1rem 1.5rem; */
+  padding: 1.5rem 2rem;
+  border-top: 3px solid ${(props) => props.theme.colorPrimary};
+  /* border-bottom: 5px solid ${(props) => props.theme.colorPrimary}; */
+  /* box-shadow: ${(props) => props.theme.colorPrimary}80 0px 0px 5px 0px; */
   background-color: ${(props) => props.theme.colorBackground};
   /* .tags-row {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
   } */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
   }
   .container-left {
-    margin: 1rem 1rem 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    /* margin: 1rem 1rem 1rem 0; */
     h3 {
       font-size: 2.2rem;
       font-weight: 600;
-      margin-bottom: 0.4rem;
+      /* margin-bottom: 0.5rem; */
     }
     p {
       line-height: 1.1;
+      margin-bottom: 0;
     }
   }
   .container-right {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     a {
-      margin: 0.5rem;
-      padding-bottom: 3px;
+      /* margin: 0.5rem; */
+      /* padding-bottom: 3px; */
       border-bottom: 3px solid transparent;
       transition: border-bottom 0.2s ease-out;
       &:hover {
@@ -144,9 +181,9 @@ const ProjectItemSelectedTextContainer = styled.div`
   ${media.laptop`
     position: absolute;
     bottom: 0;
-    background: ${(props) => props.theme.colorBackground};
-    border: 3px solid ${(props) => props.theme.colorPrimary};
-    border-radius: 0 0 10px 10px;
+    /* background: ${(props) => props.theme.colorBackground}; */
+    /* border: 3px solid ${(props) => props.theme.colorPrimary}; */
+    /* border-radius: 0 0 10px 10px; */
   `}
   ${media.desktop`
     .container-left {

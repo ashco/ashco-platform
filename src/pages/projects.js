@@ -15,7 +15,6 @@ const ProjectItemsContainer = ({ data, activeTags }) => {
     console.log(activeTags);
     const filteredProjects = data.allContentfulPortfolioProject.edges.filter(
       ({ node }) => {
-        // return true;
         return [...activeTags].every((activeTag) =>
           node.tags.includes(activeTag)
         );
@@ -26,7 +25,11 @@ const ProjectItemsContainer = ({ data, activeTags }) => {
   }, [data, activeTags]);
 
   return projects.length ? (
-    projects.map(({ node }) => <ProjectItem project={node} key={node.id} />)
+    <StyledProjectItemsContainer>
+      {projects.map(({ node }) => (
+        <ProjectItem project={node} key={node.id} />
+      ))}
+    </StyledProjectItemsContainer>
   ) : (
     <p className="not-found-message">You expect too much from me..</p>
   );
@@ -145,7 +148,7 @@ export const StyledProjectItemsContainer = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 `;
 
 export default ProjectsPage;
