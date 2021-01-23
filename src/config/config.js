@@ -2,7 +2,8 @@ export const themeDefaultLight = {
   isDarkMode: false,
   colorPrimary: '#DD702B',
   color: 'ORANGE',
-  colorBackground: '#ffffff',
+  // colorBackground: '#ffffff',
+  colorBackground: '#eee',
   colorText: '#222222',
 };
 
@@ -23,7 +24,7 @@ export const themeArr_invert = [
   },
   {
     title: 'Light Mode',
-    colorBackground: '#ffffff',
+    colorBackground: '#eee',
     colorText: '#222222',
     isDarkMode: false,
   },

@@ -143,7 +143,7 @@ const ProjectItemSelectedTextContainer = styled.div`
     display: grid;
     gap: 0.75rem;
     h3 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 600;
     }
     p {
@@ -171,26 +171,16 @@ const ProjectItemSelectedTextContainer = styled.div`
     /* background: ${(props) => props.theme.colorBackground}; */
     /* border: 3px solid ${(props) => props.theme.colorPrimary}; */
     /* border-radius: 0 0 10px 10px; */
+  }
   `}
   ${media.desktop`
     .container-left {
       h3 {
-        font-size: 2.4rem;
-      }
-      p {
-        font-size: 1.1rem;
-      }
-    }
-  `};
-  ${media.hd`
-    .container-left {
-      h3 {
-        font-size: 2.7rem;
+        font-size: 3rem;
       }
       p {
         font-size: 1.25rem;
       }
-    }
   `};
 `;
 

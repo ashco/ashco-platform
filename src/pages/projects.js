@@ -125,9 +125,9 @@ const ProjectsPage = ({ location }) => {
 };
 
 export const ProjectsContainer = styled(DefaultContainer)`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  /* display: flex; */
+  /* flex-flow: row wrap; */
+  /* justify-content: center; */
   width: 100%;
   /* width: 90%; */
   .multi-select {

@@ -5,10 +5,8 @@ import { media } from '../config/media';
 
 export const DefaultContainer = styled.div`
   pointer-events: auto;
-  /* display: flex; */
   display: grid;
-  /* justify-content: center; */
-  align-items: center;
+  justify-items: center;
   height: 100%;
   margin: auto;
   gap: 2rem;

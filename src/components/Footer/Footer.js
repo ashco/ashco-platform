@@ -44,11 +44,10 @@ const FooterWrapper = styled.footer`
     display: grid;
     justify-content: center;
     /* align-items: center; */
-    padding-bottom: 2rem;
+    padding: 0 2rem 2rem;
     gap: 2rem;
     width: 100%;
     ${media.tablet`
-      padding: 0 2rem 2rem;
       grid-auto-flow: column;
       /* flex-direction: row; */
       justify-content: space-between;

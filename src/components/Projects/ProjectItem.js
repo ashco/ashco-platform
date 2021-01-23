@@ -65,7 +65,7 @@ const ProjectItemWrapper = styled.article`
     h3 {
       color: ${({ theme }) => theme.colorText};
       margin-left: 0.6rem;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 600;
       /* transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s; */
     }
@@ -89,27 +89,14 @@ const ProjectItemWrapper = styled.article`
       transform: scale(1.03);
     } */
   }
-  ${media.laptop`
+  ${media.desktop`
     .overlay h3 {
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
     /* &:hover {
-      .overlay h3 {
-        font-size: 2.8rem;
-      }
     }
     .gatsby-image-wrapper {
       width: 100%;
-    } */
-  `};
-  ${media.desktop`
-    .overlay h3 {
-      font-size: 2.7rem;
-    }
-    /* &:hover {
-      .overlay h3 {
-        font-size: 3rem;
-      }
     } */
   `};
   ${media.hd`
