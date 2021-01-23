@@ -22,14 +22,6 @@ function genBackgroundImage(color, isDarkMode) {
   }
 }
 
-// const calc = (x, y) => [
-//   -(y - window.innerHeight / 2) / 2000,
-//   (x - window.innerWidth / 2) / 2000,
-//   1.0,
-// ];
-// const trans = (x, y, s) =>
-//   `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
-
 const Main = ({
   children,
   isHome,
@@ -37,17 +29,6 @@ const Main = ({
   pathname,
   theme: { colorPrimary },
 }) => {
-  // const [props, set] = useSpring(() => ({
-  //   xys: [0, 0, 1],
-  //   config: { mass: 5, tension: 350, friction: 40 },
-  // }));
-
-  // let isAnimating = false;
-
-  // if (typeof window !== `undefined`) {
-  //   isAnimating = window.innerWidth >= sizes.laptop;
-  // }
-
   function checkIsProject(pathname) {
     const path = pathname.split('/');
 
@@ -58,11 +39,6 @@ const Main = ({
 
   return (
     <MainContainer>
-      {/* <animated.div
-        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-        onMouseLeave={() => set({ xys: [0, 0, 1] })}
-        style={{ transform: isAnimating && props.xys.interpolate(trans) }}
-      > */}
       <MainWrapper
         isHome={isHome}
         isProject={checkIsProject(pathname)}
@@ -71,7 +47,6 @@ const Main = ({
       >
         {children}
       </MainWrapper>
-      {/* </animated.div> */}
       <FooterSpacer isHome={isHome} />
     </MainContainer>
   );
