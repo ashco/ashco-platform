@@ -54,9 +54,8 @@ const NavLinksWrapper = styled.div`
   top: 90px;
   ul {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    display: grid;
+    justify-items: flex-end;
     gap: 2rem;
   }
   ${media.tablet`
@@ -64,7 +63,7 @@ const NavLinksWrapper = styled.div`
     position: static;
     font-size: 1.5rem;
     ul {
-      flex-direction: row;
+      grid-auto-flow: column;
     }
   `};
   ${media.desktop`

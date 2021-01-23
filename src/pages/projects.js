@@ -146,8 +146,8 @@ export const ProjectsContainer = styled(DefaultContainer)`
 
 export const StyledProjectItemsContainer = styled.div`
   width: 90%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  /* flex-direction: column; */
   gap: 2rem;
 `;
 

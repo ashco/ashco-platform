@@ -30,7 +30,9 @@ const HeaderTitle = ({ pathname }) => {
 
 // This is where the title logo sizing issue occurs
 const HeaderTitleWrapper = styled.div`
-  display: flex;
+  display: grid;
+  /* align-items: center; */
+  grid-auto-flow: column;
   align-items: center;
   gap: 1rem;
   a {

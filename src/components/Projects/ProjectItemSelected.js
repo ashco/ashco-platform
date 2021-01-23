@@ -8,25 +8,25 @@ import { media, sizes } from '../../config/media';
 import GithubIcon from '../Icons/Github';
 import DesktopIcon from '../Icons/Desktop';
 
-const calc = (x, y) => [
-  -(y - window.innerHeight / 2) / 500,
-  (x - window.innerWidth / 2) / 500,
-  1.025,
-];
-const trans = (x, y, s) =>
-  `perspective(800px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+// const calc = (x, y) => [
+//   -(y - window.innerHeight / 2) / 500,
+//   (x - window.innerWidth / 2) / 500,
+//   1.025,
+// ];
+// const trans = (x, y, s) =>
+//   `perspective(800px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
 const ProjectItemSelected = ({ project }) => {
-  const [props, set] = useSpring(() => ({
-    xys: [0, 0, 1],
-    config: { mass: 5, tension: 350, friction: 40 },
-  }));
+  // const [props, set] = useSpring(() => ({
+  //   xys: [0, 0, 1],
+  //   config: { mass: 5, tension: 350, friction: 40 },
+  // }));
 
   return (
     <ProjectItemSelectedWrapper
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-      onMouseLeave={() => set({ xys: [0, 0, 1] })}
-      style={{ transform: props.xys.interpolate(trans) }}
+    // onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+    // onMouseLeave={() => set({ xys: [0, 0, 1] })}
+    // style={{ transform: props.xys.interpolate(trans) }}
     >
       <a
         href={project.liveSiteLink}
@@ -75,7 +75,7 @@ const ProjectItemSelected = ({ project }) => {
 };
 // }
 
-const ProjectItemSelectedWrapper = styled(animated.div)`
+const ProjectItemSelectedWrapper = styled.div`
   overflow: auto;
   transform: scale(1);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
@@ -113,11 +113,10 @@ const ProjectItemSelectedWrapper = styled(animated.div)`
         /* border-radius: 10px; */
       }
     }
-    &:hover {
+    /* &:hover {
       box-shadow: ${({ theme }) => theme.colorPrimary}80 0 0 20px 8px;
-      /* transform: scale(1.015); */
-    }
-    }
+      transform: scale(1.015);
+    } */
   }
   ${media.hd`
     width: 1340px;
@@ -127,36 +126,25 @@ const ProjectItemSelectedWrapper = styled(animated.div)`
 
 const ProjectItemSelectedTextContainer = styled.div`
   opacity: 0.9;
-  /* padding: 1rem 1.5rem; */
   padding: 1.5rem 2rem;
   border-top: 3px solid ${(props) => props.theme.colorPrimary};
-  /* border-bottom: 5px solid ${(props) => props.theme.colorPrimary}; */
-  /* box-shadow: ${(props) => props.theme.colorPrimary}80 0px 0px 5px 0px; */
   background-color: ${(props) => props.theme.colorBackground};
-  /* .tags-row {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  } */
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  gap: 0.5rem;
 
   .container {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
   }
   .container-left {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 0.75rem;
-    /* margin: 1rem 1rem 1rem 0; */
     h3 {
       font-size: 2.2rem;
       font-weight: 600;
-      /* margin-bottom: 0.5rem; */
     }
     p {
       line-height: 1.1;
@@ -164,8 +152,7 @@ const ProjectItemSelectedTextContainer = styled.div`
     }
   }
   .container-right {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 1rem;
     a {
       /* margin: 0.5rem; */

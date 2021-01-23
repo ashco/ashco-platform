@@ -116,6 +116,7 @@ class ContactPage extends PureComponent {
 const ContactContainer = styled(DefaultContainer)`
   max-width: 660px;
   width: 90%;
+  justify-items: center;
 `;
 
 const ContactHeaderTextContainer = styled(HeaderTextContainer)`

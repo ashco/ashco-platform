@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const TagListWrapper = styled.ul`
   display: flex;
-  gap: 0.5rem;
+  /* gap: 0.5rem; */
   flex-wrap: wrap;
   justify-content: ${(props) => (props.selected ? 'flex-start' : 'center')};
 `;
@@ -12,6 +12,7 @@ const TagListWrapper = styled.ul`
 export const Tag = styled.li`
   padding: 0.25rem 0.5rem;
   color: ${(props) => (props.active ? '#222222' : props.theme.textColor)};
+  margin: 0 0.5rem 0.5rem 0;
   background-color: ${(props) =>
     props.active
       ? props.theme.colorPrimary + 'dd'

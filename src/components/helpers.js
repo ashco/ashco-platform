@@ -7,8 +7,7 @@ export const DefaultContainer = styled.div`
   pointer-events: auto;
   /* display: flex; */
   display: grid;
-  flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   height: 100%;
   margin: auto;
