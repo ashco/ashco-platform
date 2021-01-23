@@ -16,14 +16,16 @@ export const DefaultContainer = styled.div`
 `;
 
 export const HeaderTextContainer = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
+  display: grid;
+  gap: 1rem;
   max-width: 90%;
-  padding-bottom: 1.5rem;
+  /* padding-bottom: 1.5rem; */
   > * {
     text-align: center;
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
     :last-child {
       margin-bottom: 0;
     }
@@ -31,10 +33,11 @@ export const HeaderTextContainer = styled.div`
   h2 {
     line-height: 1em;
     font-weight: 600;
-    font-size: 1.6rem;
+    font-size: 5.9vw;
     color: ${({ theme }) => theme.colorPrimary};
     border-bottom: 2px solid ${({ theme }) => theme.colorPrimary};
-    padding: 0 1.5rem 0.6rem 1.5rem;
+    /* padding: 0 1.5rem 0.6rem 1.5rem; */
+    padding: 0 1.5rem 0.75rem;
   }
   p {
     font-size: 1.1rem;

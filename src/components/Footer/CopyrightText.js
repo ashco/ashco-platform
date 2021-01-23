@@ -32,9 +32,9 @@ export const CopyrightText = () => {
 
 const CopyrightTextContainer = styled.div`
   display: grid;
-  gap: 0.5rem;
+  gap: 0.25rem;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   p {
     margin-bottom: 0;
   }

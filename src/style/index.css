@@ -139,7 +139,6 @@ body {
   color: #eee;
 }
 
-
 h3 {
   font-size: 1.5rem;
 }
@@ -148,9 +147,9 @@ h4 {
   font-size: 1.3rem;
 }
 
-p {
+/* p {
   margin-bottom: 0.8rem;
-}
+} */
 
 a {
   text-decoration: none;

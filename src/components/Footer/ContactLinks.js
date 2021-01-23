@@ -67,6 +67,9 @@ const ContactLinksContainer = styled(animated.ul)`
       border-bottom: 4px solid ${({ theme }) => theme.colorPrimary}cc;
     }
   }
+  /* svg {
+    width: 75%;
+  } */
   ${media.tablet`
     order: 3;
   `}

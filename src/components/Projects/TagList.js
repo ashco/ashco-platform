@@ -21,11 +21,19 @@ export const Tag = styled.li`
   border: 2px solid ${(props) => props.theme.colorPrimary}dd;
   cursor: pointer;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  &:hover {
+  /* &:hover {
     background-color: ${(props) => props.theme.colorPrimary};
-    /* border: 3px solid ${({ theme }) => theme.colorPrimary}; */
     box-shadow: ${({ theme }) => theme.colorPrimary}40 2px 4px 8px;
     transform: translateY(-2px);
+  } */
+  &:active {
+    background-color: ${(props) => props.theme.colorPrimary};
+  }
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: ${({ theme }) => theme.colorPrimary}40 2px 4px 8px;
+      transform: translateY(-2px);
+    }
   }
 `;
 

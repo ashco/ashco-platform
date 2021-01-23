@@ -80,7 +80,7 @@ const HeroTextWrapper = styled.div`
   }
   h2 {
     font-weight: 600;
-    font-size: 11vw;
+    font-size: 10vw;
   }
   ${media.tablet`
     position: fixed;

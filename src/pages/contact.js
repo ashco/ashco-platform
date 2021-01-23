@@ -120,7 +120,7 @@ const ContactContainer = styled(DefaultContainer)`
 `;
 
 const ContactHeaderTextContainer = styled(HeaderTextContainer)`
-  padding-bottom: 1rem;
+  /* padding-bottom: 1rem; */
   ${media.laptop`
     padding-bottom: 1rem;
   `};
@@ -128,8 +128,10 @@ const ContactHeaderTextContainer = styled(HeaderTextContainer)`
 
 const FormWrapper = styled.form`
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  gap: 0.75rem;
+  /* display: flex;
+  flex-direction: column; */
   > p {
     font-size: 1.1rem;
   }
@@ -156,7 +158,7 @@ const FormWrapper = styled.form`
   `};
 `;
 
-const FormInputWrapper = styled.p`
+const FormInputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   input,

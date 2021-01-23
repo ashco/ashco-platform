@@ -175,6 +175,7 @@ const SkillColumn = styled.div`
   }
   p {
     line-height: 1.1;
+    padding-bottom: 0.75rem;
   }
   li {
     margin-bottom: 0.2rem;
