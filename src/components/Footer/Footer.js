@@ -10,7 +10,7 @@ import FadeWrapper from '../Animation/Fade';
 
 import { VisualContextConsumer } from '../Context/VisualContext';
 
-const Footer = ({ themeObj, isHome, updateTheme, contactInfo }) => (
+const Footer = ({ themeobj, isHome, updateTheme, contactInfo }) => (
   <VisualContextConsumer>
     {({ isAnimating, showFooter }) => (
       <FadeWrapper visible={showFooter}>
@@ -18,7 +18,7 @@ const Footer = ({ themeObj, isHome, updateTheme, contactInfo }) => (
           <div className="footer-container">
             <HeroText isHome={isHome} isAnimating={isAnimating} />
             <ColorMenu
-              themeObj={themeObj}
+              themeobj={themeobj}
               updateTheme={updateTheme}
               isAnimating={isAnimating}
             />

@@ -24,7 +24,7 @@ class Layout extends Component {
   constructor(props) {
     super(props);
 
-    let themeObj = themeDefaultDark;
+    let themeobj = themeDefaultDark;
     let innerWidth = 0;
     let innerHeight = 0;
     let scrollLength = 0;
@@ -39,7 +39,7 @@ class Layout extends Component {
     }
 
     this.state = {
-      themeObj,
+      themeobj,
       innerWidth,
       innerHeight,
       scrollLength,
@@ -114,10 +114,10 @@ class Layout extends Component {
     });
   };
 
-  updateTheme = (themeObj) => {
+  updateTheme = (themeobj) => {
     const newState = {
       ...this.state,
-      themeObj: { ...this.state.themeObj, ...themeObj },
+      themeobj: { ...this.state.themeobj, ...themeobj },
     };
 
     this.setState(newState);
@@ -125,7 +125,7 @@ class Layout extends Component {
 
   render() {
     const {
-      themeObj,
+      themeobj,
       innerWidth,
       innerHeight,
       scrollLength,
@@ -164,7 +164,7 @@ class Layout extends Component {
             isMobile={isMobile}
             pathname={location.pathname}
           >
-            <ThemeProvider theme={themeObj}>
+            <ThemeProvider theme={themeobj}>
               <LayoutWrapper>
                 <Helmet titleTemplate={`%s | ${data.site.siteMetadata.title}`}>
                   <html lang="en" />
@@ -189,7 +189,7 @@ class Layout extends Component {
                   )}
                 </VisualContextConsumer>
                 <Footer
-                  themeObj={themeObj}
+                  themeobj={themeobj}
                   isHome={isHome}
                   updateTheme={this.updateTheme}
                   contactInfo={data.allContentfulContactInfo.edges[0].node}

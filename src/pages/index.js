@@ -16,7 +16,6 @@ class IndexPage extends PureComponent {
             },
           ]}
         />
-        <div />
       </MainContainer>
     );
   }

@@ -5,7 +5,7 @@ import { useTrail, animated } from 'react-spring';
 import { themeArr_invert, themeArr_color } from '../../config/config';
 import { media } from '../../config/media';
 
-const ColorMenu = ({ themeObj, updateTheme, isAnimating }) => {
+const ColorMenu = ({ themeobj, updateTheme, isAnimating }) => {
   const trail = useTrail(6, { opacity: 1, from: { opacity: 0 }, delay: 3000 });
 
   // const fadeIn = useSpring({
@@ -14,7 +14,7 @@ const ColorMenu = ({ themeObj, updateTheme, isAnimating }) => {
   // });
 
   const invertThemeObj =
-    themeObj.colorBackground === '#1f1f1f'
+    themeobj.colorBackground === '#1f1f1f'
       ? themeArr_invert[1]
       : themeArr_invert[0];
 
@@ -22,17 +22,17 @@ const ColorMenu = ({ themeObj, updateTheme, isAnimating }) => {
     <ColorMenuButtonsWrapper>
       <MenuButtonInvert
         style={isAnimating ? trail[0] : {}}
-        themeObj={invertThemeObj}
+        themeobj={invertThemeObj}
         title={invertThemeObj.title}
         onClick={() => updateTheme(invertThemeObj)}
       />
-      {themeArr_color.map((themeObj, i) => {
+      {themeArr_color.map((themeobj, i) => {
         return (
           <MenuButtonColor
             style={isAnimating ? trail[i] : {}}
-            onClick={() => updateTheme(themeObj)}
-            themeObj={themeObj}
-            title={themeObj.title}
+            onClick={() => updateTheme(themeobj)}
+            themeobj={themeobj}
+            title={themeobj.title}
             key={i}
           />
         );
@@ -67,14 +67,14 @@ const MenuButton = styled(animated.button)`
 `;
 
 const MenuButtonInvert = styled(MenuButton)`
-  border: 0.65rem solid ${({ themeObj }) => themeObj.colorBackground};
-  color: ${({ themeObj }) => themeObj.colorBackground};
+  border: 0.65rem solid ${({ themeobj }) => themeobj.colorBackground};
+  color: ${({ themeobj }) => themeobj.colorBackground};
   padding: 0.2rem;
 `;
 
 const MenuButtonColor = styled(MenuButton)`
-  border: 0.25rem solid ${({ themeObj }) => themeObj.colorPrimary};
-  color: ${({ themeObj }) => themeObj.colorPrimary};
+  border: 0.25rem solid ${({ themeobj }) => themeobj.colorPrimary};
+  color: ${({ themeobj }) => themeobj.colorPrimary};
   padding: 0.35rem;
 `;
 
