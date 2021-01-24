@@ -26,9 +26,10 @@ const Layout = ({ location, children }) => {
   const [isHome, setIsHome] = React.useState(true);
   const [isMobile, setIsMobile] = React.useState(true);
   const [scrollLength, setScrollLength] = React.useState(0);
+
   const [windowSize, setWindowSize] = React.useState({
-    innerWidth: window?.innerWidth,
-    innerHeight: window?.innerHeight,
+    innerWidth: typeof window !== `undefined` ? window.innerWidth : 0,
+    innerHeight: typeof window !== `undefined` ? window.innerHeight : 0,
   });
 
   // handle scroll listeners
