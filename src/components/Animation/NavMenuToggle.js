@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-// import { media } from '../../config/media';
 
 const NavMenuToggleWrapper_Open = css`
   ul li {

@@ -7,44 +7,39 @@ import { Link } from 'gatsby';
 
 import NavMenuToggleWrapper from '../Animation/NavMenuToggle';
 
-class NavLinks extends PureComponent {
-  render() {
-    const { navMenuOpen, isMobile } = this.props;
-    const isOpen = navMenuOpen || !isMobile;
+const NavLinks = ({ navMenuOpen, isMobile }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
 
-    return (
-      <NavLinksWrapper>
-        <NavMenuToggleWrapper isOpen={isOpen}>
-          <ul>
-            <NavLinkItem to="/about/" title="About" closeMenu />
-            <NavLinkItem to="/projects/" title="Projects" closeMenu />
-            <NavLinkItem to="/contact/" title="Contact" closeMenu />
-          </ul>
-        </NavMenuToggleWrapper>
-      </NavLinksWrapper>
-    );
-  }
-}
+  React.useEffect(() => {
+    setIsOpen(navMenuOpen || !isMobile);
+  }, [navMenuOpen, isMobile]);
 
-class NavLinkItem extends PureComponent {
-  render() {
-    const { to, title, closeMenu } = this.props;
-    return (
-      <VisualContextConsumer>
-        {({ toggleNavMenu }) => (
-          <NavLinkItemWrapper>
-            <Link
-              to={to}
-              onClick={closeMenu && toggleNavMenu.bind(null, false)}
-            >
-              {title}
-            </Link>
-          </NavLinkItemWrapper>
-        )}
-      </VisualContextConsumer>
-    );
-  }
-}
+  return (
+    <NavLinksWrapper>
+      <NavMenuToggleWrapper isOpen={isOpen}>
+        <ul>
+          <NavLinkItem to="/about/" title="About" closeMenu />
+          <NavLinkItem to="/projects/" title="Projects" closeMenu />
+          <NavLinkItem to="/contact/" title="Contact" closeMenu />
+        </ul>
+      </NavMenuToggleWrapper>
+    </NavLinksWrapper>
+  );
+};
+
+const NavLinkItem = ({ to, title, closeMenu }) => {
+  return (
+    <VisualContextConsumer>
+      {({ toggleNavMenu }) => (
+        <NavLinkItemWrapper>
+          <Link to={to} onClick={closeMenu && toggleNavMenu.bind(null, false)}>
+            {title}
+          </Link>
+        </NavLinkItemWrapper>
+      )}
+    </VisualContextConsumer>
+  );
+};
 
 const NavLinksWrapper = styled.div`
   font-size: 1.5rem;
