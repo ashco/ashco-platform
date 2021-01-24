@@ -73,7 +73,7 @@ const HeroTextWrapper = styled.div`
   display: ${({ isHome }) => !isHome && 'none'};
   user-select: none;
   .hero-container {
-    padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+    padding: 1.25rem 1.25rem 1rem 1.25rem;
   }
   h4 {
     font-size: 4.5vw;

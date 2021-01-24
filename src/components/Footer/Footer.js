@@ -46,7 +46,7 @@ const FooterWrapper = styled.footer`
   }
   .footer-container {
     display: grid;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     padding: 0 2rem 2rem;
     gap: 2rem;
