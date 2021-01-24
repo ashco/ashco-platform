@@ -21,7 +21,7 @@ const HeaderTitle = ({ pathname }) => {
   return (
     <HeaderTitleWrapper>
       <Link to="/" aria-label="hero-screen">
-        <AshCoIcon pathname={pathname} />
+        <AshCoIcon isAnimating={false} />
       </Link>
       {<h1 className="title">{pageTitle}</h1>}
     </HeaderTitleWrapper>
@@ -39,6 +39,7 @@ const HeaderTitleWrapper = styled.div`
   }
   svg {
     height: 9vh;
+    max-height: 8rem;
     width: auto;
   }
   .title {
@@ -46,6 +47,10 @@ const HeaderTitleWrapper = styled.div`
     font-weight: 600;
   }
   ${media.tablet`
+  svg {
+
+    max-height: auto;
+  }
     .title {
       font-size: 2.5rem;
     }

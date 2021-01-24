@@ -59,7 +59,7 @@ const ContactLinksContainer = styled(animated.ul)`
   display: grid;
   grid-auto-flow: column;
   gap: 1rem;
-  justify-content: center;
+  justify-content: space-evenly;
   a {
     display: inline;
     &:hover {
@@ -68,6 +68,7 @@ const ContactLinksContainer = styled(animated.ul)`
   }
   ${media.tablet`
     order: 3;
+    justify-content: center;
   `}
 `;
 

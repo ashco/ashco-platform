@@ -2,7 +2,7 @@
 import { animated, useSpring } from 'react-spring';
 import { withTheme } from 'styled-components';
 
-const AshCo = ({ theme, pathname }) => {
+const AshCo = ({ theme, isAnimating }) => {
   const { colorPrimary, colorText } = theme;
 
   const [state, setState] = useState({
@@ -26,23 +26,23 @@ const AshCo = ({ theme, pathname }) => {
   }));
 
   function handleClick() {
-    setState({
-      aDeg: state.aDeg + 1,
-      cDeg: state.cDeg + 360,
-      oDeg: state.oDeg + 360,
-      oX: Math.floor(Math.random() * 720) - 360,
-      oY: Math.floor(Math.random() * 720) - 360,
-      oZ: Math.floor(Math.random() * 720) - 360,
-    });
+    if (isAnimating) {
+      setState({
+        aDeg: state.aDeg + 1,
+        cDeg: state.cDeg + 360,
+        oDeg: state.oDeg + 360,
+        oX: Math.floor(Math.random() * 720) - 360,
+        oY: Math.floor(Math.random() * 720) - 360,
+        oZ: Math.floor(Math.random() * 720) - 360,
+      });
+    }
   }
 
   useEffect(() => {
-    if (pathname === '/') {
-      cSet({ transform: `rotate(${state.cDeg}deg)` });
-      oSet({
-        transform: `rotate3d(${state.oX}, ${state.oY}, ${state.oZ}, ${state.oDeg}deg)`,
-      });
-    }
+    cSet({ transform: `rotate(${state.cDeg}deg)` });
+    oSet({
+      transform: `rotate3d(${state.oX}, ${state.oY}, ${state.oZ}, ${state.oDeg}deg)`,
+    });
     ioSet({
       to: [{ transform: 'scale(0.8)' }, { transform: 'scale(1)' }],
     });

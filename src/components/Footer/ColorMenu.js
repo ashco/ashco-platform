@@ -44,13 +44,14 @@ const ColorMenu = ({ themeobj, updateTheme, isAnimating }) => {
 const ColorMenuButtonsWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 
   button:hover {
     transform: scale(1.35);
     transition: 0.1s all ease-out;
   }
   ${media.tablet`
+    justify-content: center;
     position: initial;
     order: 1;
   `}

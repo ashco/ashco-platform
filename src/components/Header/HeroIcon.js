@@ -7,7 +7,7 @@ import AshCoIcon from '../Icons/AshCo';
 export const HeroIcon = () => {
   return (
     <HeroIconWrapper>
-      <AshCoIcon pathname="/" />
+      <AshCoIcon isAnimating={true} />
     </HeroIconWrapper>
   );
 };
