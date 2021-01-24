@@ -27,8 +27,8 @@ const Layout = ({ location, children }) => {
   const [isMobile, setIsMobile] = React.useState(true);
   const [scrollLength, setScrollLength] = React.useState(0);
   const [windowSize, setWindowSize] = React.useState({
-    innerWidth: 0,
-    innerHeight: 0,
+    innerWidth: window?.innerWidth,
+    innerHeight: window?.innerHeight,
   });
 
   // handle scroll listeners
