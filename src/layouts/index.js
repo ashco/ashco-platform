@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
@@ -49,9 +49,7 @@ const Layout = ({ location, children }) => {
 
   // check if mobile
   React.useEffect(() => {
-    if (windowSize.innerWidth < sizes.tablet) {
-      setIsMobile(true);
-    }
+    setIsMobile(windowSize.innerWidth < sizes.tablet);
   }, [windowSize.innerWidth]);
 
   function handleScroll() {

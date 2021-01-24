@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { VisualContextConsumer } from '../Context/VisualContext';
 
 import styled from 'styled-components';
@@ -9,6 +9,8 @@ import NavMenuToggleWrapper from '../Animation/NavMenuToggle';
 
 const NavLinks = ({ navMenuOpen, isMobile }) => {
   const [isOpen, setIsOpen] = React.useState(false);
+
+  console.log(isMobile);
 
   React.useEffect(() => {
     setIsOpen(navMenuOpen || !isMobile);
