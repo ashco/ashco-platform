@@ -40,15 +40,16 @@ export const Tag = styled.li`
 export function TagListAll({ tags, activeTags, handleToggle }) {
   return (
     <TagListWrapper>
-      {tags.map((tag, i) => (
-        <Tag
-          active={activeTags.has(tag)}
-          key={i}
-          onClick={() => handleToggle(tag)}
-        >
-          {tag}
-        </Tag>
-      ))}
+      {tags &&
+        tags.map((tag, i) => (
+          <Tag
+            active={activeTags.has(tag)}
+            key={i}
+            onClick={() => handleToggle(tag)}
+          >
+            {tag}
+          </Tag>
+        ))}
     </TagListWrapper>
   );
 }
@@ -56,11 +57,12 @@ export function TagListAll({ tags, activeTags, handleToggle }) {
 export function TagListSelected({ tags }) {
   return (
     <TagListWrapper selected={true}>
-      {tags.map((tag, i) => (
-        <Link key={i} to="/projects" state={{ activeTag: tag }}>
-          <Tag active={true}>{tag}</Tag>
-        </Link>
-      ))}
+      {tags &&
+        tags.map((tag, i) => (
+          <Link key={i} to="/projects" state={{ activeTag: tag }}>
+            <Tag active={true}>{tag}</Tag>
+          </Link>
+        ))}
     </TagListWrapper>
   );
 }
