@@ -22,7 +22,7 @@
     "gatsby-plugin-styled-components": "^3.0.0",
     "gatsby-source-contentful": "^2.0.4",
     "gatsby-source-filesystem": "^2.0.4",
-    "gatsby-transformer-remark": "^2.1.7",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.1.4",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
